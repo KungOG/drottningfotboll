@@ -1,5 +1,7 @@
 <template>
-    <main></main>
+    <main>
+        <h1>Schedules</h1>
+    </main>
 </template>
 
 <script>

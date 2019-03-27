@@ -1,5 +1,7 @@
 <template>
-    <article></article>
+    <article>
+        <h1>Game Schedule</h1>
+    </article>
 </template>
 
 <script>

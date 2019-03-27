@@ -1,5 +1,11 @@
 <template>
-    
+    <article>
+        <section>
+            <h1>Choose Point</h1>
+            <p @click="$router.push('/choosegame')">Choose Game</p>
+        </section>
+        <router-view />
+    </article>
 </template>
 
 <script>

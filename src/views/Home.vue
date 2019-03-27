@@ -1,6 +1,10 @@
 <template>
-  <div class="home">
-  </div>
+  <main>
+    <section>
+      <h3>Home</h3>
+    </section>
+    <router-view />
+  </main>
 </template>
 
 <script>

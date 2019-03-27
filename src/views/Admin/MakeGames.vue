@@ -1,5 +1,11 @@
 <template>
-    <main></main>
+    <main>
+        <section>
+            <h1>Make Games</h1>
+            <h3 @click="$router.push('/chooseteam')">Välj antal lag</h3>
+        </section>
+         <route-view />
+    </main>
 </template>
 
 <script>

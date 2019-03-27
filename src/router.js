@@ -8,7 +8,14 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('./views/Home.vue')
+      component: () => import('./views/Home.vue'),
+      children: [
+        {
+          path: '/login',
+          name: 'login',
+          component: () => import('./components/Login.vue')
+        }
+      ]
     },
     {
       path: '/about',
@@ -18,7 +25,24 @@ export default new Router({
     {
       path: '/stats',
       name: 'stats',
-      component: () => import('./views/Stats.vue')
+      component: () => import('./views/Stats.vue'),
+        children: [
+          {
+            path: '/gameschedule',
+            name: 'gameschedule',
+            component: () => import('./components/HighScore/GameSchedule.vue')
+          },
+          {
+            path: '/group',
+            name: 'group',
+            component: () => import('./components/HighScore/Group.vue')
+          },
+          {
+            path: '/highscore',
+            name: 'highscore',
+            component: () => import('./components/HighScore/HighScore.vue')
+          }
+        ]
     },
     {
       path: '/admin',
@@ -33,7 +57,28 @@ export default new Router({
     {
       path: '/makegames',
       name: 'makegames',
-      component: () => import('./views/Admin/MakeGames.vue')
+      component: () => import('./views/Admin/MakeGames.vue'),
+      children: [
+        {
+          path: '/chooseteam',
+          name: 'chooseteam',
+          component: () => import('./components/Admin/ChooseTeam.vue'),
+          children: [
+            {
+              path: '/choosepoint',
+              name: 'choosepoint',
+              component: () => import('./components/Admin/ChoosePoint.vue'),
+              children: [
+                {
+                  path: '/choosegame',
+                  name: 'choosegame',
+                  component: () => import('./components/Admin/ChooseGame.vue')
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       path: '/makegroups',
@@ -43,7 +88,14 @@ export default new Router({
     {
       path: '/players',
       name: 'players',
-      component: () => import('./views/Admin/Players.vue')
+      component: () => import('./views/Admin/Players.vue'),
+      children: [
+        {
+          path: '/player',
+          name: 'player',
+          component: () => import('./components/Admin/Player.vue')
+        }
+      ]
     },
     {
       path: '/schedules',

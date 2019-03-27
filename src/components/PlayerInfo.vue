@@ -1,5 +1,7 @@
 <template>
-    <article></article>
+    <article>
+        <h1>Player Info</h1>
+    </article>
 </template>
 
 <script>

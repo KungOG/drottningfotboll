@@ -1,5 +1,9 @@
 <template>
-    <article></article>
+    <article>
+        <h1>Login</h1>
+        <input placeholder="epost">
+        <input placeholder="lösen">
+    </article>
 </template>
 
 <script>
