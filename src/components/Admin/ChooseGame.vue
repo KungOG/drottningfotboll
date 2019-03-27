@@ -2,7 +2,8 @@
     <article>
         <section>
             <h1>Choose Game</h1>
-            <p @click="$router.push('/choosepoint')">choosepoint</p>
+            <p>Steg 4/4</p>
+            <p @click="$router.push('/makegroups')">Submit</p>
         </section>
         <router-view />
     </article>
@@ -12,4 +13,5 @@
 export default {
     name : 'choosegame'
 }
+
 </script>

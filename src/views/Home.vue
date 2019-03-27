@@ -10,6 +10,9 @@
 <script>
 
 export default {
-  name: 'home'
+  name: 'home',
+      beforeCreate() {
+        this.$router.push('/login')
+    }
 }
 </script>

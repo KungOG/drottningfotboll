@@ -2,6 +2,7 @@
     <article>
         <section>
             <h1>Choose Team</h1>
+            <p>Steg 2/4</p>
             <p @click="$router.push('/choosepoint')">Choose Point</p>
         </section>
         <router-view />
