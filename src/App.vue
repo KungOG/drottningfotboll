@@ -9,6 +9,7 @@
       <router-link to="/makegames">Make games</router-link> |
       <router-link to="/makegroups">Make groups</router-link>|
       <router-link to="/schedules">Schedules</router-link>|
+      <router-link to="/editplayer">Edit Player</router-link>|
     </div>
     <router-view/>
   </div>

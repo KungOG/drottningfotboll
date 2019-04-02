@@ -65,21 +65,14 @@ export default new Router({
       component: () => import('./views/Admin/MakeGames.vue'),
       children: [
         {
-          path: '/chooseteam',
-          name: 'chooseteam',
-          component: () => import('./components/Admin/ChooseTeam.vue'),
+          path: '/choosegame',
+          name: 'choosegame',
+          component: () => import('./components/Admin/ChooseGame.vue'),
           children: [
             {
               path: '/choosepoint',
               name: 'choosepoint',
-              component: () => import('./components/Admin/ChoosePoint.vue'),
-              children: [
-                {
-                  path: '/choosegame',
-                  name: 'choosegame',
-                  component: () => import('./components/Admin/ChooseGame.vue')
-                }
-              ]
+              component: () => import('./components/Admin/ChoosePoint.vue')
             }
           ]
         }
@@ -106,6 +99,11 @@ export default new Router({
       path: '/schedules',
       name: 'schedules',
       component: () => import('./views/Admin/Schedules.vue')
+    },
+    {
+      path: '/editplayer',
+      name: 'editplayer',
+      component: () => import('./views/Admin/EditPlayer.vue')
     }
   ]
 })
