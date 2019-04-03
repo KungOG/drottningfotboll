@@ -1,6 +1,6 @@
 export default {
 
-  setTeams(state, teams) {
-    state.teams = teams;
+  setPlayer(state, player) {
+    state.player = player;
 }
 }

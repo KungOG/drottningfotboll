@@ -18,8 +18,7 @@
   export default {
     name: "App",
     beforeCreate() {
-      console.log(this.$store)
-      this.$store.dispatch("firestoreTeams");
+      this.$store.dispatch("getPlayerFromDb");
     }
   };
 </script>
