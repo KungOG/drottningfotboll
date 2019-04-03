@@ -11,8 +11,8 @@
 
 export default {
   name: 'home',
-      beforeCreate() {
-        this.$router.push('/login')
+      beforeMount() {
+        this.$router.push('/playerinfo')
     }
 }
 </script>

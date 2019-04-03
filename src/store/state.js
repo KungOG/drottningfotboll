@@ -1,4 +1,5 @@
 export default {
 
-  player: null
+  player: {},
+  teamPlayers: null
 }
