@@ -14,6 +14,16 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: "App",
+    beforeCreate() {
+      console.log(this.$store)
+      this.$store.dispatch("firestoreTeams");
+    }
+  };
+</script>
+
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
