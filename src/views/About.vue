@@ -1,5 +1,10 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main>
+    <section class="logo">
+      <h1>Logo</h1>
+    </section>
+    <section class="aboutContent">
+      <h1>Här kommer about text</h1>
+    </section>
+  </main>
 </template>

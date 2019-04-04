@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="content">
         <p>Logga in med Google eller Facebook</p>
         <button class="googlebtn" @click="googleLogin">
             <img src="@/assets/google-logo.png" alt="Google Logo">
@@ -8,7 +8,6 @@
             <img src="@/assets/facebook-logo.png" alt="Facebook Logo">
         </button>
         <br>
-
     </article>
 </template>
 
