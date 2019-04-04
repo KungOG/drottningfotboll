@@ -1,4 +1,4 @@
 export default {
-    players : [],
-    gameInformation : []
+
+  player: null
 }

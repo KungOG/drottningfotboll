@@ -3,5 +3,79 @@
 @import './_variables';
 
 body {
+    @extend %center;
     background: grey;
+
+    .logo {
+      @extend %center;
+      background: darkcyan;
+    }
+    .navigation {
+      background: white;
+
+      thead {
+        @extend %center;
+    
+        tr {
+          td {
+            padding: .5rem;
+            border: 1px solid black;
+          }
+        }
+      }
+
+    }
+    /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
+    .aboutContent {
+      background: darkred;
+      color: white;
+      padding: 5rem 0;
+      border: 2px solid white;
+    }
+    .content {
+        background: white;
+
+        button {
+          padding: 2rem 3rem;
+
+          img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+    } 
+    .schema {
+      @extend %layout;
+      background: white;
+      color: red;  
+            
+      p {
+        padding: 2rem;
+        border: 1px solid red;
+        margin: .2rem;
+      }
+    }
 }
+
+
+
+/* Detta försvinner med tiden */
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  #nav {
+    padding: 30px;
+    a {
+      font-weight: bold;
+      color: #2c3e50;
+      &.router-link-exact-active {
+        color: #42b983;
+      }
+    }
+  }
+

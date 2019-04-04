@@ -1,6 +1,6 @@
 <template>
     <main>
-        <section>
+        <section class="navigation">
             <h1>Stats</h1>
             <thead>
                 <tr>

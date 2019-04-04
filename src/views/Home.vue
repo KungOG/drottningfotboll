@@ -1,7 +1,7 @@
 <template>
   <main>
-    <section>
-      <h3>Home</h3>
+    <section class="logo">
+      <h3>Här kommer en logga</h3>
     </section>
     <router-view />
   </main>
@@ -13,6 +13,6 @@ export default {
   name: 'home',
       beforeCreate() {
         this.$router.push('/login')
-    }
+    },
 }
 </script>

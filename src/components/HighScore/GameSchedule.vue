@@ -1,6 +1,11 @@
 <template>
     <article>
-        <h1>Game Schedule</h1>
+        <section class="content">
+            <h1>Välja lag</h1>
+        </section>
+        <section class="aboutContent">
+            Här kommer en lista
+        </section>
     </article>
 </template>
 
