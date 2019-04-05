@@ -14,5 +14,6 @@ export default {
       beforeMount() {
         this.$router.push('/playerinfo')
     }
+
 }
 </script>
