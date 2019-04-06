@@ -1,6 +1,18 @@
 <template>
-    <main>
-        <h1>Schedules</h1>
+    <main class="aboutContent">
+        <h1>Highscore</h1>
+        <section class="schema">
+            <p>Lag 1</p>
+            <p>Lag 2</p>
+        </section>
+        <section class="schema">
+            <p>Lag 1</p>
+            <p>Lag 2</p>
+        </section>
+        <section class="schema">
+            <p>Lag 1</p>
+            <p>Lag 2</p>
+        </section>
     </main>
 </template>
 
@@ -9,3 +21,5 @@ export default {
     name : 'schedules'
 }
 </script>
+
+

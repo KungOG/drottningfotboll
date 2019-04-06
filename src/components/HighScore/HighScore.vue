@@ -1,16 +1,10 @@
 <template>
-    <article class="aboutContent">
-        <section class="schema">
-            <p>Lag 1</p>
-            <p>Lag 2</p>
+    <article>
+        <section class="content">
+            <h1>Välja lag</h1>
         </section>
-        <section class="schema">
-            <p>Lag 1</p>
-            <p>Lag 2</p>
-        </section>
-        <section class="schema">
-            <p>Lag 1</p>
-            <p>Lag 2</p>
+        <section class="aboutContent">
+            Här kommer en lista
         </section>
     </article>
 </template>
