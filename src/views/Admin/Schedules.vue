@@ -13,6 +13,9 @@
             <p>Lag 1</p>
             <p>Lag 2</p>
         </section>
+        <section>
+            <button>Submit</button>
+        </section>
     </main>
 </template>
 
