@@ -1,6 +1,6 @@
 <template>
     <article class="aboutContent">
-        <h1>Spelschema</h1>
+        <h1>Spel Schema</h1>
         <section class="schema">
             <p>Lag 1</p>
             <p>Lag 2</p>

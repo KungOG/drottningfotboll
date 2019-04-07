@@ -1,8 +1,14 @@
 <template>
-    <main>
+    <main class="aboutContent">
         <h1>Admin</h1>
-        <h3 class="content" @click="$router.push('/makegames')">Skapa spel</h3>
-        <h3 class="content" @click="$router.push('/players')">Lägg till spelare</h3>
+        <section class="schema">
+            <p @click="$router.push('/makegames')">Skapa spel</p>
+            <p @click="$router.push('/editplayer')">Redigera spelare</p>
+        </section>
+        <section class="schema">
+            <p @click="$router.push('/group')"> Grupper | </p>
+            <p @click="$router.push('/highscore')"> Lista</p>
+        </section>
     </main>
 </template>
 

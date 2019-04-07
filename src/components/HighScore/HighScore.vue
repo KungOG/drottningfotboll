@@ -33,38 +33,31 @@ export default {
 </script>
 
 <style lang="scss">
-
 .main {
   border: 1px solid black;
   border-radius: 5px;
-
   .list-wrapper {
     display: flex;
     border-bottom: 1px solid gray;
     padding: .5rem;
-
     .container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex: 1;
-
       h3 {
         text-transform: uppercase;
         margin: 0;
         font-size: 1.2rem;
       }
-
       .score {
         display: flex;
         flex-direction: row;
-
         #win {
           margin-right: 1.5rem;
         }
       }
     }
-
     #date {
       box-sizing: border-box;
       padding: 10px 5px 15px 5px;
@@ -76,7 +69,4 @@ export default {
     }
   }
 }
-
-
-
 </style>

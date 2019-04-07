@@ -12,5 +12,4 @@
 export default {
     name : 'choosegame'
 }
-
 </script>

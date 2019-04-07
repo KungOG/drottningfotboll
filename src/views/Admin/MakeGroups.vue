@@ -1,3 +1,4 @@
+    
 <template>
     <main class="content">
         <h1>Make groups</h1>
