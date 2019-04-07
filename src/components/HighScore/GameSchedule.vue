@@ -1,10 +1,17 @@
 <template>
-    <article>
-        <section class="content">
-            <h1>Välja lag</h1>
+    <article class="aboutContent">
+        <h1>Spel Schema</h1>
+        <section class="schema">
+            <p>Lag 1</p>
+            <p>Lag 2</p>
         </section>
-        <section class="aboutContent">
-            Här kommer en lista
+        <section class="schema">
+            <p>Lag 1</p>
+            <p>Lag 2</p>
+        </section>
+        <section class="schema">
+            <p>Lag 1</p>
+            <p>Lag 2</p>
         </section>
     </article>
 </template>

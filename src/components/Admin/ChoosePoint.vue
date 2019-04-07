@@ -1,9 +1,10 @@
+    
 <template>
     <article>
-        <section>
-            <h1>Choose Point</h1>
-            <p>Steg 3/4</p>
-            <p @click="$router.push('/choosegame')">Choose Game</p>
+        <section class="content">
+            <h1>Välj Poäng för vinst/förlust</h1>
+            <p>Steg 3/3</p>
+            <p @click="$router.push('/makegroups')">Klar</p>
         </section>
         <router-view />
     </article>

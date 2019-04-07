@@ -1,9 +1,8 @@
 <template>
     <article>
-        <section>
-            <h1>Choose Game</h1>
-            <p>Steg 4/4</p>
-            <p @click="$router.push('/makegroups')">Submit</p>
+        <section class="content">
+            <p>Steg 2/3</p>
+            <p @click="$router.push('/choosepoint')">Välj Poäng</p>
         </section>
         <router-view />
     </article>
@@ -13,5 +12,4 @@
 export default {
     name : 'choosegame'
 }
-
 </script>

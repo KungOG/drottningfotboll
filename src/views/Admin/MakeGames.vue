@@ -1,9 +1,9 @@
 <template>
     <main>
-        <section>
-            <h1>Make Games</h1>
-            <p>Steg 1/4</p>
-            <h3 @click="$router.push('/chooseteam')">Välj antal lag</h3>
+        <section class="content">
+            <h1>Välj antal Lag</h1>
+            <p>Steg 1/3</p>
+            <h3 @click="$router.push('/choosegame')">Välj antal matcher</h3>
         </section>
          <router-view />
     </main>
