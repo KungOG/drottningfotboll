@@ -1,6 +1,6 @@
 <template>
     <main class="main">
-        <article class="list-wrapper" v-for="(item, index) in teamPlayers" :key="index">
+        <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
           <aside id="date">
             {{item.point}}
           </aside>
