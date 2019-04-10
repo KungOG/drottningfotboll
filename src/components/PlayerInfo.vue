@@ -16,6 +16,7 @@
               <p>Förluster:</p>
               <p>{{ player.loss }}</p>
             </section>
+            <button type="button" name="button" @click="logout">logout</button>
           </section>
         </section>
     </article>
@@ -33,6 +34,11 @@ export default {
     computed: {
       player() {
         return this.$store.getters.getPlayer;
+      }
+    },
+    methods: {
+      logout(){
+        firebase.auth().signOut();
       }
     }
 }

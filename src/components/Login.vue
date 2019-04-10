@@ -13,6 +13,8 @@
 
 <script>
 import firebase from 'firebase'
+import db from '@/firebaseInit'
+
 export default {
     name : 'login',
     methods: {
@@ -20,11 +22,36 @@ export default {
             const provider = new firebase.auth.GoogleAuthProvider();
 
             firebase.auth().signInWithPopup(provider).then((result) => {
+              var user = firebase.auth().currentUser;
+              var allUsers = [];
+              var items = db.collection('users');
+              items.get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  var obj = (doc.id)
+                  console.log(doc.id)
+                  allUsers.push(obj)
+                })
+            })
+              console.log(allUsers)
+              console.log(user.uid)
+
+              if(allUsers.includes("YMrPiNxfplekA0wxHT96IgOJ2pI2")) {
+                console.log('hej')
+
+              } else {
+                var user = {
+                  name: "",
+                  teams: [],
+                  uid: user.uid
+                }
+                this.$store.dispatch('addPlayerToDb', user)
+                console.log('hejdå')
+              }
                 this.$router.replace('/playerinfo');
             }).catch((err) => {
                 alert('Whops, something happend here..' + err.message)
-            });   
-        }, 
+            });
+        },
         facebookLogin () {
             const provider = new firebase.auth.FacebookAuthProvider();
 
@@ -44,7 +71,7 @@ export default {
             var credential = error.credential;
             // ...
             });
-        }   
+        }
     }
 }
 </script>

@@ -23,7 +23,9 @@ export default {
     ctx.commit('setTeamPlayers', teamPlayers)
   },
 
-    addPlayerToDb(ctx, playerInfo) {
-        db.collection('teams').doc('skogaby').collection('players').add(playerInfo)
+    addPlayerToDb(ctx, user) {
+      console.log(user)
+        db.collection('users').doc(user.uid).set(user)
+
     }
 }
