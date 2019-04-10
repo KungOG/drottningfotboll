@@ -6,7 +6,7 @@
                 <tr>
                     <td @click="$router.push('/gameschedule')">Spel Schema | </td>
                     <td @click="$router.push('/group')"> Grupper | </td>
-                    <td @click="$router.push('/highscore')"> Lista</td>
+                    <td @click="$router.push('/highscore')"> highscore</td>
                 </tr>
             </thead>
         </section>

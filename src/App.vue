@@ -6,6 +6,7 @@
       <router-link to="/stats">Stats</router-link>|
       <router-link to="/admin">Admin</router-link> |
       <router-link to="/players">Players</router-link>|
+      <router-link to="/adminplayers">Admin Players</router-link>|
       <router-link to="/makegames">Make games</router-link> |
       <router-link to="/makegroups">Make groups</router-link>|
       <router-link to="/schedules">Schedules</router-link>|
