@@ -1,6 +1,6 @@
 <template>
     <main class="main">
-        <article class="list-wrapper" v-for="(item, index) in teamPlayers" :key="index">
+        <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
           <aside id="date">
             {{item.point}}
           </aside>
@@ -33,9 +33,11 @@ export default {
 </script>
 
 <style lang="scss">
+
 .main {
   border: 1px solid black;
   border-radius: 5px;
+
   .list-wrapper {
     display: flex;
     border-bottom: 1px solid gray;

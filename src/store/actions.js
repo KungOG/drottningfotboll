@@ -13,14 +13,17 @@ export default {
 
     async getTeamPlayersFromDb(ctx) {
       var teamPlayers = []
-      var item = await db.collection('teams').doc('skogaby').collection('players')
+      var item = await db.collection('teams').doc('skogaby').collection('players').orderBy('point')
       await item.get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           var obj = (doc.id, " => ", doc.data())
-          console.log(obj);
           teamPlayers.push(obj)
         })
     })
     ctx.commit('setTeamPlayers', teamPlayers)
-  }
+  },
+
+    addPlayerToDb(ctx, playerInfo) {
+        db.collection('teams').doc('skogaby').collection('players').add(playerInfo)
+    }
 }
