@@ -5,5 +5,8 @@ export default {
 },
   setTeamPlayers(state, teamPlayers) {
     state.teamPlayers = teamPlayers;
+  },
+  allUsers(state, array) {
+    state.allUsers = array
   }
 }

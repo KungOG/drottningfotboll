@@ -19,42 +19,49 @@ export default {
     name : 'login',
     data() {
       return {
-        allUsers: []
+        allUsers: [],
+        user: ""
       }
     },
     methods: {
-        googleLogin () {
+        async googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
 
-            firebase.auth().signInWithPopup(provider).then((result) => {
-              var user = firebase.auth().currentUser;
+          await firebase.auth().signInWithPopup(provider).then(async(result) => {
+              this.user = firebase.auth().currentUser;
 
               var items = db.collection('users');
-              items.get().then((querySnapshot) => {
+              await items.get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                   console.log(doc.id)
                   this.allUsers.push(doc.id)
                 })
             })
-              console.log(user.uid)
+              console.log(this.user.uid)
+              console.log(this.allUsers)
 
-              if(this.allUsers.includes(user.uid)) {
-                console.log('hej')
-
-              } else {
-                var user = {
-                  name: "",
-                  teams: [],
-                  uid: user.uid
-                }
-                this.$store.dispatch('addPlayerToDb', user)
-                console.log('hejdå')
-              }
-                this.$router.replace('/playerinfo');
             }).catch((err) => {
                 alert('Whops, something happend here..' + err.message)
             });
+          this.addUser();
+          this.$router.replace('/playerinfo');
+
         },
+        addUser(){
+          if(this.allUsers.includes(this.user.uid)) {
+            console.log('hej')
+
+          } else {
+            var user = {
+              name: "",
+              teams: [],
+              uid: this.user.uid
+            }
+            this.$store.dispatch('addPlayerToDb', user)
+            console.log('hejdå')
+          }
+        },
+
         facebookLogin () {
             const provider = new firebase.auth.FacebookAuthProvider();
 
