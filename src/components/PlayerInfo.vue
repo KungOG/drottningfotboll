@@ -1,6 +1,8 @@
 <template>
     <article>
         <section>
+          <img src="photo" style="height: 120px"><br>
+          <p>{{userId}}</p>
           <section class="info-box">
             <p>{{ player.name }}</p>
           </section>
@@ -15,8 +17,8 @@
             <section class="info-box">
               <p>Förluster:</p>
               <p>{{ player.loss }}</p>
-              <button @click="logout">Logout</button>
             </section>
+              <button @click="logout">Logout</button>
           </section>
         </section>
     </article>
@@ -28,7 +30,9 @@ export default {
     name : 'playerinfo',
     data() {
       return {
-        selected: ""
+        selected: "",
+        userId: '',
+        photo: ''
       }
     },
     computed: {
@@ -44,7 +48,14 @@ export default {
             // An error happened.
         });
     }
-  }
+  },
+  created () { 
+  this.user = firebase.auth().currentUser; 
+  if(this.user) { 
+    this.photo = this.user.photoURL; 
+    this.userId = this.user.uid; 
+  } 
+}
 }
 </script>
 
