@@ -24,10 +24,10 @@ export default {
       }
     },
     methods: {
-        async googleLogin () {
+        googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
 
-          await firebase.auth().signInWithPopup(provider).then(async(result) => {
+          firebase.auth().signInWithPopup(provider).then(async(result) => {
               this.user = firebase.auth().currentUser;
 
               var items = db.collection('users');
@@ -37,15 +37,13 @@ export default {
                   this.allUsers.push(doc.id)
                 })
             })
-              console.log(this.user.uid)
               console.log(this.allUsers)
+              this.addUser();
+              this.$router.replace('/playerinfo');
 
             }).catch((err) => {
                 alert('Whops, something happend here..' + err.message)
             });
-          this.addUser();
-          this.$router.replace('/playerinfo');
-
         },
         addUser(){
           if(this.allUsers.includes(this.user.uid)) {

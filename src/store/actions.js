@@ -27,9 +27,5 @@ export default {
       console.log(user)
         db.collection('users').doc(user.uid).set(user)
 
-    },
-    allUsers(ctx, array) {
-      console.log(array)
-      ctx.commit('allUsers', array)
     }
 }
