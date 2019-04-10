@@ -17,25 +17,28 @@ import db from '@/firebaseInit'
 
 export default {
     name : 'login',
+    data() {
+      return {
+        allUsers: []
+      }
+    },
     methods: {
         googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
 
             firebase.auth().signInWithPopup(provider).then((result) => {
               var user = firebase.auth().currentUser;
-              var allUsers = [];
+
               var items = db.collection('users');
               items.get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
-                  var obj = (doc.id)
                   console.log(doc.id)
-                  allUsers.push(obj)
+                  this.allUsers.push(doc.id)
                 })
             })
-              console.log(allUsers)
               console.log(user.uid)
 
-              if(allUsers.includes("YMrPiNxfplekA0wxHT96IgOJ2pI2")) {
+              if(this.allUsers.includes(user.uid)) {
                 console.log('hej')
 
               } else {
