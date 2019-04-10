@@ -58,23 +58,6 @@ const router = new Router({
       component: () => import('./views/Admin/Admin.vue')
     },
     {
-      path: '/adminplayers',
-      name: 'adminplayers',
-      component: () => import('./views/Admin/AdminPlayers.vue'),
-        children: [
-          {
-            path: '/addplayer',
-            name: 'addplayer',
-            component: () => import('./components/Admin/AddPlayer.vue')
-          },
-          {
-            path: '/editplayer',
-            name: 'editplayer',
-            component: () => import('./components/Admin/EditPlayer.vue')
-          }
-        ]
-    },
-    {
       path: '/groups',
       name: 'groups',
       component: () => import('./views/Admin/Groups.vue')
@@ -127,5 +110,20 @@ const router = new Router({
     }
   ]
 })
+/* Checks if you are logged in or not */
+router.beforeEach((to, from, next) => {
+  var requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  var currentUser = firebase.auth().currentUser;
+
+  if (requiresAuth && !currentUser) {
+      next('/login');
+  } else if (to.path == '/login' && currentUser) {
+      next('/');
+
+  } else {
+      next();
+  }
+
+});
 
 export default router;
