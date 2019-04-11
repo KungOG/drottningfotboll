@@ -41,25 +41,15 @@ export default {
       }
     },
     methods: {
-<<<<<<< HEAD:src/views/PlayerInfo.vue
       logout(){
         firebase.auth().signOut();
       }
-=======
-        logout () {
-            firebase.auth().signOut().then(function() {
-            // Sign-out successful.
-            }).catch(function(error) {
-            // An error happened.
-        });
->>>>>>> f16dd4785fb41a880dc63d4b352e6a579cbd05fd:src/components/PlayerInfo.vue
-    }
-  },
+    },
   created () { 
-  this.user = firebase.auth().currentUser; 
-  if(this.user) { 
-    this.photo = this.user.photoURL; 
-    this.userId = this.user.uid; 
+    this.user = firebase.auth().currentUser; 
+    if(this.user) { 
+      this.photo = this.user.photoURL; 
+      this.userId = this.user.uid; 
   } 
 }
 }
