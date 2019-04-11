@@ -24,3 +24,5 @@ export default {
     name : 'schedules'
 }
 </script>
+
+

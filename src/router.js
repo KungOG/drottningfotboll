@@ -51,23 +51,6 @@ const router = new Router({
       component: () => import('./views/Admin/Admin.vue')
     },
     {
-      path: '/adminplayers',
-      name: 'adminplayers',
-      component: () => import('./views/Admin/AdminPlayers.vue'),
-        children: [
-          {
-            path: '/addplayer',
-            name: 'addplayer',
-            component: () => import('./components/Admin/AddPlayer.vue')
-          },
-          {
-            path: '/editplayer',
-            name: 'editplayer',
-            component: () => import('./components/Admin/EditPlayer.vue')
-          }
-        ]
-    },
-    {
       path: '/groups',
       name: 'groups',
       component: () => import('./views/Admin/Groups.vue')

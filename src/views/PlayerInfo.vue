@@ -1,6 +1,8 @@
 <template>
     <article>
         <section>
+          <img src="photo" style="height: 120px"><br>
+          <p>{{userId}}</p>
           <section class="info-box">
             <p>{{ player.name }}</p>
           </section>
@@ -16,7 +18,7 @@
               <p>Förluster:</p>
               <p>{{ player.loss }}</p>
             </section>
-            <button type="button" name="button" @click="logout">logout</button>
+              <button @click="logout">Logout</button>
           </section>
         </section>
     </article>
@@ -28,7 +30,9 @@ export default {
     name : 'playerinfo',
     data() {
       return {
-        selected: ""
+        selected: "",
+        userId: '',
+        photo: ''
       }
     },
     computed: {
@@ -37,10 +41,27 @@ export default {
       }
     },
     methods: {
+<<<<<<< HEAD:src/views/PlayerInfo.vue
       logout(){
         firebase.auth().signOut();
       }
+=======
+        logout () {
+            firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+            }).catch(function(error) {
+            // An error happened.
+        });
+>>>>>>> f16dd4785fb41a880dc63d4b352e6a579cbd05fd:src/components/PlayerInfo.vue
     }
+  },
+  created () { 
+  this.user = firebase.auth().currentUser; 
+  if(this.user) { 
+    this.photo = this.user.photoURL; 
+    this.userId = this.user.uid; 
+  } 
+}
 }
 </script>
 
