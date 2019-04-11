@@ -11,20 +11,13 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('./views/Home.vue'),
-      children: [
-        {
-          path: '/login',
-          name: 'login',
-          component: () => import('./components/Login.vue')
-        },
-        {
-          path: '/playerinfo',
-          name: 'playerinfo',
-          component: () => import('./components/PlayerInfo.vue')
-        }
-      ]
+      component: () => import('./views/Home.vue')
     },
+    {
+      path: '/playerinfo',
+      name: 'playerinfo',
+      component: () => import('./views/PlayerInfo.vue')
+    },    
     {
       path: '/about',
       name: 'about',
@@ -119,11 +112,6 @@ const router = new Router({
       path: '/schedules',
       name: 'schedules',
       component: () => import('./views/Admin/Schedules.vue')
-    },
-    {
-      path: '/editplayer',
-      name: 'editplayer',
-      component: () => import('./views/Admin/EditPlayer.vue')
     }
   ]
 })
