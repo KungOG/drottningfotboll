@@ -137,12 +137,9 @@ router.beforeEach((to, from, next) => {
 
   if (requiresAuth) {       //om sidan kräver att du är inloggad
     if(!currentUser) {        // och du inte är inloggad
-      next('/');             //gå till login
-    } else if(requiresAdmin && isAdmin == false) { 
-      console.log('innan')       //och om sidan även kräver admin
-      if(currentUser) {    
-        console.log('efter')       //och om sidan även kräver admin
-        //och du är admin
+      next('/');                      //gå till login
+    } else if(requiresAdmin) {          //och om sidan även kräver admin
+      if(isAdmin === 'true') {    //och admin är true
         next();                       //gå vidare
       } else {                          
        next('/');                 //annars gå till login
