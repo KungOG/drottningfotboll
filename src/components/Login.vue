@@ -38,26 +38,28 @@ export default {
                 })
             })
               console.log(this.allUsers)
-              this.addUser();
+              if(!this.allUsers.includes(this.user.uid)) {
+                this.addUser();
+              } else {
+                console.log('Denna user finns redan')
+              }
               this.$router.replace('/playerinfo');
+              this.$store.dispatch('setCurrentUser', this.user);
 
             }).catch((err) => {
                 alert('Whops, something happend here..' + err.message)
             });
         },
-        addUser(){
-          if(this.allUsers.includes(this.user.uid)) {
-            console.log('hej')
-
-          } else {
-            var user = {
+        addUser(){          
+              var user = {
               name: "",
               teams: [],
-              uid: this.user.uid
+              uid: this.user.uid,
+              isAdmin: true
             }
             this.$store.dispatch('addPlayerToDb', user)
-            console.log('hejdå')
-          }
+            console.log('ny user tillagd')
+          
         },
 
         facebookLogin () {

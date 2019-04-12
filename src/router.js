@@ -17,18 +17,19 @@ const router = new Router({
           path: '/login',
           name: 'login',
           component: () => import('./components/Login.vue')
-        },
-        {
-          path: '/playerinfo',
-          name: 'playerinfo',
-          component: () => import('./components/PlayerInfo.vue')
-        }
+        }        
       ]
     },
     {
       path: '/about',
       name: 'about',
       component: () => import('./views/About.vue')
+    },
+    {
+      path: '/playerinfo',
+      name: 'playerinfo',
+      meta: {requiresAuth: true},
+      component: () => import('./views/PlayerInfo.vue')
     },
     {
       path: '/stats',
@@ -55,11 +56,13 @@ const router = new Router({
     {
       path: '/admin',
       name: 'admin',
+      meta: {requiresAuth: true, requiresAdmin: true},
       component: () => import('./views/Admin/Admin.vue')
     },
     {
       path: '/adminplayers',
       name: 'adminplayers',
+      meta: {requiresAuth: true, requiresAdmin: true},
       component: () => import('./views/Admin/AdminPlayers.vue'),
         children: [
           {
@@ -77,11 +80,13 @@ const router = new Router({
     {
       path: '/groups',
       name: 'groups',
+      meta: {requiresAuth: true},
       component: () => import('./views/Admin/Groups.vue')
     },
     {
       path: '/makegames',
       name: 'makegames',
+      meta: {requiresAuth: true, requiresAdmin: true},
       component: () => import('./views/Admin/MakeGames.vue'),
       children: [
         {
@@ -101,11 +106,13 @@ const router = new Router({
     {
       path: '/makegroups',
       name: 'makegroups',
+      meta: {requiresAuth: true},
       component: () => import('./views/Admin/MakeGroups.vue')
     },
     {
       path: '/players',
       name: 'players',
+      meta: {requiresAuth: true, requiresAdmin: true},
       component: () => import('./views/Admin/Players.vue'),
       children: [
         {
@@ -119,11 +126,6 @@ const router = new Router({
       path: '/schedules',
       name: 'schedules',
       component: () => import('./views/Admin/Schedules.vue')
-    },
-    {
-      path: '/editplayer',
-      name: 'editplayer',
-      component: () => import('./views/Admin/EditPlayer.vue')
     }
   ]
 })
@@ -131,16 +133,31 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   var requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   var currentUser = firebase.auth().currentUser;
+  var isAdmin = sessionStorage.getItem('isAdmin');
+  var requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
 
-  if (requiresAuth && !currentUser) {
-      next('/login');
-  } else if (to.path == '/login' && currentUser) {
+
+  if (requiresAuth) {       //om sidan kräver att du är inloggad
+    if(!currentUser) {        // och du inte är inloggad
+      next('/login');             //gå till login
+    } else if(requiresAdmin) {        //och om sidan även kräver admin
+      if(isAdmin == true) {           //och du är admin
+        next();                       //gå vidare
+      } else {                          
+       next('/login');                 //annars gå till login
+      }
+    } else if (to.path == '/login' && currentUser) {    //om du är inloggad ska du inte kunna gå till login
       next('/');
-
+    } else {
+      next();
+   }
   } else {
       next();
   }
-
+  
 });
 
 export default router;
+
+//Om man försöker gå in på en sida man inte har behörighet, ska man då alltid redirectas till login?
+//och i så fall, funktionen ovan (som inte funkar) ska ju se till så att en inloggad användare inte kan gå till home
