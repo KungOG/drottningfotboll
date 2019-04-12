@@ -33,17 +33,13 @@ body {
       border: 2px solid white;
     }
     .content {
-        background: white;
-
-        button {
-          padding: 2rem 3rem;
-
-          img {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        }
+      background: white;
+      div {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background: yellow;
+      }
     } 
     .schema {
       @extend %layout;

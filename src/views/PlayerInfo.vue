@@ -1,6 +1,8 @@
 <template>
     <article>
         <section>
+          <img src="photo" style="height: 120px"><br>
+          <p>{{userId}}</p>
           <section class="info-box">
             <p>{{ player.name }}</p>
           </section>
@@ -16,7 +18,7 @@
               <p>Förluster:</p>
               <p>{{ player.loss }}</p>
             </section>
-            <button type="button" name="button" @click="logout">logout</button>
+              <button @click="logout">Logout</button>
           </section>
         </section>
     </article>
@@ -28,7 +30,9 @@ export default {
     name : 'playerinfo',
     data() {
       return {
-        selected: ""
+        selected: "",
+        userId: '',
+        photo: ''
       }
     },
     computed: {
@@ -40,7 +44,14 @@ export default {
       logout(){
         firebase.auth().signOut();
       }
-    }
+    },
+  created () { 
+    this.user = firebase.auth().currentUser; 
+    if(this.user) { 
+      this.photo = this.user.photoURL; 
+      this.userId = this.user.uid; 
+  } 
+}
 }
 </script>
 

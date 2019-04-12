@@ -21,6 +21,11 @@ const router = new Router({
       ]
     },
     {
+      path: '/playerinfo',
+      name: 'playerinfo',
+      component: () => import('./views/PlayerInfo.vue')
+    },    
+    {
       path: '/about',
       name: 'about',
       component: () => import('./views/About.vue')
