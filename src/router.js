@@ -12,19 +12,12 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: () => import('./views/Home.vue'),
-      children: [
-        {
-          path: '/login',
-          name: 'login',
-          component: () => import('./components/Login.vue')
-        }        
-      ]
     },
     {
-      path: '/playerinfo',
-      name: 'playerinfo',
-      component: () => import('./views/PlayerInfo.vue')
-    },    
+      path: '/home',
+      name: 'home',
+      component: () => import('./views/Home.vue'),
+    },
     {
       path: '/about',
       name: 'about',
@@ -144,14 +137,17 @@ router.beforeEach((to, from, next) => {
 
   if (requiresAuth) {       //om sidan kräver att du är inloggad
     if(!currentUser) {        // och du inte är inloggad
-      next('/login');             //gå till login
-    } else if(requiresAdmin) {        //och om sidan även kräver admin
-      if(isAdmin == true) {           //och du är admin
+      next('/');             //gå till login
+    } else if(requiresAdmin && isAdmin == false) { 
+      console.log('innan')       //och om sidan även kräver admin
+      if(currentUser) {    
+        console.log('efter')       //och om sidan även kräver admin
+        //och du är admin
         next();                       //gå vidare
       } else {                          
-       next('/login');                 //annars gå till login
+       next('/');                 //annars gå till login
       }
-    } else if (to.path == '/login' && currentUser) {    //om du är inloggad ska du inte kunna gå till login
+    } else if (to.path == '/' && currentUser) {    //om du är inloggad ska du inte kunna gå till login
       next('/');
     } else {
       next();

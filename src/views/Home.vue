@@ -42,6 +42,8 @@ export default {
               console.log(this.allUsers)
               this.addUser();
               this.$router.replace('/playerinfo');
+              this.$store.dispatch('setCurrentUser', this.user);
+
 
             }).catch((err) => {
                 alert('Whops, something happend here..' + err.message)
@@ -55,6 +57,7 @@ export default {
               name: "",
               teams: [],
               uid: this.user.uid,
+              isAdmin: false,
               photoURL: this.user.photoURL
             }
             this.$store.dispatch('addPlayerToDb', user) 

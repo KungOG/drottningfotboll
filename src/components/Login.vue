@@ -5,7 +5,7 @@
             <img src="@/assets/google-logo.png" alt="Google Logo">
         </button>
         <button class="facebookbtn" @click="facebookLogin">
-            <img src="@/assets/facebook-logo.png" alt="Facebook Logo">
+        <!--    <img src="@/assets/facebook-logo.png" alt="Facebook Logo"> -->
         </button>
         <br>
     </article>
