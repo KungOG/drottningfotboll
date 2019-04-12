@@ -39,5 +39,11 @@ export default {
        sessionStorage.setItem('isAdmin', currentUser.isAdmin);
    
     })
-  } 
+  },
+  
+  removeCurrentUser(ctx) {
+    sessionStorage.removeItem('isAdmin');
+    ctx.commit('removeCurrentUser');
+
+  }
 }

@@ -8,5 +8,8 @@ export default {
   },
   setCurrentUser(state, currentUser) {
     state.currentUser = currentUser;
+  },
+  removeCurrentUser(state) {
+    state.currentUser = {};
   }
 }

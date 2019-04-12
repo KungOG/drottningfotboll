@@ -58,7 +58,7 @@ export default {
               teams: [],
               uid: this.user.uid,
               isAdmin: true,
-              photoURL: this.user.photoURL
+              photoURL: 'https://lh4.googleusercontent.com/-LkkgiWfrDiM/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdDB1XgYCjIIg-ALVdJlTb4ox7FRA/mo/photo.jpg'
             }
             this.$store.dispatch('addPlayerToDb', user) 
           }

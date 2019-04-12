@@ -1,7 +1,7 @@
 <template>
     <article>
         <section>
-          <img src="photo" style="height: 120px"><br>
+          <img :src=player.photoURL><br>
           <p>{{userId}}</p>
           <section class="info-box">
             <p>{{ player.name }}</p>
@@ -43,15 +43,10 @@ export default {
     methods: {
       logout(){
         firebase.auth().signOut();
+        this.$store.dispatch('removeCurrentUser');
+        this.$router.push('/');
       }
-    },
-  created () { 
-    this.user = firebase.auth().currentUser; 
-    if(this.user) { 
-      this.photo = this.user.photoURL; 
-      this.userId = this.user.uid; 
-  } 
-}
+    }
 }
 </script>
 
@@ -69,6 +64,12 @@ export default {
     border-radius: 5px;
     flex-direction: column;
     flex: 1;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+
   }
 
 
