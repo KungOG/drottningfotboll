@@ -35,14 +35,14 @@ export default {
             var items = db.collection('users');
             await items.get().then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
-                console.log(doc.id)
                 this.allUsers.push(doc.id)
                 })
             })
               console.log(this.allUsers)
               this.addUser();
-              this.$router.replace('/playerinfo');
+              this.$router.replace('/about');
               this.$store.dispatch('setCurrentUser', this.user);
+              this.$store.dispatch("getPlayerFromDb", this.user.uid);
 
 
             }).catch((err) => {
@@ -58,9 +58,9 @@ export default {
               teams: [],
               uid: this.user.uid,
               isAdmin: true,
-              photoURL: 'https://lh4.googleusercontent.com/-LkkgiWfrDiM/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdDB1XgYCjIIg-ALVdJlTb4ox7FRA/mo/photo.jpg'
+              photoURL: this.user.photoURL
             }
-            this.$store.dispatch('addPlayerToDb', user) 
+            this.$store.dispatch('addUserToDb', user) 
           }
         }
         /* ,

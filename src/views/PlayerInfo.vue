@@ -7,16 +7,16 @@
             <p>{{ player.name }}</p>
           </section>
           <section class="info-box">
-            <p>Poäng: {{ player.point }}</p>
+            <p>Poäng: {{ player.teams[0].point }}</p>
           </section>
           <section class="box-container">
             <section class="info-box">
               <p>Vinster:</p>
-              <p>{{ player.point }}</p>
+              <p>{{ player.teams[0].win }}</p>
             </section>
             <section class="info-box">
               <p>Förluster:</p>
-              <p>{{ player.loss }}</p>
+              <p>{{ player.teams[0].loss }}</p>
             </section>
               <button @click="logout">Logout</button>
           </section>
@@ -46,6 +46,13 @@ export default {
         this.$store.dispatch('removeCurrentUser');
         this.$router.push('/');
       }
+    },
+    created () { 
+      this.user = firebase.auth().currentUser; 
+      if(this.user) { 
+        this.photo = this.user.photoURL; 
+        this.userId = this.user.uid; 
+       } 
     }
 }
 </script>

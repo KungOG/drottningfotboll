@@ -20,9 +20,7 @@
 <script>
   export default {
     name: "App",
-    beforeCreate() {
-      this.$store.dispatch("getPlayerFromDb");
-    }
+
   };
 </script>
 
