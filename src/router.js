@@ -14,6 +14,16 @@ const router = new Router({
       component: () => import('./views/Home.vue'),
     },
     {
+      path: '*',
+      name: 'home',
+      component: () => import('./views/Home.vue')
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: () => import('./views/Home.vue')
+    },
+    {
       path: '/home',
       name: 'home',
       component: () => import('./views/Home.vue'),
