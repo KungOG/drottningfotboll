@@ -30,13 +30,16 @@ export default {
     name : 'playerinfo',
     data() {
       return {
-        selected: "",
         userId: '',
-        photo: ''
+        player: {
+          name: "",
+          teams: [{name: '', win: 0, loss:0, point: 0}]
+
+        }
       }
     },
     computed: {
-      player() {
+      getPlayer() {
         return this.$store.getters.getPlayer;
       }
     },
@@ -50,8 +53,8 @@ export default {
     created () { 
       this.user = firebase.auth().currentUser; 
       if(this.user) { 
-        this.photo = this.user.photoURL; 
         this.userId = this.user.uid; 
+        this.player = this.getPlayer;
        } 
     }
 }
