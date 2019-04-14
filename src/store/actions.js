@@ -46,5 +46,9 @@ export default {
     sessionStorage.removeItem('isAdmin');
     ctx.commit('removeCurrentUser');
 
+  },
+  addPlayerName (ctx, name) {
+    var uid = this.state.currentUser.uid;
+    db.collection('users').doc(uid).update({name:name});
   }
 }

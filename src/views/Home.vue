@@ -39,20 +39,22 @@ export default {
                 })
             })
               console.log(this.allUsers)
+            if(this.allUsers.includes(this.user.uid)) {
+              
+              this.$router.replace('/playerinfo');
+
+            } else {
+              
               this.addUser();
-              this.$router.replace('/about');
+              this.$router.replace('/addname');
               this.$store.dispatch('setCurrentUser', this.user);
               this.$store.dispatch("getPlayerFromDb", this.user.uid);
-
-
+            }
             }).catch((err) => {
-                alert('Whops, something happend here..' + err.message)
+              alert('Whops, something happend here..' + err.message)
             });
         },
         addUser(){
-          if(this.allUsers.includes(this.user.uid)) {
-            return;
-          } else {
             var user = {
               name: "",
               teams: [],
@@ -85,5 +87,5 @@ export default {
             });
         } */
     }
-}
+
 </script>
