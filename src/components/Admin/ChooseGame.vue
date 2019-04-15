@@ -1,8 +1,15 @@
 <template>
     <article>
         <section class="content">
-            <p>Steg 2/3</p>
-            <p @click="$router.push('/choosepoint')">Välj Poäng</p>
+            <h1>Välj antal matcher varje lag ska möta varandra</h1>
+            <p>Steg 2/3</p> <!-- Denna ska bort -->
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <br>
+                <br>
+            <p @click="$router.push('/choosepoint')">Nästa</p>
+            <br>
         </section>
         <router-view />
     </article>
@@ -10,6 +17,11 @@
 
 <script>
 export default {
-    name : 'choosegame'
+    name : 'choosegame',
+    data () {
+        return {
+            amountOfMatches: 0,
+        }
+    }
 }
 </script>
