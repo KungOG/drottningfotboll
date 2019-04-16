@@ -34,13 +34,16 @@ export default {
     name : 'playerinfo',
     data() {
       return {
-        selectedTeam: null,
+        selectedTeam: '',
         player: {}
       }
     },
     computed: {
       currentUser() {
         return this.$store.getters.getCurrentUser;
+      },
+      firstTeam() {
+        return this.$store.getters.getCurrentUser.teams[0];
       }
     },
     methods: {
@@ -54,10 +57,13 @@ export default {
         item.get().then((doc) => {
           var player = doc.data();
           this.player = player
-        })
-        
-      }
-    }    
+        })        
+      }      
+    },
+    beforeMount() {
+         this.selectedTeam = this.firstTeam;
+         this.getPlayerInfo();          
+      }    
 }
 </script>
 
