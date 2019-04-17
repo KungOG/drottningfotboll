@@ -6,6 +6,4 @@ export default {
   getTeamPlayers(state) {
     return state.teamPlayers;
   }
-
-
 }

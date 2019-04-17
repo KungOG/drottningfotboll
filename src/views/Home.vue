@@ -7,7 +7,7 @@
       <p>Logga in med Google eller Facebook</p>
       <div>
         <img src="@/assets/google-logo.png" alt="Google Logo" @click="googleLogin">
-  <!--  <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin"> -->
+        <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin">
       </div>
       <br>
     </section>
@@ -38,34 +38,35 @@ export default {
                 this.allUsers.push(doc.id)
                 })
             })
-              console.log(this.allUsers)
-            if(this.allUsers.includes(this.user.uid)) {
-              
-              this.$router.replace('/playerinfo');
-
-            } else {
-              
-              this.addUser();
-              this.$router.replace('/addname');
-              this.$store.dispatch('setCurrentUser', this.user);
-              this.$store.dispatch("getPlayerFromDb", this.user.uid);
-            }
-            }).catch((err) => {
-              alert('Whops, something happend here..' + err.message)
-            });
+            this.loadPage();
+          }).catch((err) => {
+            alert('Whops, something happend here..' + err.message)
+          });
         },
         addUser(){
-            var user = {
-              name: "",
+          var user = {
+            name: "",
               teams: [],
               uid: this.user.uid,
               isAdmin: true,
               photoURL: this.user.photoURL
             }
             this.$store.dispatch('addUserToDb', user) 
+        },
+        async loadPage() {
+          this.$store.dispatch('setCurrentUser', this.user);
+          
+          if(this.allUsers.includes(this.user.uid)) {
+          
+            this.$router.replace('/playerinfo');
+
+          } else {
+            this.addUser();
+            this.$router.replace('/addname');
+            
           }
-        }
-        /* ,
+        },
+        
         facebookLogin () {
             const provider = new firebase.auth.FacebookAuthProvider();
 
@@ -85,7 +86,7 @@ export default {
             var credential = error.credential;
             // ...
             });
-        } */
+        } 
     }
-
+}
 </script>
