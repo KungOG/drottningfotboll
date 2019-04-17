@@ -63,7 +63,7 @@ export default {
     beforeMount() {
          this.selectedTeam = this.firstTeam;
          this.getPlayerInfo();          
-      }    
+    }    
 }
 </script>
 
@@ -86,7 +86,6 @@ export default {
   img {
     width: 100px;
     height: 100px;
-
   }
 
 

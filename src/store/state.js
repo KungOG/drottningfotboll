@@ -1,6 +1,6 @@
 export default {
 
   player: {},
-  teamPlayers: [],
-  currentUser: {}
+  currentUser: {},
+  selectedTeam: ''
 }

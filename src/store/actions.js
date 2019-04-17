@@ -21,7 +21,7 @@ export default {
           teamPlayers.push(obj)
         })
     })
-    ctx.commit('setTeamPlayers', teamPlayers)
+    
   },
 
     addUserToDb(ctx, user) {
@@ -46,5 +46,9 @@ export default {
     sessionStorage.removeItem('isAdmin');
     ctx.commit('removeCurrentUser');
 
+  },
+
+  setSelectedTeam(ctx, selectedTeam) {
+    ctx.commit('setSelectedTeam', selectedTeam);
   }
 }

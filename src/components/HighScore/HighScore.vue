@@ -19,15 +19,32 @@
 
 <script>
 
+import db from '@/firebaseInit'
+
 export default {
     name : 'highscore',
-    beforeCreate() {
-      this.$store.dispatch('getTeamPlayersFromDb');
-    },
-    computed: {
-      teamPlayers() {
-        return this.$store.getters.getTeamPlayers;
+    data() {
+      return {
+        teamPlayers: []
       }
+    },
+    
+    computed: {
+      selectedTeam() {
+        return this.$store.getters.getSelectedTeam;
+      }
+    },
+    mounted() {
+      var teamPlayers = []
+      var item = db.collection('teams').doc(this.selectedTeam).collection('players').orderBy('point')
+      item.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          var obj = (doc.id, " => ", doc.data())
+          teamPlayers.push(obj)
+        })
+       })
+      this.teamPlayers = teamPlayers; 
+      console.log(this.teamPlayers)
     }
 }
 </script>
