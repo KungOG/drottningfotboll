@@ -1,7 +1,7 @@
 export default {
 
-  getPlayer(state) {
-    return state.player;
+  getCurrentUser(state) {
+    return state.currentUser;
   },
   getTeamPlayers(state) {
     return state.teamPlayers;

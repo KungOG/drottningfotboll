@@ -67,24 +67,18 @@ const router = new Router({
       name: 'admin',
       meta: {requiresAuth: true, requiresAdmin: true},
       component: () => import('./views/Admin/Admin.vue')
+    },    
+    {
+      path: '/addplayer',
+      name: 'addplayer',
+      meta: {requiresAuth: true, requiresAdmin: true},
+      component: () => import('./views/Admin/AddPlayer.vue')
     },
     {
-      path: '/adminplayers',
-      name: 'adminplayers',
+      path: '/editplayer',
+      name: 'editplayer',
       meta: {requiresAuth: true, requiresAdmin: true},
-      component: () => import('./views/Admin/AdminPlayers.vue'),
-        children: [
-          {
-            path: '/addplayer',
-            name: 'addplayer',
-            component: () => import('./components/Admin/AddPlayer.vue')
-          },
-          {
-            path: '/editplayer',
-            name: 'editplayer',
-            component: () => import('./components/Admin/EditPlayer.vue')
-          }
-        ]
+      component: () => import('./views/Admin/EditPlayer.vue')  
     },
     {
       path: '/groups',

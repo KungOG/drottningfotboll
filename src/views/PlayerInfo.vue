@@ -1,22 +1,24 @@
 <template>
     <article>
         <section>
-          <img :src=player.photoURL><br>
-          <p>{{userId}}</p>
+          <img :src=currentUser.photoURL><br>
+          <select v-model="selectedTeam" @change="getPlayerInfo">
+            <option v-for="item in currentUser.teams" :value="item">{{item}}</option>
+          </select>
           <section class="info-box">
-            <p>{{ player.name }}</p>
+            <p> {{ currentUser.name }} </p>
           </section>
           <section class="info-box">
-            <p>Poäng: {{ player.teams[0].point }}</p>
+            <p>Poäng: {{ player.point }}</p>
           </section>
           <section class="box-container">
             <section class="info-box">
               <p>Vinster:</p>
-              <p>{{ player.teams[0].win }}</p>
+              <p> {{ player.win }}</p>
             </section>
             <section class="info-box">
               <p>Förluster:</p>
-              <p>{{ player.teams[0].loss }}</p>
+              <p>{{ player.loss }}</p>
             </section>
               <button @click="logout">Logout</button>
           </section>
@@ -26,18 +28,22 @@
 
 <script>
 import firebase from 'firebase'
+import db from '@/firebaseInit'
+
 export default {
     name : 'playerinfo',
     data() {
       return {
-        selected: "",
-        userId: '',
-        photo: ''
+        selectedTeam: '',
+        player: {}
       }
     },
     computed: {
-      player() {
-        return this.$store.getters.getPlayer;
+      currentUser() {
+        return this.$store.getters.getCurrentUser;
+      },
+      firstTeam() {
+        return this.$store.getters.getCurrentUser.teams[0];
       }
     },
     methods: {
@@ -45,15 +51,19 @@ export default {
         firebase.auth().signOut();
         this.$store.dispatch('removeCurrentUser');
         this.$router.push('/');
-      }
+      },
+      getPlayerInfo() {
+        var item = db.collection('teams').doc(this.selectedTeam).collection('players').doc(this.currentUser.uid)
+        item.get().then((doc) => {
+          var player = doc.data();
+          this.player = player
+        })        
+      }      
     },
-    created () { 
-      this.user = firebase.auth().currentUser; 
-      if(this.user) { 
-        this.photo = this.user.photoURL; 
-        this.userId = this.user.uid; 
-       } 
-    }
+    beforeMount() {
+         this.selectedTeam = this.firstTeam;
+         this.getPlayerInfo();          
+      }    
 }
 </script>
 
