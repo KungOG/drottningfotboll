@@ -11,6 +11,7 @@
       <router-link to="/makegroups">Make groups</router-link>|
       <router-link to="/schedules">Schedules</router-link>|
       <router-link to="/editplayer">Edit Player</router-link>|
+      <router-link to="/playerinfo">Player info</router-link>
     </div>
     <router-view/>
   </div>
@@ -19,9 +20,7 @@
 <script>
   export default {
     name: "App",
-    beforeCreate() {
-      this.$store.dispatch("getPlayerFromDb");
-    }
+
   };
 </script>
 

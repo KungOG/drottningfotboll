@@ -35,29 +35,34 @@ export default {
             var items = db.collection('users');
             await items.get().then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
-                console.log(doc.id)
                 this.allUsers.push(doc.id)
                 })
             })
               console.log(this.allUsers)
-              this.addUser();
+            if(this.allUsers.includes(this.user.uid)) {
+              
               this.$router.replace('/playerinfo');
 
+            } else {
+              
+              this.addUser();
+              this.$router.replace('/addname');
+              this.$store.dispatch('setCurrentUser', this.user);
+              this.$store.dispatch("getPlayerFromDb", this.user.uid);
+            }
             }).catch((err) => {
-                alert('Whops, something happend here..' + err.message)
+              alert('Whops, something happend here..' + err.message)
             });
         },
         addUser(){
-          if(this.allUsers.includes(this.user.uid)) {
-            return;
-          } else {
             var user = {
               name: "",
               teams: [],
               uid: this.user.uid,
+              isAdmin: true,
               photoURL: this.user.photoURL
             }
-            this.$store.dispatch('addPlayerToDb', user) 
+            this.$store.dispatch('addUserToDb', user) 
           }
         }
         /* ,
@@ -82,5 +87,5 @@ export default {
             });
         } */
     }
-}
+
 </script>
