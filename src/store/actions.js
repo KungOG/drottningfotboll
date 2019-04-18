@@ -19,6 +19,7 @@ export default {
         querySnapshot.forEach((doc) => {
           var obj = (doc.id, " => ", doc.data())
           teamPlayers.push(obj)
+          console.log(teamPlayers, 'hej')
         })
     })
     ctx.commit('setTeamPlayers', teamPlayers)

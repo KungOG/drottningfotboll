@@ -40,7 +40,8 @@ export default {
             })
               console.log(this.allUsers)
             if(this.allUsers.includes(this.user.uid)) {
-              
+              this.$store.dispatch('setCurrentUser', this.user);
+              this.$store.dispatch("getPlayerFromDb", this.user.uid);
               this.$router.replace('/playerinfo');
 
             } else {

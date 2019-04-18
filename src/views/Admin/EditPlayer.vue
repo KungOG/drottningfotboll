@@ -3,20 +3,20 @@
         <section>
           <section class="info-box">
             <label for="">Namn</label>
-            <input type="text" v-model="name">
+            <input type="text" v-model="player.name">
           </section>
           <section class="info-box">
             <label for="">Poäng</label>        
-            <input type="number" v-model="point">
+            <input type="number" v-model="player.point">
           </section>
           <section class="box-container">
             <section class="info-box">
                 <label for="">Vinster</label>
-                <input type="number" v-model="win">
+                <input type="number" v-model="player.win">
             </section>
             <section class="info-box">
                 <label for="">Förluster</label>
-                <input type="number" v-model="loss">
+                <input type="number" v-model="player.loss">
             </section>
           </section>
         </section>
@@ -26,7 +26,6 @@
 <script>
 export default {
     name : 'editplayer',
-
     data() {
         return {
             name: "",
@@ -34,6 +33,11 @@ export default {
             win: 0,
             loss: 0
         }
+    },
+    computed: {
+      teamPlayers() {
+        return this.$store.getters.getTeamPlayers;
+      }
     }
 }
 

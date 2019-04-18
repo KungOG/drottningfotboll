@@ -15,12 +15,12 @@ const router = new Router({
     },
     {
       path: '*',
-      name: 'home',
+      name: 'homepage',
       component: () => import('./views/Home.vue')
     },
     {
       path: '/home',
-      name: 'home',
+      name: 'homepaged',
       component: () => import('./views/Home.vue')
     },
     {
@@ -78,7 +78,14 @@ const router = new Router({
       path: '/editplayer',
       name: 'editplayer',
       meta: {requiresAuth: true, requiresAdmin: true},
-      component: () => import('./views/Admin/EditPlayer.vue')  
+      component: () => import('./views/Admin/EditPlayer.vue'),
+      children: [ 
+        {
+          path: '/editplayer/:uid',
+          name: 'editplayer',
+          component: () => import('./views/Admin/EditPlayer.vue'),
+        }
+      ]  
     },
     {
       path: '/groups',
