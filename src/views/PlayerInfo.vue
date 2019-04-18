@@ -3,7 +3,7 @@
         <section>
           <img :src=currentUser.photoURL><br>
           <select v-model="selectedTeam" @change="getPlayerInfo">
-            <option v-for="item in currentUser.teams" :value="item">{{item}}</option>
+            <option v-for="item in currentUser.teams" :value="item" :key="item">{{item}}</option>
           </select>
           <section class="info-box">
             <p> {{ currentUser.name }} </p>
@@ -53,10 +53,11 @@ export default {
         this.$router.push('/');
       },
       getPlayerInfo() {
+        console.log('2');
         var item = db.collection('teams').doc(this.selectedTeam).collection('players').doc(this.currentUser.uid)
         item.get().then((doc) => {
           var player = doc.data();
-          this.player = player
+          this.player = player;
         })        
       }      
     },

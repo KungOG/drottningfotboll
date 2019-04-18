@@ -11,12 +11,23 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('./views/Home.vue'),
+      component: () => import('./views/Home.vue')
+    },
+    {
+      path: '*',
+      name: 'home',
+      component: () => import('./views/Home.vue')
     },
     {
       path: '/home',
       name: 'home',
-      component: () => import('./views/Home.vue'),
+      component: () => import('./views/Home.vue')
+    },
+    {
+      path: '/addname',
+      name: 'addname',
+     // meta: {requiresAuth: true},
+      component: () => import('./views/AddName.vue')
     },
     {
       path: '/about',

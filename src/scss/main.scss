@@ -34,6 +34,18 @@ body {
     }
     .content {
       background: white;
+      a {
+        text-decoration: none;
+        color: black;
+        border: 1px solid black;
+        border-radius: 25%;
+        padding: .5rem .8rem;
+        margin: 1rem;
+        font-weight: bold;
+        &:hover {
+          background: red;
+        }
+      }
       div {
         display: grid;
         justify-content: center;

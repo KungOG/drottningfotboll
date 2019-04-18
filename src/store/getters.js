@@ -6,6 +6,4 @@ export default {
   getSelectedTeam(state) {
     return state.selectedTeam;
   }
-
-
 }

@@ -2,16 +2,6 @@
 import db from '@/firebaseInit'
 
 export default {
-
-    getPlayerFromDb(ctx, uid) {
-      console.log(uid)
-        var item = db.collection('users').doc(uid)
-        item.get().then((doc) => {
-          var player = doc.data();
-          ctx.commit('setPlayer', player)
-        })
-    },
-
     async getTeamPlayersFromDb(ctx) {
       var teamPlayers = []
       var item = await db.collection('teams').doc('skogaby').collection('players').orderBy('point')
@@ -38,6 +28,7 @@ export default {
        console.log(currentUser);   
        ctx.commit('setCurrentUser', currentUser)
        sessionStorage.setItem('isAdmin', currentUser.isAdmin);
+       
    
     })
   },
@@ -50,5 +41,10 @@ export default {
 
   setSelectedTeam(ctx, selectedTeam) {
     ctx.commit('setSelectedTeam', selectedTeam);
+  },
+
+  addPlayerName (ctx, name) {
+    var uid = this.state.currentUser.uid;
+    db.collection('users').doc(uid).update({name:name});
   }
 }
