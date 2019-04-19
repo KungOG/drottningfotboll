@@ -24,6 +24,11 @@ const router = new Router({
       component: () => import('./views/Home.vue')
     },
     {
+      path: '/loading',
+      name: 'loading',
+      component: () => import('./views/Loading.vue')
+    },
+    {
       path: '/addname',
       name: 'addname',
      // meta: {requiresAuth: true},

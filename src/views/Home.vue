@@ -53,17 +53,15 @@ export default {
             }
             this.$store.dispatch('addUserToDb', user) 
         },
-        async loadPage() {
-          this.$store.dispatch('setCurrentUser', this.user);
-          
-          if(this.allUsers.includes(this.user.uid)) {
-          
-            this.$router.replace('/playerinfo');
-
+        loadPage() {
+                 
+          if(this.allUsers.includes(this.user.uid)) {   
+            this.$store.dispatch('setCurrentUser', this.user);         
+            this.$router.replace('/loading');
           } else {
             this.addUser();
-            this.$router.replace('/addname');
-            
+             this.$store.dispatch('setCurrentUser', this.user);  
+            this.$router.replace('/addname');            
           }
         },
         

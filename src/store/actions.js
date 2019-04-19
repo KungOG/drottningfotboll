@@ -25,7 +25,6 @@ export default {
        item.get().then((doc) => {
         var currentUser = doc.data();
        
-       console.log(currentUser);   
        ctx.commit('setCurrentUser', currentUser)
        sessionStorage.setItem('isAdmin', currentUser.isAdmin);
        
