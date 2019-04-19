@@ -3,20 +3,20 @@
         <section>
           <section class="info-box">
             <label for="">Namn</label>
-            <input type="text" v-model="player.name">
+            <input type="text" v-model="name">
           </section>
           <section class="info-box">
             <label for="">Poäng</label>        
-            <input type="number" v-model="player.point">
+            <input type="number" v-model="point">
           </section>
           <section class="box-container">
             <section class="info-box">
                 <label for="">Vinster</label>
-                <input type="number" v-model="player.win">
+                <input type="number" v-model="win">
             </section>
             <section class="info-box">
                 <label for="">Förluster</label>
-                <input type="number" v-model="player.loss">
+                <input type="number" v-model="loss">
             </section>
           </section>
         </section>
