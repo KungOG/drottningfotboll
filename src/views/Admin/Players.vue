@@ -1,14 +1,14 @@
 <template>
     <main class="main">
-        <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
+        <article class="list-wrapper" v-for="(player, index) in teamPlayers.slice().reverse()" :key="index" @click="$router.push(`/editplayer/${player.uid}`)">
           <section class="container">
             <section>
-              <h3>{{item.name}}</h3>
+              <h3>{{player.name}}</h3>
             </section>
             <section class="score">
-              <p id="win">Poäng: {{item.point}}</p>
-              <p id="win">Vinster: {{item.win}}</p>
-              <p>Förluster: {{item.loss}}</p>
+              <p id="win">Poäng: {{player.point}}</p>
+              <p id="win">Vinster: {{player.win}}</p>
+              <p>Förluster: {{player.loss}}</p>
             </section>
           </section>
         </article>
@@ -26,7 +26,8 @@ export default {
       teamPlayers() {
         return this.$store.getters.getTeamPlayers;
       }
-    }
+    },
+    methods: {}
 }
 </script>
 

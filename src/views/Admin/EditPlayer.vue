@@ -26,7 +26,6 @@
 <script>
 export default {
     name : 'editplayer',
-
     data() {
         return {
             name: "",
@@ -34,6 +33,11 @@ export default {
             win: 0,
             loss: 0
         }
+    },
+    computed: {
+      teamPlayers() {
+        return this.$store.getters.getTeamPlayers;
+      }
     }
 }
 
