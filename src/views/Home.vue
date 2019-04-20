@@ -7,7 +7,7 @@
       <p>Logga in med Google eller Facebook</p>
       <div>
         <img src="@/assets/google-logo.png" alt="Google Logo" @click="googleLogin">
-        <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin">
+      <!--  <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin"> -->
       </div>
       <br>
     </section>
@@ -45,7 +45,7 @@ export default {
         },
         addUser(){
           var user = {
-            name: "",
+              name: "",
               teams: [],
               uid: this.user.uid,
               isAdmin: true,

@@ -3,67 +3,79 @@
 @import './_variables';
 
 body {
+  @extend %center;
+  background: grey;
+
+  .btn {
+    padding: .5rem;
+    text-decoration: none;
+    color: black;
+    margin: 1rem;
+    border: 1px solid black;
+
+    &:hover {
+      color: rgb(209, 21, 21);
+    }
+  }
+
+  .logo {
     @extend %center;
-    background: grey;
+    background: darkcyan;
+  }
+  .navigation {
+    background: white;
 
-    .logo {
+    thead {
       @extend %center;
-      background: darkcyan;
-    }
-    .navigation {
-      background: white;
-
-      thead {
-        @extend %center;
-    
-        tr {
-          td {
-            padding: .5rem;
-            border: 1px solid black;
-          }
+  
+      tr {
+        td {
+          padding: .5rem;
+          border: 1px solid black;
         }
       }
-
     }
-    /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
-    .aboutContent {
-      background: darkred;
-      color: white;
-      padding: 5rem 0;
-      border: 2px solid white;
-    }
-    .content {
-      background: white;
-      a {
-        text-decoration: none;
-        color: black;
-        border: 1px solid black;
-        border-radius: 25%;
-        padding: .5rem .8rem;
-        margin: 1rem;
-        font-weight: bold;
-        &:hover {
-          background: red;
-        }
-      }
-      div {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        background: yellow;
-      }
-    } 
-    .schema {
-      @extend %layout;
-      background: white;
-      color: red;  
-            
-      p {
-        padding: 2rem;
-        border: 1px solid red;
-        margin: .2rem;
+  }
+  
+  /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
+  .aboutContent {
+    background: darkred;
+    color: white;
+    padding: 5rem 0;
+    border: 2px solid white;
+  }
+  .content {
+    background: white;
+    a {
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      border-radius: 25%;
+      padding: .5rem .8rem;
+      margin: 1rem;
+      font-weight: bold;
+      &:hover {
+        background: red;
       }
     }
+    div {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      background: yellow;
+    }
+  } 
+  .schema {
+    @extend %layout;
+    background: white;
+    color: red;  
+          
+    p {
+      padding: 2rem;
+      border: 1px solid red;
+      margin: .2rem;
+    }
+  }
 }
 
 

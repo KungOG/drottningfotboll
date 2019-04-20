@@ -3,22 +3,26 @@
         <section>
           <section class="info-box">
             <label for="">Namn</label>
-            <input type="text" v-model="name">
-          </section>
-          <section class="info-box">
-            <label for="">Poäng</label>        
-            <input type="number" v-model="point">
+            <input type="text" v-model="player.name">
           </section>
           <section class="box-container">
             <section class="info-box">
                 <label for="">Vinster</label>
-                <input type="number" v-model="win">
+                <input type="number" v-model="player.win">
             </section>
             <section class="info-box">
                 <label for="">Förluster</label>
-                <input type="number" v-model="loss">
+                <input type="number" v-model="player.loss">
             </section>
           </section>
+          <section class="info-box">
+            <label for="">Poäng</label>        
+            <input type="number" v-model="player.point">
+          </section>
+            <section>
+            <a href="#" class="btn" @click="remakePlayer">Redigera Spelare</a>
+            <a href="#" class="btn" @click="deletePlayer">Ta bort Spelaren</a> 
+            </section>
         </section>
     </article>
 </template>
@@ -26,26 +30,40 @@
 <script>
 export default {
     name : 'editplayer',
-    data() {
-        return {
-            name: "",
-            point: 0,
-            win: 0,
-            loss: 0
-        }
-    },
-    computed: {
-      teamPlayers() {
-        return this.$store.getters.getTeamPlayers;
+    data () {
+      return {
+        namn: '',
+        poäng: 0,
+        vinster: 0,
+        förluster: 0,
       }
+    },
+    computed : {
+
+      player () {
+        return this.$store.getters.getPlayerByUid(
+          this.$route.params.uid
+        );
+      }
+    }, 
+    methods : {
+
+        /* Ta bort en spelare */
+        deletePlayer () {
+           console.log('deleted');
+           // this.$store.dispatch('');
+        },
+        /* Ändra spelaren */
+        remakePlayer () {
+          console.log('remakePlayer');
+          //this.$store.dispatch('');
+        }
     }
 }
 
 </script>
-
-
 <style scoped lang="scss">
-  
+@import '@/scss/main.scss';
 
   .box-container {
     display: flex;
@@ -54,6 +72,7 @@ export default {
 
   .info-box {
     display : flex;
+    margin: 1rem;
     justify-content : center;
     align-items : center;
     flex-direction: column;

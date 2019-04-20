@@ -1,5 +1,8 @@
 export default {
-
+  
+  player (state) {
+    return state.player;
+  },
   getCurrentUser(state) {
     return state.currentUser;
   },
@@ -11,8 +14,8 @@ export default {
   },
   getPlayerByUid (state) {
     return (uid) => {
-      return state.players.filter(
-        player => player._uid == uid
+      return state.teamPlayers.filter(
+        player => player.uid == uid
       )[0]
     }
   }
