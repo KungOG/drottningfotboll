@@ -3,5 +3,9 @@ export default {
   player: {},
   teamPlayers: [],
   currentUser: {},
-  selectedTeam: ''
+  selectedTeam: '',
+  numberOfTeams: 0,
+  numberOfgames: 0,
+  numberOfWin: 0,
+  numberOfLoss: 0
 }

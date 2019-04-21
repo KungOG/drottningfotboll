@@ -14,5 +14,17 @@ export default {
   },
   setSelectedTeam(state, selectedTeam) {
     state.selectedTeam = selectedTeam;
+  },
+  setNumberOfTeams(state, num) {
+    state.numberOfTeams = num;
+  },
+  setNumberOfGames(state, num) {
+    state.numberOfGames = num;
+  },
+  setNumberOfWin(state, num) {
+    state.numberOfWin = num;
+  },
+  setNumberOfLoss(state, num) {
+    state.numberOfLoss = num;
   }
 }
