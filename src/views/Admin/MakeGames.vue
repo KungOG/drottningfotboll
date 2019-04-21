@@ -1,13 +1,13 @@
 <template>
     <main>
         <section class="content">
-            <h1>Välj antal Lag</h1> 
-                <a href="#" :class="[{hide1:select1 == 1}, {hide2:select2 == 1}]" @click="addNumberOfTeams(2, 2, 3)" :disabled = isDisabled>2</a>
-                <a href="#" :class="[{hide1:select1 == 2}, {hide2:select2 == 2}]" @click="addNumberOfTeams(3, 1, 3)" :disabled = isDisabled>3</a>
-                <a href="#" :class="[{hide1:select1 == 3}, {hide2:select2 == 3}]" @click="addNumberOfTeams(4, 1, 2)" :disabled = isDisabled>4</a>
-
-                <br>
-                <br>
+            <h1 v-if="!show">Välj antal Lag</h1> 
+            <a href="#" v-if="show" @click="show = !show">Antal lag: {{ numberOfTeams }}</a>
+            <a href="#" v-if="!show"  @click="addNumberOfTeams(2)" >2</a>
+            <a href="#" v-if="!show"  @click="addNumberOfTeams(3)" >3</a>
+            <a href="#" v-if="!show"  @click="addNumberOfTeams(4)" >4</a>
+            <br>
+            <br>
             <br>
         </section>
          <router-view />
@@ -19,27 +19,26 @@ export default {
     name : 'makegame',
     data () {
         return {
+            numberOfTeams: 0,
             isDisabled: false,
-            select1: undefined,
-            select2: undefined
+            show: false
         }
     },
     methods: {
-        addNumberOfTeams(num, value1, value2) {
+        addNumberOfTeams(num) {
             this.isDisabled = true;
-            this.select1 = value1;
-            this.select2 = value2;
+            this.numberOfTeams = num;
+            this.show = !this.show;
             this.$store.dispatch('setNumberOfTeams', num)
-            this.$router.push('/choosegame');
+            if(this.$router.history.current.name == 'makegames' ) {
+                this.$router.push('/choosegame');
+            }
+            
+        },
+        toggle() {
+            this.show = !this.show;
+            console.log(this.show)
         }
     }
 }
 </script>
-
-<style lang="scss" scoped>
-
-.hide1,
-.hide2 {
-    display: none !important;
-}
-</style>

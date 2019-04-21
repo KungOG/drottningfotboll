@@ -5,7 +5,7 @@ export default {
   currentUser: {},
   selectedTeam: '',
   numberOfTeams: 0,
-  numberOfgames: 0,
+  numberOfGames: 0,
   numberOfWin: 0,
   numberOfLoss: 0
 }
