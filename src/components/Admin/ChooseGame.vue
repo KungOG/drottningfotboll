@@ -3,9 +3,9 @@
         <section class="content">
             <h1 v-if="!show">Välj antal matcher</h1>
             <a href="#" v-if="show" @click="show = !show">Antal spel: {{ numberOfGames }}</a>
-            <a href="#" v-if="!show" @click="addNumberOfGames(2)" :disabled = isDisabled>2</a>
-            <a href="#" v-if="!show" @click="addNumberOfGames(3)" :disabled = isDisabled>3</a>
-            <a href="#" v-if="!show" @click="addNumberOfGames(4)" :disabled = isDisabled>4</a>
+            <a href="#" v-if="!show" @click="addNumberOfGames(2)">2</a>
+            <a href="#" v-if="!show" @click="addNumberOfGames(3)">3</a>
+            <a href="#" v-if="!show" @click="addNumberOfGames(4)">4</a>
             <br>
             <br>
             <br>
@@ -20,7 +20,6 @@ export default {
     data () {
         return {
             numberOfGames: 0,
-            isDisabled: false,
             show: false
         }
     },
@@ -37,11 +36,4 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.hide1,
-.hide2 {
-    display: none !important;
-}
-</style>
 
