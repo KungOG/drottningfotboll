@@ -1,6 +1,7 @@
 import db from '@/firebaseInit'
 export default {
 
+  /* Hämta alla användare ifrån DB:n */
   getPlayerFromDb(ctx, uid) {
     console.log(uid)
     var item = db.collection('users').doc(uid)
@@ -10,6 +11,7 @@ export default {
     })
   },
 
+  /* Hämta det specifika laget och deras spelare */
   async getTeamPlayersFromDb(ctx) {
     var teamPlayers = []
     var item = await db.collection('teams').doc('veinge').collection('players').orderBy('point')
@@ -23,6 +25,7 @@ export default {
     ctx.commit('setTeamPlayers', teamPlayers)
   },
 
+  /* Hämtar din info som användare */
   async setCurrentUser(ctx, user) {
     var item = await db.collection('users').doc(user.uid)
     item.get().then((doc) => {
@@ -33,14 +36,18 @@ export default {
     })
   },
 
+  /* */
   addUserToDb(ctx, user) {
     db.collection('users').doc(user.uid).set(user)
   },
+
+  /* Tar bort statusen Admin när du loggar ut */
   removeCurrentUser(ctx) {
     sessionStorage.removeItem('isAdmin');
     ctx.commit('removeCurrentUser');
-
   },
+
+  /* Sätta ditt namn första gången du loggar in */
   addPlayerName (ctx, name) {
     var uid = this.state.currentUser.uid;
     db.collection('users').doc(uid).update({name:name});
