@@ -3,13 +3,13 @@ export default {
 
   /* Hämta en spelare ifrån DB:n */
   getPlayerFromDb(ctx, uid) {
-    console.log(uid)
     var item = db.collection('users').doc(uid)
     item.get().then((doc) => {
       var player = doc.data();
       ctx.commit('setPlayer', player)
     })
   },
+
   /* Hämta alla users ifrån DB:n */
   async getAllUsersFromDb(ctx) {
     var allUsers = []
@@ -18,7 +18,6 @@ export default {
       querySnapshot.forEach((doc) => {
         var obj = (doc.id, " => ", doc.data())
         allUsers.push(obj)
-        console.log(allUsers)
       })
     })
     ctx.commit('setAllUsers', allUsers)
@@ -32,7 +31,6 @@ export default {
       querySnapshot.forEach((doc) => {
         var obj = (doc.id, " => ", doc.data())
         teamPlayers.push(obj)
-        console.log(teamPlayers)
       })
     })
     ctx.commit('setTeamPlayers', teamPlayers)
@@ -77,27 +75,32 @@ export default {
   setNumberOfLoss(ctx, num) {
     ctx.commit('setNumberOfLoss', num);
   },
-  submitPlayer(ctx, player, id) {
-    var newPlayer = {
-      name: player.name,
-      loss: 0,
-      win: 0,
-      point: 0,
-      id: id,
-    }
+
+  /* Lägg till spelare till admins lag */
+  submitPlayer(ctx, player) {
     var adminTeam = this.state.currentUser.teams[0];
-    db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(newPlayer)
+    db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
-  addPlayerToDb(ctx, playerName, id) {
-    var playerInfo = {
-      name: playerName,
-      goal: 0,
-      win: 0,
-      loss: 0,
-      point: 0,
-      id: id,
-    }
+
+  /* Lägg till en tillfällig spelare till admins lag */
+  addPlayerToDb(ctx, player) {
     var adminTeam = this.state.currentUser.teams[0];
-    db.collection('teams').doc(adminTeam).collection('players').doc().set(playerInfo)
+    db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
+  },
+
+  /* Ta bort en spelare ifrån admins lag */
+  removePlayerFromTeam (ctx, player) {
+    var adminTeam = this.state.currentUser.teams[0];
+    db.collection('teams').doc(adminTeam).collection('players').doc(player).delete();
+  },
+
+  /* Ändra en spelare ifrån admins lag */
+  remakePlayerFromTeam (ctx, player) {
+    var adminTeam = this.state.currentUser.teams[0];
+    db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
+  },
+
+  setSelectedTeam(ctx, team) {
+    ctx.commit('setSelectedTeam', team)
   }
 }

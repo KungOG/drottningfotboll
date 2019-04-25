@@ -32,10 +32,13 @@ export default {
     name : 'editplayer',
     data () {
       return {
-        namn: '',
-        poäng: 0,
-        vinster: 0,
-        förluster: 0,
+        player: {
+          namn: '',
+          point: '',
+          win: '',
+          loss: '',
+          uid: player.uid
+        }
       }
     },
     computed : {
@@ -50,13 +53,17 @@ export default {
 
         /* Ta bort en spelare */
         deletePlayer () {
-           console.log('deleted');
-           // this.$store.dispatch('');
+          console.log('deleted');
+          this.$store.dispatch('removePlayerFromTeam', this.player.uid);
+          setTimeout(() => this.$router.push({
+            path: '/players'
+          }), 1000);
         },
+
         /* Ändra spelaren */
         remakePlayer () {
-          console.log('remakePlayer');
-          //this.$store.dispatch('');
+          console.log(this.player);
+          this.$store.dispatch('remakePlayerFromTeam', this.player);
         }
     }
 }

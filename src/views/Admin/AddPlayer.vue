@@ -39,9 +39,13 @@ export default {
       }
     },
     computed: {
+
+      /* Hämta alla användare */
       allUsers () {
         return this.$store.getters.getAllUsers;
       },
+
+      /* Sök funktion */
       filterUsers () {
         return this.allUsers.filter((player) => {
           return player.name.match(this.search);
@@ -49,31 +53,52 @@ export default {
       }
     },
     methods: {
+
+      /* Lägg till en tillfällig spelare */
       addPlayer() {
         this.idCode ();
-        console.log(this.id)
-        this.$store.dispatch('addPlayerToDb', this.name, this.id)
+        var newPlayer = {
+          name: this.name,
+          goal: 0,
+          win: 0,
+          loss: 0,
+          point: 0,
+          uid: this.id,
+        }
+        this.$store.dispatch('addPlayerToDb', newPlayer)
+        this.name = ''
       },
-      markPlayer (player) {
+
+      /* Markerad vald spelare */
+      markPlayer(player) {
         this.chosenPlayer = player;
-        console.log('Added player' + this.chosenPlayer)
       },
+
+      /* Addera en spelare som har ett konto */
       submitPlayer() {
         this.idCode ();
-        console.log(this.id);
-        this.$store.dispatch('submitPlayer', this.chosenPlayer, this.id)
+        var addPlayer = 
+          {
+            name: this.chosenPlayer.name,
+            goal: 0,
+            loss: 0, 
+            win: 0, 
+            point: 0, 
+            uid: this.chosenPlayer.uid,
+          }
+        
+        this.$store.dispatch('submitPlayer', addPlayer);
       },
-      idCode () {
-        function uid() {
-          let chars = "ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789";
+      
+      /* Skaffa ett random UID */
+      idCode() {       
+          let chars = "ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789abcdefghijklmnopqrstvwxyz";
           let code = [];
-
-          for (let i = 0; i < 10; i++) {
+          for (let i = 0; i < 20; i++) {
               let rand = Math.floor(Math.random() * chars.length);
               code.push(chars[rand]);
           }
-          this.id = code.join("");
-        };
+          this.id = code.join(""); 
       }
     }
 }
