@@ -3,7 +3,7 @@
         <h1>Admin</h1>
         <section class="schema">
             <p @click="$router.push('/makegames')">Skapa spel</p>
-            <p @click="$router.push('/editplayer')">Redigera spelare</p>
+            <p @click="$router.push('/players')">Redigera spelare</p>
         </section>
         <section class="schema">
             <p @click="$router.push('/group')"> Grupper | </p>

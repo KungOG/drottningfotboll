@@ -7,6 +7,7 @@
       <p>Logga in med Google eller Facebook</p>
       <div>
         <img src="@/assets/google-logo.png" alt="Google Logo" @click="googleLogin">
+        <p @click="$router.push('./adminlogin')">Admin</p>
       <!--  <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin"> -->
       </div>
       <br>
