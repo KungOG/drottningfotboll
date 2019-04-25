@@ -15,6 +15,11 @@ export default {
     return state.selectedTeam;
   },
 
+  /* Alla users*/
+  getAllUsers(state) {
+    return state.allUsers;
+  },
+
   /* Lagets spelare */
   getTeamPlayers(state) {
     return state.teamPlayers;

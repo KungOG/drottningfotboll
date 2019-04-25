@@ -5,6 +5,11 @@ export default {
     state.player = player;
   },
 
+  /* Hämtat alla users */
+  setAllUsers(state, allUsers) {
+    state.allUsers = allUsers;
+  }, 
+
   /* Hämtat alla lagetsspelare */
   setTeamPlayers(state, teamPlayers) {
     state.teamPlayers = teamPlayers;

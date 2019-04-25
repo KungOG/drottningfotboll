@@ -50,7 +50,8 @@ export default {
               teams: [],
               uid: this.user.uid,
               isAdmin: true,
-              photoURL: this.user.photoURL
+              photoURL: this.user.photoURL,
+              email: this.user.email
             }
             this.$store.dispatch('addUserToDb', user) 
         },

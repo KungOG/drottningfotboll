@@ -1,7 +1,7 @@
 import db from '@/firebaseInit'
 export default {
 
-  /* Hämta alla användare ifrån DB:n */
+  /* Hämta en spelare ifrån DB:n */
   getPlayerFromDb(ctx, uid) {
     console.log(uid)
     var item = db.collection('users').doc(uid)
@@ -10,11 +10,24 @@ export default {
       ctx.commit('setPlayer', player)
     })
   },
+  /* Hämta alla users ifrån DB:n */
+  async getAllUsersFromDb(ctx) {
+    var allUsers = []
+    var item = await db.collection('users')
+    await item.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        var obj = (doc.id, " => ", doc.data())
+        allUsers.push(obj)
+        console.log(allUsers)
+      })
+    })
+    ctx.commit('setAllUsers', allUsers)
+  },
 
   /* Hämta det specifika laget och deras spelare */
   async getTeamPlayersFromDb(ctx) {
     var teamPlayers = []
-    var item = await db.collection('teams').doc('veinge').collection('players').orderBy('point')
+    var item = await db.collection('teams').doc('skogaby').collection('players').orderBy('point')
     await item.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         var obj = (doc.id, " => ", doc.data())
@@ -63,5 +76,28 @@ export default {
   },
   setNumberOfLoss(ctx, num) {
     ctx.commit('setNumberOfLoss', num);
+  },
+  submitPlayer(ctx, player, id) {
+    var newPlayer = {
+      name: player.name,
+      loss: 0,
+      win: 0,
+      point: 0,
+      id: id,
+    }
+    var adminTeam = this.state.currentUser.teams[0];
+    db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(newPlayer)
+  },
+  addPlayerToDb(ctx, playerName, id) {
+    var playerInfo = {
+      name: playerName,
+      goal: 0,
+      win: 0,
+      loss: 0,
+      point: 0,
+      id: id,
+    }
+    var adminTeam = this.state.currentUser.teams[0];
+    db.collection('teams').doc(adminTeam).collection('players').doc().set(playerInfo)
   }
 }

@@ -1,6 +1,10 @@
 <template>
     <main class="main">
-        <article class="list-wrapper" v-for="(player, index) in teamPlayers.slice().reverse()" :key="index" @click="$router.push(`/editplayer/${player.uid}`)">
+      <article>
+        <section @click="$router.push('./addplayer')">
+          <p>Lägg till Spelare</p>
+        </section>
+        <section class="list-wrapper" v-for="(player, index) in teamPlayers.slice().reverse()" :key="index" @click="$router.push(`/editplayer/${player.uid}`)">
           <section class="container">
             <section>
               <h3>{{player.name}}</h3>
@@ -11,7 +15,8 @@
               <p>Förluster: {{player.loss}}</p>
             </section>
           </section>
-        </article>
+        </section>
+      </article>
     </main>
 </template>
 
