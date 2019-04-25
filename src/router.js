@@ -115,9 +115,16 @@ const router = new Router({
           component: () => import('./components/Admin/ChooseGame.vue'),
           children: [
             {
-              path: '/choosepoint',
-              name: 'choosepoint',
-              component: () => import('./components/Admin/ChoosePoint.vue')
+              path: '/choosewin',
+              name: 'choosewin',
+              component: () => import('./components/Admin/ChooseWin.vue'),
+              children: [
+                {
+                  path: '/chooseloss',
+                  name: 'chooseloss',
+                  component: () => import('./components/Admin/ChooseLoss.vue')
+                }
+              ]
             }
           ]
         }

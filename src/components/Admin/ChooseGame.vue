@@ -1,14 +1,13 @@
 <template>
     <article>
         <section class="content">
-            <h1>Välj antal matcher varje lag ska möta varandra</h1>
-            <p>Steg 2/3</p> <!-- Denna ska bort -->
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <br>
-                <br>
-            <p @click="$router.push('/choosepoint')">Nästa</p>
+            <h1 v-if="!show">Välj antal matcher</h1>
+            <a href="#" v-if="show" @click="show = !show">Antal spel: {{ numberOfGames }}</a>
+            <a href="#" v-if="!show" @click="addNumberOfGames(2)">2</a>
+            <a href="#" v-if="!show" @click="addNumberOfGames(3)">3</a>
+            <a href="#" v-if="!show" @click="addNumberOfGames(4)">4</a>
+            <br>
+            <br>
             <br>
         </section>
         <router-view />
@@ -20,8 +19,21 @@ export default {
     name : 'choosegame',
     data () {
         return {
-            amountOfMatches: 0,
+            numberOfGames: 0,
+            show: false
+        }
+    },
+    methods: {
+        addNumberOfGames(num) {
+            this.isDisabled = true;
+            this.numberOfGames = num;
+            this.show = !this.show;
+            this.$store.dispatch('setNumberOfGames', num)
+            if(this.$router.history.current.name == 'choosegame' ) {
+              this.$router.push('/choosewin');
+            }
         }
     }
 }
 </script>
+

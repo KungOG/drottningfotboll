@@ -51,5 +51,17 @@ export default {
   addPlayerName (ctx, name) {
     var uid = this.state.currentUser.uid;
     db.collection('users').doc(uid).update({name:name});
+  },
+  setNumberOfTeams(ctx, num) {
+    ctx.commit('setNumberOfTeams', num);
+  },
+  setNumberOfGames(ctx, num) {
+    ctx.commit('setNumberOfGames', num);
+  },
+  setNumberOfWin(ctx, num) {
+    ctx.commit('setNumberOfWin', num);
+  },
+  setNumberOfLoss(ctx, num) {
+    ctx.commit('setNumberOfLoss', num);
   }
 }

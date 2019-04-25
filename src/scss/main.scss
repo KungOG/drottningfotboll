@@ -25,14 +25,26 @@ body {
   .navigation {
     background: white;
 
-    thead {
-      @extend %center;
-  
-      tr {
-        td {
-          padding: .5rem;
-          border: 1px solid black;
-        }
+    }
+    /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
+    .aboutContent {
+      background: darkred;
+      color: white;
+      padding: 5rem 0;
+      border: 2px solid white;
+    }
+    .content {
+      background: white;
+      a {
+        text-decoration: none;
+        color: black;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: .5rem .8rem;
+        margin: 1rem;
+        font-weight: bold;
+        background: white;
+        
       }
     }
   }
@@ -76,8 +88,6 @@ body {
       margin: .2rem;
     }
   }
-}
-
 
 
 /* Detta försvinner med tiden */

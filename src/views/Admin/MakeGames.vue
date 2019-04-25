@@ -1,14 +1,13 @@
 <template>
     <main>
         <section class="content">
-            <h1>Välj antal Lag</h1> 
-            <p>Steg 1/3</p> <!-- Denna ska bort -->
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <br>
-                <br>
-            <p @click="$router.push('/choosegame')">Nästa</p>
+            <h1 v-if="!show">Välj antal Lag</h1> 
+            <a href="#" v-if="show" @click="show = !show">Antal lag: {{ numberOfTeams }}</a>
+            <a href="#" v-if="!show" @click="addNumberOfTeams(2)" >2</a>
+            <a href="#" v-if="!show" @click="addNumberOfTeams(3)" >3</a>
+            <a href="#" v-if="!show" @click="addNumberOfTeams(4)" >4</a>
+            <br>
+            <br>
             <br>
         </section>
          <router-view />
@@ -18,10 +17,22 @@
 <script>
 export default {
     name : 'makegame',
-    data () {
+    data () { 
         return {
-            amountOfTeams: 0,
+            numberOfTeams: 0,
+            show: false
         }
+    },
+    methods: {
+        addNumberOfTeams(num) {
+            this.isDisabled = true;
+            this.numberOfTeams = num;
+            this.show = !this.show;
+            this.$store.dispatch('setNumberOfTeams', num)
+            if(this.$router.history.current.name == 'makegames' ) {
+                this.$router.push('/choosegame');
+            }  
+        }           
     }
 }
 </script>
