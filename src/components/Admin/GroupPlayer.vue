@@ -4,7 +4,7 @@
             <section class="container">
                 {{player.name}}
                 {{amount}}
-                <aside v-bind:style="{color: activeColor}">X</aside>
+                <aside :style="{color: activeColor}">X</aside>
             </section>
         </section>
     </article>
