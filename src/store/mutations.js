@@ -40,5 +40,11 @@ export default {
   },
   setNumberOfLoss(state, num) {
     state.numberOfLoss = num;
+  },
+
+  /* Ta bort spelaren i listan TeamPlayer */
+  deletePlayer(state, id) {
+    var index = state.teamPlayers.findIndex(player => player.uid == id)
+    state.teamPlayers.splice(index, 1)
   }
 }

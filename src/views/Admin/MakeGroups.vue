@@ -1,13 +1,27 @@
     
 <template>
-    <main class="content">
+    <main>
         <h1>Make groups</h1>
-        <p>Sista steget av att göra ett nytt spel</p>
+        <section>        
+            <groupplayer v-for="player in players" :key="player.uid" :player="player" />
+        </section>
     </main>
 </template>
 
 <script>
+import groupplayer from '@/components/Admin/GroupPlayer.vue';
 export default {
-    name : 'makegroups'
+    name : 'makegroups',
+   beforeCreate() {
+      this.$store.dispatch('getTeamPlayersFromDb');
+    },
+    components : {
+        groupplayer
+    },
+    computed: {
+        players () {
+             return this.$store.getters.getTeamPlayers;
+        }
+    }
 }
 </script>

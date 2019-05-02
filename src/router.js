@@ -140,14 +140,7 @@ const router = new Router({
       path: '/players',
       name: 'players',
       meta: {requiresAuth: true, requiresAdmin: true},
-      component: () => import('./views/Admin/Players.vue'),
-      children: [
-        {
-          path: '/player',
-          name: 'player',
-          component: () => import('./components/Admin/Player.vue')
-        }
-      ]
+      component: () => import('./views/Admin/Players.vue')
     },
     {
       path: '/schedules',

@@ -65,6 +65,7 @@ export default {
       },
       idCode () {
         function uid() {
+          console.log('Körs')
           let chars = "ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789";
           let code = [];
 

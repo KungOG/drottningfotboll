@@ -77,6 +77,8 @@ export default {
   setNumberOfLoss(ctx, num) {
     ctx.commit('setNumberOfLoss', num);
   },
+
+  /* Lägg till befintligspelare till laget */
   submitPlayer(ctx, player, id) {
     var newPlayer = {
       name: player.name,
@@ -88,6 +90,8 @@ export default {
     var adminTeam = this.state.currentUser.teams[0];
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(newPlayer)
   },
+
+  /* Lägg till tillfällig spelare */
   addPlayerToDb(ctx, playerName, id) {
     var playerInfo = {
       name: playerName,
@@ -99,5 +103,10 @@ export default {
     }
     var adminTeam = this.state.currentUser.teams[0];
     db.collection('teams').doc(adminTeam).collection('players').doc().set(playerInfo)
+  },
+  
+  /* Ta bort spelaren ifrån store */
+  deletePlayer(ctx, player) {
+    ctx.commit('deletePlayer', player);
   }
 }
