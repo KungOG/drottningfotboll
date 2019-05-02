@@ -4,7 +4,7 @@
             <section class="container">
                 {{player.name}}
                 {{amount}}
-                <aside class="{color}">X</aside>
+                <aside v-bind:style="{color: activeColor}">X</aside>
             </section>
         </section>
     </article>
@@ -16,7 +16,8 @@ export default {
     props: ['player'],
     data () {
         return {
-            amount : 0
+            amount : 0,
+            activeColor: ''
         }
     },
     methods: {
@@ -26,15 +27,18 @@ export default {
         setColor () {
             this.amount++
             if (this.amount === 1) {
-                return
+                this.activeColor = "green"
             } else if (this.amount === 2){
-                
+                 this.activeColor = "red"
             } else if (this.amount === 3){
-
+                this.activeColor = "yellow"  
             } else if (this.amount === 4){
-
+                this.activeColor = "blue"
+            } else if (this.amount === 5){
+                this.activeColor = "pink"    
             } else {
-
+                this.activeColor = ""
+                this.amount = 0
             }
             
         
