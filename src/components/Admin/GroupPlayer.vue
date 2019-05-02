@@ -4,7 +4,7 @@
             <section class="container">
                 {{player.name}}
                 {{amount}}
-                <aside v-bind:style="{color: activeColor}">X</aside>
+                <aside :style="{color: activeColor}">X</aside>
             </section>
         </section>
     </article>
@@ -40,8 +40,7 @@ export default {
                 this.activeColor = ""
                 this.amount = 0
             }
-            
-        
+            this.$emit('setColor', this.amount, this.player.uid)
         }
     }
 }
