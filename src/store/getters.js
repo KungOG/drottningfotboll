@@ -32,5 +32,25 @@ export default {
         player => player.uid == uid
       )[0]
     }
-  }
+  },
+
+  /* Grupp och dess nummer */
+  inactiveGroup(state) {
+    return state.inactiveGroup;
+  },
+  groupOne(state) {
+    return state.groupOne;
+  },
+  groupTwo(state) {
+    return state.groupTwo;
+  },
+  groupThree(state) {
+    return state.groupThree;
+  },
+  groupFour(state) {
+    return state.groupFour;
+  },
+  groupFive(state) {
+    return state.groupFive;
+  },
 }

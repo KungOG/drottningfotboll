@@ -46,5 +46,25 @@ export default {
   deletePlayer(state, id) {
     var index = state.teamPlayers.findIndex(player => player.uid == id)
     state.teamPlayers.splice(index, 1)
-  }
+  },
+
+  /* Spara grupperna */
+  submitInactiveGroup(state, zero) {
+  state.InactiveGroup.push(zero);  
+  },
+  submitGroupOne(state, one) {
+  state.groupOne.push(one);  
+  },
+  submitGroupTwo(state, two) {
+  state.groupTwo.push(two);  
+  },
+  submitGroupThree(state, three) {
+  state.groupThree.push(three); 
+  },
+  submitGroupFour(state, four) {
+  state.groupFour.push(four);  
+  },
+  submitGroupFive(state, five) {
+  state.groupFive.push(five);  
+  },
 }

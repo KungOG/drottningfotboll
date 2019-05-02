@@ -133,7 +133,7 @@ const router = new Router({
     {
       path: '/makegroups',
       name: 'makegroups',
-      meta: {requiresAuth: true},
+     
       component: () => import('./views/Admin/MakeGroups.vue')
     },
     {

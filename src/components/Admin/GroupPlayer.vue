@@ -37,11 +37,11 @@ export default {
             } else if (this.amount === 5){
                 this.activeColor = "pink"    
             } else {
-                this.activeColor = ""
+                this.activeColor = ''
                 this.amount = 0
             }
 
-            this.$emit('setColor', this.amount, this.player.uid)
+            this.$emit('setColor', this.amount, {uid: this.player.uid, name: this.player.name})
             
         
         }

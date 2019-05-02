@@ -94,6 +94,11 @@ export default {
     db.collection('teams').doc(adminTeam).collection('players').doc(player).delete();
   },
 
+   /* Ta bort spelaren ifrån store */
+   deletePlayer(ctx, player) {
+    ctx.commit('deletePlayer', player);
+  },
+
   /* Ändra en spelare ifrån admins lag */
   remakePlayerFromTeam (ctx, player) {
     var adminTeam = this.state.currentUser.teams[0];
@@ -102,5 +107,24 @@ export default {
 
   setSelectedTeam(ctx, team) {
     ctx.commit('setSelectedTeam', team)
+  },
+
+  /* Sortera spelarna i grupperna */
+  submitGroups (ctx, teams) {
+    for (var i = 0; i < teams.length; i++) {
+      if (teams[i].number === 1) {
+        ctx.commit('submitGroupOne', teams[i])
+      } else if (teams[i].number === 2) {
+        ctx.commit('submitGroupTwo', teams[i])       
+      } else if (teams[i].number === 3) {
+        ctx.commit('submitGroupThree', teams[i])       
+      } else if (teams[i].number === 4) {
+        ctx.commit('submitGroupFour', teams[i])      
+      } else if (teams[i].number === 5){
+        ctx.commit('submitGroupFive', teams[i])   
+      } else {
+        ctx.commit('submitInactiveGroup', teams[i])
+      }
+    }
   }
 }

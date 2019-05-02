@@ -14,4 +14,11 @@ export default {
   numberOfWin: 0,
   numberOfLoss: 0,
   
+  /* */
+  InactiveGroup : [],
+  groupOne : [],
+  groupTwo : [],
+  groupThree : [],
+  groupFour : [],
+  groupFive : []
 }
