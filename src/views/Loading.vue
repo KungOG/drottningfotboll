@@ -15,7 +15,7 @@
     created() {
       setTimeout(() => this.$router.push({
         path: '/playerinfo'
-      }), 2500);
+      }), 2000);
     }
   }
 </script>
