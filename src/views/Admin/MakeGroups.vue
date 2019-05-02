@@ -29,27 +29,6 @@ export default {
     components : {
         groupplayer
     },
-    methods: {
-        setColor (num, id) {
-            if (!this.teams.length == 0) {
-                console.log('1')
-
-                this.teams.forEach ( (e) =>  {
-                    if (e.uid === id) {
-
-                        console.log('2')  
-                        return
-                    } else {
-                        this.teams.push({number: num, uid: id})
-                        console.log('3')
-                    }
-                })
-            } else {
-                this.teams.push({number: num, uid: id})
-                console.log('sist')
-            }
-        }
-    },
     computed: {
         players () {
              return this.$store.getters.getTeamPlayers;
