@@ -1,6 +1,9 @@
     
 <template>
     <main>
+        <section>
+            <a href="#" @click="shufflePlayers">Shuffla</a>
+        </section>
         <h1>Make groups</h1>
         <section>        
             <groupplayer v-for="player in players" :key="player.uid" :player="player" @setColor="setColor" @deleteAssignedPlayer="deleteAssignedPlayer"/>
@@ -24,17 +27,15 @@ export default {
     beforeCreate() {
       this.$store.dispatch('getTeamPlayersFromDb');
     },
-    data () {
-        return {
-            teams: []
-        }
-    },
     components : {
         groupplayer
     },
     computed: {
         players () {
              return this.$store.getters.getTeamPlayers;
+        },
+        numberOfTeams() {
+            return this.$store.getters.getNumberOfTeams;
         }
     },
     methods: {
@@ -72,8 +73,25 @@ export default {
                     }              
                 }                                                       
             }
+        },
+        shufflePlayers() {
+            let numberOfPlayers = this.players.length;    
+            let amountOfEach = this.players / numberOfPlayers;   
+            let numArray = [];   
+            
+            // lägg in alla nummer i en array och shuffla arrayen.
+
+            for(let i = 0; i < numberOfPlayers; i++) {
+
+                let num = 0;
+
+                // tilldela spelaren första numret i arrayen
+
+                this.teams.push({number: num, uid: this.player[i].uid, name: this.player[i].name})  
+            } 
+            this.$store.dispatch('submitGroups', this.teams);
+            this.$router.push('/groups')            
         }
     }
 }
 </script>
-      

@@ -24,6 +24,11 @@ export default {
   getTeamPlayers(state) {
     return state.teamPlayers;
   },
+  
+  /* Antal lag */
+  getNumberOfTeams(state) {
+    return state.numberOfTeams;
+  },
 
   /* Filtrera ut den specifika spelaren */
   getPlayerByUid (state) {
