@@ -23,6 +23,7 @@ export default {
     methods: {
         deletePlayer () {
             this.$store.dispatch('deletePlayer', this.player.uid);
+            this.$emit('deleteAssignedPlayer', this.player.uid);
         },
         setColor () {
             this.amount++

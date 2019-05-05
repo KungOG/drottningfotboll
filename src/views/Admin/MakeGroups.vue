@@ -3,7 +3,7 @@
     <main>
         <h1>Make groups</h1>
         <section>        
-            <groupplayer v-for="player in players" :key="player.uid" :player="player" @setColor="setColor"/>
+            <groupplayer v-for="player in players" :key="player.uid" :player="player" @setColor="setColor" @deleteAssignedPlayer="deleteAssignedPlayer"/>
         </section>
         <section>
             <a href="#" @click="submitGroups">X</a>
@@ -39,31 +39,39 @@ export default {
     },
     methods: {
         setColor(num, player) {
-           if(!this.teams.length == 0) {                                        //om arrayen har ett innehåll
-               for(var i=0; i < this.teams.length; i++) {                       //loopa igenom varje objekt i arrayen
-                   if(this.teams[i].uid == player.uid) {                                //om spelaren redan finns i arrayen
-                      
-                        this.result = true                                      //sätt värde till true
-                        var a = this.teams.indexOf(this.teams[i])               //hitta objektets index
-                        this.teams.splice(a, 1)                                 //plocka bort objektet
-                        this.teams.push({number: num, uid: player.uid, name: player.name})                 //och lägg till ett nytt      
-    
-                   } else {
-                        this.result = false                                     //om spelaren inte finns sätt värde till false
+           if(!this.teams.length == 0) {                                       
+               for(var i=0; i < this.teams.length; i++) {                       
+                   if(this.teams[i].uid == player.uid) {                         
+                        this.result = true                                      
+                        var a = this.teams.indexOf(this.teams[i])               
+                        this.teams.splice(a, 1)                                 
+                        this.teams.push({number: num, uid: player.uid, name: player.name})              
+                    } else {
+                        this.result = false                                     
                    }               
                 } 
-           if(this.result === false) {                                          //om spelaren inte finns i arrayen
-               this.teams.push({number: num, uid: player.uid, name: player.name})                       //lägg till den
+           if(this.result === false) {                                          
+               this.teams.push({number: num, uid: player.uid, name: player.name})                       
            }
-            this.result = false                                                 //nollställ värdet
+            this.result = false                                                 
 
            } else {
-               this.teams.push({number: num, uid: player.uid, name: player.name})                          //om arrayen är tom, lägg till spelaren
+               this.teams.push({number: num, uid: player.uid, name: player.name})                          
            }
         },
         submitGroups () {
             this.$store.dispatch('submitGroups', this.teams);
             this.$router.push('/groups')
+        },
+        deleteAssignedPlayer(id) {
+            if(!this.teams.length == 0) {                                        
+               for(var i=0; i < this.teams.length; i++) {                       
+                    if(this.teams[i].uid == id) {                                                             
+                        var a = this.teams.indexOf(this.teams[i])               
+                        this.teams.splice(a, 1)    
+                    }              
+                }                                                       
+            }
         }
     }
 }
