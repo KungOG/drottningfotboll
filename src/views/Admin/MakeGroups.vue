@@ -75,44 +75,18 @@ export default {
             }
         },
         shufflePlayers() {
-            let numberOfPlayers = this.players.length;    
-            let amountOfEach = Math.round(numberOfPlayers / this.numberOfTeams);
-            let numArray = [];  
-            let num = []; 
+            let num = 1; 
+            this.shuffle(this.players)
 
-            console.log(numberOfPlayers)
-            console.log(amountOfEach)
-            
-            // lägg in alla nummer i en array och shuffla arrayen.
-            
-            for(let i = 0; i < this.numberOfTeams; i++) {
-                for(let j = 1; j <= amountOfEach; j++) {
-                    numArray.push(i+1)
-                }
-            }
-
-            // om det är ett udda antal spelare, addera ett extra nummer
-
-            if(this.isOdd(numberOfPlayers)) {
-                numArray.push(Math.floor((Math.random() * this.numberOfTeams) + 1))
-            }
-            this.shuffle(numArray);
-            console.log(numArray)
-
-            // tilldela varje spelare första numret i arrayen
-
-            for(let i = 0; i < numberOfPlayers; i++) {
-
-                num = numArray.splice(0, 1);
-                console.log(num[0])                
-
-                this.teams.push({number: num[0], uid: this.players[i].uid, name: this.players[i].name})  
+            for(let i = 0; i < this.players.length; i++) {                
+                num++
+                if(num > this.numberOfTeams) {
+                    num = 1;
+                }                           
+                this.teams.push({number: num, uid: this.players[i].uid, name: this.players[i].name})  
             } 
             this.$store.dispatch('submitGroups', this.teams);
             this.$router.push('/groups')          
-        },
-        isOdd(n) {
-            return Math.abs(n % 2) == 1;
         },
         shuffle(a) {
             var j, x, i;
