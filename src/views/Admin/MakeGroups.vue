@@ -76,21 +76,53 @@ export default {
         },
         shufflePlayers() {
             let numberOfPlayers = this.players.length;    
-            let amountOfEach = this.players / numberOfPlayers;   
-            let numArray = [];   
+            let amountOfEach = Math.round(numberOfPlayers / this.numberOfTeams);
+            let numArray = [];  
+            let num = []; 
+
+            console.log(numberOfPlayers)
+            console.log(amountOfEach)
             
             // lägg in alla nummer i en array och shuffla arrayen.
+            
+            for(let i = 0; i < this.numberOfTeams; i++) {
+                for(let j = 1; j <= amountOfEach; j++) {
+                    numArray.push(i+1)
+                }
+            }
+
+            // om det är ett udda antal spelare, addera ett extra nummer
+
+            if(this.isOdd(numberOfPlayers)) {
+                numArray.push(Math.floor((Math.random() * this.numberOfTeams) + 1))
+            }
+            this.shuffle(numArray);
+            console.log(numArray)
+
+            // tilldela varje spelare första numret i arrayen
 
             for(let i = 0; i < numberOfPlayers; i++) {
 
-                let num = 0;
+                num = numArray.splice(0, 1);
+                console.log(num[0])                
 
-                // tilldela spelaren första numret i arrayen
-
-                this.teams.push({number: num, uid: this.player[i].uid, name: this.player[i].name})  
+                this.teams.push({number: num[0], uid: this.players[i].uid, name: this.players[i].name})  
             } 
             this.$store.dispatch('submitGroups', this.teams);
-            this.$router.push('/groups')            
+            this.$router.push('/groups')          
+        },
+        isOdd(n) {
+            return Math.abs(n % 2) == 1;
+        },
+        shuffle(a) {
+            var j, x, i;
+            for (i = a.length - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = a[i];
+                a[i] = a[j];
+                a[j] = x;
+            }
+            return a;
         }
     }
 }
