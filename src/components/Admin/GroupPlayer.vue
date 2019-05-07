@@ -20,6 +20,11 @@ export default {
             activeColor: ''
         }
     },
+    computed: {
+        numberOfTeams() {
+            return this.$store.getters.getNumberOfTeams;
+        }    
+    },
     methods: {
         deletePlayer () {
             this.$store.dispatch('deletePlayer', this.player.uid);
@@ -29,13 +34,13 @@ export default {
             this.amount++
             if (this.amount === 1) {
                 this.activeColor = "green"
-            } else if (this.amount === 2){
+            } else if (this.amount === 2 && this.amount <= this.numberOfTeams){
                  this.activeColor = "red"
-            } else if (this.amount === 3){
+            } else if (this.amount === 3 && this.amount <= this.numberOfTeams){
                 this.activeColor = "yellow"  
-            } else if (this.amount === 4){
+            } else if (this.amount === 4 && this.amount <= this.numberOfTeams){
                 this.activeColor = "blue"
-            } else if (this.amount === 5){
+            } else if (this.amount === 5 && this.amount <= this.numberOfTeams){
                 this.activeColor = "pink"    
             } else {
                 this.activeColor = ''
