@@ -3,14 +3,10 @@
     <section class="logo">
       <h1>Logo</h1>
     </section>
-    <section>
-      <p>Logga in med Google eller Facebook</p>
-      <div>
+    <section class="login">
         <img src="@/assets/google-logo.png" alt="Google Logo" @click="googleLogin">
-        <p @click="$router.push('./adminlogin')">Admin</p>
-      <!--  <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin"> -->
-      </div>
-      <br>
+        <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin">
+        <p>Är du <a href="#" @click="$router.push('./adminlogin')" class="admin-login-btn">Admin</a>?</p>
     </section>
   </article>
 </template>

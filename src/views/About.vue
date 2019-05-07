@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="content">
     <section class="logo">
       <h1>Logo</h1>
     </section>

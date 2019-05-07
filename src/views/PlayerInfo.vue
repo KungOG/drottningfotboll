@@ -1,9 +1,13 @@
 <template>
-    <article>
-        <section>
-          <img :src=currentUser.photoURL><br>
-          <select v-model="selectedTeam" @change="getPlayerInfo">
-            <option v-for="item in currentUser.teams" :value="item" :key="item">{{item}}</option>
+    <article class="content">
+        <section class="logo">
+          <a href="#" @click="logout">Logout</a>
+          <img :src=currentUser.photoURL>
+        </section>
+
+        <section class="player-stats">    
+          <select v-model="selectedTeam" @change="getPlayerInfo" class="info-box">
+            <option v-for="item in currentUser.teams" :value="item" :key="item" id="opt">{{item}}</option>
           </select>
           <section class="info-box">
             <p> {{ currentUser.name }} </p>
@@ -12,15 +16,14 @@
             <p>Poäng: {{ player.point }}</p>
           </section>
           <section class="box-container">
-            <section class="info-box">
+            <section class="info-box square">
               <p>Vinster:</p>
               <p> {{ player.win }}</p>
             </section>
-            <section class="info-box">
+            <section class="info-box square">
               <p>Förluster:</p>
               <p>{{ player.loss }}</p>
             </section>
-              <button @click="logout">Logout</button>
           </section>
         </section>
     </article>
@@ -68,26 +71,3 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-  @import "../scss/main";
-
-  .box-container {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .info-box {
-    @extend %center;
-    border: 1px solid black;
-    border-radius: 5px;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  img {
-    width: 100px;
-    height: 100px;
-  }
-
-
-</style>
