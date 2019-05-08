@@ -1,24 +1,39 @@
 body {
     @extend %center;
+    margin: 0;
+
   
     .content {
       background: grey;
-      flex: 1;
       height: 100vh;
-      
+      width: 100%;  
   
       /* Loggan */
       .logo {
-        background: darkgray;
         @extend %center;
-        flex: 1;
+        height: 50%;
+        flex-direction: column;
+        background: darkgray;
         border: 1px solid black;
-        height: 40%;
+
         img {
             width: 100px;
             height: 100px;
             border-radius: 999rem;
+        }
+        a {
+          margin: 2rem 0 0 0;
+          text-decoration: none;
+          background: black;
+          color: white;
+          padding: .5rem;
+          border-radius: 7%;
+
+          &:hover {
+            background: white;
+            color: black;
           }
+        }
       }
       
       /* CSS för About */
@@ -27,21 +42,20 @@ body {
       }
       /* Admin sidan */
       .btn-container {
-        height: 60%;
-        background: darkgray;
-        display: flex;
-        justify-content: flex-end;
-        align-content: flex-end;
-        flex-direction: column;
-          
-        h1 {
+          height: 60%;
+          background: darkgray;
+          display: flex;
+          justify-content: flex-end;
+          align-content: flex-end;
+          flex-direction: column;
+            
+          h1 {
             text-align: center;
-        }
+          }
         .admin-btn {
           @extend %center;
           
           p {
-            
             font-weight: bold;
             text-align: center;
             width: 5rem; 
@@ -66,18 +80,11 @@ body {
         
         }
       }
-
-
       .player-stats {
         display: flex;
         flex-direction: column;
-        height: 50%;
         justify-content: flex-end;
-        align-content: flex-end;
-
-        select {
- 
-        }        
+        align-content: flex-end;    
 
         .box-container {
             display: flex;

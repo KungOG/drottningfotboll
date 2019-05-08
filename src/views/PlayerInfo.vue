@@ -1,8 +1,8 @@
 <template>
     <article class="content">
         <section class="logo">
-          <a href="#" @click="logout">Logout</a>
           <img :src=currentUser.photoURL>
+          <a href="#" @click="logout">Logout</a>
         </section>
 
         <section class="player-stats">    

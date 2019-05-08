@@ -1,0 +1,41 @@
+.player-list {
+    margin: .5rem .5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+    overflow-y: scroll;
+    height: 60vh;
+    background: rgb(255, 255, 255);
+
+    .list-wrapper {
+        display: flex;
+        border-bottom: 0;
+        padding: .5rem;
+        box-shadow: 0px 24px 3px -24px gray;
+        
+        .container {
+            cursor: pointer;
+            display: inline-block;
+            width: 35%;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+
+            h3 {
+                text-align: center;
+                text-transform: uppercase;
+                margin: 0;
+                font-size: 1.2rem;
+            }
+            p {
+                text-align: center;
+                margin: 0;
+            }
+            .score {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+            }
+        }
+    }   
+}

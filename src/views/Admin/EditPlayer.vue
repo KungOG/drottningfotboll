@@ -1,29 +1,28 @@
 <template>
-    <article>
-        <section>
-          <section class="info-box">
-            <label for="">Namn</label>
+    <article class="content">
+      <section class="navbar-admin">
+        <p>Hambugar menu</p>
+        <img src="@/assets/deleteplayer.png" class="btn" @click="deletePlayer" /> 
+      </section>
+        <section class="fix-player">
+          <section class="name-input">
+            <label>Namn</label>
             <input type="text" v-model="player.name">
           </section>
-          <section class="box-container">
-            <section class="info-box">
-                <label for="">Vinster</label>
-                <input type="number" v-model="player.win">
-            </section>
-            <section class="info-box">
-                <label for="">Förluster</label>
-                <input type="number" v-model="player.loss">
-            </section>
+          <section class="stats-input">
+            <label>Antal Vinster</label>
+            <input type="number" v-model="player.win">
+            <label>Antal Förluster</label>
+            <input type="number" v-model="player.loss"> 
+          </section>                   
+          <section class="points-input">
+              <label>Poäng</label> 
+              <input type="number" v-model="player.point">
           </section>
-          <section class="info-box">
-            <label for="">Poäng</label>        
-            <input type="number" v-model="player.point">
-          </section>
-            <section>
-            <a href="#" class="btn" @click="remakePlayer">Redigera Spelare</a>
-            <a href="#" class="btn" @click="deletePlayer">Ta bort Spelaren</a> 
-            </section>
         </section>
+        <section class="btn">
+          <a href="#" @click="remakePlayer">Klar</a>
+      </section>
     </article>
 </template>
 

@@ -47,7 +47,7 @@ const router = new Router({
     {
       path: '/playerinfo',
       name: 'playerinfo',
-      meta: {requiresAuth: true},
+      /* meta: {requiresAuth: true}, */
       component: () => import('./views/PlayerInfo.vue')
     },
     {
@@ -75,19 +75,19 @@ const router = new Router({
     {
       path: '/admin',
       name: 'admin',
-      meta: {requiresAuth: true, requiresAdmin: true},
+      /* meta: {requiresAuth: true, requiresAdmin: true}, */
       component: () => import('./views/Admin/Admin.vue')
     },    
     {
       path: '/addplayer',
       name: 'addplayer',
-      meta: {requiresAuth: true, requiresAdmin: true},
+      /* meta: {requiresAuth: true, requiresAdmin: true}, */
       component: () => import('./views/Admin/AddPlayer.vue')
     },
     {
       path: '/editplayer',
       name: 'editplayer',
-      meta: {requiresAuth: true, requiresAdmin: true},
+      /* meta: {requiresAuth: true, requiresAdmin: true}, */
       component: () => import('./views/Admin/EditPlayer.vue'),
       children: [ 
         {
@@ -100,13 +100,13 @@ const router = new Router({
     {
       path: '/groups',
       name: 'groups',
-      meta: {requiresAuth: true},
+     /*  meta: {requiresAuth: true}, */
       component: () => import('./views/Admin/Groups.vue')
     },
     {
       path: '/makegames',
       name: 'makegames',
-      meta: {requiresAuth: true, requiresAdmin: true},
+     /*  meta: {requiresAuth: true, requiresAdmin: true}, */
       component: () => import('./views/Admin/MakeGames.vue'),
       children: [
         {
@@ -139,7 +139,7 @@ const router = new Router({
     {
       path: '/players',
       name: 'players',
-      meta: {requiresAuth: true, requiresAdmin: true},
+      /* meta: {requiresAuth: true, requiresAdmin: true}, */
       component: () => import('./views/Admin/Players.vue')
     },
     {
