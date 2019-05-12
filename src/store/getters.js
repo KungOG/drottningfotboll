@@ -38,24 +38,38 @@ export default {
       )[0]
     }
   },
+  /* Filtrera ut den specifika gruppen */
+  getChosenGroup (state) {
+    return (id) => {
+      return state.groups.filter(
+        group => group.id == id
+      )[0]
+    }
+  },
 
+  /* Hämta alla grupperna ifrån State */
+  groups(state) {
+    return state.groups;
+  },
+  
   /* Grupp och dess nummer */
   inactiveGroup(state) {
-    return state.inactiveGroup;
+    return state.groups[0].players;
   },
   groupOne(state) {
-    return state.groupOne;
+    return state.groups[1].players;
   },
   groupTwo(state) {
-    return state.groupTwo;
+    return state.groups[2].players;
   },
   groupThree(state) {
-    return state.groupThree;
+    return state.groups[3].players;
   },
   groupFour(state) {
-    return state.groupFour;
+    return state.groups[4].players;
   },
   groupFive(state) {
-    return state.groupFive;
+    return state.groups[5].players;
   },
+  
 }

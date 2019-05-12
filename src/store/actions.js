@@ -98,7 +98,13 @@ export default {
    deletePlayer(ctx, player) {
     ctx.commit('deletePlayer', player);
   },
-
+  
+  /* Ta bort spelaren ifrån laget */
+  deleteGroupPlayer(ctx, payload) {
+    console.log(payload)
+   ctx.commit('deleteGroupPlayer', payload);
+ },
+ 
   /* Ändra en spelare ifrån admins lag */
   remakePlayerFromTeam (ctx, player) {
     var adminTeam = this.state.currentUser.teams[0];

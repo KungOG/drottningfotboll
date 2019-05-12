@@ -10,7 +10,8 @@
       <router-link to="/makegroups">Make groups</router-link>|
       <router-link to="/schedules">Schedules</router-link>|
       <router-link to="/editplayer">Edit Player</router-link>|
-      <router-link to="/playerinfo">Player info</router-link>
+      <router-link to="/playerinfo">Player info</router-link> |
+      <router-link to="/editgroups">Edit Groups</router-link>
     </div>
     <router-view/>
   </div>

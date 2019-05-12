@@ -48,23 +48,29 @@ export default {
     state.teamPlayers.splice(index, 1)
   },
 
+  /* Ta bort spelaren i från gruppen */
+  deleteGroupPlayer(state, payload) {
+    var index = state.groups[payload.group].players.findIndex(player => player.uid == payload.player)
+    state.groups[payload.group].players.splice(index, 1)
+  },
+
   /* Spara grupperna */
   submitInactiveGroup(state, zero) {
-  state.InactiveGroup.push(zero);  
+  state.groups[0].players.push(zero);  
   },
   submitGroupOne(state, one) {
-  state.groupOne.push(one);  
+  state.groups[1].players.push(one);  
   },
   submitGroupTwo(state, two) {
-  state.groupTwo.push(two);  
+  state.groups[2].players.push(two);  
   },
   submitGroupThree(state, three) {
-  state.groupThree.push(three); 
+  state.groups[3].players.push(three); 
   },
   submitGroupFour(state, four) {
-  state.groupFour.push(four);  
+  state.groups[4].players.push(four);  
   },
   submitGroupFive(state, five) {
-  state.groupFive.push(five);  
+  state.groups[5].players.push(five);  
   },
 }

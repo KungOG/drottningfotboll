@@ -1,6 +1,6 @@
 <template>
-    <main>
-        <section class="content">
+    <main class="content">
+        <section>
             <h1 v-if="!show">Välj antal Lag</h1> 
             <a href="#" v-if="show" @click="show = !show">Antal lag: {{ numberOfTeams }}</a>
             <a href="#" v-if="!show" @click="addNumberOfTeams(2)" >2</a>

@@ -85,23 +85,21 @@ const router = new Router({
       component: () => import('./views/Admin/AddPlayer.vue')
     },
     {
-      path: '/editplayer',
+      path: '/editplayer/:uid',
       name: 'editplayer',
       /* meta: {requiresAuth: true, requiresAdmin: true}, */
-      component: () => import('./views/Admin/EditPlayer.vue'),
-      children: [ 
-        {
-          path: '/editplayer/:uid',
-          name: 'editplayer',
-          component: () => import('./views/Admin/EditPlayer.vue'),
-        }
-      ]  
+      component: () => import('./views/Admin/EditPlayer.vue') 
     },
     {
       path: '/groups',
       name: 'groups',
      /*  meta: {requiresAuth: true}, */
       component: () => import('./views/Admin/Groups.vue')
+    },
+    {
+      path: '/editgroups/:id',
+      name: 'editgroups',
+      component: () => import('./views/Admin/EditGroups.vue')
     },
     {
       path: '/makegames',
