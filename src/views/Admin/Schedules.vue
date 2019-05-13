@@ -1,5 +1,5 @@
 <template>
-    <main class="aboutContent">
+    <main class="content">
         <h1>Spel Schema</h1>
         <section class="schema">
             <p>Lag 1</p>

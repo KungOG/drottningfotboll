@@ -54,23 +54,33 @@ export default {
     state.groups[payload.group].players.splice(index, 1)
   },
 
+  /* Lägg till spelaren i gruppen */
+  addGroupPlayer(state, payload) {
+    
+    state.groups[payload.group].players.push({
+      name: payload.player.name, 
+      number: payload.group, 
+      uid: payload.player.uid
+    })
+  },
+
   /* Spara grupperna */
   submitInactiveGroup(state, zero) {
-  state.groups[0].players.push(zero);  
+    state.groups[0].players.push(zero);  
   },
   submitGroupOne(state, one) {
-  state.groups[1].players.push(one);  
+    state.groups[1].players.push(one);  
   },
   submitGroupTwo(state, two) {
-  state.groups[2].players.push(two);  
+    state.groups[2].players.push(two);  
   },
   submitGroupThree(state, three) {
-  state.groups[3].players.push(three); 
+    state.groups[3].players.push(three); 
   },
   submitGroupFour(state, four) {
-  state.groups[4].players.push(four);  
+    state.groups[4].players.push(four);  
   },
   submitGroupFive(state, five) {
-  state.groups[5].players.push(five);  
+    state.groups[5].players.push(five);  
   },
 }

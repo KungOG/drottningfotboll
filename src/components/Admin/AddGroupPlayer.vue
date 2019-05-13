@@ -3,7 +3,7 @@
         <section class="list-wrapper">
             <section class="container">
                 {{player.name}}
-                <aside :style="{color: activeColor}">X</aside>
+                <aside>X</aside>
             </section>
         </section>
     </article>

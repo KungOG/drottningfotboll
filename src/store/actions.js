@@ -101,8 +101,12 @@ export default {
   
   /* Ta bort spelaren ifrån laget */
   deleteGroupPlayer(ctx, payload) {
-    console.log(payload)
    ctx.commit('deleteGroupPlayer', payload);
+ },
+
+  /* Lägg till spelare till gruppen */
+  addGroupPlayer(ctx, payload) {
+  ctx.commit('addGroupPlayer', payload);
  },
  
   /* Ändra en spelare ifrån admins lag */
