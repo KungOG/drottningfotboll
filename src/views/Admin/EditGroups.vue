@@ -50,27 +50,24 @@ export default {
             return this.$store.getters.getTeamPlayers;
         },
 
-      /* Sök funktion */
+      /* Sökfunktion */
         filterPlayers () {
             return this.teamPlayers.filter((player) => {
                 return player.name.match(this.search);
             })
         },
 
-      /* Sök funktion */
+      /* Filtrera ut spelare som inte är i gruppen */
         filterGroup () {
-            let newArray = [];
-            array = [];
-            console.log(newArray)
-            this.group.players.forEach((item) => {
-                this.teamPlayers.filter((player) => {
-                    if(!player.uid.match(item.uid) && !newArray.includes(item.uid)) {
-                        newArray.push(player)
-
-                    }   
-                })
-            })
-            return newArray;
+            let otherTeamPlayers = this.teamPlayers;
+            for( var i=otherTeamPlayers.length - 1; i>=0; i--){
+                for( var j=0; j<this.group.players.length; j++){
+                    if(otherTeamPlayers[i] && (otherTeamPlayers[i].uid === this.group.players[j].uid)){
+                      otherTeamPlayers.splice(i, 1);
+                    }
+                }
+            }
+            return otherTeamPlayers;
         }
     },
     methods : {
