@@ -1,6 +1,6 @@
 <template>
     <article>
-        <section class="content">
+        <section class="">
             <h1 v-if="!show">Välj antal matcher</h1>
             <a href="#" v-if="show" @click="show = !show">Antal spel: {{ numberOfGames }}</a>
             <a href="#" v-if="!show" @click="addNumberOfGames(2)">2</a>

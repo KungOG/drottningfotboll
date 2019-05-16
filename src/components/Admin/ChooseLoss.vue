@@ -1,7 +1,7 @@
     
 <template>
     <article>
-        <section class="content">
+        <section class="">
             <h3 v-if="!show">Poäng förlust</h3>
                 <a href="#" v-if="show" @click="show = !show">Poäng förlust: {{ numberOfLoss }}</a>
                 <a href="#" v-if="!show" @click="addNumberOfPointsLoss(0)">0</a>

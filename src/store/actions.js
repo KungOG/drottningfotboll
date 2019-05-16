@@ -140,13 +140,41 @@ export default {
 
   /* Skapa spelschemat */
   submitSchedules (ctx) {
-    var teams = [1,3,2,4,1,2,4,3]
-    ctx.dispatch('saveGameDataToDb', teams)
+    var teams = 5; //this.state.numberOfTeams
+    var teamArray = []
+    
+    if(teams %2 !=0) {
+      teams++
+    } 
+   
+    var no2 = (teams-1)/2;
+    
+    var theteams = [];
+    for(let i = 0; i<teams; i++) {
+      theteams[i] = i+1;
+    }
+    console.log(theteams)
+    var team1;
+    var team2;
 
+    for(let x = 0; x < 5; x++) {
+      for(let j = 0; j<no2; j++) {
+        team1 = theteams[Math.ceil(no2 - j -1)]
+        team2 = theteams[Math.ceil(no2 + j)]
+        teamArray.push({nr1: team1, nr2: team2, winner: null})
+      }
 
+    var tmp = theteams[1]
+
+    for(let k = 1; k < theteams.length-1; k++) {
+      theteams[k] = theteams[k+1]
+    }
+      theteams[theteams.length-1] = tmp
+    }
+    console.log(teamArray)
+     
+    ctx.dispatch('saveGameDataToDb', teamArray)
   },
-
-
 
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
   saveGameDataToDb (ctx, teams) {
@@ -158,53 +186,3 @@ export default {
     console.log('Success!')
   }
 }
-
-
-/* 
-
-//Create players
-  for (let p=0; p<number; p++) {
-    var letter = p+65;
-    var k = letter.toString();
-    players.push(String.fromCharCode(k));
-  };
-
-//Create rounds
-for (let i=0; i<number-1; i++) {
-  var x = players.pop();
-  players.splice(1,0,x);
-  var counter = number-1;
-  var rounds = [];
-  var udda = [];
-  for (let i=0; i<number-1; i++) {
-    var x = players.pop();
-    players.splice(1,0,x);
-    var counter = number-1;
-    var rounds = [];
-    var udda = [];
- //Create opponents
-     for (let j=0; j<number/2; j++) {
-       if (players[j] !== players[counter]) {
-       var matcher = players[j] + " - " + players[counter];
-       rounds.push(matcher)
-       } else {
-       udda.push(players[j])
-       }
-       counter--;
-     }
-     output.push(
-       `<div class="game-container">
-         <h2 class="round">Round ${[i+1]}</h2>
-         <p class="games">${rounds.join("")}</p>
-         <p class="player-x">Player ${udda} will <br> pass this round</p>
-        </div>`
-     );
-  games.innerHTML = output.join("")
-  }
-  if(number%2 == 0){
-    for (i = 0; i < c.length; i++) {
-    c[i].style.display = "none";
-    }
-  }
-};
- */
