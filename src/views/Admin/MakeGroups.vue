@@ -62,6 +62,7 @@ export default {
         },
         submitGroups () {
             this.$store.dispatch('submitGroups', this.teams);
+            this.$store.dispatch('submitSchedules');
             this.$router.push('/groups')
         },
         deleteAssignedPlayer(id) {

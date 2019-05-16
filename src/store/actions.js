@@ -136,5 +136,75 @@ export default {
         ctx.commit('submitInactiveGroup', teams[i])
       }
     }
+  },
+
+  /* Skapa spelschemat */
+  submitSchedules (ctx) {
+    var teams = [1,3,2,4,1,2,4,3]
+    ctx.dispatch('saveGameDataToDb', teams)
+
+
+  },
+
+
+
+  /* Spara grupperna och matcherna i databasen för att kunna hämta */
+  saveGameDataToDb (ctx, teams) {
+    let date = new Date()
+    let groups = this.state.groups;
+    var adminTeam = this.state.currentUser.teams[0];
+    var gameData = {date: date, groups: groups, games: teams}
+    db.collection('games').doc(adminTeam).collection('currentGame').doc().set(gameData);
+    console.log('Success!')
   }
 }
+
+
+/* 
+
+//Create players
+  for (let p=0; p<number; p++) {
+    var letter = p+65;
+    var k = letter.toString();
+    players.push(String.fromCharCode(k));
+  };
+
+//Create rounds
+for (let i=0; i<number-1; i++) {
+  var x = players.pop();
+  players.splice(1,0,x);
+  var counter = number-1;
+  var rounds = [];
+  var udda = [];
+  for (let i=0; i<number-1; i++) {
+    var x = players.pop();
+    players.splice(1,0,x);
+    var counter = number-1;
+    var rounds = [];
+    var udda = [];
+ //Create opponents
+     for (let j=0; j<number/2; j++) {
+       if (players[j] !== players[counter]) {
+       var matcher = players[j] + " - " + players[counter];
+       rounds.push(matcher)
+       } else {
+       udda.push(players[j])
+       }
+       counter--;
+     }
+     output.push(
+       `<div class="game-container">
+         <h2 class="round">Round ${[i+1]}</h2>
+         <p class="games">${rounds.join("")}</p>
+         <p class="player-x">Player ${udda} will <br> pass this round</p>
+        </div>`
+     );
+  games.innerHTML = output.join("")
+  }
+  if(number%2 == 0){
+    for (i = 0; i < c.length; i++) {
+    c[i].style.display = "none";
+    }
+  }
+};
+ */

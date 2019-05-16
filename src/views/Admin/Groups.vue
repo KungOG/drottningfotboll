@@ -5,7 +5,7 @@
             <h3 v-if="group.players[0]">{{group.name}}</h3>
            <group :group="group.players" />
         </section>
-        <a href="#" >Spela!</a>
+        <a href="#" @click="saveGroupsToDB" >OK</a>
     </main>
 </template>
 
@@ -22,6 +22,12 @@ export default {
            return this.$store.getters.groups;
        }
     },
-    methods: {}
+    methods: {
+        saveGroupsToDb() {
+            let date = new Date()
+            /* this.$store.dispatch('saveGroupsToDb') */
+            this.$router.push('/schedules')
+        }
+    }
 }
 </script>
