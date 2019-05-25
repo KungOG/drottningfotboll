@@ -16,30 +16,33 @@ export default {
     name : 'schedules',
     data () {
         return {
-            winner : [],
-            games: []
+            winner: [],
+            games: [],
+            result: false
         }
     },
     methods: {
-        addWinner (num, roun) {
-            if (!this.winner.length) {
-                console.log('Funkar hit')
-                for(let i = 0; i <= 1; i++) {
-                    console.log(this.winner[i].round )
-                    if(this.winner[i].round === roun) {
-                        console.log('Finns i arrayen')
+        addWinner (num, round) {
+            if (!this.winner.length == 0) {                                       
+                for(let i = 0; i < this.winner.length; i++) {  
+                    if(this.winner[i].game == round) {  
+                        this.result = true
+                        var a = this.winner.indexOf(this.winner[i])               
+                        this.winner.splice(a, 1)                                 
+                        this.winner.push({game: round, team: num})   
                     } else {
-                        console.log('Finns inte i arrayen')
-                        this.winner.push({game: round, team: num})
+                        this.result = false
                     }
                 }
+            if(this.result === false) {
+                this.winner.push({game: round, team: num}) 
+            }    
+            this.result = false
+
             } else {
-                console.log('arrayen är tom')
-                this.winner.push({game: round, team: num})
+                this.winner.push({game: round, team: num})                          
             }
-           
-            console.log('slut!')
-            
+                  
         }
     },
     mounted() {

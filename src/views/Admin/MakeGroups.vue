@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             teams: [],
-            resultOne: false
+            result: false
         }
     },
     beforeCreate() {
