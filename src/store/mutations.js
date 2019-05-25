@@ -41,6 +41,9 @@ export default {
   setNumberOfLoss(state, num) {
     state.numberOfLoss = num;
   },
+  setNumberOfEqual(state, num) {
+    state.numberOfEqual = num;
+  },
 
   /* Ta bort spelaren i listan TeamPlayer */
   deletePlayer(state, id) {

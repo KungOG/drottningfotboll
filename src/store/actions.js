@@ -75,6 +75,9 @@ export default {
   setNumberOfLoss(ctx, num) {
     ctx.commit('setNumberOfLoss', num);
   },
+  setNumberOfEqual(ctx, num) {
+    ctx.commit('setNumberOfEqual', num);
+  },
 
   /* Lägg till spelare till admins lag */
   submitPlayer(ctx, player) {
@@ -156,12 +159,14 @@ export default {
     console.log(theteams)
     var team1;
     var team2;
+    var count = 0;
 
     for(let x = 0; x < 5; x++) {
       for(let j = 0; j<no2; j++) {
         team1 = theteams[Math.ceil(no2 - j -1)]
         team2 = theteams[Math.ceil(no2 + j)]
-        teamArray.push({nr1: team1, nr2: team2, winner: null})
+        count++
+        teamArray.push({round: count, nr1: team1, nr2: team2, winner: null})
       }
 
     var tmp = theteams[1]

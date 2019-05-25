@@ -120,7 +120,15 @@ const router = new Router({
                 {
                   path: '/chooseloss',
                   name: 'chooseloss',
-                  component: () => import('./components/Admin/ChooseLoss.vue')
+                  component: () => import('./components/Admin/ChooseLoss.vue'),
+                  children: [
+                    {
+                    path: '/chooseequal',
+                    name: 'chooseequal',
+                    component: () => import('./components/Admin/ChooseEqual.vue')
+
+                    }
+                  ]
                 }
               ]
             }

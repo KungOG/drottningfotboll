@@ -8,11 +8,13 @@ export default {
   
   selectedTeam: '',
 
-  /* */
+  /* Skapa lagen och poäng regler */
   numberOfTeams: 0,
   numberOfGames: 0,
   numberOfWin: 0,
   numberOfLoss: 0,
+  numberOfEqual: 0,
+  
   
   /* */
   groups : [

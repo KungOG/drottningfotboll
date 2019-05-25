@@ -9,8 +9,6 @@
                 <a href="#" v-if="!show" @click="addNumberOfPointsLoss(2)">2</a>
                 <br>
                 <br>
-            <p v-if="show" @click="$router.push('/makegroups')">Klar</p>
-                <br>
         </section>
         <router-view />
     </article>
@@ -31,6 +29,10 @@ export default {
             this.show = !this.show;
             this.numberOfLoss = num;
             this.$store.dispatch('setNumberOfLoss', num)
+            
+            if(this.$router.history.current.name == 'chooseloss' ) {
+              this.$router.push('/chooseequal');
+            }
         }
     }
 }
