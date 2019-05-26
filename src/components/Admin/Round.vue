@@ -68,9 +68,9 @@ export default {
                         } else {
                             //om den finns uppdatera annars värderna
                             if(num === 1) {
-                                this.winner[i].group1 = this.group1;
+                                this.winner[i].group1.win = this.group1;
                             } else {
-                                this.winner[i].group2 = this.group2;
+                                this.winner[i].group2.win = this.group2;
                             }
                             break;
                         }
@@ -82,16 +82,29 @@ export default {
                 }
             //om denna omgång inte finns i arrayen, lägg till den    
             if(this.result === false) {
-                this.winner.push({game: this.game.round, group1: this.group1, group2: this.group2})  
+                this.addRoundToArray();
             }    
             this.result = false
             //om arrayen är tom, lägg till denna omgång
             } else {
-                this.winner.push({game: this.game.round, group1: this.group1, group2: this.group2})                           
+                this.addRoundToArray();                          
             }    
             //spara winnerarray i localstorage  
             this.setLocalStorage(); 
             this.$emit('checkWinners');
+        },
+        addRoundToArray() {
+            this.winner.push({
+                game: this.game.round, 
+                group1: {
+                    groupNr: this.game.nr1, 
+                    win: this.group1
+                    }, 
+                group2: {
+                    groupNr: this.game.nr2, 
+                    win: this.group2
+                    }
+            })  
         },
         setLocalStorage() {
             localStorage.setItem('winner', JSON.stringify(this.winner));
@@ -103,8 +116,8 @@ export default {
             //kolla om winner innehåller samma round, om den gör det, sätt värdena i data till true/false
             for(let i = 0; i < this.winner.length; i++) {
                 if(this.winner[i].game == this.game.round) {
-                    this.group1 = this.winner[i].group1
-                    this.group2 = this.winner[i].group2
+                    this.group1 = this.winner[i].group1.win
+                    this.group2 = this.winner[i].group2.win
                 }
             }
         } 
