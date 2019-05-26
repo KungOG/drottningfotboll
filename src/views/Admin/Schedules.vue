@@ -34,12 +34,13 @@ export default {
     },
     methods: {
         checkWinners() {
-            console.log('emittar eventet')
             if (localStorage.getItem('winner')) {
             this.winner = JSON.parse(localStorage.getItem('winner')); 
             }
             if(this.winner.length == this.games.length) {
                 this.show = true
+            } else {
+                this.show = false
             }
         }
     }
