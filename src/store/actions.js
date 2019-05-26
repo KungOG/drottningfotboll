@@ -166,7 +166,7 @@ export default {
         team1 = theteams[Math.ceil(no2 - j -1)]
         team2 = theteams[Math.ceil(no2 + j)]
         count++
-        teamArray.push({round: count, nr1: team1, nr2: team2, winner: null})
+        teamArray.push({round: count, nr1: team1, nr2: team2})
       }
 
     var tmp = theteams[1]
@@ -183,11 +183,23 @@ export default {
 
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
   saveGameDataToDb (ctx, teams) {
-    let date = new Date()
     let groups = this.state.groups;
     var adminTeam = this.state.currentUser.teams[0];
-    var gameData = {date: date, groups: groups, games: teams}
+    var gameData = {groups: groups, games: teams}
     db.collection('games').doc(adminTeam).collection('currentGame').doc().set(gameData);
     console.log('Success!')
+  },
+  
+  /* Spara resultaten i databasen */
+  saveResult (ctx, payload) {
+    console.log(payload)
+    let date = new Date()
+    var adminTeam = this.state.currentUser.teams[0];
+    var gameData = {
+      date: date,
+      games: payload.winners,
+      groups: payload.currentGame
+    }
+    db.collection('games').doc(adminTeam).collection('games').doc().set(gameData);
   }
 }

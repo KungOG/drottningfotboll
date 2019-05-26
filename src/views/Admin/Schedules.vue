@@ -3,7 +3,7 @@
         <h1>Spel Schema</h1>
         <round class="schema" v-for="(game, index) in games" :key="index" :game="game" @checkWinners="checkWinners"></round>
         <section>
-            <a href="#" v-if="show">Spara resultaten</a>
+            <a href="#" v-if="show" @click="saveResult">Spara resultaten</a>
         </section>
     </main>
 </template>
@@ -21,15 +21,19 @@ export default {
         return {
             games: [],
             winner: [],
+            groups: [],
             show: false            
         }
     },  
-    mounted() {       
-        var item = db.collection('games').doc('skogaby').collection('currentGame').doc('oq0GBtqK2oskbDMN9wrA')
+    mounted() {
+        /* Måste fixas */       
+        var item = db.collection('games').doc('skogaby').collection('currentGame').doc('754z5L37YQKkctxIf2vr')
         
         item.get().then((doc) => {
             var game = doc.data().games
+            var groups = doc.data().groups
             this.games = game
+            this.groups = groups
         })               
     },
     methods: {
@@ -42,6 +46,13 @@ export default {
             } else {
                 this.show = false
             }
+        },
+        saveResult () {
+            var gameData = {
+                currentGame: this.groups,
+                winners: this.winner
+            }
+            this.$store.dispatch('saveResult', gameData)
         }
     }
 }
