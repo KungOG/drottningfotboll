@@ -10,10 +10,12 @@
 
 <script>
 import round from '@/components/Admin/Round.vue';
+import {calculatePoints} from '@/mixins/calculatePoints.js';
 import db from '@/firebaseInit'
 
 export default {
     name : 'schedules',
+    mixins : [calculatePoints],
     components: {
         round
     },
@@ -22,11 +24,13 @@ export default {
             games: [],
             winner: [],
             groups: [],
-            show: false            
+            show: false
         }
     },  
     mounted() {
-        /* Måste fixas */       
+        /* 
+        ! Måste fixas 
+        */       
         var item = db.collection('games').doc('skogaby').collection('currentGame').doc('754z5L37YQKkctxIf2vr')
         
         item.get().then((doc) => {
@@ -48,14 +52,19 @@ export default {
             }
         },
         saveResult () {
+            //spara resultatet i databasen
             var gameData = {
                 currentGame: this.groups,
                 winners: this.winner
             }
             this.$store.dispatch('saveResult', gameData)
+
+            /*
+             * Spara spelarens poäng
+             ! Funktion finns i CalculatePoint.js
+            */
+            this.savePoints();
         }
     }
 }
 </script>
-
-

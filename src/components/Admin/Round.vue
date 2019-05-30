@@ -2,7 +2,7 @@
     <article class="main">
         <section class="list-wrapper">
             <section class="container">
-                <span @click="groupOne" :class="{red:group1}">{{ game.nr1 }}</span> - <span @click="groupTwo" :class="{red:group2}"> {{ game.nr2 }}</span>
+                <span @click="groupOne" :class="{red:home}">{{ game.nr1 }}</span> - <span @click="groupTwo" :class="{red:away}"> {{ game.nr2 }}</span>
             </section>
         </section>
     </article>
@@ -14,18 +14,18 @@ export default {
     props: ['game'],
     data () {
         return {
-            group1: false,
-            group2: false,
+            home: false,
+            away: false,
             winner: [],
             result: false
         }
     },
     watch: {
-        group1() {
+        home() {
             this.addWinner(1);
         },
 
-        group2() {
+        away() {
             this.addWinner(2);
         }
     },
@@ -34,18 +34,18 @@ export default {
     },
      methods: {
         groupOne() {
-            if(this.group1 == true) {
-                this.group1 = false;
+            if(this.home == true) {
+                this.home = false;
             } else {
-                this.group1 = true;
+                this.home = true;
             }
 
         },
         groupTwo() {
-            if(this.group2 == true) {
-                this.group2 = false;
+            if(this.away == true) {
+                this.away = false;
             } else {
-                this.group2 = true;
+                this.away = true;
             }
 
         },
@@ -61,16 +61,16 @@ export default {
                     if(this.winner[i].game == this.game.round) {  
                         this.result = true
                         //om den finns och båda värdena är false, ta bort den från arrayen
-                        if(this.group1 == false && this.group2 == false) {
+                        if(this.home == false && this.away == false) {
                             var a = this.winner.indexOf(this.winner[i])               
                             this.winner.splice(a, 1)
                             break;
                         } else {
                             //om den finns uppdatera annars värderna
                             if(num === 1) {
-                                this.winner[i].group1.win = this.group1;
+                                this.winner[i].home.win = this.home;
                             } else {
-                                this.winner[i].group2.win = this.group2;
+                                this.winner[i].away.win = this.away;
                             }
                             break;
                         }
@@ -96,13 +96,13 @@ export default {
         addRoundToArray() {
             this.winner.push({
                 game: this.game.round, 
-                group1: {
+                home: {
                     groupNr: this.game.nr1, 
-                    win: this.group1
+                    win: this.home
                     }, 
-                group2: {
+                away: {
                     groupNr: this.game.nr2, 
-                    win: this.group2
+                    win: this.away
                     }
             })  
         },
@@ -116,8 +116,8 @@ export default {
             //kolla om winner innehåller samma round, om den gör det, sätt värdena i data till true/false
             for(let i = 0; i < this.winner.length; i++) {
                 if(this.winner[i].game == this.game.round) {
-                    this.group1 = this.winner[i].group1.win
-                    this.group2 = this.winner[i].group2.win
+                    this.home = this.winner[i].home.win
+                    this.away = this.winner[i].away.win
                 }
             }
         } 

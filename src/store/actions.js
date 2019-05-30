@@ -200,6 +200,11 @@ export default {
       games: payload.winners,
       groups: payload.currentGame
     }
-    db.collection('games').doc(adminTeam).collection('games').doc().set(gameData);
+    /* db.collection('games').doc(adminTeam).collection('games').doc().set(gameData); */
+  },
+
+  /* Räkna ut poäng per spelare */
+  calculatePoints (ctx, payload) {
+    console.log(payload)
   }
 }
