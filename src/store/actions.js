@@ -202,9 +202,41 @@ export default {
     }
     /* db.collection('games').doc(adminTeam).collection('games').doc().set(gameData); */
   },
-
+  
   /* Räkna ut poäng per spelare */
   calculatePoints (ctx, payload) {
-    console.log(payload)
+    var adminTeam = this.state.currentUser.teams[0];
+    let teamPlayers = this.state.teamPlayers;
+    let players = [];
+
+    for(let i = 0; i < payload.length; i++) {
+      for(let j = 0; j < teamPlayers.length; j++) {
+        if(payload[i].uid === teamPlayers[j].uid) {
+          players.push({        
+              uid: payload[i].uid, 
+              point : teamPlayers[j].point + payload[i].point, 
+              win: teamPlayers[j].win + payload[i].win, 
+              loss: teamPlayers[j].loss + payload[i].loss, 
+              tie: teamPlayers[j].tie + payload[i].tie,
+              goal: 0,
+              name: teamPlayers[j].name            
+          }) 
+        }
+
+      }
+    }
+    var batch = db.batch();
+
+    for(let p = 0; p < players.length; p++) {
+      batch.update(db.collection('teams').doc(adminTeam).collection('players').doc(players[p].uid), players[p]);
+    }
+  
+    batch.commit().then(function() {
+      console.log("Document successfully written!");
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+  });
+    console.log('done')
   }
 }

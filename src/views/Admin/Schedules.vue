@@ -26,12 +26,13 @@ export default {
             groups: [],
             show: false
         }
-    },  
+    },
+ 
     mounted() {
         /* 
         ! Måste fixas 
         */       
-        var item = db.collection('games').doc('skogaby').collection('currentGame').doc('754z5L37YQKkctxIf2vr')
+        var item = db.collection('games').doc('skogaby').collection('currentGame').doc('G3TpAmlbcrbQvlI1bdQy')
         
         item.get().then((doc) => {
             var game = doc.data().games
@@ -52,6 +53,7 @@ export default {
             }
         },
         saveResult () {
+            this.$store.dispatch('getTeamPlayersFromDb');
             //spara resultatet i databasen
             var gameData = {
                 currentGame: this.groups,
