@@ -5,7 +5,7 @@
             <h3 v-if="group.players[0]">{{group.name}}</h3>
            <group :group="group.players" />
         </section>
-        <a href="#" @click="saveGroupsToDB" >OK</a> 
+        <a href="#" @click="saveGroupsToDb" >OK</a> 
     </main>
 </template>
 

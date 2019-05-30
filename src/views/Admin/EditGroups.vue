@@ -73,6 +73,7 @@ export default {
     methods : {
         markPlayer(player) {
             this.chosenPlayer = player;
+            //Kolla om spelaren finns i en annan grupp
             this.$store.dispatch('addGroupPlayer', {
                 player: this.chosenPlayer, 
                 group: this.group.id

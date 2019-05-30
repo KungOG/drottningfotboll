@@ -193,14 +193,14 @@ export default {
   /* Spara resultaten i databasen */
   saveResult (ctx, payload) {
     console.log(payload)
-    let date = new Date()
+/*     let date = new Date()
     var adminTeam = this.state.currentUser.teams[0];
     var gameData = {
       date: date,
       games: payload.winners,
       groups: payload.currentGame
     }
-    /* db.collection('games').doc(adminTeam).collection('games').doc().set(gameData); */
+     db.collection('games').doc(adminTeam).collection('games').doc().set(gameData);  */
   },
   
   /* Räkna ut poäng per spelare */
