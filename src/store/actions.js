@@ -143,42 +143,47 @@ export default {
 
   /* Skapa spelschemat */
   submitSchedules (ctx) {
-    var teams = 2; //this.state.numberOfTeams
-    var teamArray = []
-    
-    if(teams %2 !=0) {
-      teams++
-    } 
-   
-    var no2 = (teams-1)/2;
-    
-    var theteams = [];
+
+    let teams = this.state.numberOfTeams;
+    let games = this.state.numberOfGames;
+    let counter = 1;
+    let schedule = [];
+    let teamsArray = [];
+
+    /* gör en array med antal lag */
     for(let i = 0; i<teams; i++) {
-      theteams[i] = i+1;
-    }
-    console.log(theteams)
-    var team1;
-    var team2;
-    var count = 0;
-
-    for(let x = 0; x < 1; x++) {
-      for(let j = 0; j<no2; j++) {
-        team1 = theteams[Math.ceil(no2 - j -1)]
-        team2 = theteams[Math.ceil(no2 + j)]
-        count++
-        teamArray.push({round: count, nr1: team1, nr2: team2})
+      teamsArray[i] = i+1;
+    }  
+    /* sätt ihop vem som möter vem */
+    for(let i = 0; i < teamsArray.length-1; i++) {      
+      for(let j = counter; j < teamsArray.length; j++) {
+        var num1 = teamsArray.slice(i,i+1)
+        var num2 = teamsArray.slice(j,j+1)
+        for(let g = 0; g < games; g++) {  
+          if(g % 2 ) {
+            schedule.push({round: 0, home: num1[0], away: num2[0]})            
+          } else {
+            schedule.push({round: 0, home: num2[0], away: num1[0]})
+          }
+        }
       }
-
-    var tmp = theteams[1]
-
-    for(let k = 1; k < theteams.length-1; k++) {
-      theteams[k] = theteams[k+1]
-    }
-      theteams[theteams.length-1] = tmp
-    }
-    console.log(teamArray)
+      counter++;
+    }    
+    /* shuffla arrayen */
+    var j, x, i;
+    for (i = schedule.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = schedule[i];
+        schedule[i] = schedule[j];
+        schedule[j] = x;
+    }    
+    /* addera roundnummer  */ 
+    for(let i = 0; i < schedule.length; i++) {
+      schedule[i].round = i+1;
+    }    
+    console.log(schedule)
      
-    /* ctx.dispatch('saveGameDataToDb', teamArray) */
+    /* ctx.dispatch('saveGameDataToDb', schedule) */
   },
 
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
