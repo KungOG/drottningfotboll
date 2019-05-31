@@ -32,7 +32,7 @@ export default {
         /* 
         ! Måste fixas 
         */       
-        var item = db.collection('games').doc('skogaby').collection('currentGame').doc('G3TpAmlbcrbQvlI1bdQy')
+        var item = db.collection('games').doc('skogaby').collection('currentGame').doc('7AbIH5YZS8TMPJ7fYbuI')
         
         item.get().then((doc) => {
             var game = doc.data().games

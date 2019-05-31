@@ -178,7 +178,7 @@ export default {
     }
     console.log(teamArray)
      
-    ctx.dispatch('saveGameDataToDb', teamArray)
+    /* ctx.dispatch('saveGameDataToDb', teamArray) */
   },
 
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
@@ -203,7 +203,7 @@ export default {
      db.collection('games').doc(adminTeam).collection('games').doc().set(gameData);  */
   },
   
-  /* Räkna ut poäng per spelare */
+  /* Addera spelarnas nya poäng med de gamla */
   calculatePoints (ctx, payload) {
     var adminTeam = this.state.currentUser.teams[0];
     let teamPlayers = this.state.teamPlayers;
@@ -229,14 +229,13 @@ export default {
 
     for(let p = 0; p < players.length; p++) {
       batch.update(db.collection('teams').doc(adminTeam).collection('players').doc(players[p].uid), players[p]);
-    }
-  
+    }  
     batch.commit().then(function() {
       console.log("Document successfully written!");
-  })
-  .catch(function(error) {
-      console.error("Error writing document: ", error);
-  });
-    console.log('done')
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+      console.log('done')
   }
 }
