@@ -143,7 +143,7 @@ export default {
 
   /* Skapa spelschemat */
   submitSchedules (ctx) {
-    var teams = 5; //this.state.numberOfTeams
+    var teams = 2; //this.state.numberOfTeams
     var teamArray = []
     
     if(teams %2 !=0) {
@@ -161,7 +161,7 @@ export default {
     var team2;
     var count = 0;
 
-    for(let x = 0; x < 5; x++) {
+    for(let x = 0; x < 1; x++) {
       for(let j = 0; j<no2; j++) {
         team1 = theteams[Math.ceil(no2 - j -1)]
         team2 = theteams[Math.ceil(no2 + j)]
