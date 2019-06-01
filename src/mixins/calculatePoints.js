@@ -2,7 +2,8 @@ export const calculatePoints = {
  
     data () {
         return { 
-            scoreArray : [],
+            scoreArray: [],
+            gameSettings: {},
             allGroups: [
             {
                 point : 0,
@@ -36,6 +37,11 @@ export const calculatePoints = {
             }],  
         }
     },
+    mounted() {
+        if (localStorage.getItem('gameSettings')) {
+            this.gameSettings = JSON.parse(localStorage.getItem('gameSettings')); 
+        }    
+    },
     computed: {
         numberOfGroups() {
             return this.$store.getters.getNumberOfTeams;
@@ -45,27 +51,29 @@ export const calculatePoints = {
         savePoints() {
             let winnerArray = this.winner; 
             let groups = this.groups;       //0-5     allGroups  0-4
+            console.log('poängfunktion körs')
             
             /* tilldela grupperna poäng */
             for(let k = 1; k < groups.length; k++) {
                 for(let i = 0; i < winnerArray.length; i++) {            
-                    
+                    console.log('1')
                     if(winnerArray[i].home.groupNr === k) {
+                        console.log('2')
                         if(winnerArray[i].home.win === true && winnerArray[i].away.win === false) {
                             /* win */
-                            this.allGroups[k-1].point += 3;
+                            this.allGroups[k-1].point += this.gameSettings.numberOfWin;
                             this.allGroups[k-1].win += 1;   
                             console.log('grupp' + k + 'win')          
                         } 
                         if (winnerArray[i].home.win === true && winnerArray[i].away.win === true) {
                             /* tie */
-                            this.allGroups[k-1].point += 2;
+                            this.allGroups[k-1].point += this.gameSettings.numberOfEqual;
                             this.allGroups[k-1].tie += 1; 
                             console.log('grupp' + k + 'tie') 
                         } 
                         if(winnerArray[i].home.win === false && winnerArray[i].away.win === true) {
                             /* loss */
-                            this.allGroups[k-1].point += 1;
+                            this.allGroups[k-1].point += this.gameSettings.numberOfLoss;
                             this.allGroups[k-1 ].loss += 1; 
                             console.log('grupp' + k + 'loss') 
                         }
@@ -73,19 +81,19 @@ export const calculatePoints = {
                     if(winnerArray[i].away.groupNr === k) {
                         if(winnerArray[i].home.win === false && winnerArray[i].away.win === true) {
                             /* win */
-                            this.allGroups[k-1].point += 3;
+                            this.allGroups[k-1].point += this.gameSettings.numberOfWin;
                             this.allGroups[k-1].win += 1;   
                             console.log('grupp' + k + 'win')          
                         } 
                         if (winnerArray[i].home.win === true && winnerArray[i].away.win === true) {
                             /* tie */
-                            this.allGroups[k-1].point += 2;
+                            this.allGroups[k-1].point += this.gameSettings.numberOfEqual;
                             this.allGroups[k-1].tie += 1; 
                             console.log('grupp' + k + 'tie') 
                         } 
                         if(winnerArray[i].home.win === true && winnerArray[i].away.win === false) {
                             /* loss */
-                            this.allGroups[k-1].point += 1;
+                            this.allGroups[k-1].point += this.gameSettings.numberOfLoss;
                             this.allGroups[k-1 ].loss += 1; 
                             console.log('grupp' + k + 'loss') 
                         }

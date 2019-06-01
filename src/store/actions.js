@@ -122,6 +122,18 @@ export default {
     ctx.commit('setSelectedTeam', team)
   },
 
+  /* Spara antal, lag, spel och poäng i local storage */
+  setGameSettings() {
+    let settings = {
+      numberOfGames: this.state.numberOfGames,
+      numberOfTeams: this.state.numberOfTeams,
+      numberOfWin: this.state.numberOfWin,
+      numberOfEqual: this.state.numberOfEqual,
+      numberOfLoss: this.state.numberOfLoss
+    }
+    localStorage.setItem('gameSettings', JSON.stringify(settings));
+  },
+
   /* Sortera spelarna i grupperna */
   submitGroups (ctx, teams) {
     for (var i = 0; i < teams.length; i++) {
@@ -181,9 +193,8 @@ export default {
     for(let i = 0; i < schedule.length; i++) {
       schedule[i].round = i+1;
     }    
-    console.log(schedule)
-     
-    /* ctx.dispatch('saveGameDataToDb', schedule) */
+   
+    ctx.dispatch('saveGameDataToDb', schedule) 
   },
 
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
@@ -191,7 +202,7 @@ export default {
     let groups = this.state.groups;
     var adminTeam = this.state.currentUser.teams[0];
     var gameData = {groups: groups, games: teams}
-    db.collection('games').doc(adminTeam).collection('currentGame').doc().set(gameData);
+    db.collection('games').doc(adminTeam).collection('currentGame').doc('1').set(gameData);
     console.log('Success!')
   },
   

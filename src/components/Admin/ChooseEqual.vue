@@ -8,7 +8,7 @@
                 <a href="#" v-if="!show" @click="addNumberOfPointsEqual(2)">2</a>
                 <br>
                 <br>
-            <p v-if="show" @click="$router.push('/makegroups')">Klar</p>
+            <p v-if="show" @click="submitGameSettings">Klar</p>
                 <br>
         </section>
         <router-view />
@@ -30,6 +30,10 @@ export default {
             this.show = !this.show;
             this.numberOfEqual = num;
             this.$store.dispatch('setNumberOfEqual', num)
+        },    
+        submitGameSettings() {
+            this.$store.dispatch('setGameSettings')
+            this.$router.push('/makegroups')
         }
     }
 }

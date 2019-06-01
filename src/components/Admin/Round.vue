@@ -2,7 +2,7 @@
     <article class="main">
         <section class="list-wrapper">
             <section class="container">
-                <span @click="groupOne" :class="{red:home}">{{ game.nr1 }}</span> - <span @click="groupTwo" :class="{red:away}"> {{ game.nr2 }}</span>
+                <span @click="groupOne" :class="{red:home}">{{ game.home }}</span> - <span @click="groupTwo" :class="{red:away}"> {{ game.away }}</span>
             </section>
         </section>
     </article>
@@ -97,11 +97,11 @@ export default {
             this.winner.push({
                 game: this.game.round, 
                 home: {
-                    groupNr: this.game.nr1, 
+                    groupNr: this.game.home, 
                     win: this.home
                     }, 
                 away: {
-                    groupNr: this.game.nr2, 
+                    groupNr: this.game.away, 
                     win: this.away
                     }
             })  
