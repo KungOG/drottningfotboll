@@ -6,6 +6,7 @@
             <a href="#" v-if="!show" @click="addNumberOfTeams(2)" >2</a>
             <a href="#" v-if="!show" @click="addNumberOfTeams(3)" >3</a>
             <a href="#" v-if="!show" @click="addNumberOfTeams(4)" >4</a>
+            <a href="#" v-if="!show" @click="addNumberOfTeams(5)" >5</a>
             <br>
             <br>
             <br>
@@ -17,10 +18,15 @@
 <script>
 export default {
     name : 'makegame',
+    beforeMount () {
+        /* Ta bort föregåendespel */
+        localStorage.removeItem('winner')
+        localStorage.removeItem('gameSettings')
+    },
     data () { 
         return {
             numberOfTeams: 0,
-            show: false
+            show: false,     
         }
     },
     methods: {

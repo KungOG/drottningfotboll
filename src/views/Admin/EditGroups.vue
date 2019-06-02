@@ -52,7 +52,7 @@ export default {
 
       /* Sökfunktion */
         filterPlayers () {
-            return this.teamPlayers.filter((player) => {
+            return this.filterGroup.filter((player) => {
                 return player.name.match(this.search);
             })
         },

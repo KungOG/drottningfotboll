@@ -54,7 +54,7 @@ export default {
         },
         saveResult () {
             this.$store.dispatch('getTeamPlayersFromDb');
-            //spara resultatet i databasen
+            /* spara resultatet i databasen */
             var gameData = {
                 currentGame: this.groups,
                 winners: this.winner
@@ -63,7 +63,7 @@ export default {
 
             /*
              * Spara spelarens poäng
-             ! Funktion finns i CalculatePoint.js
+             ! Funktion finns i calculatePoint.js
             */
             this.savePoints();
         }

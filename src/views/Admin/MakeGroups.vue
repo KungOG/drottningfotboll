@@ -26,6 +26,7 @@ export default {
     },
     beforeCreate() {
       this.$store.dispatch('getTeamPlayersFromDb');
+      this.$store.dispatch('clearGroups');
     },
     components : {
         groupplayer
