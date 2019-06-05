@@ -111,6 +111,12 @@ export default {
   addGroupPlayer(ctx, payload) {
   ctx.commit('addGroupPlayer', payload);
  },
+
+ /* Ta bort spelare från annan grupp */
+ removeGroupPlayer(ctx, payload) {
+  ctx.commit('removeGroupPlayer', payload);
+ },
+
  /* Töm grupperna innan grupperna görs */
   clearGroups(ctx) {
     ctx.commit('clearGroups');

@@ -9,7 +9,7 @@
             <label for="">Sök spelare</label>
             <input type="text" v-model="search" placeholder="Sök Spelare">
                 <section class="player-list">          
-                    <section class="list-wrapper" v-for="(player, index) in otherTeamPlayers" :player="player" :key="index">
+                    <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
                         <section class="container" @click="markPlayer(player)" >
                         <h3>{{player.name}}</h3>
                     </section>
@@ -21,7 +21,7 @@
             <h3>{{group.name}}</h3>
             <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player"/>
         </section>
-        <a href="#" @click="updateGroup">Grupper</a>
+        <a href="#" @click="$router.push('/groups')">Grupper</a>
     </main>
 </template>
 
@@ -56,36 +56,23 @@ export default {
 
       /* Sökfunktion */
         filterPlayers () {
-            return this.filterGroup.filter((player) => {
+            return this.otherTeamPlayers.filter((player) => {
                 return player.name.match(this.search);
             })
-        },
-
-      /* Filtrera ut spelare som inte är i gruppen */
-        /* filterGroup () {
-            let otherTeamPlayers = this.teamPlayers;
-            
-            for( var i=otherTeamPlayers.length - 1; i>=0; i--){
-                for( var j=0; j<this.group.players.length; j++){
-                    if(otherTeamPlayers[i] && (otherTeamPlayers[i].uid === this.group.players[j].uid)){
-                      otherTeamPlayers.splice(i, 1);
-                    }
-                }
-            }
-            return otherTeamPlayers;
-
-        } */
+        }
     },
 
     methods : {
         markPlayer(player) {
             this.chosenPlayer = player;
-            //Kolla om spelaren finns i en annan grupp
+            this.$store.dispatch('removeGroupPlayer', this.chosenPlayer);
             this.$store.dispatch('addGroupPlayer', {
                 player: this.chosenPlayer, 
                 group: this.group.id
             })
+           
         }, 
+        /* Filtrera ut spelare som inte är i gruppen */
         filterGroup () {
             let check = false;
             for( var i=this.teamPlayers.length - 1; i>=0; i--){
@@ -102,11 +89,6 @@ export default {
                     check = false
                 }
             }            
-        },
-        updateGroup() {
-        console.log(this.teamPlayers)
-        console.log(this.otherTeamPlayers)
-            this.$router.push('/groups')
         }
     }
 }
