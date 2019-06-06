@@ -47,7 +47,7 @@ export default {
     })
   },
 
-  /* */
+  /* Spara användaren i Databasen */
   addUserToDb(ctx, user) {
     db.collection('users').doc(user.uid).set(user)
   },
@@ -63,6 +63,8 @@ export default {
     var uid = this.state.currentUser.uid;
     db.collection('users').doc(uid).update({name:name});
   },
+
+  /* Valen i skapandet av spelet */
   setNumberOfTeams(ctx, num) {
     ctx.commit('setNumberOfTeams', num);
   },
@@ -97,36 +99,38 @@ export default {
     db.collection('teams').doc(adminTeam).collection('players').doc(player).delete();
   },
 
-   /* Ta bort spelaren ifrån store */
-   deletePlayer(ctx, player) {
+  /* Ta bort spelaren ifrån store */
+  deletePlayer(ctx, player) {
     ctx.commit('deletePlayer', player);
   },
   
   /* Ta bort spelaren ifrån laget */
   deleteGroupPlayer(ctx, payload) {
-   ctx.commit('deleteGroupPlayer', payload);
- },
+    ctx.commit('deleteGroupPlayer', payload);
+  },
 
   /* Lägg till spelare till gruppen */
   addGroupPlayer(ctx, payload) {
-  ctx.commit('addGroupPlayer', payload);
- },
+    ctx.commit('addGroupPlayer', payload);
+  },
 
- /* Ta bort spelare från annan grupp */
- removeGroupPlayer(ctx, payload) {
-  ctx.commit('removeGroupPlayer', payload);
- },
+  /* Ta bort spelare från annan grupp */
+  removeGroupPlayer(ctx, payload) {
+    ctx.commit('removeGroupPlayer', payload);
+  },
 
- /* Töm grupperna innan grupperna görs */
+  /* Töm grupperna innan grupperna görs */
   clearGroups(ctx) {
     ctx.commit('clearGroups');
   }, 
+
   /* Ändra en spelare ifrån admins lag */
   remakePlayerFromTeam (ctx, player) {
     var adminTeam = this.state.currentUser.teams[0];
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
 
+  /* Valt lag av användaren */
   setSelectedTeam(ctx, team) {
     ctx.commit('setSelectedTeam', team)
   },
@@ -171,11 +175,11 @@ export default {
     let schedule = [];
     let teamsArray = [];
 
-    /* gör en array med antal lag */
+    /* Gör en array med antal lag */
     for(let i = 0; i<teams; i++) {
       teamsArray[i] = i+1;
     }  
-    /* sätt ihop vem som möter vem */
+    /* Sätt ihop vem som möter vem */
     for(let i = 0; i < teamsArray.length-1; i++) {      
       for(let j = counter; j < teamsArray.length; j++) {
         var num1 = teamsArray.slice(i,i+1)
@@ -190,7 +194,7 @@ export default {
       }
       counter++;
     }    
-    /* shuffla arrayen */
+    /* Shuffla arrayen */
     var j, x, i;
     for (i = schedule.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
@@ -198,7 +202,7 @@ export default {
         schedule[i] = schedule[j];
         schedule[j] = x;
     }    
-    /* addera roundnummer  */ 
+    /* Addera roundnummer  */ 
     for(let i = 0; i < schedule.length; i++) {
       schedule[i].round = i+1;
     }    
@@ -217,7 +221,6 @@ export default {
   
   /* Spara resultaten i databasen */
   saveResult (ctx, payload) {
-    console.log(payload)
     let date = new Date()
     var adminTeam = this.state.currentUser.teams[0];
     var gameData = {
@@ -262,5 +265,10 @@ export default {
         console.error("Error writing document: ", error);
     });
       console.log('done')
+  },
+
+  /* Spara datumet i Store och Mutations */
+  saveDate(ctx, payload) {
+    ctx.commit('setDate', payload)
   }
 }

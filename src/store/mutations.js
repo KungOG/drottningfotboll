@@ -1,5 +1,10 @@
 export default {
   
+  /* Spara valt datum i Calender komponenten */
+  setDate(state, date) {
+    state.date = date;
+  },
+  
   /* När du ska ha en specifik spelare */
   setPlayer(state, player) {
     state.player = player;

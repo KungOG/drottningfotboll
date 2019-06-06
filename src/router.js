@@ -69,8 +69,13 @@ const router = new Router({
             path: '/highscore',
             name: 'highscore',
             component: () => import('./components/HighScore/HighScore.vue')
-          }
+          },
         ]
+      },
+    {
+      path: '/calender',
+      name: 'calender',
+      component: () => import('./components/HighScore/Calender.vue') 
     },
     {
       path: '/admin',

@@ -50,13 +50,15 @@ export default {
       }
     },
     methods: {
+      setSelectedTeam() {
+          this.$store.dispatch('setSelectedTeam', this.selectedTeam);
+      },
       logout(){
         firebase.auth().signOut();
         this.$store.dispatch('removeCurrentUser');
         this.$router.push('/');
       },
       getPlayerInfo() {
-        console.log('2');
         var item = db.collection('teams').doc(this.selectedTeam).collection('players').doc(this.currentUser.uid)
         item.get().then((doc) => {
           var player = doc.data();
@@ -66,7 +68,8 @@ export default {
     },
     beforeMount() {
          this.selectedTeam = this.firstTeam;
-         this.getPlayerInfo();          
+         this.getPlayerInfo();     
+         this.setSelectedTeam();     
     }    
 }
 </script>
