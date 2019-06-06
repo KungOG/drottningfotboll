@@ -70,7 +70,6 @@ export default {
                 player: this.chosenPlayer, 
                 group: this.group.id
             })
-           
         }, 
         /* Filtrera ut spelare som inte är i gruppen */
         filterGroup () {

@@ -1,22 +1,26 @@
-<template>
-    <article class="aboutContent">
-        <h1>Spel Schema</h1>
-        <section class="schema">
-            <div v-for="(game, index) in games" :key="index" :game="game">
-                <span>{{ game.home }}</span> - <span> {{ game.away }}</span>
-            </div>
+<template> 
+    <article>
+        <section></section>
+        <section v-for="group in groups" :key="group.id">
+            <h3 v-if="group.players[0]">{{group.name}}</h3>
+            <group :group="group.players" />
         </section>
     </article>
 </template>
 
 <script>
 import db from '@/firebaseInit';
+import group from '@/components/Admin/Group.vue';
+
 export default {
-    name : 'gameschedule',
+    name : 'gamegroup',
+    components: {
+        group
+    },
     data () {
         return {
             currentGame: 'currentGame',
-            games: [],
+            groups: [],
         }
     },
     mounted() {
@@ -24,8 +28,8 @@ export default {
         var item = db.collection('games').doc(this.currentUser.teams[0]).collection(this.currentGame).doc('1')
         
         item.get().then((doc) => {
-            var game = doc.data().games
-            this.games = game
+            var group = doc.data().groups
+            this.groups = group
         })               
     },
     computed: {
