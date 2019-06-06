@@ -135,6 +135,30 @@ export default {
     ctx.commit('setSelectedTeam', team)
   },
 
+  /* Hämta senste spelet */
+  getCurrentGame(ctx) {
+    var selectedTeam = this.state.selectedTeam;
+    var item = db.collection('games').doc(selectedTeam).collection('currentGame').doc('1')     
+    item.get().then((doc) => {
+        var game = doc.data()
+        ctx.commit('setCurrentGame', game)
+    })
+  },
+
+  /* Hämta data ifrån ett specifikt lag */
+  async specificTeamData (ctx) {
+    var selectedTeam = this.state.selectedTeam;
+    var games = [];
+    var item = await db.collection('games').doc(selectedTeam).collection('games')
+    await item.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        var obj = (doc.id, " => ", doc.data())
+        games.push(obj)
+      })
+    })  
+    ctx.commit('setSpecificTeamData', games)  
+  },
+
   /* Spara antal, lag, spel och poäng i local storage */
   setGameSettings() {
     let settings = {
@@ -174,7 +198,7 @@ export default {
     let counter = 1;
     let schedule = [];
     let teamsArray = [];
-
+ 
     /* Gör en array med antal lag */
     for(let i = 0; i<teams; i++) {
       teamsArray[i] = i+1;
@@ -186,9 +210,9 @@ export default {
         var num2 = teamsArray.slice(j,j+1)
         for(let g = 0; g < games; g++) {  
           if(g % 2 ) {
-            schedule.push({round: 0, home: num1[0], away: num2[0]})            
+            schedule.push({round: 0, home: {groupNr: num1[0], win: 0}, away: {groupNr: num2[0], win:0}})            
           } else {
-            schedule.push({round: 0, home: num2[0], away: num1[0]})
+            schedule.push({round: 0, home: {groupNr: num2[0], win: 0}, away: {groupNr: num1[0], win: 0}})
           }
         }
       }
@@ -221,10 +245,14 @@ export default {
   
   /* Spara resultaten i databasen */
   saveResult (ctx, payload) {
-    let date = new Date()
+    let newDate = new Date()    
+    var date = newDate.toISOString().slice(0,10);
+    let time = newDate.toISOString().slice(11, 16);
+
     var adminTeam = this.state.currentUser.teams[0];
     var gameData = {
       date: date,
+      time: time,
       games: payload.winners,
       groups: payload.currentGame
     }
@@ -267,8 +295,11 @@ export default {
       console.log('done')
   },
 
-  /* Spara datumet i Store och Mutations */
+  /* Spara datumet och tiden i Store och Mutations */
   saveDate(ctx, payload) {
     ctx.commit('setDate', payload)
+  },
+  saveTime(ctx, payload) {
+    ctx.commit('setTime', payload)
   }
 }

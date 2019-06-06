@@ -47,6 +47,8 @@ export default {
     mounted() {
         //Get all teams from database for dropdown
         this.selectedTeam = this.firstTeam;
+        this.$store.dispatch('specificTeamData');
+        this.$store.dispatch('getCurrentGame');
         var teams = [];
         db.collection("teams").get().then(function(querySnapshot) {            
             querySnapshot.forEach(function(doc) {

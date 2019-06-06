@@ -4,6 +4,11 @@ export default {
   setDate(state, date) {
     state.date = date;
   },
+
+  /* Spara tiden i Calender komponenten */
+  setTime(state, time) {
+    state.time = time;
+  },
   
   /* När du ska ha en specifik spelare */
   setPlayer(state, player) {
@@ -23,6 +28,16 @@ export default {
   /* Du som användare och dess info */
   setCurrentUser(state, currentUser) {
     state.currentUser = currentUser;
+  },
+
+  /* Hämta specifik data */
+  setSpecificTeamData(state, specificTeamData) {
+    state.specificTeamData = specificTeamData;
+  },
+
+  /* Spara senaste spel */
+  setCurrentGame(state, currentGame) {
+    state.currentGame = currentGame;
   },
 
   /* Ta bort dig när du loggar ut */

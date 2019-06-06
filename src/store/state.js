@@ -1,7 +1,8 @@
 export default {
 
-  /* Sparat datum ifrån Kalendern */
+  /* Sparat datum och tiden ifrån Kalendern */
   date: '',
+  time: '',
 
   /* Spelare och Användare  */
   allUsers: [],
@@ -10,7 +11,11 @@ export default {
   /* Den aktuella användaren och spelaren */
   currentUser: {},
   player: {},
-  
+
+  /* Spel Data */
+  specificTeamData: [],
+  currentGame: [],
+
   /* Valt lag */
   selectedTeam: '',
 

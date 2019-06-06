@@ -5,7 +5,7 @@
             <h3 v-if="group.players[0]">{{group.name}}</h3>
            <group :group="group.players" />
         </section>
-        <a href="#" @click="saveGroupsToDb" >OK</a> 
+        <a href="#" @click="submitSchedules" >OK</a> 
     </main>
 </template>
 
@@ -23,8 +23,8 @@ export default {
        }
     },
     methods: {
-        saveGroupsToDb() {
-            this.$store.dispatch('saveGroupsToDb')
+        submitSchedules() {
+            this.$store.dispatch('submitSchedules')
             this.$router.push('/schedules')
         }
     }

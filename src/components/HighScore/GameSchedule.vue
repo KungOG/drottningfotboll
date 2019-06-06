@@ -1,9 +1,9 @@
 <template>
     <article class="aboutContent">
-        <Calender />
+        <Calender @changeDate="changeDate"/>
         <section class="schema">
             <div v-for="(game, index) in games" :key="index" :game="game">
-                <span>{{ game.home }}</span> - <span> {{ game.away }}</span>
+                <span>{{ game.home.groupNr }}</span> - <span> {{ game.away.groupNr }}</span>
             </div>
         </section>
     </article>
@@ -19,34 +19,24 @@ export default {
     },
     data () {
         return {
-            currentGame: 'currentGame',
             games: [],
         }
     },
-    mounted() {
-   
-        var item = db.collection('games').doc(this.selectedTeam).collection(this.currentGame).doc('1')
-        
-        item.get().then((doc) => {
-            var game = doc.data().games
-            this.games = game
-        })               
+    mounted () {
+        this.games = this.currentGame;
     },
     computed: {
-        currentUser() {
-            return this.$store.getters.getCurrentUser;
+        currentGame() {
+            return this.$store.state.currentGame.games;
         },
-        selectedTeam () {
-            return this.$store.getters.getSelectedTeam;
-        }     
+        specificTeamData() {
+            return this.$store.getters.filterDate;
+        }
     },
     methods: {
-/*         if (date === 1 ) {
-            this.currentGame = date
-        } else {
-            currentGame = 'currentGame'
-        } */
-
+        changeDate() {
+            this.games = this.specificTeamData.games;
+        }
     },
 }
 </script>

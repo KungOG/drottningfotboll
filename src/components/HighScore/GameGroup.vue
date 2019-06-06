@@ -1,6 +1,6 @@
 <template> 
     <article>
-        <Calender />
+        <Calender @changeDate="changeDate"/>
         <section v-for="group in groups" :key="group.id">
             <h3 v-if="group.players[0]">{{group.name}}</h3>
             <group :group="group.players" />
@@ -21,30 +21,24 @@ export default {
     },
     data () {
         return {
-            currentGame: 'currentGame',
             groups: [],
         }
     },
-    mounted() {
-   
-        var item = db.collection('games').doc(this.currentUser.teams[0]).collection(this.currentGame).doc('1')
-        
-        item.get().then((doc) => {
-            var group = doc.data().groups
-            this.groups = group
-        })               
+    mounted () {
+        this.groups = this.currentGame;
     },
     computed: {
-        currentUser() {
-            return this.$store.getters.getCurrentUser;
-        }     
+        currentGame() {
+            return this.$store.state.currentGame.groups;
+        },
+        specificTeamData() {
+            return this.$store.getters.filterDate;
+        }
     },
     methods: {
-/*         if (date === 1 ) {
-            this.currentGame = date
-        } else {
-            currentGame = 'currentGame'
-        } */
+        changeDate() {
+            this.groups = this.specificTeamData.groups;
+        }
 
     },
 }

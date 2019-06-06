@@ -2,7 +2,7 @@
     <article class="main">
         <section class="list-wrapper">
             <section class="container">
-                <span @click="groupOne" :class="{red:home}">{{ game.home }}</span> - <span @click="groupTwo" :class="{red:away}"> {{ game.away }}</span>
+                <span @click="groupOne" :class="{red:home}">{{ game.home.groupNr }}</span> - <span @click="groupTwo" :class="{red:away}"> {{ game.away.groupNr }}</span>
             </section>
         </section>
     </article>
