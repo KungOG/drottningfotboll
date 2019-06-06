@@ -75,10 +75,11 @@ export default {
   filterDate(state) {
     let games = state.specificTeamData;
     let date = state.date;
+    let time = state.time;
     let matchDate = [];
 
     for(let i = 0; i < games.length; i++) {
-      if( games[i].date === date) {
+      if( games[i].date === date && games[i].time === time) {
         console.log('match')
         matchDate.push(games[i])
       }
