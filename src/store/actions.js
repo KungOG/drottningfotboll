@@ -145,7 +145,7 @@ export default {
     })
   },
 
-  /* Hämta data ifrån ett specifikt lag */
+  /* Hämta alla spel ifrån ett specifikt lag */
   async specificTeamData (ctx) {
     var selectedTeam = this.state.selectedTeam;
     var games = [];
