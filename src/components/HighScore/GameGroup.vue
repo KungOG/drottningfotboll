@@ -18,14 +18,18 @@ export default {
     components: {
         group,
         Calender
-    },
+    },   
     data () {
         return {
             groups: [],
         }
     },
     mounted () {
-        this.groups = this.currentGame;
+        if(!this.$store.state.date || !this.$store.state.time) {
+            this.groups = this.currentGame;
+        } else {
+            this.groups = this.specificTeamData.groups
+        }
     },
     computed: {
         currentGame() {

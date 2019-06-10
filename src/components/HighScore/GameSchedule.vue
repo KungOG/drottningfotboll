@@ -23,7 +23,11 @@ export default {
         }
     },
     mounted () {
-        this.games = this.currentGame;
+        if(!this.$store.state.date || !this.$store.state.time) {
+            this.games = this.currentGame;
+        } else {
+            this.games = this.specificTeamData.games
+        }
     },
     computed: {
         currentGame() {

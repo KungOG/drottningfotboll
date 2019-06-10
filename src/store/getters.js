@@ -78,8 +78,8 @@ export default {
     let time = state.time;
     let matchDate = [];
 
-    for(let i = 0; i < games.length; i++) {
-      if( games[i].date === date && games[i].time === time) {
+    for (let i = 0; i < games.length; i++) {
+      if (games[i].date === date && games[i].time === time) {
         console.log('match')
         matchDate.push(games[i])
       }
@@ -91,8 +91,8 @@ export default {
     let date = state.date;
     let matchDate = [];
 
-    for(let i = 0; i < games.length; i++) {
-      if( games[i].date === date) {
+    for (let i = 0; i < games.length; i++) {
+      if (games[i].date === date) {
         console.log('match')
         matchDate.push(games[i])
       }

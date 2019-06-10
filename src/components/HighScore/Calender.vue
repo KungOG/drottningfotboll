@@ -9,6 +9,14 @@
 <script>
 export default {
     name: 'calender',
+    mounted () {
+        if(this.$store.state.date) {
+            this.date = this.$store.state.date;
+        }
+        if(this.$store.state.time) {
+            this.time = this.$store.state.time;
+        }
+    },
     data () {
         return {
             date: '',
