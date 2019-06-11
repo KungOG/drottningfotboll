@@ -35,12 +35,13 @@ export default {
         },
         firstTeam() {
             return this.$store.getters.getCurrentUser.teams[0];
-      }
+        }
     },
     methods: {
         //Send chosen team to store 
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
+            this.$store.dispatch('specificTeamData');
             console.log(this.selectedTeam)
         }
     },

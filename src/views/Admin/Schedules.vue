@@ -29,10 +29,8 @@ export default {
     },
  
     mounted() {
-        /* 
-        ! Måste fixas 
-        */       
-        var item = db.collection('games').doc('skogaby').collection('currentGame').doc('1')
+        /* var adminTeam = this.state.currentUser.teams[0]; */
+        var item = db.collection('games').doc('veinge').collection('currentGame').doc('1')
         
         item.get().then((doc) => {
             var game = doc.data().games
