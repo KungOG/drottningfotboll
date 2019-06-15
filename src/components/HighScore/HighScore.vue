@@ -28,11 +28,6 @@ export default {
         teamPlayers: []
       }
     },
-    watch: {
-      selectedTeam() {
-        this.getTeamplayers();
-      }
-    },
     
     computed: {
       selectedTeam() {
