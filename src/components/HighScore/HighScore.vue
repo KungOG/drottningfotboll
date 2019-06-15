@@ -28,6 +28,11 @@ export default {
         teamPlayers: []
       }
     },
+    watch: {
+      selectedTeam() {
+        this.getTeamplayers();
+      }
+    },
     
     computed: {
       selectedTeam() {
@@ -35,6 +40,10 @@ export default {
       }
     },
     mounted() {
+      this.getTeamplayers();
+    },
+    methods: {
+      getTeamplayers() {
       var teamPlayers = []
       var item = db.collection('teams').doc(this.selectedTeam).collection('players').orderBy('point')
       item.get().then((querySnapshot) => {
@@ -45,6 +54,7 @@ export default {
        })
       this.teamPlayers = teamPlayers; 
       console.log(this.teamPlayers)
+      }
     }
 }
 </script>

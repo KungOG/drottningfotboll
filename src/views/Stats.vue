@@ -33,9 +33,9 @@ export default {
         currentUser() {
             return this.$store.getters.getCurrentUser;
         },
-        firstTeam() {
+      /*   firstTeam() {
             return this.$store.getters.getCurrentUser.teams[0];
-        }
+        } */
     },
     methods: {
         //Send chosen team to store 
@@ -47,18 +47,19 @@ export default {
     },
     mounted() {
         //Get all teams from database for dropdown
-        if (this.firstTeam) {
-            this.selectedTeam = this.firstTeam;
+            var teams = [];
+            db.collection("teams").get().then(function(querySnapshot) {            
+                querySnapshot.forEach(function(doc) {
+                    teams.push(doc.id)
+                });
+            });       
+           this.teams = teams;
+
+        if (this.$store.state.currentUser !== null) {
+            this.selectedTeam = this.$store.state.currentUser.teams[0];
             this.$store.dispatch('getCurrentGame');
         }
 
-        var teams = [];
-        db.collection("teams").get().then(function(querySnapshot) {            
-            querySnapshot.forEach(function(doc) {
-                teams.push(doc.id)
-            });
-        });       
-       this.teams = teams;
     }
 }
 </script>
