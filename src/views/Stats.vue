@@ -33,29 +33,33 @@ export default {
         currentUser() {
             return this.$store.getters.getCurrentUser;
         },
-        firstTeam() {
+      /*   firstTeam() {
             return this.$store.getters.getCurrentUser.teams[0];
-      }
+        } */
     },
     methods: {
         //Send chosen team to store 
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
+            this.$store.dispatch('specificTeamData');
             console.log(this.selectedTeam)
         }
     },
     mounted() {
         //Get all teams from database for dropdown
-        this.selectedTeam = this.firstTeam;
-        this.$store.dispatch('specificTeamData');
-        this.$store.dispatch('getCurrentGame');
-        var teams = [];
-        db.collection("teams").get().then(function(querySnapshot) {            
-            querySnapshot.forEach(function(doc) {
-                teams.push(doc.id)
-            });
-        });       
-       this.teams = teams;
+            var teams = [];
+            db.collection("teams").get().then(function(querySnapshot) {            
+                querySnapshot.forEach(function(doc) {
+                    teams.push(doc.id)
+                });
+            });       
+           this.teams = teams;
+
+        if (this.$store.state.currentUser !== null) {
+            this.selectedTeam = this.$store.state.currentUser.teams[0];
+            this.$store.dispatch('getCurrentGame');
+        }
+
     }
 }
 </script>

@@ -97,11 +97,11 @@ export default {
             this.winner.push({
                 game: this.game.round, 
                 home: {
-                    groupNr: this.game.home, 
+                    groupNr: this.game.home.groupNr, 
                     win: this.home
                     }, 
                 away: {
-                    groupNr: this.game.away, 
+                    groupNr: this.game.away.groupNr, 
                     win: this.away
                     }
             })  

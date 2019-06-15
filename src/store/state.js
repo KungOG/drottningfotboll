@@ -9,7 +9,7 @@ export default {
   teamPlayers: [],
 
   /* Den aktuella användaren och spelaren */
-  currentUser: {},
+  currentUser: null,
   player: {},
 
   /* Spel Data */

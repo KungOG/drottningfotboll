@@ -22,11 +22,12 @@ export default {
     })
     ctx.commit('setAllUsers', allUsers)
   },
-
+  
   /* Hämta det specifika laget och deras spelare */
   async getTeamPlayersFromDb(ctx) {
+    var selectedTeam = this.state.selectedTeam;
     var teamPlayers = []
-    var item = await db.collection('teams').doc('skogaby').collection('players').orderBy('point')
+    var item = await db.collection('teams').doc(selectedTeam).collection('players').orderBy('point')
     await item.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         var obj = (doc.id, " => ", doc.data())
@@ -210,9 +211,9 @@ export default {
         var num2 = teamsArray.slice(j,j+1)
         for(let g = 0; g < games; g++) {  
           if(g % 2 ) {
-            schedule.push({round: 0, home: {groupNr: num1[0], win: 0}, away: {groupNr: num2[0], win:0}})            
+            schedule.push({round: 0, home: {groupNr: num1[0], win: false}, away: {groupNr: num2[0], win:false}})            
           } else {
-            schedule.push({round: 0, home: {groupNr: num2[0], win: 0}, away: {groupNr: num1[0], win: 0}})
+            schedule.push({round: 0, home: {groupNr: num2[0], win: false}, away: {groupNr: num1[0], win: false}})
           }
         }
       }
