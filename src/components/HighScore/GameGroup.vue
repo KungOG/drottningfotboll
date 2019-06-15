@@ -43,7 +43,6 @@ export default {
         changeDate() {
             this.groups = this.specificTeamData.groups;
         }
-
     },
 }
 </script>

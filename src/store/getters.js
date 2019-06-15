@@ -30,6 +30,11 @@ export default {
     return state.numberOfTeams;
   },
 
+  /* Hämta specifik lagdata */
+  getSpecificTeamData(state) {
+    return state.specificTeamData;
+  },
+
   /* Filtrera ut den specifika spelaren */
   getPlayerByUid (state) {
     return (uid) => {

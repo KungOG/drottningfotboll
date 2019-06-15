@@ -1,5 +1,5 @@
 <template>
-    <article class="aboutContent">
+    <article>
         <Calender @changeDate="changeDate"/>
         <section class="schema">
             <div v-for="(game, index) in games" :key="index" :game="game">

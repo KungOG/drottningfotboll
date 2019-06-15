@@ -18,7 +18,6 @@
 </template>
 
 <script>
-
 import db from '@/firebaseInit'
 
 export default {
@@ -28,7 +27,11 @@ export default {
         teamPlayers: []
       }
     },
-    
+    watch: {
+      selectedTeam() {
+        this.getTeamplayers();
+      }
+    },
     computed: {
       selectedTeam() {
         return this.$store.getters.getSelectedTeam;
@@ -45,10 +48,10 @@ export default {
         querySnapshot.forEach((doc) => {
           var obj = (doc.id, " => ", doc.data())
           teamPlayers.push(obj)
-        })
+          
+         })
        })
       this.teamPlayers = teamPlayers; 
-      console.log(this.teamPlayers)
       }
     }
 }
