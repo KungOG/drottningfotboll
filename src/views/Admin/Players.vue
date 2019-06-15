@@ -1,7 +1,7 @@
 <template>
     <main class="content">
       <section class="navbar-admin">
-        <img src="@/assets/addplayer.png" @click="$router.push('/addplayer')"/>
+        <img src="@/assets/icon/person-add.svg" @click="$router.push('/addplayer')"/>
       </section>
       <section class="search-bar">
         <label>Sök spelare</label>

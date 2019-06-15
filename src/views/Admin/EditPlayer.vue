@@ -2,7 +2,7 @@
     <article class="content">
       <section class="navbar-admin">
         <p>Hambugar menu</p>
-        <img src="@/assets/deleteplayer.png" class="btn" @click="deletePlayer" /> 
+        <img src="@/assets/icon/bin.svg" class="btn" @click="deletePlayer" /> 
       </section>
         <section class="fix-player">
           <section class="name-input">
