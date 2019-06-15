@@ -1,19 +1,20 @@
-/* Importering */
-@import './variables';
-@import './login';
-@import './list';
+/* Importering av SCSS */
 
-/* Admin navbar */
-.navbar-admin {
-    display:flex;
-    justify-content: flex-end;
+/* Components */
+@import 'components/buttons';
+@import 'components/computed';
+@import 'components/list';
+@import 'components/navigation';
+@import 'components/pagination';
+@import 'components/variables';
 
-    img {
-        @extend %imagesize;
-        padding: .5rem;
-        cursor: pointer;
-    }
-}
+/* Layouts */
+@import 'layouts/responsive';
+
+/* Pages */
+@import 'pages/login';
+
+
 
 .fix-player {
     display: flex;
@@ -98,3 +99,4 @@
     }
     
 }
+

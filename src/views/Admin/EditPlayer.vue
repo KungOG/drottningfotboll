@@ -69,7 +69,6 @@ export default {
 
 </script>
 <style scoped lang="scss">
-@import '@/scss/main.scss';
 
   .box-container {
     display: flex;

@@ -1,0 +1,11 @@
+/* Admin navbar */
+.navbar-admin {
+    display:flex;
+    justify-content: flex-end;
+
+    img {
+        @extend %imagesize;
+        padding: .5rem;
+        cursor: pointer;
+    }
+}
