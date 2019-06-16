@@ -83,6 +83,8 @@ export default {
   /* När du väljer team ska det visas lagras här */
   setSelectedTeam(state, selectedTeam) {
     state.selectedTeam = selectedTeam;
+    state.time = '';
+    state.date = '';
   },
   setNumberOfTeams(state, num) {
     state.numberOfTeams = num;

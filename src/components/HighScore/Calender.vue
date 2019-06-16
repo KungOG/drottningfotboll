@@ -18,8 +18,8 @@ import Datepicker from 'vuejs-datepicker';
 export default {
     name: 'calender',
     mounted () {
-        if(this.$store.state.date) {
-            this.date = this.$store.state.date;
+        if(this.$store.state.date) {            
+            this.date = new Date(this.$store.state.date);
         }
         if(this.$store.state.time) {
             this.time = this.$store.state.time;
@@ -59,7 +59,7 @@ export default {
             let date = this.date.toISOString().slice(0,10);
             this.$store.dispatch('saveDate', date)
             console.log(date) 
-            this.$emit('changeDate')
+            /* this.$emit('changeDate') */
         },
         saveTime () {
             this.$store.dispatch('saveTime', this.time) 
@@ -69,7 +69,6 @@ export default {
             this.highlighted.dates.length = 0;
             for(let i = 0; i < this.specificTeamData.length; i++) {
                 this.highlighted.dates.push(new Date (this.specificTeamData[i].date))
-                console.log('sada')
             }
         }
     }
