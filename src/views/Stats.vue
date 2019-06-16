@@ -1,22 +1,24 @@
 <template>
-    <main>
-        <section class="navigation">
-            <h1>Stats</h1>
-            <thead>
-                <tr>
-                    <td @click="$router.push('/gameschedule')">Spel Schema | </td>
-                    <td @click="$router.push('/gamegroup')"> Grupper | </td>
-                    <td @click="$router.push('/highscore')"> highscore</td>
-                </tr>
-            </thead>
-            <section>
-                <select v-model="selectedTeam" @change="setSelectedTeam">
-                    <option v-for="item in teams" :value="item">{{item}}</option>
-                </select>
-            </section>
-        </section>
-        <router-view />
-    </main>
+  <main class="stats-page">
+    <section class="navigation">
+      <ul class="active-site">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <section>
+        <select v-model="selectedTeam" @change="setSelectedTeam">
+          <option v-for="item in teams" :value="item">{{item}}</option>
+        </select>
+      </section>
+    </section>
+    <router-view />
+      <section class="stats-navigation">
+        <img src="@/assets/icon/cancel.svg" @click="$router.push('/highscore')">
+        <img src="@/assets/icon/people.svg" @click="$router.push('/gamegroup')">
+        <img src="@/assets/icon/calendar-event.svg" @click="$router.push('/gameschedule')">
+      </section>
+  </main>
 </template>
 
 <script>

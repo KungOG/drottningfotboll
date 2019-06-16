@@ -1,0 +1,28 @@
+.stats-page {
+    .active-site {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background: white;
+        padding: 0;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: .5rem;
+            margin: .5rem;
+            background: black;
+            border-radius: 999rem;
+        } 
+    }
+
+    .stats-navigation {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        img {
+            width: 2.5rem;
+        }
+    }
+}
