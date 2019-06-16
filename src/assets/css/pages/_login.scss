@@ -79,31 +79,6 @@ body {
           color: red;
         
         }
-      }
-      .player-stats {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-content: flex-end;    
-
-        .box-container {
-            display: flex;
-            flex-direction: row;            
-        } 
-        .info-box {
-            @extend %center;
-            border: 1px solid black;
-            border-radius: 5px;
-            flex-direction: column;
-            flex: 1;
-            margin: .2rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-
-            &.square {
-                height: 8rem;
-            }
-        }
-      }    
+      }  
     }
   }

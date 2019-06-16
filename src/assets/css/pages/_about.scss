@@ -1,0 +1,39 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    background: white;
+
+    .about-logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgb(83, 0, 0);
+        img {
+            width: 25%;
+        }
+        .active-site {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background: white;
+            padding: 0;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                padding: .5rem;
+                margin: .5rem;
+                background: black;
+                border-radius: 999rem;
+            } 
+        }
+    }
+    .about-text {
+        background: white;
+        padding-top: 2rem;
+        color: black;
+        /* position: fixed;
+        bottom: 0; */
+    }
+}
