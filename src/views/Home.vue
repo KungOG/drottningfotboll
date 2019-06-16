@@ -1,12 +1,22 @@
 <template>
-  <article class="content">
-    <section class="logo">
-      <h1>Logo</h1>
+  <article class="home-page">
+    <section class="home-logo">
+      <img src="@/assets/img/crown.png" alt="">
+      <img src="@/assets/img/fotball.png" alt="">
+      <h3>Kung<br>Fotboll</h3>
     </section>
-    <section class="login">
-        <img src="@/assets/google-logo.png" alt="Google Logo" @click="googleLogin">
-        <img src="@/assets/facebook-logo.png" alt="Facebook Logo" @click="facebookLogin">
-        <p>Är du <a href="#" @click="$router.push('./adminlogin')" class="admin-login-btn">Admin</a>?</p>
+    <section class="home-login">
+      <div class="login-btn" @click="googleLogin">
+        <img src="@/assets/img/google.svg" alt="Google Logo" >
+        <p>Logga in med Google</p>
+      </div>
+      <div class="login-btn" @click="facebookLogin">
+        <img src="@/assets/img/facebook.svg" alt="Facebook Logo">
+        <p>Logga in med Facebook</p>
+      </div>
+    </section>
+    <section class="admin-login">
+        <a href="#" @click="$router.push('./adminlogin')" class="admin-login-btn">Admin</a>
     </section>
   </article>
 </template>

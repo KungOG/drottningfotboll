@@ -1,0 +1,60 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+
+    .home-logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 25%;
+        }
+        h3 {
+            text-transform: uppercase;
+            color: white;
+        }
+    
+    }
+    .home-login {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+        
+        .login-btn {
+            display: flex;
+            align-items: center;
+            margin: 1rem 2rem 0 2rem;
+            padding: 1rem;
+            border: 1px solid green;
+            border-radius: 10px;
+            cursor: pointer;
+            
+            p {
+                margin: 0;
+                color: white;
+                margin-left: 3rem;
+            }
+            img {
+                width: 10%;
+            }
+        }
+    
+    }
+    .admin-login {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .admin-login-btn {
+            text-transform: uppercase;
+            font-size: 1rem;
+            position: fixed;
+            bottom: 1rem;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}

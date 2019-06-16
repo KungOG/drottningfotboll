@@ -142,3 +142,36 @@ body {
         }
       }
     }
+
+
+
+
+
+/* Search bar */
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem .5rem;
+
+    input {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: .7rem;
+        text-align: center;
+        color: black;
+        font-size: bold;
+    }
+}
+
+
+/* Section knapp, bottnen på sidan */
+.btn {
+    text-align: center;
+    a {
+        padding: .3rem;
+        border-radius: 999rem;
+        color: white;
+        background: green;
+        text-decoration: none;
+    }
+}
