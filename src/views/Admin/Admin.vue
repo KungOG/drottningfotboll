@@ -25,7 +25,7 @@
                     <img src="@/assets/icon/people.svg" alt=""> 
                     <span>GRUPPER</span>
                 </div>
-                <div class="one-admin-btn" @click="$router.push('/highscore')">
+                <div class="one-admin-btn" @click="$router.push('/schedules ')">
                     <img src="@/assets/icon/calendar-event.svg" alt="">
                     <span>SCHEMA</span>
                 </div>
