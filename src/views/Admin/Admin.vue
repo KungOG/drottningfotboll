@@ -1,17 +1,34 @@
 <template>
-    <main class="content">
-        <section class="logo">
-            <h1>Logo</h1>
+    <main class="admin-page">
+        <section class="admin-logout">
+            <img src="@/assets/icon/entrance.svg" alt="">
+            <!-- @click="logout" -->
         </section>
-        <section class="btn-container">
-            <h1>Admin</h1>        
-            <section class="admin-btn">
-                <p @click="$router.push('/players')">Spelare</p> 
-                <p @click="$router.push('/makegames')">Spel</p>
+        <section class="admin-logo">
+            <img src="@/assets/img/crown.png" alt="">
+            <img src="@/assets/img/fotball.png" alt="">
+            <h1>ADMIN</h1>
+        </section>
+        <section class="admin-btn">        
+            <section class="admin">
+                <div class="one-admin-btn" @click="$router.push('/players')">
+                    <img src="@/assets/icon/person.svg" alt=""> 
+                    <span>SPELARE</span>
+                </div>
+                <div class="one-admin-btn" @click="$router.push('/makegames')">
+                    <img src="@/assets/icon/settings.svg" alt="">
+                    <span>SETUP</span>
+                </div>
             </section>       
-            <section class="admin-btn">
-                <p @click="$router.push('/group')"> Grupper</p>
-                <p @click="$router.push('/highscore')"> Lista</p>
+            <section class="admin">
+                <div class="one-admin-btn" @click="$router.push('/group')">
+                    <img src="@/assets/icon/people.svg" alt=""> 
+                    <span>GRUPPER</span>
+                </div>
+                <div class="one-admin-btn" @click="$router.push('/highscore')">
+                    <img src="@/assets/icon/calendar-event.svg" alt="">
+                    <span>SCHEMA</span>
+                </div>
             </section>
         </section>
     </main>
@@ -19,6 +36,10 @@
 
 <script>
 export default {
-    name : 'admin'
+    name : 'admin',
+
+    /* 
+    ! function som du kan logga ut måste göras
+     */
 }
 </script>

@@ -1,0 +1,56 @@
+.admin-page {
+    display: flex;
+    flex-direction: column;
+
+    .admin-logout {
+        display: flex;
+        justify-content: flex-end;
+        align-content: flex-end;
+        img {
+            width: 3rem;
+        }
+    }
+    .admin-logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+
+        img {
+            width: 25%;
+        }
+        h1 {
+            margin-top: 2rem;
+            color: white;
+        }
+    }
+    .admin-btn {
+        margin-top: 2rem;
+
+        .admin {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+
+            .one-admin-btn {
+                display: flex;
+                flex-direction: column;
+                margin: .2rem;
+                border-radius: 10px;
+                border: $border-btns;
+                padding: 3.5rem;
+                color: white;
+                width: 3.5rem;
+
+                img {
+                    margin: .5rem;
+                }
+                span {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
