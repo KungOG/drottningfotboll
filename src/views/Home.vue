@@ -1,6 +1,7 @@
 <template>
   <article class="home-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
     <section class="home-logo">
+      <ul class="slider" :class="'slide-' + activeSlide"></ul>
       <img src="@/assets/img/crown.png" alt="">
       <img src="@/assets/img/fotball.png" alt="">
       <h3>Kung<br>Fotboll</h3>
@@ -34,15 +35,17 @@ export default {
       }
     },
     methods: {
-        rightSwipe () {
-            this.$store.state.commit('swipe', 2);
-            this.$router.push('/stats')
-            console.log('Right S')
+        /* Swipe funktionen */
+        activeSlide () {
+            return this.$store.state.activeSlide;
         },
         leftSwipe () {
-          this.$store.state.commit('swipe', 0);
-            this.$router.push('/about')
-            console.log('Left S')
+            this.$store.commit('swipe', 2);
+            this.$router.push('/stats')
+        },
+        rightSwipe () {
+            this.$store.commit('swipe', 0);
+            this.$router.push('/about')  
         },
         googleLogin () {
           const provider = new firebase.auth.GoogleAuthProvider();

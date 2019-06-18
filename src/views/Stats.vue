@@ -1,11 +1,7 @@
 <template>
-  <main class="stats-page" v-touch:swipe.left="leftSwipe"> 
+  <main class="stats-page" v-touch:swipe.right="leftSwipe"> 
     <section class="navigation">
-      <ul class="active-site slider" :class="'slide-' + activeSlide">
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+      <ul class="slider" :class="'slide-' + activeSlide"></ul>
       <section class="team-selection">
         <select v-model="selectedTeam" @change="setSelectedTeam">
           <option v-for="item in teams" :value="item">{{item}}</option>
@@ -32,16 +28,17 @@ export default {
         }
     },
     computed: {
-        activeSlide () {
-            return this.$store.state.activeSlide;
-        },
         currentUser() {
             return this.$store.getters.getCurrentUser;
         }
     },
     methods: {
+        /* Swipe funktionen */
+        activeSlide () {
+            return this.$store.state.activeSlide;
+        },
         leftSwipe () {
-            this.$store.state.commit('swipe', 1);
+            this.$store.commit('swipe', 1);
             this.$router.push('/home')
             console.log('Left S')
         },

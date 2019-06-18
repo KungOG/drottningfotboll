@@ -1,8 +1,7 @@
 <template>
-  <main class="about-page" v-touch:swipe.right="rightSwipe">
+  <main class="about-page" v-touch:swipe.left="rightSwipe">
     <section class="about-logo">
-      <ul class="slider" :class="'slide-' + activeSlide">
-      </ul>
+      <ul class="slider" :class="'slide-' + activeSlide"></ul>
       <img src="@/assets/img/crown.png" alt="">
       <img src="@/assets/img/fotball.png" alt="">
     </section>
@@ -16,17 +15,16 @@
 <script>
 export default {
   name: 'about',
-  computed: {
+    methods: {
+        /* Swipe funktionen */
+        rightSwipe () {
+            this.$store.commit('swipe', 1);
+            this.$router.push('/home')
+            console.log('Right S')
+        },
         activeSlide () {
-        return this.$store.state.activeSlide;
+            return this.$store.state.activeSlide;
+        }
     }
-  },
-  methods: {
-      rightSwipe () {
-          this.$store.state.commit('swipe', 1);
-          this.$router.push('/home')
-          console.log('Right S')
-      }
-  }
 }
 </script>
