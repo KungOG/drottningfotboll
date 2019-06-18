@@ -6,7 +6,7 @@
         <li></li>
         <li></li>
       </ul>
-      <section>
+      <section class="team-selection">
         <select v-model="selectedTeam" @change="setSelectedTeam">
           <option v-for="item in teams" :value="item">{{item}}</option>
         </select>

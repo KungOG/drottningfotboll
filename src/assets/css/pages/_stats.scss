@@ -1,19 +1,31 @@
 .stats-page {
-    .active-site {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        background: white;
-        padding: 0;
+    .navigation {
 
-        li {
+        .active-site {
             display: flex;
-            justify-content: space-between;
-            padding: .5rem;
-            margin: .5rem;
-            background: black;
-            border-radius: 999rem;
-        } 
+            flex-direction: row;
+            justify-content: center;
+            background: white;
+            padding: 0;
+    
+            li {
+                display: flex;
+                justify-content: space-between;
+                padding: .5rem;
+                margin: .5rem;
+                background: black;
+                border-radius: 999rem;
+            } 
+        }
+        .team-selection {
+            select {                
+                background: white;
+                align-self: center;
+                padding: .3rem 7rem;
+                font-size: 1.5rem; 
+                text-transform: uppercase;
+            }
+        }
     }
 
     .stats-navigation {

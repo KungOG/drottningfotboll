@@ -73,9 +73,9 @@ const router = new Router({
         ]
       },
     {
-      path: '/calender',
-      name: 'calender',
-      component: () => import('./components/HighScore/Calender.vue') 
+      path: '/calendar',
+      name: 'calendar',
+      component: () => import('./components/HighScore/Calendar.vue') 
     },
     {
       path: '/admin',

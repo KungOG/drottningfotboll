@@ -1,22 +1,21 @@
 <template>
-    <main>
-        <!-- <input type="date" v-model="date" @change="saveDate"> -->
-
-        <datepicker 
-        v-model="date"
-        :highlighted="highlighted"
-        @change="saveDate"
-        ></datepicker>
-
-        <select v-model="time" @change="saveTime">
-            <option v-for="date in filterTime" :value="date.time">{{date.time}}</option>
-        </select>
+    <main class="calendar-page">
+        <section class="calendar">
+            <datepicker 
+            v-model="date"
+            :highlighted="highlighted"
+            @change="saveDate"
+            ></datepicker>
+            <select v-model="time" @change="saveTime">
+                <option v-for="date in filterTime" :value="date.time">{{date.time}}</option>
+            </select>
+        </section>
     </main>
 </template>
 <script>
 import Datepicker from 'vuejs-datepicker';
 export default {
-    name: 'calender',
+    name: 'calendar',
     mounted () {
         if(this.$store.state.date) {            
             this.date = new Date(this.$store.state.date);

@@ -1,19 +1,27 @@
 <template>
-    <main class="main">
-        <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
+    <main class="highscore-page">
+      <section class="highscore-header">
+        <span>Vinst</span>
+        <span>Lika</span>
+        <span>Förlust</span>
+        <span>Mål</span>
+        <span>Poäng</span>
+      </section>
+      <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
+        <section class="container">
+          <section class="name">
+            <h3>{{item.name}}</h3>
+          </section>
+          <section class="score">
+            <p>{{item.win}}</p>
+            <p>{{item.loss}}</p>
+            <p>{{item.loss}}</p>
+          </section>
           <aside id="date">
             {{item.point}}
           </aside>
-          <section class="container">
-            <section>
-              <h3>{{item.name}}</h3>
-            </section>
-            <section class="score">
-              <p id="win">Vinster: {{item.win}}</p>
-              <p>Förluster: {{item.loss}}</p>
-            </section>
-          </section>
-        </article>
+        </section>
+      </article>
     </main>
 </template>
 

@@ -18,8 +18,15 @@
 @import 'pages/playerinfo';
 @import 'pages/stats';
 @import 'pages/admin';
+@import 'pages/calendar';
+@import 'pages/highscore';
 
-
+body {
+    background: url("./assets/img/background.jpg");
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+}
 
 .fix-player {
     display: flex;
