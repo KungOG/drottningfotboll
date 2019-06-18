@@ -1,10 +1,7 @@
 <template>
   <main class="about-page">
     <section class="about-logo">
-      <ul class="active-site">
-        <li></li>
-        <li></li>
-        <li></li>
+      <ul class="slider" :class="'slide-' + activeSlide">
       </ul>
       <img src="@/assets/img/crown.png" alt="">
       <img src="@/assets/img/fotball.png" alt="">
@@ -15,3 +12,14 @@
     </section>
   </main>
 </template>
+
+<script>
+export default {
+  name: 'about',
+  methods: {
+        activeSlide () {
+        return this.$store.state.activeSlide;
+    }
+  }
+}
+</script>

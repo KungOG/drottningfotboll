@@ -1,7 +1,7 @@
 <template>
   <main class="stats-page">
     <section class="navigation">
-      <ul class="active-site">
+      <ul class="active-site slider" :class="'slide-' + activeSlide">
         <li></li>
         <li></li>
         <li></li>
@@ -37,6 +37,9 @@ export default {
         }
     },
     methods: {
+        activeSlide () {
+            return this.$store.state.activeSlide;
+        },
         //Send chosen team to store 
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);

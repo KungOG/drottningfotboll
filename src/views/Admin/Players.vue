@@ -1,6 +1,12 @@
 <template>
-    <main class="content">
+    <main>
       <section class="navbar-admin">
+        <Slide id="slide">
+            <router-link to="/admin">Admin</router-link>
+            <router-link to="/players">Players</router-link>
+            <router-link to="/makegames">Make Game</router-link>
+            <router-link to="/schedules">Schedules</router-link>
+        </Slide>
         <img src="@/assets/icon/person-add.svg" @click="$router.push('/addplayer')"/>
       </section>
       <section class="search-bar">
@@ -25,6 +31,7 @@
 </template>
 
 <script>
+import { Slide } from 'vue-burger-menu';
 
 export default {
     name : 'players',
@@ -35,6 +42,9 @@ export default {
     },
     beforeCreate() {
       this.$store.dispatch('getTeamPlayersFromDb');
+    },
+    components: {
+        Slide
     },
     computed: {
       teamPlayers() {

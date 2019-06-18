@@ -1,5 +1,8 @@
 export default {
 
+  /* Swipe räknaren */
+  activeSlide: 1,
+
   /* Sparat datum och tiden ifrån Kalendern */
   date: '',
   time: '',

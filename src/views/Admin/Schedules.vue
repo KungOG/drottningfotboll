@@ -1,5 +1,11 @@
 <template>
-    <main class="content">
+    <main class="">
+        <Slide id="slide">
+            <router-link to="/admin">Admin</router-link>
+            <router-link to="/players">Players</router-link>
+            <router-link to="/makegames">Make Game</router-link>
+            <router-link to="/schedules">Schedules</router-link>
+        </Slide>
         <h1>Spel Schema</h1>
         <round class="schema" v-for="(game, index) in games" :key="index" :game="game" @checkWinners="checkWinners"></round>
         <section>
@@ -9,6 +15,7 @@
 </template>
 
 <script>
+import { Slide } from 'vue-burger-menu';
 import round from '@/components/Admin/Round.vue';
 import {calculatePoints} from '@/mixins/calculatePoints.js';
 import db from '@/firebaseInit'
@@ -17,7 +24,8 @@ export default {
     name : 'schedules',
     mixins : [calculatePoints],
     components: {
-        round
+        round,
+        Slide
     },
     data () {
         return {

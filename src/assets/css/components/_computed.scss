@@ -13,14 +13,6 @@ body {
       }
     }
   
-    .logo {
-      @extend %center;
-      background: darkcyan;
-    }
-    .navigation {
-      background: white;
-  
-      }
       /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
       .aboutContent {
         background: darkred;

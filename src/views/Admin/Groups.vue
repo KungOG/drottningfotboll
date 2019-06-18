@@ -1,5 +1,11 @@
 <template>
     <main>
+        <Slide id="slide">
+            <router-link to="/admin">Admin</router-link>
+            <router-link to="/players">Players</router-link>
+            <router-link to="/makegames">Make Game</router-link>
+            <router-link to="/schedules">Schedules</router-link>
+        </Slide>
         <h1>Admin grupper</h1>
         <section v-for="group in groups" :key="group.id" @click="$router.push(`editgroups/${group.id}`)">
             <h3 v-if="group.players[0]">{{group.name}}</h3>
@@ -10,12 +16,14 @@
 </template>
 
 <script>
+import { Slide } from 'vue-burger-menu';
 import group from '@/components/Admin/Group.vue';
 
 export default {
     name : 'groups',
     components: {
-       group 
+       group,
+       Slide
     },
     computed: {
        groups () {

@@ -1,5 +1,11 @@
 <template>
-    <main class="content">
+    <main class="">
+        <Slide id="slide">
+            <router-link to="/admin">Admin</router-link>
+            <router-link to="/players">Players</router-link>
+            <router-link to="/makegames">Make Game</router-link>
+            <router-link to="/schedules">Schedules</router-link>
+        </Slide>
         <section>
             <h1 v-if="!show">Välj antal Lag</h1> 
             <a href="#" v-if="show" @click="show = !show">Antal lag: {{ numberOfTeams }}</a>
@@ -16,6 +22,8 @@
 </template>
 
 <script>
+import { Slide } from 'vue-burger-menu';
+
 export default {
     name : 'makegame',
     beforeMount () {
@@ -28,6 +36,9 @@ export default {
             numberOfTeams: 0,
             show: false,     
         }
+    },
+    components: {
+        Slide
     },
     methods: {
         addNumberOfTeams(num) {

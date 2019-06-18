@@ -1,5 +1,5 @@
 <template>
-  <article class="home-page">
+  <article class="home-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
     <section class="home-logo">
       <img src="@/assets/img/crown.png" alt="">
       <img src="@/assets/img/fotball.png" alt="">
@@ -34,6 +34,16 @@ export default {
       }
     },
     methods: {
+        rightSwipe () {
+            this.$store.commit('swipe', 2);
+            this.$router.push('/stats')
+            console.log('Right S')
+        },
+        leftSwipe () {
+          this.$store.commit('swipe', 0);
+            this.$router.push('/about')
+            console.log('Left S')
+        },
         googleLogin () {
           const provider = new firebase.auth.GoogleAuthProvider();
           firebase.auth().signInWithPopup(provider).then(async(result) => {

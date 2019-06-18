@@ -1,8 +1,11 @@
 <template>
-    <main class="content">
-      <section class="navbar-admin">
-        <p>hamburgar meny</p>
-      </section>
+    <main class="">
+      <Slide id="slide">
+            <router-link to="/admin">Admin</router-link>
+            <router-link to="/players">Players</router-link>
+            <router-link to="/makegames">Make Game</router-link>
+            <router-link to="/schedules">Schedules</router-link>
+      </Slide>
 
       <section class="search-bar">
         <label for="">Sök spelare</label>
@@ -30,6 +33,8 @@
 </template>
 
 <script>
+import { Slide } from 'vue-burger-menu';
+
 export default {
     name : 'addplayer',
     beforeCreate () {
@@ -42,6 +47,9 @@ export default {
         chosenPlayer: '',
         name: ''
       }
+    },   
+    components: {
+        Slide
     },
     computed: {
 
