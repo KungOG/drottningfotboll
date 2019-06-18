@@ -1,5 +1,5 @@
 <template>
-  <main class="about-page">
+  <main class="about-page" v-touch:swipe.right="rightSwipe">
     <section class="about-logo">
       <ul class="slider" :class="'slide-' + activeSlide">
       </ul>
@@ -16,10 +16,17 @@
 <script>
 export default {
   name: 'about',
-  methods: {
+  computed: {
         activeSlide () {
         return this.$store.state.activeSlide;
     }
+  },
+  methods: {
+      rightSwipe () {
+          this.$store.state.commit('swipe', 1);
+          this.$router.push('/home')
+          console.log('Right S')
+      }
   }
 }
 </script>

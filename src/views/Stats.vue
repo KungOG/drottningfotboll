@@ -1,5 +1,5 @@
 <template>
-  <main class="stats-page">
+  <main class="stats-page" v-touch:swipe.left="leftSwipe"> 
     <section class="navigation">
       <ul class="active-site slider" :class="'slide-' + activeSlide">
         <li></li>
@@ -32,13 +32,18 @@ export default {
         }
     },
     computed: {
+        activeSlide () {
+            return this.$store.state.activeSlide;
+        },
         currentUser() {
             return this.$store.getters.getCurrentUser;
         }
     },
     methods: {
-        activeSlide () {
-            return this.$store.state.activeSlide;
+        leftSwipe () {
+            this.$store.state.commit('swipe', 1);
+            this.$router.push('/home')
+            console.log('Left S')
         },
         //Send chosen team to store 
         setSelectedTeam() {

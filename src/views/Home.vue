@@ -35,12 +35,12 @@ export default {
     },
     methods: {
         rightSwipe () {
-            this.$store.commit('swipe', 2);
+            this.$store.state.commit('swipe', 2);
             this.$router.push('/stats')
             console.log('Right S')
         },
         leftSwipe () {
-          this.$store.commit('swipe', 0);
+          this.$store.state.commit('swipe', 0);
             this.$router.push('/about')
             console.log('Left S')
         },
