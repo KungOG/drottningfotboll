@@ -1,5 +1,5 @@
 <template>
-  <article class="player-page">
+  <article class="player-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
       <section class="player-logo">
         <ul class="active-site">
           <li></li>
@@ -59,6 +59,18 @@ export default {
       }
     },
     methods: {
+        /* Swipe funktionen */
+        activeSlide () {
+            return this.$store.state.activeSlide;
+        },
+        leftSwipe () {
+            this.$store.commit('swipe', 2);
+            this.$router.push('/stats')
+        },
+        rightSwipe () {
+            this.$store.commit('swipe', 0);
+            this.$router.push('/about')  
+        },
       setSelectedTeam() {
           this.$store.dispatch('setSelectedTeam', this.selectedTeam);
       },

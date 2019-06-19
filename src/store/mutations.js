@@ -30,6 +30,11 @@ export default {
     state.teamPlayers = teamPlayers;
   },
 
+  /* Hämtat alla Admins lagetsspelare */
+  setAdminTeamPlayers(state, adminTeamPlayers) {
+    state.adminTeamPlayers = adminTeamPlayers;
+  },
+
   /* Du som användare och dess info */
   setCurrentUser(state, currentUser) {
     state.currentUser = currentUser;

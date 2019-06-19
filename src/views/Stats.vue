@@ -48,7 +48,7 @@ export default {
             this.$store.dispatch('specificTeamData');
         }
     },
-    async beforeMount() {
+    async created() {
         //Get all teams from database for dropdown
             var teams = [];
             await db.collection("teams").get().then(function(querySnapshot) {            
@@ -69,13 +69,12 @@ export default {
             if(this.$store.state.selectedTeam) {
                 this.selectedTeam = this.$store.state.selectedTeam;
             } else {
-                this.selectedTeam = teams[0];
+                this.selectedTeam = this.teams[0];
             }
         }
+        this.setSelectedTeam();
+        this.$store.dispatch('getTeamPlayers');
         this.$router.push('/highscore');
     }
 }
 </script>
-
-
-
