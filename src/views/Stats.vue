@@ -40,7 +40,6 @@ export default {
         leftSwipe () {
             this.$store.commit('swipe', 1);
             this.$router.push('/home')
-            console.log('Left S')
         },
         //Send chosen team to store 
         setSelectedTeam() {

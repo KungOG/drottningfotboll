@@ -20,7 +20,6 @@ export default {
         rightSwipe () {
             this.$store.commit('swipe', 1);
             this.$router.push('/home')
-            console.log('Right S')
         },
         activeSlide () {
             return this.$store.state.activeSlide;

@@ -1,14 +1,11 @@
 .about-page {
     display: flex;
     flex-direction: column;
-    background: white;
-
     .about-logo {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: rgb(83, 0, 0);
         img {
             width: 25%;
         }
