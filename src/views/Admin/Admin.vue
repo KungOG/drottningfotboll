@@ -21,11 +21,11 @@
                 </div>
             </section>       
             <section class="admin">
-                <div class="one-admin-btn" @click="$router.push('/group')">
+                <div class="one-admin-btn" @click="$router.push('/groups')">
                     <img src="@/assets/icon/people.svg" alt=""> 
                     <span>GRUPPER</span>
                 </div>
-                <div class="one-admin-btn" @click="$router.push('/schedules ')">
+                <div class="one-admin-btn" @click="$router.push('/schedules')">
                     <img src="@/assets/icon/calendar-event.svg" alt="">
                     <span>SCHEMA</span>
                 </div>

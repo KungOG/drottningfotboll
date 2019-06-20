@@ -38,7 +38,7 @@ export default {
  
     mounted() {
         /* var adminTeam = this.state.currentUser.teams[0]; */
-        var item = db.collection('games').doc('veinge').collection('currentGame').doc('1')
+        var item = db.collection('games').doc(this.currentUser).collection('currentGame').doc('1')
         
         item.get().then((doc) => {
             var game = doc.data().games
@@ -46,6 +46,11 @@ export default {
             this.games = game
             this.groups = groups
         })               
+    },
+    computed: {
+        currentUser () {
+            return this.$store.state.currentUser.teams[0];
+        }
     },
     methods: {
         checkWinners() {

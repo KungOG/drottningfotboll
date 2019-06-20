@@ -6,8 +6,11 @@
     }
     .list-wrapper {
         display: flex;
-        border: 1px solid black;
         padding: .5rem;
+        border: 1px solid black;
+        border-radius: 5px;        
+        background: white;
+
         .container {
             display: flex;
             flex-direction: row;

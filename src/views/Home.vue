@@ -17,7 +17,7 @@
       </div>
     </section>
     <section class="admin-login">
-        <a href="#" @click="$router.push('./adminlogin')" class="admin-login-btn">Admin</a>
+        <a href="#" @click="$router.push('./admin')" class="admin-login-btn">Admin</a>
     </section>
   </article>
 </template>
