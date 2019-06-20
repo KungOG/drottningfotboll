@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+        <section class="admin-login">
+        <a href="#" @click="$router.push('/admin')" class="admin-login-btn">Admin</a>
+    </section>
     <router-view/>
   </div>
 </template>

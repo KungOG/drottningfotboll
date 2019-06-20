@@ -144,7 +144,6 @@ const router = new Router({
     {
       path: '/makegroups',
       name: 'makegroups',
-     
       component: () => import('./views/Admin/MakeGroups.vue')
     },
     {
@@ -157,6 +156,11 @@ const router = new Router({
       path: '/schedules',
       name: 'schedules',
       component: () => import('./views/Admin/Schedules.vue')
+    },
+    {
+      path: '/superadmin',
+      name: 'superadmin',
+      component: () => import('./views/SuperAdmin.vue')
     }
   ]
 })

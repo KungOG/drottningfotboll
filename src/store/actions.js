@@ -1,4 +1,5 @@
 import db from '@/firebaseInit'
+import { Store } from 'vuex';
 export default {
 
   /* Hämta en spelare ifrån DB:n */
@@ -302,5 +303,19 @@ export default {
   },
   saveTime(ctx, payload) {
     ctx.commit('setTime', payload)
+  },
+
+  getTeamPlayers(ctx) {
+    var teamPlayers = []
+    var item = db.collection('teams').doc(this.state.selectedTeam).collection('players').orderBy('point')
+      item.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          var obj = (doc.id, " => ", doc.data())
+          teamPlayers.push(obj)
+          
+       })
+     })
+    ctx.commit('setTeamPlayers', teamPlayers)  
   }
 }
+

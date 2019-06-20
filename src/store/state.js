@@ -10,6 +10,9 @@ export default {
   /* Spelare och Användare  */
   allUsers: [],
   teamPlayers: [],
+  
+  /* Admin och dess spelare */
+  adminTeamPlayers: [],
 
   /* Den aktuella användaren och spelaren */
   currentUser: null,
