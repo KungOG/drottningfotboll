@@ -1,0 +1,1147 @@
+@charset "UTF-8";
+/* Importering av SCSS */
+/* Components */
+#slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* Hamburgar knappen */
+  /* Krysset inne i menyn */
+  /* Krysset och dess färg */
+  /* Storlek på krysset */
+  /* Var hela menyn ska vara och ligga */
+}
+
+#slide .bm-burger-button {
+  width: 2rem;
+  height: 2rem;
+  left: 1rem;
+  top: 1.5rem;
+  cursor: pointer;
+  /* Strecken för hamburgar menyn */
+  /* Linjerna för menyn */
+}
+
+#slide .bm-burger-button .bm-burger-bars {
+  background-color: white;
+}
+
+#slide .bm-burger-button .line-style {
+  position: absolute;
+  height: 20%;
+  left: 0;
+  right: 0;
+}
+
+#slide .cross-style {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+
+#slide .bm-cross {
+  background: white;
+}
+
+#slide .bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+#slide .bm-menu {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1000;
+  /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #005004;
+  /* Black */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /*0.5 second transition effect to slide in the sidenav*/
+  font-family: 'Roboto', Arial, sans-serif;
+  /* När fliken är ute, så blir det andra den här färgen */
+}
+
+#slide .bm-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#slide .bm-menu .bm-overlay {
+  background-color: red !important;
+}
+
+body {
+  /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
+}
+
+body .btn {
+  padding: .5rem;
+  text-decoration: none;
+  color: black;
+  margin: 1rem;
+  border: 1px solid black;
+}
+
+body .btn:hover {
+  color: #d11515;
+}
+
+body .aboutContent {
+  background: darkred;
+  color: white;
+  padding: 5rem 0;
+  border: 2px solid white;
+}
+
+body .content {
+  background: white;
+}
+
+body .content a {
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: .5rem .8rem;
+  margin: 1rem;
+  font-weight: bold;
+  background: white;
+}
+
+/* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
+.aboutContent {
+  background: darkred;
+  color: white;
+  padding: 5rem 0;
+  border: 2px solid white;
+}
+
+.content {
+  background: white;
+}
+
+.content a {
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 25%;
+  padding: .5rem .8rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.content a:hover {
+  background: red;
+}
+
+.content div {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: yellow;
+}
+
+.schema {
+  background: white;
+  color: red;
+}
+
+.schema p {
+  padding: 2rem;
+  border: 1px solid red;
+  margin: .2rem;
+}
+
+/* Detta försvinner med tiden */
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.main {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.main .list-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid gray;
+  padding: .5rem;
+}
+
+.main .list-wrapper .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.main .list-wrapper .container h3 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.main .list-wrapper .container .score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.main .list-wrapper .container .score #win {
+  margin-right: 1.5rem;
+}
+
+.main .list-wrapper #date {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 5px 15px 5px;
+  margin-right: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  width: 70px;
+  height: 60px;
+}
+
+/* Search bar */
+.search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: .5rem .5rem;
+}
+
+.search-bar input {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: .7rem;
+  text-align: center;
+  color: black;
+  font-size: bold;
+}
+
+/* Section knapp, bottnen på sidan */
+.btn {
+  text-align: center;
+}
+
+.btn a {
+  padding: .3rem;
+  border-radius: 999rem;
+  color: white;
+  background: green;
+  text-decoration: none;
+}
+
+.player-list {
+  margin: .5rem .5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: block;
+  overflow-y: scroll;
+  height: 60vh;
+  background: white;
+}
+
+.player-list .list-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 0;
+  padding: .5rem;
+  -webkit-box-shadow: 0px 24px 3px -24px gray;
+          box-shadow: 0px 24px 3px -24px gray;
+}
+
+.player-list .list-wrapper .container {
+  cursor: pointer;
+  display: inline-block;
+  width: 35%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.player-list .list-wrapper .container h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.player-list .list-wrapper .container p {
+  text-align: center;
+  margin: 0;
+}
+
+.player-list .list-wrapper .container .score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+/* Admin navbar */
+.navbar-admin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.navbar-admin img {
+  padding: .5rem;
+  cursor: pointer;
+}
+
+/*** Parameters ***/
+.navbar-admin img {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+body, body .content .logo, body .content .btn-container .admin-btn, body .content .login, .player-page .player-logo, .player-page .player-stats .info-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.schema {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1, 2fr)[2];
+      grid-template-columns: repeat(2, 1, 2fr);
+      grid-template-areas: 'team team';
+}
+
+/* Layouts */
+/*** Responsive ***/
+@media screen and (max-width: 600px) {
+  .post-cover {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-desktop {
+    display: none;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* Pages */
+body {
+  margin: 0;
+}
+
+body .content {
+  background: grey;
+  height: 100vh;
+  width: 100%;
+  /* Loggan */
+  /* CSS för About */
+  /* Admin sidan */
+  /* Login */
+}
+
+body .content .logo {
+  height: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: darkgray;
+  border: 1px solid black;
+}
+
+body .content .logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 999rem;
+}
+
+body .content .logo a {
+  margin: 2rem 0 0 0;
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: .5rem;
+  border-radius: 7%;
+}
+
+body .content .logo a:hover {
+  background: white;
+  color: black;
+}
+
+body .content .aboutContent {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body .content .btn-container {
+  height: 60%;
+  background: darkgray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .content .btn-container h1 {
+  text-align: center;
+}
+
+body .content .btn-container .admin-btn p {
+  font-weight: bold;
+  text-align: center;
+  width: 5rem;
+  padding: 1.5rem;
+  margin: .2rem;
+  border: 1px solid black;
+}
+
+body .content .login {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  height: 50%;
+}
+
+body .content .login .admin-login-btn {
+  text-decoration: none;
+  color: red;
+}
+
+.home-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home-page .home-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home-page .home-logo img {
+  width: 25%;
+}
+
+.home-page .home-logo h3 {
+  text-transform: uppercase;
+  color: white;
+}
+
+.home-page .home-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 3rem;
+}
+
+.home-page .home-login .login-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 2rem 0 2rem;
+  padding: 1rem;
+  border: 1px solid #6DD400;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.home-page .home-login .login-btn p {
+  margin: 0;
+  color: white;
+  margin-left: 3rem;
+}
+
+.home-page .home-login .login-btn img {
+  width: 2.5rem;
+}
+
+.home-page .admin-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.home-page .admin-login .admin-login-btn {
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  text-decoration: none;
+  color: #EF9859;
+  cursor: pointer;
+}
+
+.about-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: white;
+}
+
+.about-page .about-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #530000;
+}
+
+.about-page .about-logo img {
+  width: 25%;
+}
+
+.about-page .about-logo .active-site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  padding: 0;
+}
+
+.about-page .about-logo .active-site li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: .5rem;
+  margin: .5rem;
+  background: black;
+  border-radius: 999rem;
+}
+
+.about-page .about-text {
+  background: white;
+  padding-top: 2rem;
+  color: black;
+  /* position: fixed;
+        bottom: 0; */
+}
+
+.player-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.player-page .player-logo {
+  height: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.player-page .player-logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 999rem;
+}
+
+.player-page .player-logo .active-site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  padding: 0;
+}
+
+.player-page .player-logo .active-site li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: .5rem;
+  margin: .5rem;
+  background: black;
+  border-radius: 999rem;
+}
+
+.player-page .player-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  background: white;
+  padding-top: 2rem;
+}
+
+.player-page .player-stats .box-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.player-page .player-stats .info-box {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.player-page .player-stats .info-box .username-text {
+  font-size: 1.5rem;
+}
+
+.player-page .player-stats .info-box .text {
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: .3rem 1rem;
+}
+
+.player-page .player-stats .info-box .point {
+  color: #EF9859;
+  font-size: 4rem;
+}
+
+.player-page .player-stats .info-box .number {
+  font-size: 3rem;
+}
+
+.player-page .player-stats .info-box.team {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: .3rem 7rem;
+  font-size: 1.5rem;
+  margin: 2rem .5rem 1rem .5rem;
+  text-transform: uppercase;
+}
+
+.player-page .player-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  cursor: pointer;
+}
+
+.player-page .player-footer img {
+  width: 3rem;
+}
+
+.stats-page .navigation .active-site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  padding: 0;
+}
+
+.stats-page .navigation .active-site li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: .5rem;
+  margin: .5rem;
+  background: black;
+  border-radius: 999rem;
+}
+
+.stats-page .navigation .team-selection select {
+  background: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: .3rem 7rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.stats-page .stats-navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stats-page .stats-navigation img {
+  width: 2.5rem;
+}
+
+.admin-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-page .admin-logout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+}
+
+.admin-page .admin-logout img {
+  width: 3rem;
+}
+
+.admin-page .admin-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.admin-page .admin-logo img {
+  width: 25%;
+}
+
+.admin-page .admin-logo h1 {
+  margin-top: 2rem;
+  color: white;
+}
+
+.admin-page .admin-btn {
+  margin-top: 2rem;
+}
+
+.admin-page .admin-btn .admin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.admin-page .admin-btn .admin .one-admin-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: .2rem;
+  border-radius: 10px;
+  border: 1px solid #6DD400;
+  padding: 3.5rem;
+  color: white;
+  width: 3.5rem;
+}
+
+.admin-page .admin-btn .admin .one-admin-btn img {
+  margin: .5rem;
+}
+
+.admin-page .admin-btn .admin .one-admin-btn span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.calendar-page {
+  padding: .5rem 0 1rem 0;
+  background: white;
+}
+
+.calendar-page .calendar {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.calendar-page .calendar input {
+  margin-right: .5rem;
+  padding: .3rem 1.5rem;
+  font-size: 1rem;
+}
+
+.calendar-page .calendar select {
+  padding: .3rem 1.5rem;
+  background: white;
+}
+
+.highscore-page .highscore-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.highscore-page .list-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+}
+
+.highscore-page .list-wrapper .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.highscore-page .list-wrapper .container h3 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.highscore-page .list-wrapper .container .score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.highscore-page .list-wrapper #date {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 5px 15px 5px;
+  margin-left: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  width: 70px;
+  height: 60px;
+}
+
+.superadmin-page .input-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100vw;
+}
+
+.superadmin-page .input-section section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: white;
+  width: 20%;
+  padding: 5rem;
+}
+
+body {
+  background: url("./assets/img/background.jpg");
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+.fix-player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fix-player .name-input {
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.fix-player .name-input input {
+  padding: 1rem;
+  text-align: center;
+}
+
+.fix-player .stats-input {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fix-player .stats-input input {
+  padding: .5rem .1rem;
+  text-align: center;
+}
+
+.fix-player .points-input {
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.fix-player .points-input input {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Lägg till spelare fält */
+.addplayer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: .5rem .5rem;
+}
+
+.addplayer input {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: .7rem;
+  text-align: center;
+  color: black;
+  font-size: bold;
+}
+
+.addplayer a {
+  position: absolute;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  z-index: 1;
+  text-decoration: none;
+  color: black;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,19 @@
+.superadmin-page {
+
+    .input-section {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100vw;
+
+
+        section {
+            display: flex;
+            flex-direction: column; 
+            background: white; 
+            width: 20%;
+            padding: 5rem;
+
+
+        }
+    }
+}
