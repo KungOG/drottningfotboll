@@ -55,9 +55,9 @@ export default {
             .createUserWithEmailAndPassword(this.email, this.password)
             .then(
             (user) => {
-                db.collection('admins').set({
+                db.collection('admins').doc().set({
                     name: this.adminName,
-                    isAdmin: true,
+                    isAdmin: 'true',
                     team: this.team
                 })          
             },
