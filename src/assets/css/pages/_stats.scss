@@ -1,5 +1,8 @@
 .stats-page {
     .navigation {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
 
         .active-site {
             display: flex;
@@ -28,10 +31,19 @@
         }
     }
 
+    .router-content {
+        flex: 5;
+        height: 80vh;
+        overflow-y: scroll;
+    }
+
     .stats-navigation {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        position: fixed;
+        bottom: 0;
+        flex: 1;
         
         img {
             width: 2.5rem;

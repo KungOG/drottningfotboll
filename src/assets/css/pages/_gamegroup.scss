@@ -1,0 +1,12 @@
+.gamegroup-page {
+    section {
+        display: flex;
+
+        aside {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            background: orange;
+            padding: 1.5rem;
+        }
+    }
+}

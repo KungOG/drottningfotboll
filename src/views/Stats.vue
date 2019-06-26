@@ -8,12 +8,14 @@
         </select>
       </section>
     </section>
-    <router-view />
-      <section class="stats-navigation">
+    <section class="router-content">
+        <router-view />
+    </section>
+    <section class="stats-navigation">
         <img src="@/assets/icon/cancel.svg" @click="$router.push('/highscore')">
         <img src="@/assets/icon/people.svg" @click="$router.push('/gamegroup')">
         <img src="@/assets/icon/calendar-event.svg" @click="$router.push('/gameschedule')">
-      </section>
+    </section>
   </main>
 </template>
 
@@ -40,6 +42,7 @@ export default {
         leftSwipe () {
             this.$store.commit('swipe', 1);
             this.$router.push('/home')
+            console.log('Left S')
         },
         //Send chosen team to store 
         setSelectedTeam() {
