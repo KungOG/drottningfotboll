@@ -19,12 +19,6 @@
                 <input v-model="password" type="text">
                 <a href="#" @click="createAdmin">Klar</a>
             </section>
-            <section>
-                <h1>Skapa nytt lag</h1>
-                <label for="">Lag Namn</label>
-                <input v-model="teamName" type="text">
-                <a href="#" @click="createTeam">Skapa nytt lag</a>
-            </section>
         </section>
     </main>
 </template>
@@ -62,9 +56,6 @@ export default {
                 })          
             },
         )},
-        createTeam() {
-            
-        },
     }
 }
 </script>
