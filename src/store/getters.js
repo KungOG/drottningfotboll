@@ -89,6 +89,7 @@ export default {
         matchDate.push(games[i])
       }
     }
+
     return matchDate[0];
   },
   filterTime(state) {

@@ -32,20 +32,35 @@ export default {
         if(!this.$store.state.date || !this.$store.state.time) {
             this.groups = this.currentGame;
         } else {
-            this.groups = this.specificTeamData.groups
+            this.groups = this.specificTeamData
         }
     },
     computed: {
         currentGame() {
-            return this.$store.state.currentGame.groups;
+            /* Plocka ut endast de grupper som har spelare */
+            let allGroups = this.$store.state.currentGame.groups;
+            for(let i = 0; i < allGroups.length; i++) {
+                if(allGroups[i].players.length === 0) {
+                    allGroups.splice(i,1)
+                }
+            }
+            return allGroups;
+
         },
         specificTeamData() {
-            return this.$store.getters.filterDate;
+            /* Plocka ut endast de grupper som har spelare */
+            let allGroups = this.$store.getters.filterDate.groups;
+            for(let i = 0; i < allGroups.length; i++) {
+                if(allGroups[i].players.length === 0) {
+                    allGroups.splice(i,1)
+                }
+            }
+            return allGroups;
         }
     },
     methods: {
         changeDate() {
-            this.groups = this.specificTeamData.groups;
+            this.groups = this.specificTeamData;
         }
     },
 }
