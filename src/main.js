@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(() => {
       created: function(){
 		  	firebase.auth().onAuthStateChanged((currentUser) => {
 			  if(currentUser) {
-          this.$router.replace('/playerinfo')
+          this.$router.replace('/')
 			    console.log(currentUser)
 			  } else {
 			    this.$router.replace('/home')

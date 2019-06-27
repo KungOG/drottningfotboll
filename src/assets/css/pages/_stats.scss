@@ -1,9 +1,13 @@
 .stats-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
     .navigation {
         display: flex;
         flex-direction: column;
-        flex: 1;
-
+        
         .active-site {
             display: flex;
             flex-direction: row;
@@ -32,8 +36,7 @@
     }
 
     .router-content {
-        flex: 5;
-        height: 80vh;
+        flex: 7;
         overflow-y: scroll;
     }
 
@@ -41,9 +44,10 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        position: fixed;
-        bottom: 0;
+        //position: fixed;
+        //bottom: 0;
         flex: 1;
+        justify-self: flex-end;
         
         img {
             width: 2.5rem;
