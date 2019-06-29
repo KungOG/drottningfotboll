@@ -1,0 +1,24 @@
+.group-component {
+    section {
+        display: flex;
+        margin: 1rem 0;
+        width: 100vw;
+
+        aside {
+            display: flex;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            background: orange;
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .group-item {
+            display: flex;
+            flex: 5;
+            flex-direction: column;
+            margin: 0;
+        
+        }
+    }
+}

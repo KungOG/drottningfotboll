@@ -1,12 +1,9 @@
 <template> 
     <main class="gamegroup-page">
         <Calendar @changeDate="changeDate"/>
-        <section v-for="group in groups" :key="group.id">
-            <aside>
-               <h3>{{group.name}}</h3>
-            </aside>
+        <section v-for="group in groups" :key="group.id">            
             <article>
-               <group :group="group.players" />
+               <group :group="group" />
             </article>
         </section>
     </main>
