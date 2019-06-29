@@ -89,9 +89,9 @@ export default {
         matchDate.push(games[i])
       }
     }
-
     return matchDate[0];
   },
+  
   filterTime(state) {
     let games = state.specificTeamData;
     let date = state.date;

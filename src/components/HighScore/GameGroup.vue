@@ -3,7 +3,7 @@
         <Calendar @changeDate="changeDate"/>
         <section v-for="group in groups" :key="group.id">
             <aside>
-               <h3 v-if="group.players[0]">{{group.name}}</h3>
+               <h3>{{group.name}}</h3>
             </aside>
             <article>
                <group :group="group.players" />
@@ -32,27 +32,33 @@ export default {
         if(!this.$store.state.date || !this.$store.state.time) {
             this.groups = this.currentGame;
         } else {
-            this.groups = this.specificTeamData
+            this.groups = this.chosenGame;
         }
     },
     computed: {
         currentGame() {
             /* Plocka ut endast de grupper som har spelare */
             let allGroups = this.$store.state.currentGame.groups;
-            for(let i = 0; i < allGroups.length; i++) {
-                if(allGroups[i].players.length === 0) {
-                    allGroups.splice(i,1)
+            if(allGroups[0].players.length === 0) {
+                allGroups.shift();
+            }
+            for(let i = allGroups.length -1; i >= 0; i--) {
+                if(allGroups[i].players.length === 0) {      
+                    allGroups.pop();
                 }
             }
             return allGroups;
 
         },
-        specificTeamData() {
+        chosenGame() {
             /* Plocka ut endast de grupper som har spelare */
             let allGroups = this.$store.getters.filterDate.groups;
-            for(let i = 0; i < allGroups.length; i++) {
-                if(allGroups[i].players.length === 0) {
-                    allGroups.splice(i,1)
+            if(allGroups[0].players.length === 0) {
+                allGroups.shift();
+            }
+            for(let i = allGroups.length -1; i >= 0; i--) {
+                if(allGroups[i].players.length === 0) {      
+                    allGroups.pop();
                 }
             }
             return allGroups;
@@ -60,7 +66,7 @@ export default {
     },
     methods: {
         changeDate() {
-            this.groups = this.specificTeamData;
+            this.groups = this.chosenGame;
         }
     },
 }
