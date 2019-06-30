@@ -87,7 +87,7 @@ export default {
         })        
       }      
     },
-    beforeCreate() {
+    beforeMount() {
         this.selectedTeam = this.firstTeam;
         this.getPlayerInfo();     
         this.setSelectedTeam();     

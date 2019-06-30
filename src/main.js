@@ -13,16 +13,6 @@ firebase.auth().onAuthStateChanged(() => {
     app = new Vue({
       router,
       store,
-      created: function(){
-		  	firebase.auth().onAuthStateChanged((currentUser) => {
-			  if(currentUser) {
-          this.$router.replace('/')
-			    console.log(currentUser)
-			  } else {
-			    this.$router.replace('/home')
-			  }
-			})
-		  },
       render: (h) => h(App)
     }).$mount('#app');
   }
