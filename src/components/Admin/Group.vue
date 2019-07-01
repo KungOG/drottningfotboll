@@ -26,16 +26,16 @@ export default {
     beforeMount() {
         let number = this.group.id;
         if (number === 1) {
-                this.activeColor = "green"
-            } else if (number === 2) {
-                 this.activeColor = "red"
-            } else if (number === 3) {
-                this.activeColor = "yellow"  
-            } else if (number === 4) {
-                this.activeColor = "blue"
-            } else if (number === 5) {
-                this.activeColor = "pink"    
-            } 
+            this.activeColor = "green"
+        } else if (number === 2) {
+            this.activeColor = "red"
+        } else if (number === 3) {
+            this.activeColor = "orange"  
+        } else if (number === 4) {
+            this.activeColor = "blue"
+        } else if (number === 5) {
+            this.activeColor = "pink"    
+        } 
     }
 }
 </script>
