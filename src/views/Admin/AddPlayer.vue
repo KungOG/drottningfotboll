@@ -1,20 +1,21 @@
 <template>
-    <main class="">
-      <Slide id="slide">
-            <router-link to="/admin">Admin</router-link>
-            <router-link to="/players">Players</router-link>
-            <router-link to="/makegames">Make Game</router-link>
-            <router-link to="/schedules">Schedules</router-link>
-      </Slide>
-
+    <main class="addplayer-page">
+      <section class="navbar-admin">
+        <Slide id="slide">
+              <router-link to="/admin">Admin</router-link>
+              <router-link to="/players">Players</router-link>
+              <router-link to="/makegames">Make Game</router-link>
+              <router-link to="/schedules">Schedules</router-link>
+        </Slide>
+      </section>
+      
       <section class="search-bar">
-        <label for="">Sök spelare</label>
         <input type="text" v-model="search" placeholder="Sök Spelare">
       </section>
 
       <section class="player-list">          
         <section class="list-wrapper" v-for="(player, index) in filterUsers" :player="player" :key="index">
-          <section class="container" @click="markPlayer(player)" >
+          <section class="container" @click="submitPlayer(player)" >
             <h3>{{player.name}}</h3>
             <p>{{player.email}}</p>
           </section>
@@ -22,12 +23,11 @@
       </section>
 
       <section class="addplayer">
-        <label>Lägg till en tillfällig spelare</label>
-        <input type="text" v-model="name" placeholder="Namn">
-        <a href="#" @click="addPlayer">Lägg till</a>
-      </section>
-      <section class="btn">
-        <a href="#" @click="submitPlayer">Knapp</a>
+        <h3>Lägg till en tillfällig spelare</h3>
+        <article>
+          <input type="text" v-model="name" placeholder="Namn">
+          <img src="@/assets/icon/ok.svg" @click="addPlayer">
+        </article>
       </section>
     </main>
 </template>
@@ -44,7 +44,6 @@ export default {
       return {
         id: '',
         search: '',
-        chosenPlayer: '',
         name: ''
       }
     },   
@@ -82,22 +81,18 @@ export default {
         this.name = ''
       },
 
-      /* Markerad vald spelare */
-      markPlayer(player) {
-        this.chosenPlayer = player;
-      },
-
       /* Addera en spelare som har ett konto */
-      submitPlayer() {
+      submitPlayer(player) {
+        confirm('Vill du lägga till ' + player.name)
         this.idCode ();
         var addPlayer = 
           {
-            name: this.chosenPlayer.name,
+            name: player.name,
             goal: 0,
             loss: 0, 
             win: 0, 
             point: 0, 
-            uid: this.chosenPlayer.uid,
+            uid: player.uid,
           }
         
         this.$store.dispatch('submitPlayer', addPlayer);

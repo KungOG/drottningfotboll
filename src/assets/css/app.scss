@@ -24,12 +24,14 @@
 @import 'pages/highscore';
 @import 'pages/superadmin';
 @import 'pages/gamegroup';
+@import 'pages/addplayer';
 
 body {
     background: url("./assets/img/background.jpg");
     background-size: cover;
     height: 100vh;
     margin: 0;
+    font-family: $font;
 }
 
 .fix-player {
@@ -72,13 +74,11 @@ body {
     margin: .5rem .5rem;
     
     input {
-        
-        border: 1px solid black;
-        border-radius: 5px;
-        padding: .7rem;
+        border: none;
+        border-radius: 3px;
+        padding: 1rem;
+        font-size: 1.2rem;
         text-align: center;
-        color: black;
-        font-size: bold;
     }
     a {
         position: absolute;

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* Importering av SCSS */
 /* Components */
+@import url("https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap");
 #slide {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,11 +173,9 @@ body .content a {
 
 /* Detta försvinner med tiden */
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -265,12 +264,12 @@ body .content a {
 }
 
 .search-bar input {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: .7rem;
-  text-align: center;
+  border: none;
+  border-radius: 3px;
+  padding: 1rem;
   color: black;
-  font-size: bold;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* Section knapp, bottnen på sidan */
@@ -328,7 +327,6 @@ body .content a {
   text-align: center;
   text-transform: uppercase;
   margin: 0;
-  padding-bottom: .4rem;
   font-size: 1.2rem;
 }
 
@@ -370,6 +368,7 @@ body .content a {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  height: 3rem;
 }
 
 .navbar-admin img {
@@ -1149,11 +1148,41 @@ body .content .login .admin-login-btn {
   padding: 5rem;
 }
 
+.addplayer-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+.addplayer-page .addplayer {
+  height: 18vh;
+  color: white;
+}
+
+.addplayer-page .addplayer article {
+  position: relative;
+}
+
+.addplayer-page .addplayer article input {
+  width: 90%;
+}
+
+.addplayer-page .addplayer article img {
+  position: absolute;
+  right: 5px;
+}
+
 body {
   background: url("./assets/img/background.jpg");
   background-size: cover;
   height: 100vh;
   margin: 0;
+  font-family: "Heebo", sans-serif;
 }
 
 .fix-player {
@@ -1211,12 +1240,11 @@ body {
 }
 
 .addplayer input {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: .7rem;
+  border: none;
+  border-radius: 3px;
+  padding: 1rem;
+  font-size: 1.2rem;
   text-align: center;
-  color: black;
-  font-size: bold;
 }
 
 .addplayer a {

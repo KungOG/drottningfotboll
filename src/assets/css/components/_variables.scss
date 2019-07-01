@@ -1,5 +1,7 @@
 /*** Parameters ***/
 
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
+
 // Colors
 $color-primary: #666;
 $color-secondary: #888;
@@ -45,8 +47,8 @@ $tablet: 600px;
 $mobile: 480px;
 
 // Font Family
-$sans-serif: 'Roboto', sans-serif;
-$serif: 'Playfair Display', serif;
+$font: 'Heebo', sans-serif;
+
 
 // Animation
 $anime-in: .4s;

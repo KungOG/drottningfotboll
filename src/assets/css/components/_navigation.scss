@@ -2,6 +2,7 @@
 .navbar-admin {
     display:flex;
     justify-content: flex-end;
+    height: 3rem;
 
     img {
         @extend %imagesize;

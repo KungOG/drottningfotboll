@@ -79,11 +79,9 @@ body {
   
   /* Detta försvinner med tiden */
   #app {
-      font-family: 'Avenir', Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-align: center;
-      color: #2c3e50;
     }
     #nav {
       padding: 30px;
@@ -145,12 +143,12 @@ body {
     margin: .5rem .5rem;
 
     input {
-        border: 1px solid black;
-        border-radius: 5px;
-        padding: .7rem;
-        text-align: center;
+        border: none;
+        border-radius: 3px;
+        padding: 1rem;
         color: black;
-        font-size: bold;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, .5);
     }
 }
 
