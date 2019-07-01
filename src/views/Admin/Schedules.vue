@@ -6,6 +6,10 @@
             <router-link to="/makegames">Make Game</router-link>
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
+        <section>
+            <a href="#">Krona</a>
+            <img src="@/assets/icon/score.svg" @click="$router.push('/goalboard')">
+        </section>
         <h1>Spel Schema</h1>
         <round class="schema" v-for="(game, index) in games" :key="index" :game="game" @checkWinners="checkWinners"></round>
         <section>
@@ -37,6 +41,7 @@ export default {
     },
  
     mounted() {
+        this.$store.dispatch('getCurrentGame');
         /* var adminTeam = this.state.currentUser.teams[0]; */
         var item = db.collection('games').doc(this.currentUser).collection('currentGame').doc('1')
         

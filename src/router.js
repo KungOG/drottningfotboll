@@ -158,6 +158,11 @@ const router = new Router({
       component: () => import('./views/Admin/Schedules.vue')
     },
     {
+      path: '/goalboard',
+      name: 'goalboard',
+      component: () => import('./views/Admin/GoalBoard.vue')
+    },
+    {
       path: '/superadmin',
       name: 'superadmin',
       component: () => import('./views/SuperAdmin.vue')

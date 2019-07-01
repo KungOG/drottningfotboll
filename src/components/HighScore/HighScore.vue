@@ -1,11 +1,13 @@
 <template>
     <main class="highscore-page">
       <section class="highscore-header">
-        <span>Vinst</span>
-        <span>Lika</span>
-        <span>Förlust</span>
-        <span>Mål</span>
-        <span>Poäng</span>
+        <select>
+          <option>Poäng</option>
+          <option>Vinst</option>
+          <option>Lika</option>
+          <option>Förlust</option>
+          <option>Mål</option>
+        </select>
       </section>
       <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
         <section class="container">
