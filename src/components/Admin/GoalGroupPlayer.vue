@@ -5,7 +5,7 @@
                 {{goalgroupplayer.name}}
             </p>
             <span @click="addGoal('minus')"> - </span>
-            <span> {{goals}} </span>
+            <span> {{goal}} </span>
             <span @click="addGoal('plus')"> + </span>
         </section>
     </main>
@@ -17,7 +17,7 @@ export default {
     props: ['goalgroupplayer'],
     data () {
         return {
-            goals: 0,
+            goal: 0,
             result: false
         }
     },
@@ -26,7 +26,7 @@ export default {
             let item = JSON.parse(localStorage.getItem('goalTracker'));
             for(let i = 0; i < item.length; i++) {
                 if (this.goalgroupplayer.uid == item[i].player) {
-                    this.goals = item[i].goals;
+                    this.goal = item[i].goal;
                 }
             }
         } else {
@@ -35,12 +35,12 @@ export default {
         }
     },
     methods: {
-        addGoal (goals) {
-            if(goals == 'minus' && this.goals > 0) {
-                this.goals--;
+        addGoal (goal) {
+            if(goal == 'minus' && this.goal > 0) {
+                this.goal--;
             }
-            if(goals == 'plus') {
-                this.goals++;
+            if(goal == 'plus') {
+                this.goal++;
             }
             this.goalCount();
         },
@@ -55,7 +55,7 @@ export default {
                     item.splice(a, 1)                                 
                     item.push({
                             player: this.goalgroupplayer.uid,
-                            goals: this.goals
+                            goal: this.goal
                     })              
                 } else {
                     this.result = false                                     
@@ -64,7 +64,7 @@ export default {
            if(this.result === false) {                                          
                item.push({
                             player: this.goalgroupplayer.uid,
-                            goals: this.goals
+                            goal: this.goal
                         })                       
            }      
            this.result = false          
@@ -72,7 +72,7 @@ export default {
            } else {
                 item.push({
                     player: this.goalgroupplayer.uid,
-                    goals: this.goals
+                    goal: this.goal
                 })                       
            }
            localStorage.setItem('goalTracker', JSON.stringify(item));

@@ -276,7 +276,7 @@ export default {
               win: teamPlayers[j].win + payload[i].win, 
               loss: teamPlayers[j].loss + payload[i].loss, 
               tie: teamPlayers[j].tie + payload[i].tie,
-              goal: 0,
+              goal: teamPlayers[j].goal + payload[i].goal,
               name: teamPlayers[j].name            
           }) 
         }

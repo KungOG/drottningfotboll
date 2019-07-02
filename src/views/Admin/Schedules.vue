@@ -60,7 +60,7 @@ export default {
     methods: {
         checkWinners() {
             if (localStorage.getItem('winner')) {
-            this.winner = JSON.parse(localStorage.getItem('winner')); 
+                this.winner = JSON.parse(localStorage.getItem('winner')); 
             }
             if(this.winner.length == this.games.length) {
                 this.show = true
@@ -82,6 +82,7 @@ export default {
              ! Funktion finns i calculatePoint.js
             */
             this.savePoints();
+
         }
     }
 }

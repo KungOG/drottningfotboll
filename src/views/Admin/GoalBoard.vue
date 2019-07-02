@@ -7,7 +7,7 @@
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
         <section>
-            <a href="#">Krona</a>
+            <a href="#" @click="$router.push('/schedules')">Krona</a>
             <img src="@/assets/icon/score.svg">
         </section>
         <section v-for="group in currentGame" :key="group.id">            
