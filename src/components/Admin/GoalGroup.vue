@@ -2,28 +2,30 @@
     <main class="group-component">
         <section>
             <aside :style="{background: activeColor}">
-                <h3>{{group.name}}</h3>
+                <h3>{{goalgroup.name}}</h3>
             </aside>
             <section class="group-item">
-                <article class="list-item-group" v-for="player in group.players" :key="player.uid">
-                    <p>{{player.name}}</p>
-                </article>
+                <goalgroupplayer class="list-item-group" :goalgroupplayer="player" v-for="player in goalgroup.players" :key="player.uid"/>
             </section>
         </section>
     </main>
 </template>
 
 <script>
+import goalgroupplayer from '@/components/Admin/GoalGroupPlayer.vue';
 export default {
-    name : 'group',
-    props: ['group'],
+    name : 'goalgroup',
+    props: ['goalgroup'],
+    components: {
+       goalgroupplayer
+    },
     data() {
         return {
-            activeColor: "red"
+            activeColor: "red",
         }
     },
     beforeMount() {
-        let number = this.group.id;
+        let number = this.goalgroup.id;
         if (number === 1) {
             this.activeColor = "green"
         } else if (number === 2) {

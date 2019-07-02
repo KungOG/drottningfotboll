@@ -12,7 +12,7 @@
         </section>
         <section v-for="group in currentGame" :key="group.id">            
             <article>
-               <group :group="group" />
+               <goalgroup :goalgroup="group" />
             </article>
         </section>
     </main>
@@ -20,11 +20,11 @@
 
 <script>
 import { Slide } from 'vue-burger-menu';
-import group from '@/components/Admin/Group.vue';
+import goalgroup from '@/components/Admin/GoalGroup.vue';
 export default {
     name: 'goalboard',
     components: {
-       group,
+       goalgroup,
        Slide
     },
     computed: {
