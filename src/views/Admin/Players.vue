@@ -13,7 +13,7 @@
         <input type="text" v-model="search" placeholder="Sök Spelare">
       </section>
       <section class="player-list">
-        <section class="list-wrapper" v-for="(player, index) in filterPlayers" :key="index" @click="$router.push(`/editplayer/${player.uid}`)">
+        <section class="list-wrapper" v-for="(player, index) in filterPlayers" :key="index" @click="$router.push(`/loading/${player.uid}`)">
           <section class="container">
             <section>
               <h3>{{player.name}}</h3>

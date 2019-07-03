@@ -1,7 +1,7 @@
 <template>
     <article class="content">
       <section class="navbar-admin">
-        <p>Hambugar menu</p>
+        <a href="#" @click="showPlayers">Visa</a>
         <img src="@/assets/icon/bin.svg" class="btn" @click="deletePlayer" /> 
       </section>
         <section class="fix-player">
@@ -19,9 +19,11 @@
               <label>Poäng</label> 
               <input type="number" v-model="player.point">
           </section>
+          <router-view />
         </section>
         <section class="btn">
-          <a href="#" @click="remakePlayer">Klar</a>
+          <a href="#" @click="remakePlayer" v-if="show">Nummer 1</a>
+          <a href="#" @click="mergePlayer" v-if="!show">Nummer 2</a>
       </section>
     </article>
 </template>
@@ -37,11 +39,11 @@ export default {
           win: '',
           loss: '',
           uid: player.uid
-        }
+        },
+        show: false
       }
     },
     computed : {
-
       player () {
         return this.$store.getters.getPlayerByUid(
           this.$route.params.uid
@@ -63,6 +65,15 @@ export default {
         remakePlayer () {
           console.log(this.player);
           this.$store.dispatch('remakePlayerFromTeam', this.player);
+        },
+        /* Ändra spelaren */
+        mergePlayer () {
+          console.log(this.player);
+          /* this.$store.dispatch('remakePlayerFromTeam', this.player); */
+        },
+        showPlayers() {
+          console.log(this.$route.name);
+            this.$router.push('/mergePlayer')
         }
     }
 }
