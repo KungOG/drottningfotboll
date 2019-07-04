@@ -133,8 +133,19 @@ export default {
   },
 
   /* Koppla samman tillfällig spelare med registrerad spelare */
-  mergeUpdatedPlayer () {
-
+  mergeUpdatedPlayer (ctx, payload) {
+    var adminTeam = this.state.currentUser.teams[0];
+    var update = {        
+      uid: payload.player1.uid, 
+      point : payload.player1.point + payload.player2.point, 
+      win: payload.player1.win + payload.player2.win, 
+      loss: payload.player1.loss + payload.player2.loss, 
+      tie: payload.player1.tie + payload.player2.tie,
+      goal: payload.player1.goal + payload.player2.goal,
+      name: payload.player1.name            
+    }
+    db.collection('teams').doc(adminTeam).collection('players').doc(payload.player1.uid).set(update);
+    db.collection('teams').doc(adminTeam).collection('players').doc(payload.player2.uid).delete();
   },
 
   /* Valt lag av användaren */

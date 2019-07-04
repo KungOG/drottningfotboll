@@ -27,7 +27,7 @@
         </section>
         <section v-if="!show">
           <article class="list-item-group" v-for="player in filterPlayers" :key="player.uid">
-            <p>{{player.name}}</p>
+            <p @click="markedPlayer = player">{{player.name}}</p>
           </article>
           <a href="#" @click="mergeUpdatedPlayer">Nummer 2</a>
       </section>
@@ -39,7 +39,8 @@ export default {
     name : 'editplayer',
     data () {
       return {
-         show: true
+         show: true,
+         markedPlayer: null
       }
     },
     computed : {
@@ -53,7 +54,16 @@ export default {
 
       /* Lagspelare  */
       teamPlayers() {
-        return this.$store.getters.getTeamPlayers;
+        let array = this.$store.getters.getTeamPlayers;
+        let check = false;
+        let filteredPlayers = [];
+            
+        for( var i = 0; i < array.length; i++){
+            if(array[i].uid !== this.player.uid ){
+                filteredPlayers.push(array[i]);
+            }
+        }
+        return filteredPlayers
       },
 
       /* Filtrera spelare med lägre UID */
@@ -82,7 +92,10 @@ export default {
 
         /* Lägg samman spelaren och den tillfälliga */
         mergeUpdatedPlayer () {
-          this.$store.dispatch('mergeUpdatedPlayer', this.player);
+          this.$store.dispatch('mergeUpdatedPlayer', {player1: this.player, player2: this.markedPlayer});
+          setTimeout(() => this.$router.push({
+            path: '/players'
+          }), 1000)
         },
 
         /* Visa ny sektion */
