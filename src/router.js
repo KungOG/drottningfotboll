@@ -93,14 +93,7 @@ const router = new Router({
       path: '/editplayer/:uid',
       name: 'editplayer',
       /* meta: {requiresAuth: true, requiresAdmin: true}, */
-      component: () => import('./views/Admin/EditPlayer.vue'),
-      children: [
-        {
-          path: '/mergeplayer',
-          name: 'mergeplayer',
-          component: () => import('./components/Admin/MergePlayer.vue')
-        },
-      ]
+      component: () => import('./views/Admin/EditPlayer.vue')
     },
     {
       path: '/groups',

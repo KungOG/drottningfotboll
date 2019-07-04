@@ -1,8 +1,7 @@
 <template>
     <article class="content">
       <section class="navbar-admin">
-        <a href="#" @click="showPlayers">Visa</a>
-        <img src="@/assets/icon/bin.svg" class="btn" @click="deletePlayer" /> 
+        <a href="#" @click="showList">Visa</a>
       </section>
         <section class="fix-player">
           <section class="name-input">
@@ -18,12 +17,19 @@
           <section class="points-input">
               <label>Poäng</label> 
               <input type="number" v-model="player.point">
+              <label>Mål</label> 
+              <input type="number" v-model="player.goal">
           </section>
-          <router-view />
+          <section v-if="show">
+            <img src="@/assets/icon/bin.svg" class="btn" @click="deletePlayer" /> 
+            <a href="#" @click="remakePlayer">Nummer 1</a>
+          </section>
         </section>
-        <section class="btn">
-          <a href="#" @click="remakePlayer" v-if="show">Nummer 1</a>
-          <a href="#" @click="mergePlayer" v-if="!show">Nummer 2</a>
+        <section v-if="!show">
+          <article class="list-item-group" v-for="player in filterPlayers" :key="player.uid">
+            <p>{{player.name}}</p>
+          </article>
+          <a href="#" @click="mergeUpdatedPlayer">Nummer 2</a>
       </section>
     </article>
 </template>
@@ -33,22 +39,29 @@ export default {
     name : 'editplayer',
     data () {
       return {
-        player: {
-          namn: '',
-          point: '',
-          win: '',
-          loss: '',
-          uid: player.uid
-        },
-        show: false
+         show: true
       }
     },
     computed : {
+
+      /* Kolla spelarens UID */
       player () {
         return this.$store.getters.getPlayerByUid(
           this.$route.params.uid
         );
-      }
+      },
+
+      /* Lagspelare  */
+      teamPlayers() {
+        return this.$store.getters.getTeamPlayers;
+      },
+
+      /* Filtrera spelare med lägre UID */
+      filterPlayers () {
+          return this.teamPlayers.filter((player) => {
+            return player.uid.length <= 20;
+          })
+        }
     }, 
     methods : {
 
@@ -66,14 +79,19 @@ export default {
           console.log(this.player);
           this.$store.dispatch('remakePlayerFromTeam', this.player);
         },
-        /* Ändra spelaren */
-        mergePlayer () {
-          console.log(this.player);
-          /* this.$store.dispatch('remakePlayerFromTeam', this.player); */
+
+        /* Lägg samman spelaren och den tillfälliga */
+        mergeUpdatedPlayer () {
+          this.$store.dispatch('mergeUpdatedPlayer', this.player);
         },
-        showPlayers() {
-          console.log(this.$route.name);
-            this.$router.push('/mergePlayer')
+
+        /* Visa ny sektion */
+        showList() {
+          if(this.show != false) {
+            this.show = false;
+          } else {
+            this.show = true;
+          }
         }
     }
 }

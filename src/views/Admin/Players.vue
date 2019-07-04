@@ -37,7 +37,7 @@
               </article>
               <article>
                 <p>Mål</p>
-                <p>11</p>
+                <p>{{player.goal}}</p>
               </article>
             </section>
           </section>
@@ -63,9 +63,11 @@ export default {
         Slide
     },
     computed: {
+      
       teamPlayers() {
         return this.$store.getters.getTeamPlayers;
       },
+
       /* Sök funktion */
         filterPlayers () {
           return this.teamPlayers.filter((player) => {

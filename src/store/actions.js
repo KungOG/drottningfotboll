@@ -132,6 +132,11 @@ export default {
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
 
+  /* Koppla samman tillfällig spelare med registrerad spelare */
+  mergeUpdatedPlayer () {
+
+  },
+
   /* Valt lag av användaren */
   setSelectedTeam(ctx, team) {
     ctx.commit('setSelectedTeam', team)
