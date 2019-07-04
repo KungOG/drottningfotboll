@@ -13,7 +13,8 @@
     name: 'loading',
     data() {
       return {
-          prevRoute: null
+          prevRoute: null,
+          uid: null
         }
       },
       beforeRouteEnter(to, from, next) {
@@ -21,7 +22,7 @@
           vm.prevRoute = from
           console.log(vm.prevRoute)
         })
-      },
+       },
 
     //Routes to next page after 2.0 sec
     watch: {    
@@ -32,8 +33,9 @@
           }), 2000);
 
         } else {
+          this.uid = this.$route.query.plan.uid;
           setTimeout(() => this.$router.push({
-            path: `/editplayer/${player.uid}`
+            path: `/editplayer/${this.uid}`
           }), 2000);
         }
       } 
