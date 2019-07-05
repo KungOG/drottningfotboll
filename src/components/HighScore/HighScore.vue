@@ -12,21 +12,20 @@
       <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
           <section class="score">
             <div class="name">
-              <h3>{{item.name}}</h3>
+              <span>{{item.name}}</span>
             </div>
-            <div class='highlight'>
-              <span>{{item.point}}</span><br>
-              <span>Poäng </span>
+            <div class='point'>
+              <span class="highlight">{{item.point}}</span><br>
+              <span>Poäng</span>
             </div>
             <div class="win">
-              <span>Vinster </span>
+              <span>Vinst </span>
               <span>{{item.win}}</span>
             </div>
             <div class="lost">
-              <span>Förluster </span>
+              <span>Förlust </span>
               <span>{{item.loss}}</span>
             </div>
-            <br>
             <div class="tie">
               <span>Oavgjort </span>
               <span>{{item.tie}}</span>
