@@ -19,11 +19,11 @@
               <span>Poäng</span>
             </div>
             <div class="win">
-              <span>Vinst </span>
+              <span>Vinster </span>
               <span>{{item.win}}</span>
             </div>
             <div class="lost">
-              <span>Förlust </span>
+              <span>Förluster </span>
               <span>{{item.loss}}</span>
             </div>
             <div class="tie">
