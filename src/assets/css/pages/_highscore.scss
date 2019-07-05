@@ -12,29 +12,48 @@
         border-radius: 5px;        
         background: white;
 
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex: 1;
-            h3 {
+        .score {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-gap: 10px;
+            grid-template-areas:
+            'aside aside name name name name' 
+            'aside aside win win lost lost'
+            'aside aside tie tie goal goal';
+
+            .name {
+                grid-area: name;
                 text-transform: uppercase;
                 margin: 0;
                 font-size: 1.2rem;
+                color: #4F4F4F;
             }
-            .score {
-                display: flex;
-                flex-direction: row;
+            .win {
+                grid-area: win;
+                color: #9E9E9E;
+                
+            }
+            .lost {
+                grid-area: lost;
+                color: #9E9E9E;
+            }
+            .tie {
+                grid-area: tie;
+                color: #9E9E9E;
+            }
+            .goal {
+                grid-area: goal;
+                color: #9E9E9E;
+            }
+            .highlight {
+                grid-area: aside;
+                box-sizing: border-box;
+                text-align: center;
+                color: #F19344;
+                font-size: 2rem;
+                place-self: center;
             }
         }
-        #date {
-          box-sizing: border-box;
-          padding: 10px 5px 15px 5px;
-          margin-left: 2rem;
-          text-align: center;
-          font-size: 3rem;
-          width: 70px;
-          height: 60px;
-        }
-      }
+    }
 }
