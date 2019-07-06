@@ -1,4 +1,4 @@
-.highscore-page {
+/* .highscore-page {
     
     .highscore-header {
         display: flex;
@@ -70,4 +70,62 @@
             }
         }
     }
-}
+} */
+
+.highscore-page {
+    
+    .highscore-header {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .list-wrapper {
+        display: flex;
+        padding: .5rem;
+        background: white;
+        margin: .2rem 0;
+
+        p {
+            margin: 0;
+            color: #9E9E9E;
+        }
+        
+        .score {
+            display: flex;
+            width: 100%;
+            
+            aside {
+                width: 30%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .highlight {
+                    color: #F19344;
+                    font-size: 2.5rem;
+                    margin: 0;
+                }
+            }
+
+            .scorebox {
+                flex: 3;
+                width: 70%;
+                flex-direction: column;
+                text-align: left;
+
+                h3 {
+                    margin: 0;
+                }
+                
+                article {
+                    display: flex;
+                    flex-direction: row;
+
+                    div {
+                        margin-right: 2rem;
+                    }
+                }
+            }
+        }   
+    } 
+}    
