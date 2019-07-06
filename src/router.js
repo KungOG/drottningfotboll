@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import firebase from 'firebase'
+import index from './store/index'
 
 Vue.use(Router)
 
@@ -10,23 +11,20 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      component: () => import('./views/Home.vue')
+    },
+    {
+      path: '*',
+      component: () => import('./views/Home.vue')
+    },
+    {
+      path: '/home',
       component: () => import('./views/Home.vue')
     },
     {
       path: '/adminlogin',
       name: 'adminlogin',
       component: () => import('./views/AdminLogin.vue')
-    },
-    {
-      path: '*',
-      name: 'homepage',
-      component: () => import('./views/Home.vue')
-    },
-    {
-      path: '/home',
-      name: 'homepaged',
-      component: () => import('./views/Home.vue')
     },
     {
       path: '/loading',
@@ -80,36 +78,37 @@ const router = new Router({
     {
       path: '/admin',
       name: 'admin',
-      /* meta: {requiresAuth: true, requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/Admin.vue')
     },    
     {
       path: '/addplayer',
       name: 'addplayer',
-      /* meta: {requiresAuth: true, requiresAdmin: true}, */
+      /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/AddPlayer.vue')
     },
     {
       path: '/editplayer/:uid',
       name: 'editplayer',
-      /* meta: {requiresAuth: true, requiresAdmin: true}, */
+      /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/EditPlayer.vue')
     },
     {
       path: '/groups',
       name: 'groups',
-     /*  meta: {requiresAuth: true}, */
+     /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/Groups.vue')
     },
     {
       path: '/editgroups/:id',
       name: 'editgroups',
+      /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/EditGroups.vue')
     },
     {
       path: '/makegames',
       name: 'makegames',
-     /*  meta: {requiresAuth: true, requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/MakeGames.vue'),
       children: [
         {
@@ -144,60 +143,55 @@ const router = new Router({
     {
       path: '/makegroups',
       name: 'makegroups',
+      /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/MakeGroups.vue')
     },
     {
       path: '/players',
       name: 'players',
-      /* meta: {requiresAuth: true, requiresAdmin: true}, */
+      /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/Players.vue')
     },
     {
       path: '/schedules',
       name: 'schedules',
+      /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/Schedules.vue')
     },
     {
       path: '/goalboard',
       name: 'goalboard',
+      /* meta: {requiresAdmin: true}, */
       component: () => import('./views/Admin/GoalBoard.vue')
     },
     {
       path: '/superadmin',
       name: 'superadmin',
+      /* meta: {requiresSuperAdmin: true}, */
       component: () => import('./views/SuperAdmin.vue')
     }
   ]
 })
-/* Checks if you are logged in or not */
+
 router.beforeEach((to, from, next) => {
-  var requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  var currentUser = firebase.auth().currentUser;
-  var isAdmin = sessionStorage.getItem('isAdmin');
-  var requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+  var routerUserCheck = index.state.currentUser;
+  var routerAdminCheck = index.state.adminUser;
+  var routerSuperAdminCheck = index.state.superAdminUser;
 
-
-  if (requiresAuth) {       //om sidan kräver att du är inloggad
-    if(!currentUser) {        // och du inte är inloggad
-      next('/');                      //gå till login
-    } else if(requiresAdmin) {          //och om sidan även kräver admin
-      if(isAdmin === 'true') {    //och admin är true
-        next();                       //gå vidare
-      } else {                          
-       next('/');                 //annars gå till login
-      }
-    } else if (to.path == '/' && currentUser) {    //om du är inloggad ska du inte kunna gå till login
-      next('/');
-    } else {
-      next();
-   }
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (routerUserCheck) {
+      next();      
+    }
+   } else if (to.matched.some(record => record.meta.requiresAdmin)) {
+    if (routerAdminCheck) {
+      next();      
+    }
+  } else if (to.matched.some(record => record.meta.requiresSuperAdmin)) {
+    if (routerSuperAdminCheck) {
+      next();      
+    } 
   } else {
-      next();
+    next()
   }
-  
 });
-
 export default router;
-
-//Om man försöker gå in på en sida man inte har behörighet, ska man då alltid redirectas till login?
-//och i så fall, funktionen ovan (som inte funkar) ska ju se till så att en inloggad användare inte kan gå till home

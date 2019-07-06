@@ -9,38 +9,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'loading',
-    data() {
-      return {
-          prevRoute: null,
-          uid: null
-        }
-      },
-      beforeRouteEnter(to, from, next) {
-        next(vm => {
-          vm.prevRoute = from
-          console.log(vm.prevRoute)
-        })
-       },
-
-    //Routes to next page after 2.0 sec
-    watch: {    
-      prevRoute() {
-        if (this.prevRoute.path == '/') {
-          setTimeout(() => this.$router.push({
-            path: '/playerinfo'
-          }), 2000);
-
-        } else {
-          this.uid = this.$route.query.plan.uid;
-          setTimeout(() => this.$router.push({
-            path: `/editplayer/${this.uid}`
-          }), 2000);
-        }
-      } 
-    },
+export default {
+  name: 'loading',
+  //Routes to next page after 2.0 sec
+  created() {
+    setTimeout(() => this.$router.push({
+      path: '/playerinfo'
+    }), 2000);
   }
+}
 </script>
 <style scoped lang="scss">
 

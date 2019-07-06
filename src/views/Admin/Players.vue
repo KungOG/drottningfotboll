@@ -13,7 +13,7 @@
         <input type="text" v-model="search" placeholder="Sök Spelare">
       </section>
       <section class="player-list">
-        <section class="list-wrapper" v-for="(player, index) in filterPlayers" :key="index" @click="$router.push({ path: 'loading', query: { plan: player } })">
+        <section class="list-wrapper" v-for="(player, index) in filterUsers" :key="index" @click="$router.push(`/editplayer/${player.uid}`)">
           <section class="container">
             <section>
               <h3>{{player.name}}</h3>
@@ -69,7 +69,7 @@ export default {
       },
 
       /* Sök funktion */
-        filterPlayers () {
+        filterUsers () {
           return this.teamPlayers.filter((player) => {
             return player.name.match(this.search);
           })

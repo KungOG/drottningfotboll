@@ -10,6 +10,11 @@ export default {
     return state.currentUser;
   },
 
+  /* Användare */
+  getAdminUser(state) {
+    return state.adminUser;
+  },
+
   /* Valda laget */
   getSelectedTeam(state) {
     return state.selectedTeam;

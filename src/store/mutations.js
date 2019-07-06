@@ -39,6 +39,11 @@ export default {
   setCurrentUser(state, currentUser) {
     state.currentUser = currentUser;
   },
+  
+  /* Du som admin och dess info */
+  setAdminUser(state, adminUser) {
+    state.adminUser = adminUser;
+  },
 
   /* Hämta specifik data */
   setSpecificTeamData(state, specificTeamData) {

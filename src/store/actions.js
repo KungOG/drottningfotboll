@@ -49,6 +49,16 @@ export default {
     })
   },
 
+  /* Hämta info som Admin */
+  async setAdminUser(ctx, adminUser) {
+    var item = await db.collection('admins').doc(adminUser.uid)
+    item.get().then((doc) => {
+      
+      var adminUser = doc.data(); 
+      ctx.commit('setAdminUser', adminUser)
+    })
+  },
+
   /* Spara användaren i Databasen */
   addUserToDb(ctx, user) {
     db.collection('users').doc(user.uid).set(user)
@@ -63,7 +73,7 @@ export default {
   /* Sätta ditt namn första gången du loggar in */
   addPlayerName (ctx, name) {
     var uid = this.state.currentUser.uid;
-    db.collection('users').doc(uid).update({name:name});
+    db.collection('users').doc(uid).update({name: name});
   },
 
   /* Valen i skapandet av spelet */
@@ -85,19 +95,19 @@ export default {
 
   /* Lägg till spelare till admins lag */
   submitPlayer(ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
 
   /* Lägg till en tillfällig spelare till admins lag */
   addPlayerToDb(ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
 
   /* Ta bort en spelare ifrån admins lag */
   removePlayerFromTeam (ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player).delete();
   },
 
@@ -128,13 +138,13 @@ export default {
 
   /* Ändra en spelare ifrån admins lag */
   remakePlayerFromTeam (ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
 
   /* Koppla samman tillfällig spelare med registrerad spelare */
   mergeUpdatedPlayer (ctx, payload) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     var update = {        
       uid: payload.player1.uid, 
       point : payload.player1.point + payload.player2.point, 
@@ -255,7 +265,7 @@ export default {
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
   saveGameDataToDb (ctx, teams) {
     let groups = this.state.groups;
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     var gameData = {groups: groups, games: teams}
     db.collection('games').doc(adminTeam).collection('currentGame').doc('1').set(gameData);
     console.log('Success!')
@@ -267,7 +277,7 @@ export default {
     var date = newDate.toISOString().slice(0,10);
     let time = newDate.toISOString().slice(11, 16);
 
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     var gameData = {
       date: date,
       time: time,
@@ -279,7 +289,7 @@ export default {
   
   /* Addera spelarnas nya poäng med de gamla */
   calculatePoints (ctx, payload) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     let teamPlayers = this.state.teamPlayers;
     let players = [];
 
@@ -308,7 +318,7 @@ export default {
       console.log("Document successfully written!");
     })
     .catch(function(error) {
-        console.error("Error writing document: ", error);
+      console.error("Error writing document: ", error);
     });
       console.log('done')
   },

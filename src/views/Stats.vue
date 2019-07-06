@@ -32,6 +32,9 @@ export default {
     computed: {
         currentUser() {
             return this.$store.getters.getCurrentUser;
+        },
+        adminUser() {
+            return this.$store.getters.getAdminUser;
         }
     },
     methods: {
@@ -40,9 +43,16 @@ export default {
             return this.$store.state.activeSlide;
         },
         leftSwipe () {
-            this.$store.commit('swipe', 1);
-            this.$router.push('/home')
-            console.log('Left S')
+            if (this.adminUser !== null) {
+                this.$store.commit('swipe', 1);
+                this.$router.push('/admin')
+            } else if (this.currentUser !== null) {
+                this.$store.commit('swipe', 1);
+                this.$router.push('/playerinfo');
+            } else {
+                this.$store.commit('swipe', 1);
+                this.$router.push('/home')
+            }
         },
         //Send chosen team to store 
         setSelectedTeam() {

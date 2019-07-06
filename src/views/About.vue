@@ -15,15 +15,31 @@
 <script>
 export default {
   name: 'about',
-    methods: {
-        /* Swipe funktionen */
-        rightSwipe () {
+  computed: {
+      currentUser() {
+          return this.$store.getters.getCurrentUser;
+      },
+      adminUser() {
+          return this.$store.getters.getAdminUser;
+      }
+  },
+  methods: {
+      /* Swipe funktionen */
+    rightSwipe () {
+        if (this.adminUser !== null) {
+            this.$store.commit('swipe', 1);
+            this.$router.push('/admin')
+        } else if (this.currentUser !== null) {
+            this.$store.commit('swipe', 1);
+            this.$router.push('/playerinfo');
+        } else {
             this.$store.commit('swipe', 1);
             this.$router.push('/home')
-        },
-        activeSlide () {
-            return this.$store.state.activeSlide;
         }
+    },
+    activeSlide () {
+        return this.$store.state.activeSlide;
     }
+  }
 }
 </script>

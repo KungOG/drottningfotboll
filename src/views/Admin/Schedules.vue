@@ -42,8 +42,8 @@ export default {
  
     mounted() {
         this.$store.dispatch('getCurrentGame');
-        /* var adminTeam = this.state.currentUser.teams[0]; */
-        var item = db.collection('games').doc(this.currentUser).collection('currentGame').doc('1')
+        var adminTeam = this.state.adminUser.team;
+        var item = db.collection('games').doc(adminTeam).collection('currentGame').doc('1')
         
         item.get().then((doc) => {
             var game = doc.data().games
@@ -51,12 +51,7 @@ export default {
             this.games = game
             this.groups = groups
         })               
-    },
-    computed: {
-        currentUser () {
-            return this.$store.state.currentUser.teams[0];
-        }
-    },
+    },  
     methods: {
         checkWinners() {
             if (localStorage.getItem('winner')) {

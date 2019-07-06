@@ -2,10 +2,10 @@
     <main class="addplayer-page">
       <section class="navbar-admin">
         <Slide id="slide">
-              <router-link to="/admin">Admin</router-link>
-              <router-link to="/players">Players</router-link>
-              <router-link to="/makegames">Make Game</router-link>
-              <router-link to="/schedules">Schedules</router-link>
+          <router-link to="/admin">Admin</router-link>
+          <router-link to="/players">Players</router-link>
+          <router-link to="/makegames">Make Game</router-link>
+          <router-link to="/schedules">Schedules</router-link>
         </Slide>
       </section>
       

@@ -16,6 +16,7 @@ export default {
 
   /* Den aktuella användaren och spelaren */
   currentUser: null,
+  adminUser: null,
   player: {},
 
   /* Spel Data */
