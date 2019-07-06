@@ -298,6 +298,34 @@ export default {
      db.collection('games').doc(adminTeam).collection('games').doc().set(gameData); 
   },
   
+ /* Nollställ spelarnas statistik i specifika laget */
+ resetTeam (ctx, payload) {
+   let players = [];
+  for(let i = 0; i < payload.teamPlayers.length; i++) {
+      players.push({        
+      uid: payload.teamPlayers[i].uid, 
+      name: payload.teamPlayers[i].name,            
+      point : 0, 
+      win: 0, 
+      loss: 0, 
+      tie: 0,
+      goal: 0
+    }) 
+  }
+  var batch = db.batch();
+
+  for(let p = 0; p < players.length; p++) {
+    batch.update(db.collection('teams').doc(payload.teamName).collection('players').doc(players[p].uid), players[p]);
+  }  
+  batch.commit().then(function() {
+    console.log("Document successfully written!");
+  })
+  .catch(function(error) {
+    console.error("Error writing document: ", error);
+  });
+    console.log('done')
+},
+
   /* Addera spelarnas nya poäng med de gamla */
   calculatePoints (ctx, payload) {
     var adminTeam = this.state.adminUser.team;

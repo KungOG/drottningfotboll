@@ -12,7 +12,7 @@
                 <label for="">Namn</label>
                 <input v-model="adminName" type="text">
                 <label for="">Lag</label>
-                <input v-model="team" type="text">
+                <input v-model="teamName" type="text">
                 <label for="">Email</label>
                 <input v-model="email" type="text">
                 <label for="">Lösenord</label>
@@ -20,11 +20,11 @@
                 <a href="#" @click="createAdmin">Klar</a>
             </section>
             <section>
-                <select v-model="selected" @change="setTeam">
-                    <option v-for="team in allTeams" :key="team.uid">{{team}}</option>
+                <select v-model="team">
+                    <option v-for="team in allTeams" :key="team.uid" >{{team}}</option>
                 </select>
-                <a href="#">Nollställ {{team}}</a>
             </section>
+            <a href="#" @click="totalResetTeam">Nollställ {{team}}</a>
         </section>
     </main>
 </template>
@@ -43,7 +43,6 @@ export default {
         return {
             email: '',
             password: '',
-            team: '',
             teamName: '',
             adminName: '',
             team: '',
@@ -69,16 +68,21 @@ export default {
             (user) => {
                 db.collection('admins').doc(user.user.uid).set({
                     name: this.adminName,
-                    team: this.team,
+                    team: this.teamName,
                     uid: user.user.uid
                 })          
             },
         )},
-        totalResetTeam () {
-
-        },
-        setTeam () {
-
+        async totalResetTeam () {
+            let teamPlayers = [];
+            var item = await db.collection('teams').doc(this.team).collection('players')
+                await item.get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    var obj = (doc.id, " => ", doc.data())
+                    teamPlayers.push(obj)
+                })
+            })
+            this.$store.dispatch('resetTeam', {teamName: this.team, teamPlayers: teamPlayers})
         }
     }
 }
