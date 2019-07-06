@@ -20,10 +20,10 @@
                 <a href="#" @click="createAdmin">Klar</a>
             </section>
             <section>
-                <h1>Skapa nytt lag</h1>
-                <label for="">Lag Namn</label>
-                <input v-model="teamName" type="text">
-                <a href="#" @click="createTeam">Skapa nytt lag</a>
+                <select v-model="selected" @change="setTeam">
+                    <option v-for="team in allTeams" :key="team.uid">{{team}}</option>
+                </select>
+                <a href="#">Nollställ {{team}}</a>
             </section>
         </section>
     </main>
@@ -41,11 +41,23 @@ export default {
     },
     data() {
         return {
-            email: "",
-            password: "",
-            team: "",
-            teamName: "",
-            adminName: ""
+            email: '',
+            password: '',
+            team: '',
+            teamName: '',
+            adminName: '',
+            team: '',
+        }
+    },
+    computed : {
+        allTeams () {
+            let teamNames = [];
+            db.collection("teams").get().then(function(querySnapshot) {            
+                querySnapshot.forEach(function(doc) {
+                    teamNames.push(doc.id)
+                });
+            }); 
+            return teamNames;
         }
     },
     methods: {
@@ -62,9 +74,12 @@ export default {
                 })          
             },
         )},
-        createTeam() {
-            
+        totalResetTeam () {
+
         },
+        setTeam () {
+
+        }
     }
 }
 </script>

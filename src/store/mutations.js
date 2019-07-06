@@ -45,6 +45,11 @@ export default {
     state.adminUser = adminUser;
   },
 
+  /* Du som superadmin och dess info */
+  setSuperAdmin(state, superAdminUser) {
+    state.superAdminUser = superAdminUser;
+  },
+
   /* Hämta specifik data */
   setSpecificTeamData(state, specificTeamData) {
     state.specificTeamData = specificTeamData;

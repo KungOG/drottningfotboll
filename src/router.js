@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import firebase from 'firebase'
 import index from './store/index'
 
 Vue.use(Router)
@@ -167,8 +166,13 @@ const router = new Router({
     {
       path: '/superadmin',
       name: 'superadmin',
-      /* meta: {requiresSuperAdmin: true}, */
+      meta: {requiresSuperAdmin: true},
       component: () => import('./views/SuperAdmin.vue')
+    },
+    {
+      path: '/loginsuperadmin',
+      name: 'loginsuperadmin',
+      component: () => import('./views/LoginSuperAdmin.vue')
     }
   ]
 })

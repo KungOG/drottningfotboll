@@ -59,6 +59,17 @@ export default {
     })
   },
 
+  /* Hämta info som SuperAdmin */
+  async setSuperAdmin(ctx, superAdminUser) {
+    console.log(superAdminUser)
+    var item = await db.collection('superAdmin').doc(superAdminUser.uid)
+    item.get().then((doc) => {
+      
+      var superAdminUser = doc.data(); 
+      ctx.commit('setSuperAdmin', superAdminUser)
+    })
+  },
+
   /* Spara användaren i Databasen */
   addUserToDb(ctx, user) {
     db.collection('users').doc(user.uid).set(user)

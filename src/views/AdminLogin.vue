@@ -25,7 +25,9 @@ export default {
     methods : {
         LoginAdmin () {
             firebase
-                .auth().signInWithEmailAndPassword(this.email, this.password).then(adminUser => {
+                .auth()
+                .signInWithEmailAndPassword(this.email, this.password)
+                .then(adminUser => {
                     this.adminUser = firebase.auth().currentUser;
                     this.$router.replace("admin");
                     this.setAdmin();
