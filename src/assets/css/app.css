@@ -1186,7 +1186,7 @@ body .content .login .admin-login-btn {
   margin: 0;
 }
 
-.highscore-page .list-wrapper .score .scorebox {
+.highscore-page .list-wrapper .score article {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
@@ -1198,11 +1198,11 @@ body .content .login .admin-login-btn {
   text-align: left;
 }
 
-.highscore-page .list-wrapper .score .scorebox h3 {
+.highscore-page .list-wrapper .score article h3 {
   margin: 0;
 }
 
-.highscore-page .list-wrapper .score .scorebox article {
+.highscore-page .list-wrapper .score article article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1212,7 +1212,7 @@ body .content .login .admin-login-btn {
           flex-direction: row;
 }
 
-.highscore-page .list-wrapper .score .scorebox article div {
+.highscore-page .list-wrapper .score article article div {
   margin-right: 2rem;
 }
 

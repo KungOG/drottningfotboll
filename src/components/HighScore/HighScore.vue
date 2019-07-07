@@ -40,10 +40,8 @@
                 <p class="highlight">{{item.point}}</p>
                 <p>Poäng</p>
             </aside>
-            <article class="scorebox">
-              <div>
-                <h3>{{item.name}}</h3>
-              </div>
+            <article>
+              <h3>{{item.name}}</h3>
               <article>
                 <div>
                   <p>Vinster</p>
