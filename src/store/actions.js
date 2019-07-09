@@ -1,5 +1,4 @@
 import db from '@/firebaseInit'
-import { Store } from 'vuex';
 export default {
 
   /* Hämta en spelare ifrån DB:n */
@@ -57,6 +56,7 @@ export default {
       var adminUser = doc.data(); 
       ctx.commit('setAdminUser', adminUser)
     })
+    
   },
 
   /* Hämta info som SuperAdmin */

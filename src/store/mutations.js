@@ -43,6 +43,7 @@ export default {
   /* Du som admin och dess info */
   setAdminUser(state, adminUser) {
     state.adminUser = adminUser;
+    state.selectedTeam = adminUser.team;
   },
 
   /* Du som superadmin och dess info */

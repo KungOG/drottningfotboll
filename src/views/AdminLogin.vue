@@ -36,7 +36,7 @@ export default {
             });
         },
         setAdmin () {
-            this.$store.dispatch('setAdminUser', this.adminUser); 
+            this.$store.dispatch('setAdminUser', this.adminUser);
         }
     }
 }

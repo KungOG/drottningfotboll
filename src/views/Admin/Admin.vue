@@ -38,14 +38,9 @@
 <script>
 export default {
     name : 'admin',
-    data () {
-        return {
-
-        }
-    },
     methods: {
 
-            /* Swipe funktionen */
+        /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
