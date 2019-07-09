@@ -64,13 +64,13 @@ export default {
     },
     computed: {
       
-      teamPlayers() {
-        return this.$store.getters.getTeamPlayers;
+      adminTeamPlayers() {
+        return this.$store.state.adminTeamPlayers;
       },
 
       /* Sök funktion */
         filterUsers () {
-          return this.teamPlayers.filter((player) => {
+          return this.adminTeamPlayers.filter((player) => {
             return player.name.match(this.search);
           })
       }

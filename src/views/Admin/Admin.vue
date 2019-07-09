@@ -38,6 +38,9 @@
 <script>
 export default {
     name : 'admin',
+    beforeMount () {
+        this.$store.dispatch('setAdminTeamPlayers');
+    },
     methods: {
 
         /* Swipe funktionen */

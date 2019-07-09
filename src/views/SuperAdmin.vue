@@ -9,19 +9,19 @@
         <section class="input-section">
             <section>
                 <h1>Skapa ny Admin</h1>
-                <label for="">Namn</label>
+                <label>Namn</label>
                 <input v-model="adminName" type="text">
-                <label for="">Lag</label>
+                <label>Lag</label>
                 <input v-model="teamName" type="text">
-                <label for="">Email</label>
+                <label>Email</label>
                 <input v-model="email" type="text">
-                <label for="">Lösenord</label>
+                <label>Lösenord</label>
                 <input v-model="password" type="text">
                 <a href="#" @click="createAdmin">Klar</a>
             </section>
             <section>
                 <select v-model="team">
-                    <option v-for="team in allTeams" :key="team.uid" >{{team}}</option>
+                    <option v-for="(team, index) in teamArray" :key="index" :value="team">{{team}}</option>
                 </select>
             </section>
             <a href="#" @click="totalResetTeam">Nollställ {{team}}</a>
@@ -46,20 +46,23 @@ export default {
             teamName: '',
             adminName: '',
             team: '',
+            teamArray: []
         }
     },
-    computed : {
-        allTeams () {
-            let teamNames = [];
+    created () {
+        
+        /* Hämta in alla lagen */
+        let teamArray = [];
             db.collection("teams").get().then(function(querySnapshot) {            
                 querySnapshot.forEach(function(doc) {
-                    teamNames.push(doc.id)
+                    teamArray.push(doc.id)
                 });
             }); 
-            return teamNames;
-        }
+        this.teamArray = teamArray;
     },
     methods: {
+
+        /* Skapa ny Admin för ett lag */
         createAdmin() {
         firebase
             .auth()
@@ -73,6 +76,8 @@ export default {
                 })          
             },
         )},
+
+        /* Nollställ ett helt fotbollslag */
         async totalResetTeam () {
             let teamPlayers = [];
             var item = await db.collection('teams').doc(this.team).collection('players')

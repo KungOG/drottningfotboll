@@ -37,6 +37,20 @@ export default {
     ctx.commit('setTeamPlayers', teamPlayers)
   },
 
+  /* Hämta admins spelare för player lista */
+  async setAdminTeamPlayers(ctx) {
+    var adminTeam = this.state.adminUser.team;
+    var adminTeamPlayers = []
+    var item = await db.collection('teams').doc(adminTeam).collection('players')
+    await item.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        var obj = (doc.id, " => ", doc.data())
+        adminTeamPlayers.push(obj)
+      })
+    })
+    ctx.commit('setAdminTeamPlayers', adminTeamPlayers)
+  },
+
   /* Hämtar din info som användare */
   async setCurrentUser(ctx, user) {
     var item = await db.collection('users').doc(user.uid)
@@ -56,12 +70,10 @@ export default {
       var adminUser = doc.data(); 
       ctx.commit('setAdminUser', adminUser)
     })
-    
   },
 
   /* Hämta info som SuperAdmin */
   async setSuperAdmin(ctx, superAdminUser) {
-    console.log(superAdminUser)
     var item = await db.collection('superAdmin').doc(superAdminUser.uid)
     item.get().then((doc) => {
       

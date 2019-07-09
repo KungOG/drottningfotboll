@@ -58,6 +58,7 @@ export default {
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
             this.$store.dispatch('specificTeamData');
+            this.$store.dispatch('getTeamPlayers');
         }
     },
     async created() {
