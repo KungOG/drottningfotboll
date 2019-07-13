@@ -60,12 +60,14 @@
             .point {
                 grid-area: aside;
                 color: #9E9E9E;
+                display: flex;
+                flex-direction: column-reverse;
 
                 .highlight {
                     box-sizing: border-box;
                     text-align: center;
                     color: #F19344;
-                    font-size: 2.5rem;
+                    font-size: 2.2rem;
                 }
             }
         }
