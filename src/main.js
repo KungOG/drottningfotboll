@@ -4,8 +4,9 @@ import router from './router'
 import store from './store/'
 import firebase from 'firebase'
 import touch from 'vue2-touch-events'
+import VueSwal from 'vue-swal'
 
-Vue.use(touch);
+Vue.use(touch, VueSwal)
 Vue.config.productionTip = false;
 let app = '';
 firebase.auth().onAuthStateChanged(() => {

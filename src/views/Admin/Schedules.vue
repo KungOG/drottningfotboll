@@ -13,7 +13,7 @@
         <h1>Spel Schema</h1>
         <round class="schema" v-for="(game, index) in games" :key="index" :game="game" @checkWinners="checkWinners"></round>
         <section>
-            <a href="#" v-if="show" @click="saveResult">Spara resultaten</a>
+            <a href="#" v-if="show" @click="submitStats">Spara resultaten</a>
         </section>
     </main>
 </template>
@@ -42,7 +42,7 @@ export default {
  
     mounted() {
         this.$store.dispatch('getCurrentGame');
-        var adminTeam = this.state.adminUser.team;
+        var adminTeam = this.$store.state.adminUser.team;
         var item = db.collection('games').doc(adminTeam).collection('currentGame').doc('1')
         
         item.get().then((doc) => {
@@ -53,6 +53,26 @@ export default {
         })               
     },  
     methods: {
+
+        /* Pop-Out */
+        submitStats() {
+            swal({
+                title: `Ska vi sätta spiken i kistan?`,
+                text: `Är alla vinnare korade och målskyttarna satta? 
+                Du kan inte ångra efter detta steg, gör dina val rätt!`,
+                icon: "warning",
+                buttons: ["Nä", "Japp"],
+                dangerMode: true,
+            })
+            .then((Submitted) => {
+                if (Submitted) {
+                    swal(`Bra, där satte du verkligen spiken i kistan!`);
+                    this.saveResult();
+                } else {
+                    swal(`Kom du på något? Bra att du ångrade dig nu och inte sen!`);
+                }
+            });
+        },
         checkWinners() {
             if (localStorage.getItem('winner')) {
                 this.winner = JSON.parse(localStorage.getItem('winner')); 

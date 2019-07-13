@@ -15,7 +15,7 @@
 
       <section class="player-list">          
         <section class="list-wrapper" v-for="(player, index) in filterUsers" :player="player" :key="index">
-          <section class="container" @click="submitPlayer(player)" >
+          <section class="container" @click="submitPlayerBtn(player)" >
             <h3>{{player.name}}</h3>
             <p>{{player.email}}</p>
           </section>
@@ -26,7 +26,7 @@
         <h3>Lägg till en tillfällig spelare</h3>
         <article>
           <input type="text" v-model="name" placeholder="Namn">
-          <img src="@/assets/icon/ok.svg" @click="addPlayer">
+          <img src="@/assets/icon/ok.svg" @click="addPlayerBtn">
         </article>
       </section>
     </main>
@@ -89,7 +89,46 @@ export default {
       }
     },
     methods: {
+
+      /* Pop-Out */
+      submitPlayerBtn(player) {
+        swal({
+            title: "Har du valt rätt spelare?",
+            text: `Vill du lägga till ${player.name} i ditt lag?`,
+            icon: "info",
+            buttons: ["Nä", "Helt klart"],
+            dangerMode: true,
+          })
+          .then((willSubmit) => {
+          if (willSubmit) {
+            swal(`Du har nu lagt till ${player.name} i laget!`, {
+              icon: "success",
+            });
+            this.submitPlayer(player);
+          }
+       });
+      },
       
+      /* Pop-Out */
+      addPlayerBtn() {
+        swal({
+            title: `Stavat ${this.name} rätt?`,
+            text: `Vill du verkligen lägga till ${this.name} i ditt lag?`,
+            icon: "info",
+            buttons: ["Ångrat mig", "Klart"],
+            dangerMode: false,
+          })
+          .then((willAdd) => {
+          if (willAdd) {
+            swal(`Nu finns den hära ${this.name} i ditt lag!`, {
+              icon: "success",
+            });
+            this.addPlayer();
+          } else {
+              swal(`Puuuh, jag tänkte nästan det! ;)`);
+          }
+       });
+      },
       /* Lägg till en tillfällig spelare */
       addPlayer() {
         this.idCode ();
@@ -108,7 +147,6 @@ export default {
 
       /* Addera en spelare som har ett konto */
       submitPlayer(player) {
-        confirm('Vill du lägga till ' + player.name)
         this.idCode ();
         var addPlayer = 
           {

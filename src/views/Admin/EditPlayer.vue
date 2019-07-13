@@ -21,7 +21,7 @@
               <input type="number" v-model="player.goal">
           </section>
           <section v-if="show">
-            <img src="@/assets/icon/bin.svg" class="btn" @click="deletePlayer" /> 
+            <img src="@/assets/icon/bin.svg" class="btn" @click="deleteBtn" /> 
             <a href="#" @click="remakePlayer">Nummer 1</a>
           </section>
         </section>
@@ -29,7 +29,7 @@
           <article class="list-item-group" v-for="player in filterPlayers" :key="player.uid">
             <p @click="markedPlayer = player">{{player.name}}</p>
           </article>
-          <a href="#" @click="mergeUpdatedPlayer">Nummer 2</a>
+          <a href="#" @click="mergeBtn">Nummer 2</a>
       </section>
     </article>
 </template>
@@ -43,6 +43,9 @@ export default {
          markedPlayer: null
       }
     },
+    components: {
+      
+    },
     computed : {
 
       /* Kolla spelarens UID */
@@ -54,7 +57,7 @@ export default {
 
       /* Lagspelare  */
       teamPlayers() {
-        let array = this.$store.getters.getTeamPlayers;
+        let array = this.$store.state.adminTeamPlayers;
         let check = false;
         let filteredPlayers = [];
             
@@ -75,6 +78,50 @@ export default {
     }, 
     methods : {
 
+       /* Pop-Out */
+        deleteBtn() {
+          swal({
+              title: "Är du helt säker?",
+              text: `Vill du verkligen ta bort ${this.player.name} ifrån laget!`,
+              icon: "warning",
+              buttons: ["Nä", "Helt klart"],
+              dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+              swal(`Du har nu tagit bort ${this.player.name} ifrån laget, fy dig!`, {
+                icon: "success",
+              });
+              this.deletePlayer();
+            } else {
+              swal(`Wiiihooo, ${this.player.name} överlevde en dag till! :)`);
+            }
+          });
+        },
+        
+        /* Pop-Out */
+        mergeBtn() {
+          swal({
+              title: "Är du helt säker?",
+              text: `Vill du överföra statistiken ifrån gästspelaren ${this.markedPlayer.name} till ${this.player.name}?
+
+              ${this.markedPlayer.name} kommer att tas bort!`,
+              icon: "info",
+              buttons: ["Nä", "Ja"],
+              dangerMode: true,
+            })
+            .then((willMerge) => {
+            if (willMerge) {
+              swal(`${this.player.name} har nu samlat på sig en jäkla massa poäng, dopad?`, {
+                icon: "success",
+              });
+              this.mergeUpdatedPlayer();
+            } else {
+              swal(`${this.markedPlayer.name} kan nu fajtas ännu en dag mot ${this.player.name}, arrrgh!`);
+            }
+          });
+        },
+
         /* Ta bort en spelare */
         deletePlayer () {
           console.log('deleted');
@@ -88,6 +135,9 @@ export default {
         remakePlayer () {
           console.log(this.player);
           this.$store.dispatch('remakePlayerFromTeam', this.player);
+          setTimeout(() => this.$router.push({
+            path: '/players'
+          }), 1000);
         },
 
         /* Lägg samman spelaren och den tillfälliga */
