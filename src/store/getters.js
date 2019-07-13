@@ -43,7 +43,7 @@ export default {
   /* Filtrera ut den specifika spelaren */
   getPlayerByUid (state) {
     return (uid) => {
-      return state.teamPlayers.filter(
+      return state.adminTeamPlayers.filter(
         player => player.uid == uid
       )[0]
     }

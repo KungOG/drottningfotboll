@@ -10,11 +10,11 @@
         </select>
       </section>
       <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
-<!--      <section class="score">
+      <section class="score">
             <div class="name">
               <span>{{item.name}}</span>
             </div>
-            <div class='point'>
+            <div class="point">
               <span class="highlight">{{item.point}}</span><br>
               <span>Poäng</span>
             </div>
@@ -34,33 +34,6 @@
               <span>Mål </span>
               <span>{{item.goal}}</span>
             </div>
-          </section> -->
-          <section class="score">
-            <aside>
-                <p class="highlight">{{item.point}}</p>
-                <p>Poäng</p>
-            </aside>
-            <article>
-              <h3>{{item.name}}</h3>
-              <article>
-                <div>
-                  <p>Vinster</p>
-                  <p>Förluster</p>
-                </div>
-                <div>
-                  <p>{{item.win}}</p>
-                  <p>{{item.loss}}</p>
-                </div>
-                 <div>
-                  <p>Oavgjort</p>
-                  <p>Mål</p>
-                </div>
-                 <div>
-                  <p>{{item.tie}}</p>
-                  <p>{{item.goal}}</p>
-                </div>
-              </article>
-            </article>
           </section>
       </article>
     </main>

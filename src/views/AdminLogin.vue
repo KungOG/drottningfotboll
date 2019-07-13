@@ -29,8 +29,10 @@ export default {
                 .signInWithEmailAndPassword(this.email, this.password)
                 .then(adminUser => {
                     this.adminUser = firebase.auth().currentUser;
-                    this.$router.replace("admin");
                     this.setAdmin();
+                    setTimeout(() => this.$router.push({
+                        path: '/admin'
+                    }), 1000);
                 }).catch((err) => {
                     alert("Whops, something wrong happend!" + err.message);
             });

@@ -37,35 +37,59 @@ import { Slide } from 'vue-burger-menu';
 
 export default {
     name : 'addplayer',
-    beforeCreate () {
+    data() {
+        return {
+          id: '',
+          search: '',
+          name: '',
+          users: [],
+        }
+      },  
+    components: {
+      Slide
+    },
+    beforeMount() {
       this.$store.dispatch('getAllUsersFromDb');
     },
-    data() {
-      return {
-        id: '',
-        search: '',
-        name: ''
-      }
-    },   
-    components: {
-        Slide
-    },
     computed: {
+      
+      /* Hämta alla admins spelare för sortering av spelare */
+      allAdminPlayers () {
+        return this.$store.state.adminTeamPlayers;
+      },
 
       /* Hämta alla användare */
       allUsers () {
         return this.$store.getters.getAllUsers;
       },
 
-      /* Sök funktion */
+      /* Sök och filter funktion */
       filterUsers () {
-        return this.allUsers.filter((player) => {
+        let check = false;
+        this.users.length = 0;
+          for( var i=this.allUsers.length - 1; i>=0; i--){
+            for( var j=0; j<this.allAdminPlayers.length; j++){
+              if(this.allUsers[i] && this.users.indexOf(this.allUsers[i]) === -1 && (this.allUsers[i].uid !== this.allAdminPlayers[j].uid)){
+                check = true;
+                } else {
+                    check = false;
+                    break;
+                }
+              }
+              if(check) {
+                this.users.push(this.allUsers[i]);
+                  check = false
+                
+              }
+          }
+      
+        return this.users.filter((player) => {
           return player.name.match(this.search);
         })
       }
     },
     methods: {
-
+      
       /* Lägg till en tillfällig spelare */
       addPlayer() {
         this.idCode ();
@@ -75,10 +99,11 @@ export default {
           win: 0,
           loss: 0,
           point: 0,
+          tie: 0,
           uid: this.id,
         }
         this.$store.dispatch('addPlayerToDb', newPlayer)
-        this.name = ''
+        this.$router.push('/players');
       },
 
       /* Addera en spelare som har ett konto */
@@ -92,18 +117,19 @@ export default {
             loss: 0, 
             win: 0, 
             point: 0, 
+            tie: 0, 
             uid: player.uid,
           }
-        
         this.$store.dispatch('submitPlayer', addPlayer);
+        this.$router.push('/players');
       },
       
       /* Skaffa ett random UID */
       idCode() {       
-          let chars = "ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789abcdefghijklmnopqrstvwxyz";
+        let chars = "ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789abcdefghijklmnopqrstvwxyz";
           let code = [];
           for (let i = 0; i < 20; i++) {
-              let rand = Math.floor(Math.random() * chars.length);
+            let rand = Math.floor(Math.random() * chars.length);
               code.push(chars[rand]);
           }
           this.id = code.join(""); 
@@ -111,3 +137,4 @@ export default {
     }
 }
 </script>
+

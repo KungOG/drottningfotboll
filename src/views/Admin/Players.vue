@@ -57,13 +57,14 @@ export default {
       }
     },
     beforeCreate() {
-      this.$store.dispatch('getTeamPlayersFromDb');
+      this.$store.dispatch('setAdminTeamPlayers');
     },
     components: {
         Slide
     },
     computed: {
-      
+
+      /* Hämta in Admins spelare */
       adminTeamPlayers() {
         return this.$store.state.adminTeamPlayers;
       },
