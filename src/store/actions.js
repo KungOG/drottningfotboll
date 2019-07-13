@@ -27,7 +27,7 @@ export default {
   async getTeamPlayersFromDb(ctx) {
     var selectedTeam = this.state.selectedTeam;
     var teamPlayers = []
-    var item = await db.collection('teams').doc(selectedTeam).collection('players').orderBy('point')
+    var item = await db.collection('teams').doc(selectedTeam).collection('players')
     await item.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         var obj = (doc.id, " => ", doc.data())

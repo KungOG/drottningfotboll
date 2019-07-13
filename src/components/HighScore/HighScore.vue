@@ -5,7 +5,7 @@
           <option v-for="(option, index) in options" :key="index" :value="option.value">{{option.name}}</option>
         </select>
       </section>
-      <article class="list-wrapper" v-for="(item, index) in teamPlayers.slice().reverse()" :key="index">
+      <article class="list-wrapper" v-for="(item, index) in teamPlayers" :key="index">
           <section class="score">
             <div class="name">
               <span>{{item.name}}</span>
@@ -40,6 +40,9 @@ import db from '@/firebaseInit'
 
 export default {
     name : 'highscore',
+    beforeUpdate() {
+      this.sortTeamPlayersByPoints();
+    },
     data() {
       return {
         selected: 'point',
@@ -56,7 +59,30 @@ export default {
       teamPlayers() {
         return this.$store.state.teamPlayers;
       }
-    }
-  }
-
+    },
+    watch: {
+      selected() {
+        this.sortTeamPlayersByPoints();
+      }
+    },
+    methods: {
+      sortTeamPlayersByPoints () {
+        if(this.selected == 'point') {
+          this.teamPlayers.sort((a, b) => (a.point > b.point) ? -1 : 1)
+        }
+        if(this.selected == 'win') {
+          this.teamPlayers.sort((a, b) => (a.win > b.win) ? -1 : 1)
+        }
+        if(this.selected == 'loss') {
+          this.teamPlayers.sort((a, b) => (a.loss > b.loss) ? -1 : 1)
+        }
+        if(this.selected == 'tie') {
+          this.teamPlayers.sort((a, b) => (a.tie > b.tie) ? -1 : 1)
+        }
+        if(this.selected == 'goal') {
+          this.teamPlayers.sort((a, b) => (a.goal > b.goal) ? -1 : 1)
+        }
+      }
+   }
+}
 </script>
