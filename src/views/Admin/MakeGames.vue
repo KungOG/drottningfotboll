@@ -30,6 +30,7 @@ export default {
         /* Ta bort föregåendespel */
         localStorage.removeItem('winner')
         localStorage.removeItem('gameSettings')
+        localStorage.removeItem('goalTracker')
     },
     data () { 
         return {

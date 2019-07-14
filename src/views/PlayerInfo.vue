@@ -88,9 +88,9 @@ export default {
       }      
     },
     beforeMount() {
-         this.selectedTeam = this.firstTeam;
-         this.getPlayerInfo();     
-         this.setSelectedTeam();     
+        this.selectedTeam = this.firstTeam;
+        this.getPlayerInfo();     
+        this.setSelectedTeam();     
     }    
 }
 </script>

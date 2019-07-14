@@ -1,6 +1,7 @@
 <template>
-    <main class="admin-page">
+    <main class="admin-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
         <section class="admin-logout">
+            <ul class="slider" :class="'slide-' + activeSlide"></ul>
             <img src="@/assets/icon/entrance.svg" alt="">
             <!-- @click="logout" -->
         </section>
@@ -37,6 +38,24 @@
 <script>
 export default {
     name : 'admin',
+    beforeMount () {
+        this.$store.dispatch('setAdminTeamPlayers');
+    },
+    methods: {
+
+        /* Swipe funktionen */
+        activeSlide () {
+            return this.$store.state.activeSlide;
+        },
+        leftSwipe () {
+            this.$store.commit('swipe', 2);
+            this.$router.push('/stats')
+        },
+        rightSwipe () {
+            this.$store.commit('swipe', 0);
+            this.$router.push('/about')  
+        }
+    }
 
     /* 
     ! function som du kan logga ut måste göras

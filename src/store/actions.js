@@ -1,5 +1,4 @@
 import db from '@/firebaseInit'
-import { Store } from 'vuex';
 export default {
 
   /* Hämta en spelare ifrån DB:n */
@@ -28,7 +27,7 @@ export default {
   async getTeamPlayersFromDb(ctx) {
     var selectedTeam = this.state.selectedTeam;
     var teamPlayers = []
-    var item = await db.collection('teams').doc(selectedTeam).collection('players').orderBy('point')
+    var item = await db.collection('teams').doc(selectedTeam).collection('players')
     await item.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         var obj = (doc.id, " => ", doc.data())
@@ -36,6 +35,20 @@ export default {
       })
     })
     ctx.commit('setTeamPlayers', teamPlayers)
+  },
+
+  /* Hämta admins spelare för player lista */
+  async setAdminTeamPlayers(ctx) {
+    var adminTeam = this.state.adminUser.team;
+    var adminTeamPlayers = []
+    var item = await db.collection('teams').doc(adminTeam).collection('players')
+    await item.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        var obj = (doc.id, " => ", doc.data())
+        adminTeamPlayers.push(obj)
+      })
+    })
+    ctx.commit('setAdminTeamPlayers', adminTeamPlayers)
   },
 
   /* Hämtar din info som användare */
@@ -46,6 +59,26 @@ export default {
       var currentUser = doc.data(); 
       ctx.commit('setCurrentUser', currentUser)
       sessionStorage.setItem('isAdmin', currentUser.isAdmin);
+    })
+  },
+
+  /* Hämta info som Admin */
+  async setAdminUser(ctx, adminUser) {
+    var item = await db.collection('admins').doc(adminUser.uid)
+    item.get().then((doc) => {
+      
+      var adminUser = doc.data(); 
+      ctx.commit('setAdminUser', adminUser)
+    })
+  },
+
+  /* Hämta info som SuperAdmin */
+  async setSuperAdmin(ctx, superAdminUser) {
+    var item = await db.collection('superAdmin').doc(superAdminUser.uid)
+    item.get().then((doc) => {
+      
+      var superAdminUser = doc.data(); 
+      ctx.commit('setSuperAdmin', superAdminUser)
     })
   },
 
@@ -63,7 +96,7 @@ export default {
   /* Sätta ditt namn första gången du loggar in */
   addPlayerName (ctx, name) {
     var uid = this.state.currentUser.uid;
-    db.collection('users').doc(uid).update({name:name});
+    db.collection('users').doc(uid).update({name: name});
   },
 
   /* Valen i skapandet av spelet */
@@ -85,19 +118,19 @@ export default {
 
   /* Lägg till spelare till admins lag */
   submitPlayer(ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
 
   /* Lägg till en tillfällig spelare till admins lag */
   addPlayerToDb(ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
   },
 
   /* Ta bort en spelare ifrån admins lag */
   removePlayerFromTeam (ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player).delete();
   },
 
@@ -128,8 +161,24 @@ export default {
 
   /* Ändra en spelare ifrån admins lag */
   remakePlayerFromTeam (ctx, player) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
+  },
+
+  /* Koppla samman tillfällig spelare med registrerad spelare */
+  mergeUpdatedPlayer (ctx, payload) {
+    var adminTeam = this.state.adminUser.team;
+    var update = {        
+      uid: payload.player1.uid, 
+      point : payload.player1.point + payload.player2.point, 
+      win: payload.player1.win + payload.player2.win, 
+      loss: payload.player1.loss + payload.player2.loss, 
+      tie: payload.player1.tie + payload.player2.tie,
+      goal: payload.player1.goal + payload.player2.goal,
+      name: payload.player1.name            
+    }
+    db.collection('teams').doc(adminTeam).collection('players').doc(payload.player1.uid).set(update);
+    db.collection('teams').doc(adminTeam).collection('players').doc(payload.player2.uid).delete();
   },
 
   /* Valt lag av användaren */
@@ -239,7 +288,7 @@ export default {
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
   saveGameDataToDb (ctx, teams) {
     let groups = this.state.groups;
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     var gameData = {groups: groups, games: teams}
     db.collection('games').doc(adminTeam).collection('currentGame').doc('1').set(gameData);
     console.log('Success!')
@@ -251,7 +300,7 @@ export default {
     var date = newDate.toISOString().slice(0,10);
     let time = newDate.toISOString().slice(11, 16);
 
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     var gameData = {
       date: date,
       time: time,
@@ -261,9 +310,37 @@ export default {
      db.collection('games').doc(adminTeam).collection('games').doc().set(gameData); 
   },
   
+ /* Nollställ spelarnas statistik i specifika laget */
+ resetTeam (ctx, payload) {
+   let players = [];
+  for(let i = 0; i < payload.teamPlayers.length; i++) {
+      players.push({        
+      uid: payload.teamPlayers[i].uid, 
+      name: payload.teamPlayers[i].name,            
+      point : 0, 
+      win: 0, 
+      loss: 0, 
+      tie: 0,
+      goal: 0
+    }) 
+  }
+  var batch = db.batch();
+
+  for(let p = 0; p < players.length; p++) {
+    batch.update(db.collection('teams').doc(payload.teamName).collection('players').doc(players[p].uid), players[p]);
+  }  
+  batch.commit().then(function() {
+    console.log("Document successfully written!");
+  })
+  .catch(function(error) {
+    console.error("Error writing document: ", error);
+  });
+    console.log('done')
+},
+
   /* Addera spelarnas nya poäng med de gamla */
   calculatePoints (ctx, payload) {
-    var adminTeam = this.state.currentUser.teams[0];
+    var adminTeam = this.state.adminUser.team;
     let teamPlayers = this.state.teamPlayers;
     let players = [];
 
@@ -276,7 +353,7 @@ export default {
               win: teamPlayers[j].win + payload[i].win, 
               loss: teamPlayers[j].loss + payload[i].loss, 
               tie: teamPlayers[j].tie + payload[i].tie,
-              goal: 0,
+              goal: teamPlayers[j].goal + payload[i].goal,
               name: teamPlayers[j].name            
           }) 
         }
@@ -292,7 +369,7 @@ export default {
       console.log("Document successfully written!");
     })
     .catch(function(error) {
-        console.error("Error writing document: ", error);
+      console.error("Error writing document: ", error);
     });
       console.log('done')
   },

@@ -1,6 +1,13 @@
 .stats-page {
-    .navigation {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        
         .active-site {
             display: flex;
             flex-direction: row;
@@ -28,10 +35,17 @@
         }
     }
 
+    .router-content {
+        flex: 7;
+        overflow-y: scroll;
+    }
+
     .stats-navigation {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        flex: 1;
+        justify-self: flex-end;
         
         img {
             width: 2.5rem;

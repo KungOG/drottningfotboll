@@ -1,0 +1,136 @@
+.editplayer-page {
+    height: 100vh;
+    .editplayer-navbar {
+        display: flex;
+        justify-content: flex-end;
+        margin: 1rem .5rem 1rem 0;
+    }
+    .editplayer-input-field {
+        margin: 1rem;
+        padding: .4rem;
+        color: white;
+        background: rgba(255, 255, 255, .3);
+        .input-field-name {
+            display: flex;
+            flex-direction: column;
+            margin: .5rem 2rem;
+            input {
+                padding: .5rem;
+                text-align: center;
+                outline: none;
+                border: 0;                
+            }
+            label {
+                text-align: start;
+            }
+        }
+        .input-field-top {
+            display: flex;
+            justify-content: space-between;
+            margin: .5rem 2rem;           
+            section {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                input {
+                    padding: .5rem 1rem;
+                    width: 5rem;
+                    text-align: center;
+                    outline: none;
+                    border: 0;
+                }
+                label {
+                    text-align: start;
+                }
+            }
+        }
+        .input-field-middle {
+            display: flex;
+            justify-content: space-between;
+            margin: .5rem 2rem;
+            section {
+                display: flex;
+                flex-direction: column;
+                input {
+                    padding: .5rem 1rem;
+                    width: 5rem;
+                    text-align: center;
+                    outline: none;
+                    border: 0;
+                }
+                label {
+                    text-align: start;
+                }
+            }
+        }
+        .input-field-bottom {
+            display: flex;
+            margin: .5rem 2rem;
+            section {
+                display: flex;
+                flex-direction: column;
+                
+                input {
+                    padding: .5rem 1rem;
+                    width: 5rem;
+                    text-align: center;
+                    outline: none;
+                    border: 0;
+                }
+                label {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .editplayer-bottom {
+        .edit-player-btn1 {
+            display: flex;
+            flex-direction: column;
+
+            .bin-btn {
+                left: 50%;
+                right: 50%;
+            }
+            .orange-btn {
+                position:absolute;
+                bottom: 1rem;
+                transform: translate(-50%, -50%);
+                margin: 0 auto;
+                left: 50%;
+            }
+        }
+        .edit-player-btn2 {
+            display: flex;
+            flex-direction: column;
+        
+            p {
+                color: white;
+            }
+            .editplayer-list {
+                display: flex;
+                flex-direction: column;
+                overflow-y: scroll;
+                max-height: 20vh;
+                .editplayer-player {
+                    background: white;
+                    margin: .2rem 0 0 0;
+                    padding: .5rem;
+                    &:hover {
+                        background: $color-rss;
+                    }
+                }
+                
+            }
+            .orange-btn {
+                position:absolute;
+                bottom: 1rem;
+                transform: translate(-50%, -50%);                
+                margin: 0 auto;
+                left: 50%;
+            }
+        }
+    }
+}
+
+

@@ -4,16 +4,18 @@
       <ul class="slider" :class="'slide-' + activeSlide"></ul>
       <section class="team-selection">
         <select v-model="selectedTeam" @change="setSelectedTeam">
-          <option v-for="item in teams" :value="item">{{item}}</option>
+          <option v-for="item in teams" :value="item" :key="item">{{item}}</option>
         </select>
       </section>
     </section>
-    <router-view />
-      <section class="stats-navigation">
-        <img src="@/assets/icon/cancel.svg" @click="$router.push('/highscore')">
+    <section class="router-content">
+        <router-view />
+    </section>
+    <section class="stats-navigation">
+        <img src="@/assets/icon/crown.svg" @click="$router.push('/highscore')">
         <img src="@/assets/icon/people.svg" @click="$router.push('/gamegroup')">
         <img src="@/assets/icon/calendar-event.svg" @click="$router.push('/gameschedule')">
-      </section>
+    </section>
   </main>
 </template>
 
@@ -30,6 +32,9 @@ export default {
     computed: {
         currentUser() {
             return this.$store.getters.getCurrentUser;
+        },
+        adminUser() {
+            return this.$store.getters.getAdminUser;
         }
     },
     methods: {
@@ -38,13 +43,22 @@ export default {
             return this.$store.state.activeSlide;
         },
         leftSwipe () {
-            this.$store.commit('swipe', 1);
-            this.$router.push('/home')
+            if (this.adminUser !== null) {
+                this.$store.commit('swipe', 1);
+                this.$router.push('/admin')
+            } else if (this.currentUser !== null) {
+                this.$store.commit('swipe', 1);
+                this.$router.push('/playerinfo');
+            } else {
+                this.$store.commit('swipe', 1);
+                this.$router.push('/home')
+            }
         },
         //Send chosen team to store 
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
             this.$store.dispatch('specificTeamData');
+            this.$store.dispatch('getTeamPlayers');
         }
     },
     async created() {

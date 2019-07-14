@@ -1,11 +1,12 @@
 <template> 
-    <article>
+    <main class="gamegroup-page">
         <Calendar @changeDate="changeDate"/>
-        <section v-for="group in groups" :key="group.id">
-            <h3 v-if="group.players[0]">{{group.name}}</h3>
-            <group :group="group.players" />
+        <section v-for="group in groups" :key="group.id">            
+            <article>
+               <group :group="group" />
+            </article>
         </section>
-    </article>
+    </main>
 </template>
 
 <script>
@@ -28,20 +29,41 @@ export default {
         if(!this.$store.state.date || !this.$store.state.time) {
             this.groups = this.currentGame;
         } else {
-            this.groups = this.specificTeamData.groups
+            this.groups = this.chosenGame;
         }
     },
     computed: {
         currentGame() {
-            return this.$store.state.currentGame.groups;
+            /* Plocka ut endast de grupper som har spelare */
+            let allGroups = this.$store.state.currentGame.groups;
+            if(allGroups[0].players.length === 0) {
+                allGroups.shift();
+            }
+            for(let i = allGroups.length -1; i >= 0; i--) {
+                if(allGroups[i].players.length === 0) {      
+                    allGroups.pop();
+                }
+            }
+            return allGroups;
+
         },
-        specificTeamData() {
-            return this.$store.getters.filterDate;
+        chosenGame() {
+            /* Plocka ut endast de grupper som har spelare */
+            let allGroups = this.$store.getters.filterDate.groups;
+            if(allGroups[0].players.length === 0) {
+                allGroups.shift();
+            }
+            for(let i = allGroups.length -1; i >= 0; i--) {
+                if(allGroups[i].players.length === 0) {      
+                    allGroups.pop();
+                }
+            }
+            return allGroups;
         }
     },
     methods: {
         changeDate() {
-            this.groups = this.specificTeamData.groups;
+            this.groups = this.chosenGame;
         }
     },
 }

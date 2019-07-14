@@ -10,7 +10,7 @@
             <input type="text" v-model="search" placeholder="Sök Spelare">
                 <section class="player-list">          
                     <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
-                        <section class="container" @click="markPlayer(player)" >
+                        <section class="container" @click="editGroup(player)" >
                         <h3>{{player.name}}</h3>
                     </section>
                 </section>
@@ -63,6 +63,24 @@ export default {
     },
 
     methods : {
+
+        /* Pop-Out */
+        editGroup(player) {
+            swal({
+                title: `Ojämna grupper?`,
+                text: `Vill du verkligen flytta ${player.name} till ${this.group.name}!`,
+                icon: "warning",
+                buttons: ["Nope", "Yes"],
+                dangerMode: false,
+            })
+            .then((Edited) => {
+                if (Edited) {
+                    swal(`${player.name} är nu flyttad till ${this.group.name}!`);
+                    this.markPlayer(player);
+                }
+            });
+        },
+
         markPlayer(player) {
             this.chosenPlayer = player;
             this.$store.dispatch('removeGroupPlayer', this.chosenPlayer);

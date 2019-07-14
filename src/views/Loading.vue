@@ -9,15 +9,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'loading',
-    //Routes to next page after 2.5 sec
-    created() {
-      setTimeout(() => this.$router.push({
-        path: '/playerinfo'
-      }), 2000);
-    }
+export default {
+  name: 'loading',
+  //Routes to next page after 2.0 sec
+  created() {
+    setTimeout(() => this.$router.push({
+      path: '/playerinfo'
+    }), 2000);
   }
+}
 </script>
 <style scoped lang="scss">
 

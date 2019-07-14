@@ -30,7 +30,7 @@ export default {
     state.teamPlayers = teamPlayers;
   },
 
-  /* Hämtat alla Admins lagetsspelare */
+  /* Hämtat alla Admins lagspelare */
   setAdminTeamPlayers(state, adminTeamPlayers) {
     state.adminTeamPlayers = adminTeamPlayers;
   },
@@ -38,6 +38,17 @@ export default {
   /* Du som användare och dess info */
   setCurrentUser(state, currentUser) {
     state.currentUser = currentUser;
+  },
+  
+  /* Du som admin och dess info */
+  setAdminUser(state, adminUser) {
+    state.adminUser = adminUser;
+    state.selectedTeam = adminUser.team;
+  },
+
+  /* Du som superadmin och dess info */
+  setSuperAdmin(state, superAdminUser) {
+    state.superAdminUser = superAdminUser;
   },
 
   /* Hämta specifik data */

@@ -11,7 +11,7 @@
             <h3 v-if="group.players[0]">{{group.name}}</h3>
            <group :group="group.players" />
         </section>
-        <a href="#" @click="submitSchedules" >OK</a> 
+        <a href="#" @click="submitGroup" >OK</a> 
     </main>
 </template>
 
@@ -31,6 +31,23 @@ export default {
        }
     },
     methods: {
+        /* Pop-Out */
+        submitGroup() {
+            swal({
+                title: `Är ni redo för spel?`,
+                text: `Vill du spika grupperna och skapa ett spelschema?`,
+                icon: "info",
+                buttons: ["Inte nu", "Hämta hammarn"],
+                dangerMode: false,
+            })
+            .then((Submitted) => {
+                if (Submitted) {
+                    this.submitSchedules();
+                } else {
+                    swal(`Vi alla har ångrat oss någon gång i livet, detta var din gång!`);
+                }
+            });
+        },
         submitSchedules() {
             this.$store.dispatch('submitSchedules')
             this.$router.push('/schedules')

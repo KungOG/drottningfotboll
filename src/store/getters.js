@@ -10,6 +10,11 @@ export default {
     return state.currentUser;
   },
 
+  /* Användare */
+  getAdminUser(state) {
+    return state.adminUser;
+  },
+
   /* Valda laget */
   getSelectedTeam(state) {
     return state.selectedTeam;
@@ -38,7 +43,7 @@ export default {
   /* Filtrera ut den specifika spelaren */
   getPlayerByUid (state) {
     return (uid) => {
-      return state.teamPlayers.filter(
+      return state.adminTeamPlayers.filter(
         player => player.uid == uid
       )[0]
     }
@@ -91,6 +96,7 @@ export default {
     }
     return matchDate[0];
   },
+  
   filterTime(state) {
     let games = state.specificTeamData;
     let date = state.date;
@@ -104,5 +110,4 @@ export default {
     }
     return matchDate;
   }
-
 }

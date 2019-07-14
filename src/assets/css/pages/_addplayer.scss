@@ -1,0 +1,27 @@
+.addplayer-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    .playerlist {
+    }
+
+    .addplayer {
+        height: 18vh;
+        color: white;
+
+        article {
+            position: relative;
+            
+            input {
+                width: 90%;
+            }
+            img {
+                position: absolute;
+                right: 5px;
+            }
+        }
+
+
+    }
+}

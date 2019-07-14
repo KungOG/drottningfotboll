@@ -9,16 +9,22 @@
         <section class="input-section">
             <section>
                 <h1>Skapa ny Admin</h1>
-                <label for="">Namn</label>
+                <label>Namn</label>
                 <input v-model="adminName" type="text">
-                <label for="">Lag</label>
-                <input v-model="team" type="text">
-                <label for="">Email</label>
+                <label>Lag</label>
+                <input v-model="teamName" type="text">
+                <label>Email</label>
                 <input v-model="email" type="text">
-                <label for="">Lösenord</label>
+                <label>Lösenord</label>
                 <input v-model="password" type="text">
                 <a href="#" @click="createAdmin">Klar</a>
             </section>
+            <section>
+                <select v-model="team">
+                    <option v-for="(team, index) in teamArray" :key="index" :value="team">{{team}}</option>
+                </select>
+            </section>
+            <a href="#" @click="totalResetTeam">Nollställ {{team}}</a>
         </section>
     </main>
 </template>
@@ -35,27 +41,54 @@ export default {
     },
     data() {
         return {
-            email: "",
-            password: "",
-            team: "",
-            teamName: "",
-            adminName: "",
+            email: '',
+            password: '',
+            teamName: '',
+            adminName: '',
+            team: '',
+            teamArray: []
         }
     },
+    created () {
+        
+        /* Hämta in alla lagen */
+        let teamArray = [];
+            db.collection("teams").get().then(function(querySnapshot) {            
+                querySnapshot.forEach(function(doc) {
+                    teamArray.push(doc.id)
+                });
+            }); 
+        this.teamArray = teamArray;
+    },
     methods: {
+
+        /* Skapa ny Admin för ett lag */
         createAdmin() {
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.email, this.password)
             .then(
             (user) => {
-                db.collection('admins').doc().set({
+                db.collection('admins').doc(user.user.uid).set({
                     name: this.adminName,
-                    isAdmin: 'true',
-                    team: this.team
+                    team: this.teamName,
+                    uid: user.user.uid
                 })          
             },
         )},
+
+        /* Nollställ ett helt fotbollslag */
+        async totalResetTeam () {
+            let teamPlayers = [];
+            var item = await db.collection('teams').doc(this.team).collection('players')
+                await item.get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    var obj = (doc.id, " => ", doc.data())
+                    teamPlayers.push(obj)
+                })
+            })
+            this.$store.dispatch('resetTeam', {teamName: this.team, teamPlayers: teamPlayers})
+        }
     }
 }
 </script>
