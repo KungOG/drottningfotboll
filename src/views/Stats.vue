@@ -87,6 +87,7 @@ export default {
         }
         this.setSelectedTeam();
         this.$store.dispatch('getTeamPlayers');
+        this.$store.dispatch('getCurrentGame');
         this.$router.push('/highscore');
     }
 }

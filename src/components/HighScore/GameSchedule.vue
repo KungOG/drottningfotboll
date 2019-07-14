@@ -1,21 +1,24 @@
 <template>
-    <article>
+    <main class="gameschedule-page">
         <Calendar @changeDate="changeDate"/>
-        <section class="schema">
-            <div v-for="(game, index) in games" :key="index" :game="game">
-                <span>{{ game.home.groupNr }}</span> - <span> {{ game.away.groupNr }}</span>
-            </div>
+        <section v-for="(game, index) in games" :key="index" :game="game">
+            <article >
+                <Game :game="game"/>
+            </article>
         </section>
-    </article>
+    </main>
 </template>
 
 <script>
 import db from '@/firebaseInit';
 import Calendar from '@/components/HighScore/Calendar.vue';
+import Game from '@/components/HighScore/Game.vue';
+
 export default {
     name : 'gameschedule',
     components: {
-        Calendar
+        Calendar,
+        Game
     },
     data () {
         return {
