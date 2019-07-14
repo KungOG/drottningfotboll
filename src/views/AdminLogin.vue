@@ -1,12 +1,16 @@
 <template>
-    <main>
-        <section>
+    <main class="home-page">
+        <section class="home-logo">
+            <img src="@/assets/img/crown.png" />
+            <img src="@/assets/img/fotball.png"/>
+        </section>
+        <section class="home-admin-login">
             <h1>Admin Login</h1>
-            <label name="email">Email: </label>
+            <label name="email">EMAIL</label>
             <input type="email" v-model="email"><br>
-            <label name="password">Password: </label>
-            <input type="password" v-model="password"><br><br>
-            <a href="#" @click="LoginAdmin">Submit</a>
+            <label name="password">PASSWORD</label>
+            <input type="password" v-model="password"><br>
+            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="LoginAdmin" />
         </section>
     </main>
 </template>

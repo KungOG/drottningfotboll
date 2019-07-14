@@ -1,5 +1,9 @@
 <template>
     <main class="home-page">
+        <section class="home-logo">
+            <img src="@/assets/img/crown.png" />
+            <img src="@/assets/img/fotball.png" />
+        </section>
         <section class="home-login">
             <div class="login-btn" @click="googleLogin">
                 <img src="@/assets/img/google.svg" alt="Google Logo" >

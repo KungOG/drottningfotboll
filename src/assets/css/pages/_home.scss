@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
 
+    /* Home Login */
     .home-logo {
         display: flex;
         flex-direction: column;
@@ -56,5 +57,34 @@
             color: #EF9859;
             cursor: pointer;
         }
+    }
+
+    /* Admin Login */
+    .home-admin-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        margin-top: 3rem;
+
+        h1 {
+            text-transform: uppercase;
+        }
+        input {
+            padding: .5rem 1rem;
+            width: 50%;
+            text-align: center;
+            outline: none;
+            border: 0;
+        }
+        .orange-btn {
+            position:absolute;
+            bottom: 1rem;
+            transform: translate(-50%, -50%);
+            margin: 0 auto;
+            left: 50%;
+        }
+
     }
 }
