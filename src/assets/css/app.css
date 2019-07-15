@@ -1626,7 +1626,6 @@ body .content .login .admin-login-btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  bottom: 0;
   color: white;
 }
 
@@ -1729,8 +1728,6 @@ body .content .login .admin-login-btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   color: white;
 }
 

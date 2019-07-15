@@ -24,7 +24,6 @@ export default {
         return {
             show: false,
             numberOfWin: 0
-
         }
     },
     methods: {
@@ -36,7 +35,6 @@ export default {
             if(this.$router.history.current.name == 'choosewin' ) {
               this.$router.push('/chooseloss');
             }
-            
         }
     }
 }

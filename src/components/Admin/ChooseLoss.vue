@@ -1,4 +1,3 @@
-    
 <template>
     <main class="makegames">
             <article class="info-container" v-if="show" @click="show = !show">
