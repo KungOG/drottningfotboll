@@ -1,0 +1,51 @@
+.makegames-page {
+    height: 100vh;
+
+    section {
+        display: flex;
+        align-content: flex-start;
+        height: 100vh;
+        justify-content: center;
+
+        .info-container {
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            height: 4rem;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+            color: white;
+
+            .setup-btn {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+           
+                div {
+                    width: 8rem;
+                    height: 8rem;
+                    border: $border-btns;
+                    border-radius: 3px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: .5rem;
+
+
+                }
+            }
+
+        }
+    }
+}

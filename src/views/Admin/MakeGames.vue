@@ -1,21 +1,25 @@
 <template>
-    <main class="">
-        <Slide id="slide">
+    <main class="makegames-page">
+        <Slide v-if="!show" id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
             <router-link to="/makegames">Make Game</router-link>
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
         <section>
-            <h1 v-if="!show">Välj antal Lag</h1> 
-            <a href="#" v-if="show" @click="show = !show">Antal lag: {{ numberOfTeams }}</a>
-            <a href="#" v-if="!show" @click="addNumberOfTeams(2)" >2</a>
-            <a href="#" v-if="!show" @click="addNumberOfTeams(3)" >3</a>
-            <a href="#" v-if="!show" @click="addNumberOfTeams(4)" >4</a>
-            <a href="#" v-if="!show" @click="addNumberOfTeams(5)" >5</a>
-            <br>
-            <br>
-            <br>
+            <article class="info-container" v-if="show" @click="show = !show">
+                <p>Antal lag:</p>
+                <h3> {{ numberOfTeams }}</h3>
+            </article>
+            <article v-if="!show" class="btn-container">
+                <h1>Välj antal Lag</h1> 
+                <article v-if="!show" class="setup-btn">
+                    <div @click="addNumberOfTeams(2)"><p>2</p></div>
+                    <div @click="addNumberOfTeams(3)"><p>3</p></div>
+                    <div @click="addNumberOfTeams(4)"><p>4</p></div>
+                    <div @click="addNumberOfTeams(5)"><p>5</p></div>
+                </article>
+            </article>
         </section>
          <router-view />
     </main>
