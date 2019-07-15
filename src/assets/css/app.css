@@ -1583,12 +1583,16 @@ body .content .login .admin-login-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-line-pack: start;
       align-content: flex-start;
   height: 100vh;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .makegames-page section .info-container {
@@ -1604,6 +1608,7 @@ body .content .login .admin-login-btn {
           justify-content: center;
   width: 80vw;
   height: 4rem;
+  margin: .5rem;
 }
 
 .makegames-page section .btn-container {
@@ -1622,6 +1627,7 @@ body .content .login .admin-login-btn {
           justify-content: center;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  bottom: 0;
   color: white;
 }
 
@@ -1644,6 +1650,88 @@ body .content .login .admin-login-btn {
 }
 
 .makegames-page section .btn-container .setup-btn div {
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid #6DD400;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: .5rem;
+}
+
+.makegames-component section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: auto;
+}
+
+.makegames-component section .info-container {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80vw;
+  height: 4rem;
+  margin: .5rem;
+}
+
+.makegames-component section .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: white;
+}
+
+.makegames-component section .btn-container .setup-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.makegames-component section .btn-container .setup-btn div {
   width: 8rem;
   height: 8rem;
   border: 1px solid #6DD400;

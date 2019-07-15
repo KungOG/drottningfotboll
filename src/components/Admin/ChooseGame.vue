@@ -1,17 +1,21 @@
 <template>
-    <article>
-        <section class="">
-            <h1 v-if="!show">Välj antal matcher</h1>
-            <a href="#" v-if="show" @click="show = !show">Antal spel: {{ numberOfGames }}</a>
-            <a href="#" v-if="!show" @click="addNumberOfGames(2)">2</a>
-            <a href="#" v-if="!show" @click="addNumberOfGames(3)">3</a>
-            <a href="#" v-if="!show" @click="addNumberOfGames(4)">4</a>
-            <br>
-            <br>
-            <br>
+    <main class="makegames-component">
+        <section>
+            <article class="info-container" v-if="show" @click="show = !show">
+                <p>Antal spel:</p>
+                <h3> {{ numberOfGames }}</h3>            
+            </article>
+            <article v-if="!show" class="btn-container">
+                <h1>Välj antal matcher</h1>
+                <article v-if="!show" class="setup-btn">
+                    <div @click="addNumberOfGames(2)"><p>2</p></div>
+                    <div @click="addNumberOfGames(3)"><p>3</p></div>
+                    <div @click="addNumberOfGames(4)"><p>4</p></div>
+                </article>
+            </article>
         </section>
         <router-view />
-    </article>
+    </main>
 </template>
 
 <script>

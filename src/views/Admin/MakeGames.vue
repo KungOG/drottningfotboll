@@ -20,8 +20,8 @@
                     <div @click="addNumberOfTeams(5)"><p>5</p></div>
                 </article>
             </article>
-        </section>
          <router-view />
+        </section>
     </main>
 </template>
 

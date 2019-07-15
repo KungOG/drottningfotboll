@@ -1,18 +1,22 @@
     
 <template>
-    <article>
-        <section class="">
-            <h3 v-if="!show">Poäng vinst</h3>
-                <a href="#" v-if="show" @click="show = !show">Poäng vinst: {{ numberOfWin }}</a>
-                <a href="#" v-if="!show" @click="addNumberOfPointsWin(1)">1</a>
-                <a href="#" v-if="!show" @click="addNumberOfPointsWin(2)">2</a>
-                <a href="#" v-if="!show" @click="addNumberOfPointsWin (3)">3</a>
-                <br>
-                <br>
-                <br>
+     <main class="makegames-component">
+        <section>
+            <article class="info-container" v-if="show" @click="show = !show">
+                <p>Poäng vinst:</p>
+                <h3> {{ numberOfWin }}</h3>            
+            </article>
+            <article v-if="!show" class="btn-container">
+                <h1>Välj antal poäng vinster</h1>
+                <article v-if="!show" class="setup-btn">
+                    <div @click="addNumberOfPointsWin(1)"><p>1</p></div>
+                    <div @click="addNumberOfPointsWin(2)"><p>2</p></div>
+                    <div @click="addNumberOfPointsWin (3)"><p>3</p></div>
+                </article>
+            </article>
         </section>
         <router-view />
-    </article>
+    </main>
 </template>
 
 <script>
