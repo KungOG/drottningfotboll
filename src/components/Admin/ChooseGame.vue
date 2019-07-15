@@ -1,6 +1,5 @@
 <template>
-    <main class="makegames-component">
-        <section>
+    <main class="makegames">
             <article class="info-container" v-if="show" @click="show = !show">
                 <p>Antal spel:</p>
                 <h3> {{ numberOfGames }}</h3>            
@@ -13,7 +12,6 @@
                     <div @click="addNumberOfGames(4)"><p>4</p></div>
                 </article>
             </article>
-        </section>
         <router-view />
     </main>
 </template>

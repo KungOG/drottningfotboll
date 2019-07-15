@@ -5,7 +5,7 @@
     section {
         display: flex;
         flex-direction: column;
-        align-content: flex-start;
+        justify-content: flex-end;
         height: 100vh;
         align-items: center;
 
@@ -24,7 +24,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            align-self: flex-end;
             bottom: 0;
             color: white;
 
@@ -34,7 +33,6 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: row;
-
            
                 div {
                     width: 8rem;
@@ -45,64 +43,64 @@
                     align-items: center;
                     justify-content: center;
                     margin: .5rem;
-
-
                 }
             }
-
         }
     }
 }
 
-.makegames-component {
-    
+.makegames {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 
-    section {
+.equal {    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+    .info-container {
+        background:white;
         display: flex;
-        align-content: flex-end;
+        align-items: center;
         justify-content: center;
-        height: auto;
+        width: 80vw;
+        height: 4rem;
+        margin: .5rem;
+    }
 
-        .info-container {
-            background:white;
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+        color: white;
+
+        .setup-btn {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            width: 80vw;
-            height: 4rem;
-            margin: .5rem;
-        }
-
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            align-self: flex-end;
-            color: white;
-
-            .setup-btn {
+            flex-direction: row;
+        
+            div {
+                width: 8rem;
+                height: 8rem;
+                border: $border-btns;
+                border-radius: 3px;
                 display: flex;
-                flex-wrap: wrap;
                 align-items: center;
                 justify-content: center;
-                flex-direction: row;
-
-           
-                div {
-                    width: 8rem;
-                    height: 8rem;
-                    border: $border-btns;
-                    border-radius: 3px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: .5rem;
-
-
-                }
+                margin: .5rem;
             }
-
         }
     }
+}
 }

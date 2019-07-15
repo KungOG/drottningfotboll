@@ -1,7 +1,6 @@
     
 <template>
-     <main class="makegames-component">
-        <section>
+     <main class="makegames">
             <article class="info-container" v-if="show" @click="show = !show">
                 <p>Poäng vinst:</p>
                 <h3> {{ numberOfWin }}</h3>            
@@ -14,7 +13,6 @@
                     <div @click="addNumberOfPointsWin (3)"><p>3</p></div>
                 </article>
             </article>
-        </section>
         <router-view />
     </main>
 </template>

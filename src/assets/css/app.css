@@ -1587,8 +1587,9 @@ body .content .login .admin-login-btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   height: 100vh;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -1625,8 +1626,6 @@ body .content .login .admin-login-btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   bottom: 0;
   color: white;
 }
@@ -1666,19 +1665,41 @@ body .content .login .admin-login-btn {
   margin: .5rem;
 }
 
-.makegames-component section {
+.makegames {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: end;
-      align-content: flex-end;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.makegames-component section .info-container {
+.makegames .equal {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.makegames .equal .info-container {
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1694,7 +1715,7 @@ body .content .login .admin-login-btn {
   margin: .5rem;
 }
 
-.makegames-component section .btn-container {
+.makegames .equal .btn-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1713,7 +1734,7 @@ body .content .login .admin-login-btn {
   color: white;
 }
 
-.makegames-component section .btn-container .setup-btn {
+.makegames .equal .btn-container .setup-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1731,7 +1752,7 @@ body .content .login .admin-login-btn {
           flex-direction: row;
 }
 
-.makegames-component section .btn-container .setup-btn div {
+.makegames .equal .btn-container .setup-btn div {
   width: 8rem;
   height: 8rem;
   border: 1px solid #6DD400;
