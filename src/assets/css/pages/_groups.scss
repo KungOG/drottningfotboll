@@ -1,6 +1,20 @@
+.groups {
+    height: 100vh;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+}
+
+
 .group-component {
     section {
         display: flex;
+        flex-direction: row;
         margin: 1rem 0;
         width: 100vw;
 
@@ -10,6 +24,8 @@
             text-orientation: mixed;
             padding: 1rem;
             flex: 1;
+            align-items: center;
+            justify-content: center;
 
             h3 {
                 color: white;

@@ -1,12 +1,12 @@
 <template>
-    <main class="content">
-        <section>
-            <p>Burgar</p>
-            <a href="#" @click="show = !show">Lägg till Spelare</a>
+    <main class="editgroups">
+        <section class="menu">
+            <img src="@/assets/icon/person-add.svg" @click="show = !show"/>
         </section>
 
+        <section class="container">
+
         <section class="search-bar" v-if="!show">
-            <label for="">Sök spelare</label>
             <input type="text" v-model="search" placeholder="Sök Spelare">
                 <section class="player-list">          
                     <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
@@ -16,12 +16,12 @@
                 </section>
             </section>
         </section>
-
-        <section>
-            <h3>{{group.name}}</h3>
+        <section class="grouplist">
+            <h3 :style="{background: activeColor}">{{group.name}}</h3>
             <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player"/>
         </section>
-        <a href="#" @click="$router.push('/groups')">Grupper</a>
+        <img src="@/assets/icon/ok.svg" class="orange-btn" @click="$router.push('/groups')" />
+        </section>
     </main>
 </template>
 
@@ -34,7 +34,8 @@ export default {
             show : true,
             search : '',
             chosenPlayer: '',
-            otherTeamPlayers: []
+            otherTeamPlayers: [],
+            activeColor: 'red'
         }
     },
     components : {
@@ -42,6 +43,19 @@ export default {
     },
     beforeMount() {
         this.filterGroup()
+        let number = this.group.id;
+        if (number === 1) {
+            this.activeColor = "green"
+        } else if (number === 2) {
+            this.activeColor = "red"
+        } else if (number === 3) {
+            this.activeColor = "orange"  
+        } else if (number === 4) {
+            this.activeColor = "blue"
+        } else if (number === 5) {
+            this.activeColor = "pink"    
+        } 
+        
     },
     computed: {
         group () {

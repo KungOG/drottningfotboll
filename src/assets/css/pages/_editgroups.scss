@@ -1,0 +1,46 @@
+.editgroups {
+    height: 100vh;
+    
+
+    .menu {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90%;
+
+        .grouplist {
+    
+            h3 {
+                padding: 1rem;
+                margin: 0 0 .3rem 0;
+            }
+        }
+    }
+
+}
+
+.addgroupplayer {
+
+    .list-wrapper {
+        display: flex;
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex: 1;
+          background: white;
+          margin-bottom: .3rem;
+          
+         
+        }
+       
+      }
+}
+

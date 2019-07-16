@@ -8,7 +8,7 @@
 @import 'components/navigation';
 @import 'components/pagination';
 @import 'components/variables';
-@import 'components/group';
+
 
 /* Layouts */
 @import 'layouts/responsive';
@@ -28,6 +28,8 @@
 @import 'pages/editplayer';
 @import 'pages/gameschedule';
 @import 'pages/makegames';
+@import 'pages/editgroups';
+@import 'pages/groups';
 
 body {
     background: url("./assets/img/background.jpg");

@@ -1,17 +1,19 @@
 <template>
-    <main>
+    <main class="groups">
         <Slide id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
             <router-link to="/makegames">Make Game</router-link>
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
-        <h1>Admin grupper</h1>
-        <section v-for="group in groups" :key="group.id" @click="$router.push(`editgroups/${group.id}`)">
-            <h3 v-if="group.players[0]">{{group.name}}</h3>
-           <group :group="group.players" />
+        <section class="container">
+            <section>
+                <article v-for="group in groups" :key="group.id" @click="$router.push(`editgroups/${group.id}`)">
+                    <group :group="group" />
+                </article>
+            </section>
+            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroup" />
         </section>
-        <a href="#" @click="submitGroup" >OK</a> 
     </main>
 </template>
 
@@ -27,7 +29,17 @@ export default {
     },
     computed: {
        groups () {
-           return this.$store.getters.groups;
+           /* Plocka ut endast de grupper som har spelare */
+            let allGroups = this.$store.getters.groups;
+            if(allGroups[0].players.length === 0) {
+                allGroups.shift();
+            }
+            for(let i = allGroups.length -1; i >= 0; i--) {
+                if(allGroups[i].players.length === 0) {      
+                    allGroups.pop();
+                }
+            }
+            return allGroups;
        }
     },
     methods: {

@@ -1,12 +1,13 @@
 <template>
-     <article class="main" v-touch:swipe.right="deletePlayer">
-        <section class="list-wrapper">
-            <section class="container">
-                {{player.name}}
-                <aside>X</aside>
+    <main class="addgroupplayer">
+        <article v-touch:swipe.right="deletePlayer">
+            <section class="list-wrapper">
+                <section class="container">
+                    <p>{{player.name}}</p>
+                </section>
             </section>
-        </section>
-    </article>
+        </article>
+    </main>
 </template>
 
 <script>
