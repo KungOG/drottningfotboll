@@ -1,15 +1,14 @@
     
 <template>
-    <main>
+    <main class="makegroups">
         <section>
-            <a href="#" @click="shufflePlayers">Shuffla</a>
+            <img src="@/assets/icon/shuffle.svg" @click="shufflePlayers" />
         </section>
-        <h1>Make groups</h1>
-        <section>        
-            <groupplayer v-for="player in players" :key="player.uid" :player="player" @setColor="setColor" @deleteAssignedPlayer="deleteAssignedPlayer"/>
-        </section>
-        <section>
-            <a href="#" @click="submitGroups">X</a>
+        <section class="container">
+            <article class="playerlist">         
+                <groupplayer v-for="player in players" :key="player.uid" :player="player" @setColor="setColor" @deleteAssignedPlayer="deleteAssignedPlayer"/>
+            </article>
+            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroups" />
         </section>
     </main>
 </template>

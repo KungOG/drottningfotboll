@@ -1,0 +1,49 @@
+.makegroups {
+  height: 100vh;
+  
+  .container {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+
+    .playerlist {
+      overflow-y: scroll;
+      max-height: 80vh;
+    }
+  }
+}
+
+.groupplayer {
+
+    .list-wrapper {
+        display: flex;
+
+        .container {
+          display: flex;
+          flex-direction: row;
+          flex: 1;
+          justify-content: space-between;
+          align-items: center;
+          padding: .4rem 1rem;;
+          background: white;
+          margin-bottom: .3rem;
+          height: 4rem;
+
+
+          p {
+            margin: 0;
+          }
+
+          aside {
+            border-radius: 999rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+          }
+        }
+      }
+}

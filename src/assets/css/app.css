@@ -1854,6 +1854,35 @@ body .content .login .admin-login-btn {
   margin: 0;
 }
 
+.groupplayer .list-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .5rem;
+}
+
+.groupplayer .list-wrapper .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.groupplayer .list-wrapper .container h3 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
 body {
   background: url("./assets/img/background.jpg");
   background-size: cover;

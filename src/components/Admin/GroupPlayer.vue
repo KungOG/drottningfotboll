@@ -1,13 +1,12 @@
 <template>
-    <article class="main" v-touch:swipe.right="deletePlayer" @click="setColor">
+    <main class="groupplayer" v-touch:swipe.right="deletePlayer" @click="setColor">
         <section class="list-wrapper">
             <section class="container">
-                {{player.name}}
-                {{amount}}
-                <aside :style="{color: activeColor}">X</aside>
+                <p>{{player.name}}</p>
+                <aside :style="{background: activeColor}">{{amount}}</aside>
             </section>
         </section>
-    </article>
+    </main>
 </template>
 
 <script>
