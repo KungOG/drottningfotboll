@@ -1,5 +1,5 @@
 <template>
-    <main class="">
+    <main class="gameschedule-page">
         <Slide id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
@@ -10,11 +10,10 @@
             <a href="#">Krona</a>
             <img src="@/assets/icon/score.svg" @click="$router.push('/goalboard')">
         </section>
-        <h1>Spel Schema</h1>
-        <round class="schema" v-for="(game, index) in games" :key="index" :game="game" @checkWinners="checkWinners"></round>
-        <section>
-            <a href="#" v-if="show" @click="submitStats">Spara resultaten</a>
+        <section v-for="(game, index) in games" :key="index">
+            <round :game="game" @checkWinners="checkWinners"></round>
         </section>
+        <img src="@/assets/icon/ok.svg" v-if="show" class="orange-btn" @click="submitStats" />
     </main>
 </template>
 

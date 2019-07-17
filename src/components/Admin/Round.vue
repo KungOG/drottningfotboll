@@ -1,11 +1,21 @@
 <template>
-    <article class="main">
-        <section class="list-wrapper">
-            <section class="container">
-                <span @click="groupOne" :class="{red:home}">{{ game.home.groupNr }}</span> - <span @click="groupTwo" :class="{red:away}"> {{ game.away.groupNr }}</span>
-            </section>
-        </section>
-    </article>
+    <main class="game-component">
+        <article @click="groupOne">
+            <img v-show="show1" src="@/assets/icon/crown.svg">
+            <div class="group" :style="{background: activeColor1}">
+                <p>Grupp</p>
+                <p>{{ game.home.groupNr }}</p>
+            </div>  
+        </article>
+        <div class="line"><hr></div>
+        <article @click="groupTwo">
+            <img v-show="show2" src="@/assets/icon/crown.svg">
+            <div class="group" :style="{background: activeColor2}">
+                <p>Grupp</p>
+                <p>{{ game.away.groupNr }}</p>
+            </div>
+        </article>
+    </main>
 </template>
 
 <script>
@@ -14,10 +24,13 @@ export default {
     props: ['game'],
     data () {
         return {
-            home: false,
-            away: false,
+            activeColor1: 'red',
+            activeColor2: 'green',
             winner: [],
-            result: false
+            result: false,
+            show1: false,
+            show2: false
+
         }
     },
     watch: {
@@ -31,24 +44,66 @@ export default {
     },
     mounted() {
            this.getLocalStorage();
+           this.setBackgroundColor();
     },
      methods: {
         groupOne() {
-            if(this.home == true) {
-                this.home = false;
+            if(this.show1 == true) {
+                this.show1 = false;
             } else {
-                this.home = true;
+                this.show1 = true;
             }
 
         },
         groupTwo() {
-            if(this.away == true) {
-                this.away = false;
+            if(this.show2 == true) {
+                this.show2 = false;
             } else {
-                this.away = true;
+                this.show2 = true;
             }
 
         },
+        setBackgroundColor() {
+            let number1 = this.game.home.groupNr;
+            let number2 = this.game.away.groupNr;
+
+            switch(number1) {
+                case 1:
+                    this.activeColor1 = "green"
+                    break;
+                case 2:
+                    this.activeColor1 = "red"
+                    break;
+                case 3:
+                    this.activeColor1 = "orange"
+                    break;
+                case 4:
+                    this.activeColor1 = "blue"
+                    break;
+                case 5:
+                    this.activeColor1 = "pink"
+                    break;
+            }
+
+            switch(number2) {
+                case 1:
+                    this.activeColor2 = "green"
+                    break;
+                case 2:
+                    this.activeColor2 = "red"
+                    break;
+                case 3:
+                    this.activeColor2 = "orange"
+                    break;
+                case 4:
+                    this.activeColor2 = "blue"
+                    break;
+                case 5:
+                    this.activeColor2 = "pink"
+                    break;
+            }
+        },
+
         addWinner(num) {
             //Hämta en uppdaterad array från local storage
             if (localStorage.getItem('winner')) {
@@ -126,9 +181,4 @@ export default {
 }
 </script>
 
-<style>
-.red {
-    color: red;
-}
-</style>
 
