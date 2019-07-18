@@ -6,12 +6,16 @@
             <router-link to="/makegames">Make Game</router-link>
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
-        <section>
-            <a href="#">Krona</a>
+        <section class="menu">
+            <img src="@/assets/icon/crown.svg">
             <img src="@/assets/icon/score.svg" @click="$router.push('/goalboard')">
         </section>
-        <section v-for="(game, index) in games" :key="index">
-            <round :game="game" @checkWinners="checkWinners"></round>
+        <section class="container">
+            <section class="gamelist">
+                <article v-for="(game, index) in games" :key="index">
+                    <round :game="game" @checkWinners="checkWinners"></round>
+                </article>
+            </section>
         </section>
         <img src="@/assets/icon/ok.svg" v-if="show" class="orange-btn" @click="submitStats" />
     </main>

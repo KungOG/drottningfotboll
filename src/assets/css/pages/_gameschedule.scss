@@ -1,6 +1,6 @@
 .gameschedule-page {
     
-    section {
+  /*   section {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -10,13 +10,41 @@
         article {
             display: flex;
             align-items: center;
+        }
+    } */
 
- 
-       
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
 
+        img {
+            height: 3rem;
         }
     }
-}
+
+    .container {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 90vh;
+        
+        .gamelist {
+            height: 85vh;
+            overflow-y: scroll;
+
+            article {
+                margin: 1rem 0;
+                display: flex;
+                align-items: center;
+            }
+            
+        }
+
+    }
+
+ }
 
 .game-component {
     display: flex;

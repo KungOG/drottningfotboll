@@ -1,10 +1,12 @@
 <template>
     <main class="gameschedule-page">
         <Calendar @changeDate="changeDate"/>
-        <section v-for="(game, index) in games" :key="index" :game="game">
-            <article >
-                <Game :game="game"/>
-            </article>
+        <section class="container">
+            <section class="gamelist">
+                <article v-for="(game, index) in games" :key="index" :game="game">
+                    <Game :game="game"/>
+                </article>
+            </section>
         </section>
     </main>
 </template>

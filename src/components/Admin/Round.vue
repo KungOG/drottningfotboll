@@ -34,11 +34,11 @@ export default {
         }
     },
     watch: {
-        home() {
+        show1() {
             this.addWinner(1);
         },
 
-        away() {
+        show2() {
             this.addWinner(2);
         }
     },
