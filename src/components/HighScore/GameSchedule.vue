@@ -1,6 +1,6 @@
 <template>
     <main class="gameschedule-page">
-        <Calendar @changeDate="changeDate"/>
+        <Calendar class="calender" @changeDate="changeDate"/>
         <section class="container">
             <section class="gamelist">
                 <article v-for="(game, index) in games" :key="index" :game="game">
