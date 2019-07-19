@@ -1,5 +1,5 @@
 <template>
-    <main class="gameschedule-page">
+    <main class="schedules-page">
         <Slide id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
