@@ -7,32 +7,32 @@
         <section class="editplayer-input-field">
           <section class="input-field-name">
             <label>Namn</label>
-            <input type="text" v-model="player.name">
+            <input type="text" v-model="user.name">
           </section>
           <section class="input-field-top">
             <section>
               <label>Antal vinster</label>
-              <input type="number" v-model="player.win">
+              <input type="number" v-model.number="user.win">
             </section>
             <section>
               <label>Antal förluster</label>
-              <input type="number" v-model="player.loss"> 
+              <input type="number" v-model.number="user.loss"> 
             </section>
           </section>                   
           <section class="input-field-middle">
             <section>
               <label>Antal poäng</label> 
-              <input type="number" v-model="player.point">
+              <input type="number" v-model.number="user.point">
             </section>
             <section>
               <label>Antal oavgjort</label> 
-              <input type="number" v-model="player.tie">
+              <input type="number" v-model.number="user.tie">
             </section>
           </section>
           <section class="input-field-bottom">
             <section>
               <label>Antal mål</label> 
-              <input type="number" v-model="player.goal">
+              <input type="number" v-model.number="user.goal">
             </section>
           </section>
         </section>
@@ -59,21 +59,42 @@ export default {
     name : 'editplayer',
     data () {
       return {
-         show: true,
-         markedPlayer: null
+        show: true,
+        markedPlayer: null,
+        user: {
+          name: '',
+          win: 0,
+          loss: 0,
+          point: 0,
+          tie: 0,
+          goal: 0,
+          uid: '' 
+        }        
       }
     },
-    components: {
-      
-    },
-    computed : {
 
+    mounted() {
+      
       /* Kolla spelarens UID */
-      player () {
-        return this.$store.getters.getPlayerByUid(
+        let player = this.$store.getters.getPlayerByUid(
           this.$route.params.uid
         );
-      },
+        this.user.name = player.name  
+        this.user.win = player.win
+        this.user.loss = player.loss
+        this.user.point = player.point
+        this.user.tie = player.tie
+        this.user.goal = player.goal
+        this.user.uid = player.uid     
+    },
+
+    computed : {
+
+      player() {
+        return this.$store.getters.getPlayerByUid(
+          this.$route.params.uid
+        )},
+
 
       /* Lagspelare  */
       teamPlayers() {
@@ -112,6 +133,7 @@ export default {
               swal(`Du har nu tagit bort ${this.player.name} ifrån laget, fy dig!`, {
                 icon: "success",
               });
+              this.removeUserTeamArray();
               this.deletePlayer();
             } else {
               swal(`Wiiihooo, ${this.player.name} överlevde en dag till! :)`);
@@ -151,10 +173,16 @@ export default {
           }), 1000);
         },
 
+        removeUserTeamArray() {
+          if(this.player.uid.length > 20) {
+            this.$store.dispatch('removeUserTeamArray', this.player.uid)
+          }
+        },
+
         /* Ändra spelaren */
         remakePlayer () {
-          console.log(this.player);
-          this.$store.dispatch('remakePlayerFromTeam', this.player);
+          console.log(this.user);
+          this.$store.dispatch('remakePlayerFromTeam', this.user);
           setTimeout(() => this.$router.push({
             path: '/players'
           }), 1000);
@@ -178,22 +206,4 @@ export default {
         }
     }
 }
-
 </script>
-<style scoped lang="scss">
-
-  .box-container {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .info-box {
-    display : flex;
-    margin: 1rem;
-    justify-content : center;
-    align-items : center;
-    flex-direction: column;
-    flex: 1;
-  }
-
-</style>

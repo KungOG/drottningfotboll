@@ -108,6 +108,7 @@ export default {
         matchDate.push(games[i])
       }
     }
+    matchDate.sort((a, b) => (a.time > b.time) ? 1 : -1)
     return matchDate;
   }
 }

@@ -158,7 +158,9 @@ export default {
             tie: 0, 
             uid: player.uid,
           }
+
         this.$store.dispatch('submitPlayer', addPlayer);
+        this.$store.dispatch('updateUserTeamArray', addPlayer.uid);
         this.$router.push('/players');
       },
       

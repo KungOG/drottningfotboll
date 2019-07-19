@@ -1,4 +1,5 @@
 import db from '@/firebaseInit'
+import firebase from 'firebase'
 export default {
 
   /* Hämta en spelare ifrån DB:n */
@@ -89,8 +90,12 @@ export default {
 
   /* Tar bort statusen Admin när du loggar ut */
   removeCurrentUser(ctx) {
-    sessionStorage.removeItem('isAdmin');
     ctx.commit('removeCurrentUser');
+  },
+
+  /* Tar bort statusen Admin när loggar ut */
+  removeCurrentAdminUser(ctx) {
+    ctx.commit('removeCurrentAdminUser');
   },
 
   /* Sätta ditt namn första gången du loggar in */
@@ -120,6 +125,22 @@ export default {
   submitPlayer(ctx, player) {
     var adminTeam = this.state.adminUser.team;
     db.collection('teams').doc(adminTeam).collection('players').doc(player.uid).set(player);
+  },
+
+  /* Lägg till lag i användarens lag-array */
+  updateUserTeamArray(ctx, payloadUid) {
+    var adminTeam = this.state.adminUser.team;
+    db.collection('users').doc(payloadUid).update({
+      teams: firebase.firestore.FieldValue.arrayUnion(adminTeam)
+    })
+  },
+
+  /* Ta bort laget i användarens lag-array */
+  removeUserTeamArray(ctx, payloadUid) {
+    var adminTeam = this.state.adminUser.team;
+    db.collection('users').doc(payloadUid).update({
+      teams: firebase.firestore.FieldValue.arrayRemove(adminTeam)
+    })
   },
 
   /* Lägg till en tillfällig spelare till admins lag */
@@ -296,10 +317,14 @@ export default {
   
   /* Spara resultaten i databasen */
   saveResult (ctx, payload) {
-    let newDate = new Date()    
-    var date = newDate.toISOString().slice(0,10);
-    let time = newDate.toISOString().slice(11, 16);
-
+    let newDate = new Date()   
+    var date = newDate.toISOString().slice(0, 10);
+    let atime = newDate.toISOString().slice(11, 13);
+    let btime = newDate.toISOString().slice(14, 16);
+    let correctTime = Number(atime) + 2;
+    let ctime = correctTime + btime;
+    let time = parseInt(ctime);
+    
     var adminTeam = this.state.adminUser.team;
     var gameData = {
       date: date,
@@ -307,6 +332,7 @@ export default {
       games: payload.winners,
       groups: payload.currentGame
     }
+    console.log(time)
      db.collection('games').doc(adminTeam).collection('games').doc().set(gameData); 
   },
   

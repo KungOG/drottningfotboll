@@ -2,8 +2,7 @@
     <main class="admin-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
         <section class="admin-logout">
             <ul class="slider" :class="'slide-' + activeSlide"></ul>
-            <img src="@/assets/icon/entrance.svg" alt="">
-            <!-- @click="logout" -->
+            <img src="@/assets/icon/entrance.svg" alt="" @click="logout">
         </section>
         <section class="admin-logo">
             <img src="@/assets/img/crown.png" alt="">
@@ -36,6 +35,7 @@
 </template>
 
 <script>
+import firebase from 'firebase';
 export default {
     name : 'admin',
     beforeMount () {
@@ -54,7 +54,12 @@ export default {
         rightSwipe () {
             this.$store.commit('swipe', 0);
             this.$router.push('/about')  
-        }
+        },
+        logout(){
+            firebase.auth().signOut();
+            this.$store.dispatch('removeCurrentAdminUser');
+            this.$router.push('/');
+      }
     }
 
     /* 

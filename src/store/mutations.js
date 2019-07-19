@@ -63,7 +63,14 @@ export default {
 
   /* Ta bort dig när du loggar ut */
   removeCurrentUser(state) {
-    state.currentUser = {};
+    state.currentUser = null;
+    state.selectedTeam = '';
+  },
+
+  /* Ta bort dig när du loggar ut */
+  removeCurrentAdminUser(state) {
+    state.adminUser = null;
+    state.selectedTeam = '';
   },
   
   /* Töm grupperna */

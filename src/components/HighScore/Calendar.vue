@@ -7,7 +7,7 @@
             @change="saveDate"
             ></datepicker>
             <select v-model="time" @change="saveTime">
-                <option v-for="date in filterTime" :value="date.time">{{date.time}}</option>
+                <option v-for="(date, index) in filterTime" :value="date.time" :key="index">{{date.time}}</option>
             </select>
         </section>
     </main>
@@ -47,7 +47,20 @@ export default {
     },
     computed: {
         filterTime() {
-            return this.$store.getters.filterTime;
+            let array = this.$store.getters.filterTime;
+            console.log(array[0])
+            if (this.$store.state.chosenTime) {
+                if (Number.isInteger(array[0].time)) {
+                    array.forEach((x) => {
+                    let num = x.time.toString();
+                    var res1 = num.substr(0, 2);
+                    var res2 = num.substr(2, 4);
+                    let num2 = res1 + ':' + res2;
+                    x.time = num2;
+                    })
+                    return array;
+                }
+            }
         },
         specificTeamData() {
             return this.$store.getters.getSpecificTeamData;

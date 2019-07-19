@@ -3,24 +3,22 @@
         <section class="menu">
             <img src="@/assets/icon/person-add.svg" @click="show = !show"/>
         </section>
-
         <section class="container">
-
-        <section class="search-bar" v-if="!show">
-            <input type="text" v-model="search" placeholder="Sök Spelare">
-                <section class="player-list">          
-                    <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
-                        <section class="container" @click="editGroup(player)" >
-                        <h3>{{player.name}}</h3>
+            <section class="search-bar" v-if="!show">
+                <input type="text" v-model="search" placeholder="Sök Spelare">
+                    <section class="player-list">          
+                        <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
+                            <section class="container" @click="editGroup(player)" >
+                            <h3>{{player.name}}</h3>
+                        </section>
                     </section>
                 </section>
             </section>
-        </section>
-        <section class="grouplist">
-            <h3 :style="{background: activeColor}">{{group.name}}</h3>
-            <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player"/>
-        </section>
-        <img src="@/assets/icon/ok.svg" class="orange-btn" @click="$router.push('/groups')" />
+            <section class="grouplist">
+                <h3 :style="{background: activeColor}">{{group.name}}</h3>
+                <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player"/>
+            </section>
+            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="$router.push('/groups')" />
         </section>
     </main>
 </template>
