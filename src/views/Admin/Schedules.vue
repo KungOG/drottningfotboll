@@ -69,8 +69,17 @@ export default {
             })
             .then((Submitted) => {
                 if (Submitted) {
-                    swal(`Bra, där satte du verkligen spiken i kistan!`);
-                    this.saveResult();
+                    swal({
+                        text: `Bra, där satte du verkligen spiken i kistan!`,
+                        icon: "success",
+                        button: "Ok"
+                    }).then(() => {
+                        this.saveResult();
+                            setTimeout(() => this.$router.push({
+                            path: '/admin'
+                        }), 1000);
+                    });
+
                 } else {
                     swal(`Kom du på något? Bra att du ångrade dig nu och inte sen!`);
                 }
@@ -100,6 +109,9 @@ export default {
              ! Funktion finns i calculatePoint.js
             */
             this.savePoints();
+            localStorage.removeItem('winner')
+            localStorage.removeItem('gameSettings')
+            localStorage.removeItem('goalTracker')
 
         }
     }
