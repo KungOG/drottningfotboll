@@ -89,14 +89,14 @@ export default {
             if (localStorage.getItem('winner')) {
                 this.winner = JSON.parse(localStorage.getItem('winner')); 
             }
-            if(this.winner.length == this.games.length) {
+            if (this.winner.length == this.games.length) {
                 this.show = true
             } else {
                 this.show = false
             }
         },
         saveResult () {
-            this.$store.dispatch('getTeamPlayersFromDb');
+            this.$store.dispatch('setAdminTeamPlayers');
             /* spara resultatet i databasen */
             var gameData = {
                 currentGame: this.groups,

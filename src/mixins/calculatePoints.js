@@ -103,13 +103,12 @@ export const calculatePoints = {
                     if(groups[i].id === s && s !== 0) {
                         for(let j = 0; j < groups[i].players.length; j++) {
                             this.scoreArray.push({
-                            uid: groups[i].players[j].uid, 
-                            point: this.allGroups[s-1].point, 
-                            win: this.allGroups[s-1].win, 
-                            loss: this.allGroups[s-1].loss, 
-                            tie: this.allGroups[s-1].tie,
-                            goal: 0
-                            
+                                uid: groups[i].players[j].uid, 
+                                point: this.allGroups[s-1].point, 
+                                win: this.allGroups[s-1].win, 
+                                loss: this.allGroups[s-1].loss, 
+                                tie: this.allGroups[s-1].tie,
+                                goal: 0 
                         }) 
                     }
                 }

@@ -29,6 +29,11 @@ export default {
   getTeamPlayers(state) {
     return state.teamPlayers;
   },
+
+  /* Lagets spelare */
+  getAdminTeamPlayers(state) {
+    return state.adminTeamPlayers;
+  },
   
   /* Antal lag */
   getNumberOfTeams(state) {
@@ -63,7 +68,7 @@ export default {
   },
   
   /* Grupp och dess nummer */
-  inactiveGroup(state) {
+/*   inactiveGroup(state) {
     return state.groups[0].players;
   },
   groupOne(state) {
@@ -80,7 +85,7 @@ export default {
   },
   groupFive(state) {
     return state.groups[5].players;
-  },
+  }, */
 
   filterDate(state) {
     let games = state.specificTeamData;

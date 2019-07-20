@@ -8,7 +8,7 @@
         </Slide>
         <section class="container">
             <section>
-                <article v-for="group in groups" :key="group.id" @click="$router.push(`editgroups/${group.id}`)">
+                <article v-for="group in allGroups" :key="group.id" @click="$router.push(`editgroups/${group.id}`)">
                     <group :group="group" />
                 </article>
             </section>
@@ -23,24 +23,28 @@ import group from '@/components/Admin/Group.vue';
 
 export default {
     name : 'groups',
+    data() {
+        return {
+            allGroups: []
+        }
+    },
     components: {
        group,
        Slide
     },
-    computed: {
-       groups () {
+    mounted() {
            /* Plocka ut endast de grupper som har spelare */
             let allGroups = this.$store.getters.groups;
-            if(allGroups[0].players.length === 0) {
-                allGroups.shift();
+            this.allGroups = allGroups; 
+            if(this.allGroups[0].players.length === 0) {
+                this.allGroups.shift();
             }
-            for(let i = allGroups.length -1; i >= 0; i--) {
-                if(allGroups[i].players.length === 0) {      
-                    allGroups.pop();
+            for(let i = this.allGroups.length -1; i >= 0; i--) {
+                if(this.allGroups[i].players.length === 0) {      
+                    this.allGroups.pop();
                 }
-            }
-            return allGroups;
-       }
+            } 
+       
     },
     methods: {
         /* Pop-Out */

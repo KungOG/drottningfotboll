@@ -1,13 +1,13 @@
 <template>
-    <main>
+    <main class="schedules-page">
         <Slide id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
             <router-link to="/makegames">Make Game</router-link>
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
-        <section>
-            <a href="#" @click="$router.push('/schedules')">Krona</a>
+        <section class="menu">
+            <img src="@/assets/icon/crown.svg" @click="$router.push('/schedules')">
             <img src="@/assets/icon/score.svg">
         </section>
         <section v-for="group in currentGame" :key="group.id">            

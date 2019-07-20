@@ -24,7 +24,7 @@ export default {
         }
     },
     beforeCreate() {
-      this.$store.dispatch('getTeamPlayersFromDb');
+      this.$store.dispatch('setAdminTeamPlayers');
       this.$store.dispatch('clearGroups');
     },
     components : {
@@ -32,7 +32,7 @@ export default {
     },
     computed: {
         players () {
-             return this.$store.getters.getTeamPlayers;
+            return this.$store.getters.getAdminTeamPlayers;
         },
         numberOfTeams() {
             return this.$store.getters.getNumberOfTeams;

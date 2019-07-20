@@ -312,7 +312,7 @@ export default {
     var adminTeam = this.state.adminUser.team;
     var gameData = {groups: groups, games: teams}
     db.collection('games').doc(adminTeam).collection('currentGame').doc('1').set(gameData);
-    console.log('Success!')
+    console.log('Succsess!')
   },
   
   /* Spara resultaten i databasen */
@@ -332,7 +332,6 @@ export default {
       games: payload.winners,
       groups: payload.currentGame
     }
-    console.log(time)
      db.collection('games').doc(adminTeam).collection('games').doc().set(gameData); 
   },
   

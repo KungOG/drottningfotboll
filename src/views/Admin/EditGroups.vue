@@ -63,7 +63,7 @@ export default {
         },
        /* Hämta alla användare */
         teamPlayers () {
-            return this.$store.getters.getTeamPlayers;
+            return this.$store.getters.getAdminTeamPlayers;
         },
 
       /* Sökfunktion */
