@@ -61,6 +61,7 @@ export default {
                 this.$route.params.id
             );
         },
+
        /* Hämta alla användare */
         teamPlayers () {
             return this.$store.getters.getAdminTeamPlayers;
