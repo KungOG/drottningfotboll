@@ -1,83 +1,78 @@
 .schedules-page {
-      
-      .menu {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-end;
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
   
-          img {
-              height: 3rem;
-          }
+        img {
+            height: 3rem;
+        }
+    }
+  
+    .container {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 90vh;
+        
+        .gamelist {
+            height: 85vh;
+            overflow-y: scroll;
+
+            article {
+                margin: 1rem 0;
+                display: flex;
+                align-items: center;
+            } 
+        }
       }
-  
-      .container {
-          display: flex; 
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          height: 90vh;
-          
-          .gamelist {
-              height: 85vh;
-              overflow-y: scroll;
-  
-              article {
-                  margin: 1rem 0;
-                  display: flex;
-                  align-items: center;
-              }
-              
-          }
-  
-      }
-  
    }
   
-  .game-component {
-      display: flex;
+.game-component {
+    display: flex;
   
-      article {
-          border: 2px solid rgba(84, 183, 37, 1);
-          border-radius: 4px;
-          height: 7rem;
-          width: 7rem;
-          align-items: center;
-          justify-content: center;
-          position: relative;
+    article {
+        border: 2px solid rgba(84, 183, 37, 1);
+        border-radius: 4px;
+        height: 7rem;
+        width: 7rem;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        img {
+            height: 4rem;
+            width: 4rem;
+            position: absolute;
+            top: -2.5rem;
+        }
+
+        .group {
+            display: flex;
+            flex-direction: column;
+            height: 6rem;
+            width: 6rem;
+            align-items: center;
+            justify-content: center;
+            color: white;
+
+            p {
+                margin: 0;
+            }
+        }
+    }
   
-          img {
-              height: 4rem;
-              width: 4rem;
-              position: absolute;
-              top: -2.5rem;
-          }
-  
-          .group {
-              display: flex;
-              flex-direction: column;
-              height: 6rem;
-              width: 6rem;
-              align-items: center;
-              justify-content: center;
-              color: white;
-  
-              p {
-                  margin: 0;
-              }
-          }
-      }
-  
-      .line {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-  
-          hr {
-              width: 50px;
-              height: 3px;
-              border: none;
-              background-color: gray;
-          }
-      }
-      
+    .line {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        hr {
+            width: 50px;
+            height: 3px;
+            border: none;
+            background-color: gray;
+        }
+    }
   }

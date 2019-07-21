@@ -1,7 +1,7 @@
 <template>
     <main class="game-component">
         <article @click="groupOne">
-            <img v-show="show1" src="@/assets/icon/crown.svg">
+            <img v-show="home" src="@/assets/icon/crown.svg">
             <div class="group" :style="{background: activeColor1}">
                 <p>Grupp</p>
                 <p>{{ game.home.groupNr }}</p>
@@ -9,7 +9,7 @@
         </article>
         <div class="line"><hr></div>
         <article @click="groupTwo">
-            <img v-show="show2" src="@/assets/icon/crown.svg">
+            <img v-show="away" src="@/assets/icon/crown.svg">
             <div class="group" :style="{background: activeColor2}">
                 <p>Grupp</p>
                 <p>{{ game.away.groupNr }}</p>
@@ -28,38 +28,39 @@ export default {
             activeColor2: 'green',
             winner: [],
             result: false,
-            show1: false,
-            show2: false
+            home: false,
+            away: false
 
         }
     },
     watch: {
-        show1() {
+        home() {
             this.addWinner(1);
         },
 
-        show2() {
+        away() {
             this.addWinner(2);
         }
     },
     mounted() {
-           this.getLocalStorage();
-           this.setBackgroundColor();
+        this.getLocalStorage();
+        this.setBackgroundColor();  
+        localStorage.setItem('active game', JSON.stringify('active'));
     },
      methods: {
         groupOne() {
-            if(this.show1 == true) {
-                this.show1 = false;
+            if (this.home == true) {
+                this.home = false;
             } else {
-                this.show1 = true;
+                this.home = true;
             }
 
         },
         groupTwo() {
-            if(this.show2 == true) {
-                this.show2 = false;
+            if(this.away == true) {
+                this.away = false;
             } else {
-                this.show2 = true;
+                this.away = true;
             }
 
         },
@@ -107,22 +108,22 @@ export default {
         addWinner(num) {
             //Hämta en uppdaterad array från local storage
             if (localStorage.getItem('winner')) {
-            this.winner = JSON.parse(localStorage.getItem('winner')); 
+                this.winner = JSON.parse(localStorage.getItem('winner')); 
             }
             //kolla om arrayen har ett innehåll
             if (!this.winner.length == 0) {                                       
-                for(let i = 0; i < this.winner.length; i++) { 
+                for (let i = 0; i < this.winner.length; i++) { 
                     //om den har det, kolla om denna omgång finns med 
-                    if(this.winner[i].game == this.game.round) {  
+                    if (this.winner[i].game == this.game.round) {  
                         this.result = true
                         //om den finns och båda värdena är false, ta bort den från arrayen
-                        if(this.home == false && this.away == false) {
+                        if (this.home == false && this.away == false) {
                             var a = this.winner.indexOf(this.winner[i])               
                             this.winner.splice(a, 1)
                             break;
                         } else {
                             //om den finns uppdatera annars värderna
-                            if(num === 1) {
+                            if (num === 1) {
                                 this.winner[i].home.win = this.home;
                             } else {
                                 this.winner[i].away.win = this.away;
@@ -132,7 +133,6 @@ export default {
                         
                     } else {
                         this.result = false
-                        
                     }
                 }
             //om denna omgång inte finns i arrayen, lägg till den    
@@ -154,11 +154,11 @@ export default {
                 home: {
                     groupNr: this.game.home.groupNr, 
                     win: this.home
-                    }, 
+                }, 
                 away: {
                     groupNr: this.game.away.groupNr, 
                     win: this.away
-                    }
+                }
             })  
         },
         setLocalStorage() {
@@ -166,16 +166,16 @@ export default {
         },
         getLocalStorage() {
             if (localStorage.getItem('winner')) {
-            this.winner = JSON.parse(localStorage.getItem('winner'));   
+                this.winner = JSON.parse(localStorage.getItem('winner'));   
 
-            //kolla om winner innehåller samma round, om den gör det, sätt värdena i data till true/false
-            for(let i = 0; i < this.winner.length; i++) {
-                if(this.winner[i].game == this.game.round) {
-                    this.home = this.winner[i].home.win
-                    this.away = this.winner[i].away.win
+                //kolla om winner innehåller samma round, om den gör det, sätt värdena i data till true/false
+                for(let i = 0; i < this.winner.length; i++) {
+                    if(this.winner[i].game == this.game.round) {
+                        this.home = this.winner[i].home.win
+                        this.away = this.winner[i].away.win
+                    }
                 }
-            }
-        } 
+            } 
         }
     },
 }

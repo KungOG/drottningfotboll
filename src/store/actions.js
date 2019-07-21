@@ -99,9 +99,22 @@ export default {
   },
 
   /* Sätta ditt namn första gången du loggar in */
-  addPlayerName (ctx, name) {
+  addPlayerName (ctx, payload) {
     var uid = this.state.currentUser.uid;
-    db.collection('users').doc(uid).update({name: name});
+    let player = {
+      name: payload.name,
+      goal: 0,
+      win: 0,
+      loss: 0,
+      point: 0,
+      tie: 0,
+      uid: uid
+    }
+    db.collection('users').doc(uid).update({name: payload.name});
+    db.collection('teams').doc(payload.team).collection('players').doc(uid).set(player);
+    db.collection('users').doc(uid).update({
+      teams: firebase.firestore.FieldValue.arrayUnion(payload.team)
+    })
   },
 
   /* Valen i skapandet av spelet */
@@ -261,58 +274,13 @@ export default {
       }
     }
   },
-
-  /* Skapa spelschemat */
-  submitSchedules (ctx) {
-
-    let teams = this.state.numberOfTeams;
-    let games = this.state.numberOfGames;
-    let counter = 1;
-    let schedule = [];
-    let teamsArray = [];
- 
-    /* Gör en array med antal lag */
-    for(let i = 0; i<teams; i++) {
-      teamsArray[i] = i+1;
-    }  
-    /* Sätt ihop vem som möter vem */
-    for(let i = 0; i < teamsArray.length-1; i++) {      
-      for(let j = counter; j < teamsArray.length; j++) {
-        var num1 = teamsArray.slice(i,i+1)
-        var num2 = teamsArray.slice(j,j+1)
-        for(let g = 0; g < games; g++) {  
-          if(g % 2 ) {
-            schedule.push({round: 0, home: {groupNr: num1[0], win: false}, away: {groupNr: num2[0], win:false}})            
-          } else {
-            schedule.push({round: 0, home: {groupNr: num2[0], win: false}, away: {groupNr: num1[0], win: false}})
-          }
-        }
-      }
-      counter++;
-    }    
-    /* Shuffla arrayen */
-    var j, x, i;
-    for (i = schedule.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = schedule[i];
-        schedule[i] = schedule[j];
-        schedule[j] = x;
-    }    
-    /* Addera roundnummer  */ 
-    for(let i = 0; i < schedule.length; i++) {
-      schedule[i].round = i+1;
-    }    
-   
-    ctx.dispatch('saveGameDataToDb', schedule) 
-  },
-
+  
   /* Spara grupperna och matcherna i databasen för att kunna hämta */
   saveGameDataToDb (ctx, teams) {
     let groups = this.state.groups;
     var adminTeam = this.state.adminUser.team;
     var gameData = {groups: groups, games: teams}
     db.collection('games').doc(adminTeam).collection('currentGame').doc('1').set(gameData);
-    console.log('Succsess!')
   },
   
   /* Spara resultaten i databasen */
@@ -366,7 +334,7 @@ export default {
   /* Addera spelarnas nya poäng med de gamla */
   calculatePoints (ctx, payload) {
     var adminTeam = this.state.adminUser.team;
-    let teamPlayers = this.state.teamPlayers;
+    let teamPlayers = this.state.adminTeamPlayers;
     let players = [];
 
     for(let i = 0; i < payload.length; i++) {

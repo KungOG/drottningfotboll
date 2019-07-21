@@ -16,7 +16,7 @@
             </section>
             <section class="grouplist">
                 <h3 :style="{background: activeColor}">{{group.name}}</h3>
-                <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player"/>
+                <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player" @update="filterGroup" />
             </section>
             <img src="@/assets/icon/ok.svg" class="orange-btn" @click="$router.push('/groups')" />
         </section>
@@ -40,7 +40,7 @@ export default {
         addgroupplayer
     },
     beforeMount() {
-        this.filterGroup()
+        this.filterGroup();
         let number = this.group.id;
         if (number === 1) {
             this.activeColor = "green"
@@ -90,6 +90,7 @@ export default {
                 if (Edited) {
                     swal(`${player.name} är nu flyttad till ${this.group.name}!`);
                     this.markPlayer(player);
+                    this.filterGroup();
                 }
             });
         },
@@ -101,20 +102,22 @@ export default {
                 player: this.chosenPlayer, 
                 group: this.group.id
             })
-        }, 
+        },
+
         /* Filtrera ut spelare som inte är i gruppen */
         filterGroup () {
             let check = false;
-            for( var i=this.teamPlayers.length - 1; i>=0; i--){
-                for( var j=0; j<this.group.players.length; j++){
+            this.otherTeamPlayers.length = 0;
+            for ( var i = this.teamPlayers.length - 1; i >= 0; i--){
+                for ( var j = 0; j < this.group.players.length; j++){
                     if(this.teamPlayers[i] && this.otherTeamPlayers.indexOf(this.teamPlayers[i]) === -1 && (this.teamPlayers[i].uid !== this.group.players[j].uid)){
                         check = true;
-                        } else {
+                        } else {    
                             check = false;
                             break;
                         }
                 }
-                if(check) {
+                if (check) {
                     this.otherTeamPlayers.push(this.teamPlayers[i]);
                     check = false
                 }

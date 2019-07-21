@@ -1,7 +1,7 @@
 <template>
     <main>
       <section class="navbar-admin">
-        <Slide id="slide">
+        <Slide noOverlay id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
             <router-link to="/makegames">Make Game</router-link>

@@ -7,7 +7,10 @@
             @change="saveDate"
             ></datepicker>
             <select v-model="time" @change="saveTime">
-                <option v-for="(date, index) in filterTime" :value="date.time" :key="index">{{date.time}}</option>
+                <option 
+                v-for="(date, index) in filterTime" 
+                :value="date.time" :key="index"
+                >{{date.time}}</option>
             </select>
         </section>
     </main>

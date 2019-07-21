@@ -8,7 +8,7 @@
             <article class="playerlist">         
                 <groupplayer v-for="player in players" :key="player.uid" :player="player" @setColor="setColor" @deleteAssignedPlayer="deleteAssignedPlayer"/>
             </article>
-            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroups" />
+            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroups" v-show="teams.length >= 4" />
         </section>
     </main>
 </template>

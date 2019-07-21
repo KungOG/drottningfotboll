@@ -56,7 +56,7 @@ export default {
               await items.get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                   this.allUsers.push(doc.id)
-                  })
+                })
               })
               this.loadPage();
             }).catch((err) => {
@@ -68,7 +68,6 @@ export default {
               name: "",
               teams: [],
               uid: this.user.uid,
-              isAdmin: true,
               photoURL: this.user.photoURL,
               email: this.user.email
             }

@@ -85,6 +85,32 @@
             margin: 0 auto;
             left: 50%;
         }
+    }
 
+    /* Add-Name Page */
+    .submit-section {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5rem;
+        input {
+            background: white;
+            align-self: center;
+            font-size: 1.5rem;
+            padding: .230rem 1.5rem; 
+            justify-content: center;
+            text-align: center; 
+        }
+        .team-selection {
+            select {                
+                background: white;
+                align-self: center;
+                padding: .3rem 7rem;
+                font-size: 1.5rem; 
+                text-transform: uppercase;
+            }
+        }
+        .bottom {
+            margin-top: 4rem;
+        }
     }
 }

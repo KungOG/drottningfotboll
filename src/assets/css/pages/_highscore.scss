@@ -1,7 +1,13 @@
  .highscore-page {
     .highscore-header {
-        display: flex;
-        justify-content: space-around;   
+        select {
+            margin-top: .2rem;
+            background: white;
+            align-self: center;
+            padding: .3rem 6.125rem;
+            font-size: 1.5rem; 
+            text-transform: uppercase;
+        }   
     }
     .list-wrapper {
         display: flex;

@@ -47,7 +47,7 @@ export const calculatePoints = {
         }     
     },
     computed: {
-        numberOfGroups() {
+        numberOfGroups () {
             return this.$store.getters.getNumberOfTeams;
         }
     },

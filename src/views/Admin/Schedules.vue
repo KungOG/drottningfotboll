@@ -1,6 +1,6 @@
 <template>
     <main class="schedules-page">
-        <Slide id="slide">
+        <Slide noOverlay id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
             <router-link to="/makegames">Make Game</router-link>
@@ -109,10 +109,10 @@ export default {
              ! Funktion finns i calculatePoint.js
             */
             this.savePoints();
-            localStorage.removeItem('winner')
-            localStorage.removeItem('gameSettings')
-            localStorage.removeItem('goalTracker')
-
+            localStorage.removeItem('winner');
+            localStorage.removeItem('gameSettings');
+            localStorage.removeItem('goalTracker');
+            localStorage.removeItem('active game');
         }
     }
 }

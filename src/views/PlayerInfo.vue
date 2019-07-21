@@ -84,8 +84,8 @@ export default {
             this.$store.commit('swipe', 0);
             this.$router.push('/about')  
         },
-      setSelectedTeam() {
-          this.$store.dispatch('setSelectedTeam', this.selectedTeam);
+        setSelectedTeam() {
+            this.$store.dispatch('setSelectedTeam', this.selectedTeam);
       },
       logout(){
         firebase.auth().signOut();

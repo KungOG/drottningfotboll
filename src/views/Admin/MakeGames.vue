@@ -1,6 +1,6 @@
 <template>
     <main class="makegames-page">
-        <Slide v-if="!show" id="slide">
+        <Slide noOverlay v-if="!show" id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>
             <router-link to="/makegames">Make Game</router-link>
@@ -32,9 +32,10 @@ export default {
     name : 'makegame',
     beforeMount () {
         /* Ta bort föregåendespel */
-        localStorage.removeItem('winner')
-        localStorage.removeItem('gameSettings')
-        localStorage.removeItem('goalTracker')
+        localStorage.removeItem('winner');
+        localStorage.removeItem('gameSettings');
+        localStorage.removeItem('goalTracker');
+        localStorage.removeItem('active game');
     },
     data () { 
         return {

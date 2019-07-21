@@ -22,6 +22,7 @@ export default {
                 group: this.group,
                 player: this.player.uid
             });
+            this.$emit('update')
         }
     }
 }
