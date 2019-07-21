@@ -10,31 +10,44 @@
         <img :src=currentUser.photoURL alt="">          
       </section>
 
-      <section class="player-stats">    
-        <section class="info-box">
-          <p class="username-text">{{ currentUser.name }}</p>
-        </section>
-        <section class="info-box">
-          <span class="point">{{ player.point }}</span>
-          <p class="text">Poäng</p>
-        </section>
-        <section class="box-container">
+      <section class="bottom-section">
+        <section class="player-stats">    
           <section class="info-box">
-            <span  class="number">{{ player.win }}</span>
-            <p class="text">Vinster</p>
+            <span class="username-text">{{ currentUser.name }}</span>
+            <span class="username-email">{{ currentUser.email }}</span>
           </section>
-          <section class="info-box">
-            <span class="number">{{ player.loss }}</span>
-            <p class="text">Förluster</p>
-          </section>
-        </section>
-        <select v-model="selectedTeam" @change="getPlayerInfo" class="info-box team">
-          <option v-for="item in currentUser.teams" :value="item" :key="item" id="opt">{{item}}</option>
-        </select>
+          <section class="box-container">
+            <section class="point-box">
+              <span class="point">{{ player.point }}</span>
+              <span class="täxt">Poäng</span>
+            </section>
+            <section class="stats-box">
+              <section class="stats">
+                <span class="number">{{ player.win }}</span>
+                <span class="text">Vinster</span>
+              </section>
+              <section class="stats">
+                <span class="number">{{ player.loss }}</span>
+                <span class="text">Förluster</span>
+              </section>
+              <section class="stats">
+                <span class="number">{{ player.tie }}</span>
+                <span class="text">Oavgjort</span>
+              </section>
+              <section class="stats">
+                <span class="number">{{ player.goal }}</span>
+                <span class="text">Mål</span>
+              </section>
+            </section>
+            </section>
+          <select v-model="selectedTeam" @change="getPlayerInfo" class="info-box team">
+            <option v-for="item in currentUser.teams" :value="item" :key="item" id="opt">{{item}}</option>
+          </select>
       </section>
       <section class="player-footer">
         <img src="@/assets/icon/entrance.svg" @click="logout">
       </section>
+    </section>
   </article>
 </template>
 

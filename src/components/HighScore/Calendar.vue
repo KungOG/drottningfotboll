@@ -58,13 +58,13 @@ export default {
                             var res1 = num.substr(0, 1);    
                             var res2 = num.substr(1, 3);
                             num2 = '0' + res1 + ':' + res2;
-                            } else {
+                        } else {
                             var res1 = num.substr(0, 2);    
                             var res2 = num.substr(2, 4);
                             num2 = res1 + ':' + res2;
                         }
                         x.time = num2;
-                        })
+                    })
                         return array;
                     } else {
                         return array;
@@ -95,6 +95,5 @@ export default {
             }
         }
     }
-        
 }
 </script>

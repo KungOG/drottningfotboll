@@ -41,6 +41,13 @@ body {
     font-family: $font;
 }
 
+select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+  }
+
 .fix-player {
     display: flex;
     margin: 1rem;

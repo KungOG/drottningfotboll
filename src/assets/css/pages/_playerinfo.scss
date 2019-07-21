@@ -30,56 +30,107 @@
             } 
         }
     }
-    .player-stats {
+    .bottom-section {
+        margin-top: 3rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-content: flex-end;
-        background: white;
-        padding-top: 2rem;    
 
-        .box-container {
+        .player-stats {
             display: flex;
-            flex-direction: row;            
-        } 
-        .info-box {
             @extend %center;
             flex-direction: column;
-            flex: 1;
-            font-weight: bold;
-            font-size: 1rem;
-            .username-text {
-                font-size: 1.5rem;   
+            background: white;
+            padding-top: 2rem;    
+            
+            .info-box {
+                @extend %center;
+                flex-direction: column;
+                flex: 1;
+                font-weight: bold;
+                font-size: 1rem;
+    
+                &.team {
+                    align-self: center;
+                    padding: .3rem 7rem;
+                    font-size: 1.5rem; 
+                    margin: 2rem .5rem 1rem .5rem;
+                    text-transform: uppercase;
+                }
+                .username-text {
+                    font-size: 1.5rem;   
+                }
+                .username-email {
+                    color: #626262;
+                }
             }
-            .text {
-                border: 1px solid green;
-                border-radius: 5px;
-                padding: .3rem 1rem;
-            }
-            .point {
-                color: #EF9859;
-                font-size: 4rem;
-                
-            }
-            .number {
-                font-size: 3rem;
-            }
-            &.team {
-                align-self: center;
-                padding: .3rem 7rem;
-                font-size: 1.5rem; 
-                margin: 2rem .5rem 1rem .5rem;
-                text-transform: uppercase;
-            }
+    
+                .box-container {
+                    display: grid;
+                    margin-top: 2rem;
+                    justify-content: center;
+                    grid-template-rows: auto;
+                    grid-template-columns: 1fr 1fr;
+                    grid-column-gap: 1rem;
+                    grid-template-areas:
+                    'aside stats-box' 
+                    'aside stats-box'
+                    'aside stats-box';
+    
+                    .point-box {
+                        grid-area: aside;
+                        border: $border-section;
+                        border-radius: 5px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-content: center;
+    
+                        .point {
+                            color: #EF9859;
+                            font-size: 4rem;
+                        }
+                    }
+                    .stats-box {
+                        grid-area: stats-box;
+                        display: flex;
+                        flex-direction: column;
+
+                        .stats {
+                            display: grid;
+                            justify-content: center;
+                            align-items: center;
+                            grid-template-rows: auto;
+                            grid-template-columns: 1fr 1fr;
+                            grid-template-areas:
+                            'number text';
+
+                            .text {
+                                grid-area: text;
+                                display: flex;
+                                justify-content: flex-start;
+                            }
+                            .number {
+                                grid-area: number;
+                                font-size: 2rem;
+                                color: #626262;
+                            }
+                        }
+                    }           
+                }
+    
         }
+        .player-footer {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            justify-content: flex-end;
+            align-items: flex-end;
+            cursor: pointer;
+            img {
+                width: 3rem;
+            }
+        } 
     }
-    .player-footer {
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        cursor: pointer;
-        img {
-            width: 3rem;
-        }
-    } 
 }
