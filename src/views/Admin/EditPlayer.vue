@@ -1,6 +1,6 @@
 <template>
     <article class="editplayer-page">
-      <section class="editplayer-navbar">
+      <section class="nav-right">
         <img src="@/assets/icon/merge-people.svg" @click="showList"  v-if="show" />
         <img src="@/assets/icon/back-left.svg" @click="showList"  v-if="!show" />
       </section>

@@ -1,11 +1,13 @@
 <template>
     <main class="groups">
-        <Slide noOverlay id="slide">
-            <router-link to="/admin">Admin</router-link>
-            <router-link to="/players">Players</router-link>
-            <router-link to="/makegames">Make Game</router-link>
-            <router-link to="/schedules">Schedules</router-link>
-        </Slide>
+        <section class="nav-left">
+            <Slide noOverlay id="slide">
+                <router-link to="/admin">Admin</router-link>
+                <router-link to="/players">Players</router-link>
+                <router-link to="/makegames">Make Game</router-link>
+                <router-link to="/schedules">Schedules</router-link>
+            </Slide>
+        </section>
         <section class="container">
             <section>
                 <article v-for="group in groups" :key="group.id" @click="$router.push(`editgroups/${group.id}`)">

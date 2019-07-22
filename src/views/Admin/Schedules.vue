@@ -1,12 +1,12 @@
 <template>
     <main class="schedules-page">
-        <Slide noOverlay id="slide">
-            <router-link to="/admin">Admin</router-link>
-            <router-link to="/players">Players</router-link>
-            <router-link to="/makegames">Make Game</router-link>
-            <router-link to="/schedules">Schedules</router-link>
-        </Slide>
-        <section class="menu">
+        <section class="nav-between">
+            <Slide noOverlay id="slide">
+                <router-link to="/admin">Admin</router-link>
+                <router-link to="/players">Players</router-link>
+                <router-link to="/makegames">Make Game</router-link>
+                <router-link to="/schedules">Schedules</router-link>
+            </Slide>
             <img src="@/assets/icon/score.svg" @click="$router.push('/goalboard')">
         </section>
         <section class="container">

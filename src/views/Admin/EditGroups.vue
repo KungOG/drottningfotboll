@@ -1,6 +1,6 @@
 <template>
     <main class="editgroups">
-        <section class="menu">
+        <section class="nav-right">
             <img src="@/assets/icon/person-add.svg" @click="show = !show"/>
         </section>
         <section class="container">

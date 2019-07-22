@@ -1,6 +1,6 @@
 <template>
     <main>
-      <section class="navbar-admin">
+      <section class="nav-between">
         <Slide noOverlay id="slide">
             <router-link to="/admin">Admin</router-link>
             <router-link to="/players">Players</router-link>

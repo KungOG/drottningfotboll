@@ -1,7 +1,7 @@
     
 <template>
     <main class="makegroups">
-        <section>
+        <section class="nav-middle">
             <img src="@/assets/icon/shuffle.svg" @click="shufflePlayers" />
         </section>
         <section class="container">
