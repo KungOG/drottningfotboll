@@ -1,0 +1,34 @@
+/* Pop-ups */
+.swal-modal {
+  justify-content: center;
+  align-items: center;
+
+  .swal-text {
+    text-align: center;
+  }
+
+  .swal-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .swal-button--confirm {
+        width: 8rem;
+        height: 3rem;
+        padding: .5rem 1.5rem;
+        border-radius: 2px;
+        background-color: #f26522;
+        font-size: 1rem;
+    }
+    
+    .swal-button--cancel {
+        width: 8rem;
+        height: 3rem;
+        padding: .5rem 1.5rem;
+        border-radius: 2px;
+        background-color: #888;
+        font-size: 1rem;
+        color: white;
+    }
+  }
+}

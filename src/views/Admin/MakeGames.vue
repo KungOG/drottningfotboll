@@ -35,7 +35,6 @@ export default {
         localStorage.removeItem('winner');
         localStorage.removeItem('gameSettings');
         localStorage.removeItem('goalTracker');
-        localStorage.removeItem('active game');
     },
     data () { 
         return {

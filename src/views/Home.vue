@@ -1,6 +1,6 @@
 <template>
   <article class="home-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
-    <section class="home-logo">
+    <section class="home-logo menu">
       <ul class="slider" :class="'slide-' + activeSlide"></ul>
       <img src="@/assets/img/crown.png" alt="">
       <img src="@/assets/img/fotball.png" alt="">
@@ -31,7 +31,7 @@ export default {
     data() {
       return {
         allUsers: [],
-        user: ""
+        user: ''
       }
     },
     methods: {

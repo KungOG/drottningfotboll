@@ -21,7 +21,7 @@
     .home-login {
         display: flex;
         flex-direction: column;
-        margin-top: 3rem;
+        margin-top: 2.5rem;
         
         .login-btn {
             display: flex;
@@ -79,11 +79,7 @@
             border: 0;
         }
         .orange-btn {
-            position:absolute;
-            bottom: 1rem;
-            transform: translate(-50%, -50%);
-            margin: 0 auto;
-            left: 50%;
+            margin-top: 4.5rem;
         }
     }
 
@@ -98,7 +94,8 @@
             font-size: 1.5rem;
             padding: .230rem 1.5rem; 
             justify-content: center;
-            text-align: center; 
+            text-align: center;
+            text-transform: uppercase; 
         }
         .team-selection {
             select {                

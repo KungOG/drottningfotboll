@@ -8,7 +8,6 @@
         </Slide>
         <section class="menu">
             <img src="@/assets/icon/crown.svg" @click="$router.push('/schedules')">
-            <img src="@/assets/icon/score.svg">
         </section>
         <section v-for="group in currentGame" :key="group.id">            
             <article>

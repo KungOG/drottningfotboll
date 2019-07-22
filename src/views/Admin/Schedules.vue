@@ -7,7 +7,6 @@
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
         <section class="menu">
-            <img src="@/assets/icon/crown.svg">
             <img src="@/assets/icon/score.svg" @click="$router.push('/goalboard')">
         </section>
         <section class="container">
@@ -61,8 +60,7 @@ export default {
         submitStats() {
             swal({
                 title: `Ska vi sätta spiken i kistan?`,
-                text: `Är alla vinnare korade och målskyttarna satta? 
-                Du kan inte ångra efter detta steg, gör dina val rätt!`,
+                text: `Är alla vinnare korade och målskyttarna satta, du kan inte ångra efter detta steg, gör dina val rätt!`,
                 icon: "warning",
                 buttons: ["Nä", "Japp"],
                 dangerMode: true,
@@ -72,7 +70,7 @@ export default {
                     swal({
                         text: `Bra, där satte du verkligen spiken i kistan!`,
                         icon: "success",
-                        button: "Ok"
+                        button: false,
                     }).then(() => {
                         this.saveResult();
                             setTimeout(() => this.$router.push({
@@ -110,7 +108,7 @@ export default {
             */
             this.savePoints();
             localStorage.removeItem('winner');
-            localStorage.removeItem('gameSettings');
+            /* localStorage.removeItem('gameSettings'); */
             localStorage.removeItem('goalTracker');
             localStorage.removeItem('active game');
         }

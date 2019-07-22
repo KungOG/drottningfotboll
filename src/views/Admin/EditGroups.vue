@@ -70,7 +70,7 @@ export default {
       /* Sökfunktion */
         filterPlayers () {
             return this.otherTeamPlayers.filter((player) => {
-                return player.name.match(this.search);
+                return player.name.match(this.search.toUpperCase());
             })
         }
     },

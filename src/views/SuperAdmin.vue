@@ -46,7 +46,8 @@ export default {
             teamName: '',
             adminName: '',
             team: '',
-            teamArray: []
+            teamArray: [],
+            id: ''
         }
     },
     created () {
@@ -64,30 +65,55 @@ export default {
 
         /* Skapa ny Admin för ett lag */
         createAdmin() {
+        this.idCode();
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.email, this.password)
             .then(
-            (user) => {
-                db.collection('admins').doc(user.user.uid).set({
-                    name: this.adminName,
-                    team: this.teamName,
-                    uid: user.user.uid
-                })          
-            },
-        )},
+                (user) => {
+                    db.collection('admins').doc(user.user.uid).set({
+                        name: this.adminName,
+                        team: this.teamName.toUpperCase(),
+                        uid: user.user.uid
+                    })          
+                },
+            )
+
+            var trainer = {
+                uid: this.id, 
+                name: this.adminName,            
+                point : 0, 
+                win: 0, 
+                loss: 0, 
+                tie: 0,
+                goal: 0
+            }
+            db.collection('teams').doc(this.teamName.toUpperCase()).collection('players').doc(this.id).set(trainer)
+            db.collection('teams').doc(this.teamName.toUpperCase()).set({name: this.teamName});
+        },
 
         /* Nollställ ett helt fotbollslag */
         async totalResetTeam () {
             let teamPlayers = [];
-            var item = await db.collection('teams').doc(this.team).collection('players')
+            var item = await db.collection('teams').doc(this.team.toUpperCase()).collection('players')
                 await item.get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     var obj = (doc.id, " => ", doc.data())
                     teamPlayers.push(obj)
                 })
             })
-            this.$store.dispatch('resetTeam', {teamName: this.team, teamPlayers: teamPlayers})
+            this.$store.dispatch('resetTeam', {teamName: this.team.toUpperCase(), teamPlayers: teamPlayers})
+        },
+        
+        /* Skaffa ett random UID */
+        idCode()   {     
+            let chars = "ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789abcdefghijklmnopqrstvwxyz";
+            let code = [];
+            for (let i = 0; i < 20; i++) {
+                let rand = Math.floor(Math.random() * chars.length);
+                code.push(chars[rand]);
+            }
+            this.id = code.join(""); 
         }
     }
 }

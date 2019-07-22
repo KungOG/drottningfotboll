@@ -132,11 +132,15 @@ export default {
             if (willDelete) {
               swal(`Du har nu tagit bort ${this.player.name} ifrån laget, fy dig!`, {
                 icon: "success",
+                button: false,
               });
               this.removeUserTeamArray();
               this.deletePlayer();
             } else {
-              swal(`Wiiihooo, ${this.player.name} överlevde en dag till! :)`);
+              swal(`Wiiihooo, ${this.player.name} överlevde en dag till! :)`, {
+                icon: "info",
+                button: false,
+              });
             }
           });
         },
@@ -156,10 +160,14 @@ export default {
             if (willMerge) {
               swal(`${this.player.name} har nu samlat på sig en jäkla massa poäng, dopad?`, {
                 icon: "success",
+                button: false,
               });
               this.mergeUpdatedPlayer();
             } else {
-              swal(`${this.markedPlayer.name} kan nu fajtas ännu en dag mot ${this.player.name}, arrrgh!`);
+              swal(`${this.markedPlayer.name} kan nu fajtas ännu en dag mot ${this.player.name}, arrrgh!`,  {
+                icon: "info",
+                button: false,
+              });
             }
           });
         },

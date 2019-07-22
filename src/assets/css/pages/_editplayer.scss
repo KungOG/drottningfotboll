@@ -18,7 +18,8 @@
                 padding: .5rem;
                 text-align: center;
                 outline: none;
-                border: 0;                
+                border: 0;
+                text-transform: uppercase;                
             }
             label {
                 text-align: start;
@@ -93,11 +94,7 @@
                 right: 50%;
             }
             .orange-btn {
-                position:absolute;
-                bottom: 1rem;
-                transform: translate(-50%, -50%);
-                margin: 0 auto;
-                left: 50%;
+                margin-top: 5rem;
             }
         }
         .edit-player-btn2 {

@@ -1,14 +1,14 @@
 <template>
     <main class="addplayer-page">
       <section class="navbar-admin">
-        <Slide id="slide">
+        <Slide noOverlay id="slide">
           <router-link to="/admin">Admin</router-link>
           <router-link to="/players">Players</router-link>
           <router-link to="/makegames">Make Game</router-link>
           <router-link to="/schedules">Schedules</router-link>
         </Slide>
       </section>
-      
+     
       <section class="search-bar">
         <input type="text" v-model="search" placeholder="Sök Spelare">
       </section>
@@ -84,7 +84,7 @@ export default {
           }
       
         return this.users.filter((player) => {
-          return player.name.match(this.search);
+          return player.name.match(this.search.toUpperCase());
         })
       }
     },
@@ -133,7 +133,7 @@ export default {
       addPlayer() {
         this.idCode ();
         var newPlayer = {
-          name: this.name,
+          name: this.name.toUpperCase(),
           goal: 0,
           win: 0,
           loss: 0,

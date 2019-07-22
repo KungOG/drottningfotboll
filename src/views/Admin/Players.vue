@@ -72,7 +72,7 @@ export default {
       /* Sök funktion */
         filterUsers () {
           return this.adminTeamPlayers.filter((player) => {
-            return player.name.match(this.search);
+            return player.name.match(this.search.toUpperCase());
           })
       }
   }

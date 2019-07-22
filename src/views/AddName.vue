@@ -45,7 +45,7 @@ export default {
     methods: {
         addName () {
             var user = firebase.auth().currentUser;
-            this.$store.dispatch('addPlayerName', {name: this.name, team: this.team});
+            this.$store.dispatch('addPlayerName', {name: this.name.toUpperCase(), team: this.team});
             this.$store.dispatch('setSelectedTeam', this.team);
             this.$store.dispatch('setCurrentUser', user);
             this.$router.push('/loading');

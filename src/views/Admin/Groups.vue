@@ -69,16 +69,12 @@ export default {
         },
         submitSchedules() {
             if (this.numberOfTeams === 2) {
-                console.log('2')
                 this.gameOfTwo();
             } else if (this.numberOfTeams === 3) {
-                console.log('3')
                 this.gameOfThree();
             } else if (this.numberOfTeams === 4) {
-                console.log('4')
                 this.gameOfFour();
             } else {
-                console.log('5')
                 this.gameOfFive();
             }
             this.$router.push('/schedules')
