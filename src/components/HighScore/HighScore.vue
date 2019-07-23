@@ -1,9 +1,9 @@
 <template>
     <main class="highscore-page">
       <section class="highscore-header">
-        <select v-model="selected">
-          <option v-for="(option, index) in options" :key="index" :value="option.value">{{option.name}}</option>
-        </select>
+          <select v-model="selected">
+            <option v-for="(option, index) in options" :key="index" :value="option.value">{{option.name}}</option>
+          </select>
       </section>
       <article class="list-wrapper" v-for="(item, index) in teamPlayers" :key="index">
           <section class="score">

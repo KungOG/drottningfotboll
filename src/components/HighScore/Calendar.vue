@@ -3,10 +3,12 @@
         <section class="calendar">
             <datepicker 
             v-model="date"
+            placeholder="Datum"
             :highlighted="highlighted"
             @change="saveDate"
             ></datepicker>
             <select v-model="time" @change="saveTime">
+                <option value="" disabled>Tid</option>
                 <option 
                 v-for="(date, index) in filterTime" 
                 :value="date.time" :key="index"
@@ -22,7 +24,7 @@ export default {
     mounted () {
         if(this.$store.state.date) {            
             this.date = new Date(this.$store.state.date);
-        }
+        } 
         if(this.$store.state.time) {
             this.time = this.$store.state.time;
         }
@@ -31,7 +33,7 @@ export default {
     data () {
         return {
             date: '',
-            time: '00:00',
+            time: '',
             highlighted: {
                 dates: []
             }

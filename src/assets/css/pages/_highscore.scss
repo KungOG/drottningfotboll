@@ -1,13 +1,24 @@
  .highscore-page {
+   
+
     .highscore-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: .5rem 0;
+            
         select {
-            margin-top: .2rem;
-            background: white;
-            align-self: center;
-            padding: .3rem 6.125rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, .5);
+            width: 91vw;
             font-size: 1.5rem; 
             text-transform: uppercase;
-        }   
+            border: none;
+            height: 2.23rem;
+            padding: 0 .5rem;
+            text-align-last: center; /*centrerar det valda alternativet i select*/
+        }  
+        
     }
     .list-wrapper {
         display: flex;
