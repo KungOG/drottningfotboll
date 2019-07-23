@@ -31,7 +31,7 @@ export default {
     data () {
         return {
             date: '',
-            time: '',
+            time: '00:00',
             highlighted: {
                 dates: []
             }

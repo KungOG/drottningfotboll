@@ -1,19 +1,40 @@
 .superadmin-page {
+    overflow: hidden;
 
     .input-section {
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100vw;
-
 
         section {
             display: flex;
             flex-direction: column; 
-            background: white; 
-            width: 20%;
-            padding: 5rem;
+            background: white;
+            padding: 1rem;
+            margin: 2rem 0;
+            border: 1px solid black;
+            border-radius: 5px;
 
-
+            input {
+                padding: .55rem 1.5rem;
+                font-size: 1rem; 
+                border: 1px solid black;
+            }
+            select {
+                padding: .55rem 1.5rem;
+                font-size: 1rem; 
+                border: 1px solid black;
+            }
+            select:focus, input:focus{
+                outline: none;
+            }
+            a {
+                text-decoration: none;
+                color: red;
+                cursor: pointer;
+            }
         }
     }
 }

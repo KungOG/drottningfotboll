@@ -1,11 +1,5 @@
 <template>
     <main class="superadmin-page">
-        <Slide id="slide">
-            <router-link to="/admin">Admin</router-link>
-            <router-link to="/players">Players</router-link>
-            <router-link to="/makegames">Make Game</router-link>
-            <router-link to="/schedules">Schedules</router-link>
-        </Slide>
         <section class="input-section">
             <section>
                 <h1>Skapa ny Admin</h1>
@@ -20,11 +14,12 @@
                 <a href="#" @click="createAdmin">Klar</a>
             </section>
             <section>
+                <h1>Nollställ ett lag</h1>
                 <select v-model="team">
                     <option v-for="(team, index) in teamArray" :key="index" :value="team">{{team}}</option>
                 </select>
+                <a href="#" @click="totalResetTeam">Nollställ {{team}}</a>
             </section>
-            <a href="#" @click="totalResetTeam">Nollställ {{team}}</a>
         </section>
     </main>
 </template>
