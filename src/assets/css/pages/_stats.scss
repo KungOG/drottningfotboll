@@ -25,15 +25,26 @@
             } 
         }
         .team-selection {
-            select {                
-                background: rgba(255, 255, 255, .5);
-                border-radius: 4px;
-                align-self: center;
-                padding: .3rem 7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .5);
+            border-radius: 4px;
+            margin: 0 1rem;
+            
+
+            select {      
+                width: 91rem;  
+                height: 2.23rem;        
                 font-size: 1.5rem; 
                 text-transform: uppercase;
                 border: none;
-                text-align-last: center; /*centrerar det valda alternativet i select*/
+                padding: 0 .5rem;
+                text-align-last: center; /*centrerar det vald6a alternativet i select*/
+                background: url("./assets/icon/arrow-down.svg") left no-repeat;
+                background-size: 6%;
+                background-position-x: .5rem;
+        
 
             }
         }
