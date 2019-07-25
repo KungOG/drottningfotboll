@@ -1,19 +1,25 @@
 <template>
     <main class="calendar-page">
         <section class="calendar">
-            <datepicker 
-            v-model="date"
-            placeholder="Datum"
-            :highlighted="highlighted"
-            @change="saveDate"
-            ></datepicker>
-            <select v-model="time" @change="saveTime">
-                <option value="" disabled>Tid</option>
-                <option 
-                v-for="(date, index) in filterTime" 
-                :value="date.time" :key="index"
-                >{{date.time}}</option>
-            </select>
+            <article class="date-container">
+                <img src="@/assets/icon/arrow-down.svg"/>
+                <datepicker 
+                v-model="date"
+                placeholder="Datum"
+                :highlighted="highlighted"
+                @change="saveDate"
+                ></datepicker>
+            </article>
+            <article class="time-container">
+                <img src="@/assets/icon/arrow-down.svg"/>
+                <select v-model="time" @change="saveTime">
+                    <option value="" disabled>Tid</option>
+                    <option 
+                    v-for="(date, index) in filterTime" 
+                    :value="date.time" :key="index"
+                    >{{date.time}}</option>
+                </select>
+            </article>
         </section>
     </main>
 </template>

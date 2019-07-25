@@ -6,36 +6,57 @@
     .calendar {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         padding: .063rem 0;
         margin: 0 1rem;
-        width: 100vw;
+        width: 91vw;
 
-        input {
+        .date-container {
+            display: flex;
             background: rgba(255, 255, 255, .5);
-            padding: .55rem 1.5rem;
-            font-size: 1rem; 
-            box-shadow: none;
-            border: none;
             border-radius: 4px;
-            margin-right: .7rem;
-        }
+            width: 65%;
+            padding-left: .5rem;
+            margin-right: .8rem;
 
-        ::placeholder {
-            opacity: 1;
-            color:black;
+            img {
+                width: 1rem;
+            }
+
+            input {
+                padding: .55rem 0 .55rem .8rem;
+                font-size: 1rem; 
+                box-shadow: none;
+                border: none;
+                background: none;
+            }
+
+            ::placeholder {
+                opacity: 1;
+                color:black;
+            }
         }
-        
-        select {
-            padding: .3rem .8rem;
+        .time-container {
+            display: flex;
             background: rgba(255, 255, 255, .5);
-            font-size: 1rem; 
-            box-shadow: none;
-            height: 2.23rem;
-            width: 5.5rem;
-            border: none;
             border-radius: 4px;
+            width: 26%;
+            padding-left: .5rem;
+
+            img {
+                width: 1rem;
+            }
+       
+            select {
+                padding: .3rem .8rem;
+                font-size: 1rem; 
+                box-shadow: none;
+                height: 2.23rem;
+                width: 5.5rem;
+                border: none;
+                background: none;
+            }
         }
     }
 }
