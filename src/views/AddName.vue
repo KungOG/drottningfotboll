@@ -33,14 +33,14 @@ export default {
         }
     },
     created() {
-            //Get all teams from database for dropdown
-            var teams = [];
-            db.collection("teams").get().then(function(querySnapshot) {            
-                querySnapshot.forEach(function(doc) {
-                    teams.push(doc.id)
-                });
-            });       
-           this.teams = teams;
+        //Get all teams from database for dropdown
+        var teams = [];
+        db.collection("teams").get().then(function(querySnapshot) {            
+            querySnapshot.forEach(function(doc) {
+                teams.push(doc.id)
+            });
+        });       
+        this.teams = teams;
     },
     methods: {
         addName () {
