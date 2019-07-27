@@ -42,6 +42,19 @@
                     align-items: center;
                     justify-content: center;
                     margin: .5rem;
+                    color: white
+                }
+
+                .btn {
+                    width: 3rem;
+                    height: 3rem;
+                    border: $border-btns;
+                    border-radius: 3px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: .5rem;
+                    color: white
                 }
             }
         }
