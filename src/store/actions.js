@@ -98,6 +98,11 @@ export default {
     ctx.commit('removeCurrentAdminUser');
   },
 
+  /* Ändrar aktiv sida */
+  activeSlide(ctx, activeSlide) {
+    ctx.commit('activeSlide', activeSlide);
+  },
+
   /* Sätta ditt namn första gången du loggar in */
   addPlayerName (ctx, payload) {
     var uid = this.state.currentUser.uid;

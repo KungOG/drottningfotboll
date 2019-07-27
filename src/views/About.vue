@@ -31,18 +31,12 @@ export default {
       /* Swipe funktionen */
     rightSwipe () {
         if (this.adminUser !== null) {
-            this.$store.commit('swipe', 1);
             this.$router.push('/admin')
         } else if (this.currentUser !== null) {
-            this.$store.commit('swipe', 1);
             this.$router.push('/playerinfo');
         } else {
-            this.$store.commit('swipe', 1);
             this.$router.push('/home')
         }
-    },
-    activeSlide () {
-        return this.$store.state.activeSlide;
     }
   }
 }

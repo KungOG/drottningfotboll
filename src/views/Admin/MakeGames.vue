@@ -20,18 +20,21 @@
                     <div @click="addNumberOfTeams(5)"><p>5</p></div>
                 </article>
             </article>
-         <router-view />
+            <router-view />
+            <AdminPager :activeSlide = 'activeSlide' v-if="activeSlide !== 5"/>
         </section>
     </main>
 </template>
 
 <script>
 import { Slide } from 'vue-burger-menu';
+import AdminPager from '@/components/AdminPager.vue';
 
 export default {
     name : 'makegame',
     beforeMount () {
         /* Ta bort föregåendespel */
+        this.$store.dispatch('activeSlide', 0);
         localStorage.removeItem('winner');
         localStorage.removeItem('gameSettings');
         localStorage.removeItem('goalTracker');
@@ -39,14 +42,21 @@ export default {
     data () { 
         return {
             numberOfTeams: 0,
-            show: false,     
+            show: false,  
         }
     },
     components: {
-        Slide
+        Slide,
+        AdminPager
+    },
+    computed: {
+        activeSlide() {
+            return this.$store.state.activeSlide;
+        }
     },
     methods: {
         addNumberOfTeams(num) {
+            this.$store.dispatch('activeSlide', 1)
             this.isDisabled = true;
             this.numberOfTeams = num;
             this.show = !this.show;

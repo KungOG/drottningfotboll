@@ -25,8 +25,14 @@ export default {
             numberOfEqual: 0
         }
     },
+    computed: {
+        activeSlide () {
+            return this.$store.state.activeSlide;
+        }
+    },
     methods: {
         addNumberOfPointsEqual(num) {
+            this.$store.dispatch('activeSlide', 5);
             this.isDisabled = true;
             this.show = !this.show;
             this.numberOfEqual = num;

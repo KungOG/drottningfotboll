@@ -4,13 +4,15 @@
         <div :class="{ active : activeSlide == 0 }"></div>
         <div :class="{ active : activeSlide == 1 }"></div>
         <div :class="{ active : activeSlide == 2 }"></div>
+        <div :class="{ active : activeSlide == 3 }"></div>
+        <div :class="{ active : activeSlide == 4 }"></div>
     </section>
 </main>
 </template>
 
 <script>
 export default {
-    name: 'pager',
+    name: 'adminPager',
     props: ['activeSlide']
 }
 </script>
@@ -26,14 +28,15 @@ export default {
 }
 .pager-section {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    width: 3rem;
-    margin: 1rem 0;
+    width: 6rem;
+    height: 1rem;
 }
 div {
     width: .6rem;
     height: .6rem;
-    background-color: #666;
+    background-color: #D8D8D8;
     border-radius: 999rem;
 }
     

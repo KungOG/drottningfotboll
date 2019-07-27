@@ -1,8 +1,5 @@
 export default {
 
-  /* Swipe räknaren */
-  activeSlide: 1,
-
   /* Sparat datum och tiden ifrån Kalendern */
   date: '',
   time: '',
@@ -26,6 +23,9 @@ export default {
 
   /* Valt lag */
   selectedTeam: '',
+  
+  /* Aktiv sida */
+  activeSlide: 0,
 
   /* Skapa lagen och poäng regler */
   numberOfTeams: 0,

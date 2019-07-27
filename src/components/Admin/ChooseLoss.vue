@@ -25,8 +25,14 @@ export default {
             numberOfLoss: 0
         }
     },
+    computed: {
+        activeSlide () {
+            return this.$store.state.activeSlide;
+        }
+    },
     methods: {
         addNumberOfPointsLoss(num) {
+            this.$store.dispatch('activeSlide', 4);
             this.isDisabled = true;
             this.show = !this.show;
             this.numberOfLoss = num;

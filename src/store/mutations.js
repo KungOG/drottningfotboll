@@ -1,10 +1,10 @@
 export default {
-
-  /* Swipe och dess koll på vilken sida */
-  swipe (state, activeSlide) {
-    state.activeSlide = activeSlide;
-  },
   
+  /* Swipe och dess koll på vilken sida */
+  activeSlide (state, activeSlide) {
+      state.activeSlide = activeSlide;
+  },
+
   /* Spara valt datum i Calender komponenten */
   setDate(state, date) {
     state.date = date;

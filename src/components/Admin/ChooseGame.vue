@@ -22,7 +22,12 @@ export default {
     data () {
         return {
             numberOfGames: 0,
-            show: false
+            show: false,
+        }
+    },
+    computed: {
+        activeSlide () {
+            return this.$store.state.activeSlide;
         }
     },
     methods: {
@@ -31,6 +36,7 @@ export default {
             this.$router.push('/makegames')
         },
         addNumberOfGames(num) {
+            this.$store.dispatch('activeSlide', 2);
             this.isDisabled = true;
             this.numberOfGames = num;
             this.show = !this.show;

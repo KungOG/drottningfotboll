@@ -13,7 +13,7 @@
                     <div @click="addNumberOfPointsWin (3)"><p>3</p></div>
                 </article>
             </article>
-        <router-view />
+        <router-view /> 
     </main>
 </template>
 
@@ -23,11 +23,17 @@ export default {
     data () {
         return {
             show: false,
-            numberOfWin: 0
+            numberOfWin: 0,
+        }
+    },
+    computed: {
+        activeSlide () {
+            return this.$store.state.activeSlide;
         }
     },
     methods: {
         addNumberOfPointsWin(num) {
+            this.$store.dispatch('activeSlide', 3);
             this.isDisabled = true;
             this.numberOfWin = num;
             this.show = !this.show;
