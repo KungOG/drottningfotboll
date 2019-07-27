@@ -34,18 +34,20 @@ export default {
     },
     computed: {
         currentGame() {
+            
             /* Plocka ut endast de grupper som har spelare */
-            let allGroups = this.$store.state.currentGame.groups;
-            if(allGroups[0].players.length === 0) {
-                allGroups.shift();
-            }
-            for(let i = allGroups.length -1; i >= 0; i--) {
-                if(allGroups[i].players.length === 0) {      
-                    allGroups.pop();
+            if(this.$store.state.currentGame !== undefined) {
+                let allGroups = this.$store.state.currentGame.groups;
+                if(allGroups[0].players.length === 0) {
+                    allGroups.shift();
                 }
+                for(let i = allGroups.length -1; i >= 0; i--) {
+                    if(allGroups[i].players.length === 0) {      
+                        allGroups.pop();
+                    }
+                }
+                return allGroups;
             }
-            return allGroups;
-
         },
         chosenGame() {
             /* Plocka ut endast de grupper som har spelare */

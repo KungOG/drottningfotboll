@@ -22,7 +22,7 @@ export default {
 
   /* Spel Data */
   specificTeamData: [],
-  currentGame: [],
+  currentGame: null,
 
   /* Valt lag */
   selectedTeam: '',

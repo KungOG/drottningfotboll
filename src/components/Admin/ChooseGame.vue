@@ -1,6 +1,6 @@
 <template>
     <main class="makegames">
-            <article class="info-container" v-if="show" @click="show = !show">
+            <article class="info-container" v-if="show" @click="atClick">
                 <p>Antal spel:</p>
                 <h3> {{ numberOfGames }}</h3>            
             </article>
@@ -26,6 +26,10 @@ export default {
         }
     },
     methods: {
+        atClick() {
+            this.show = false 
+            this.$router.push('/makegames')
+        },
         addNumberOfGames(num) {
             this.isDisabled = true;
             this.numberOfGames = num;

@@ -7,6 +7,7 @@
                 v-model="date"
                 placeholder="Datum"
                 :highlighted="highlighted"
+                :language="sv"
                 @change="saveDate"
                 ></datepicker>
             </article>
@@ -25,6 +26,8 @@
 </template>
 <script>
 import Datepicker from 'vuejs-datepicker';
+import {sv} from 'vuejs-datepicker/dist/locale';
+
 export default {
     name: 'calendar',
     mounted () {
@@ -42,7 +45,8 @@ export default {
             time: '',
             highlighted: {
                 dates: []
-            }
+            },
+            sv: sv
         }
     },
     components: {

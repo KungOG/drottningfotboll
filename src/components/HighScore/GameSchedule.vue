@@ -36,7 +36,9 @@ export default {
     },
     computed: {
         currentGame() {
-            return this.$store.state.currentGame.games;
+            if (this.$store.state.currentGame !== undefined) {
+                return this.$store.state.currentGame.games;
+            }
         },
         specificTeamData() {
             return this.$store.getters.filterDate;
