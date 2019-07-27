@@ -76,6 +76,7 @@ export default {
         },
         shufflePlayers() {
             let num = 1; 
+            this.teams = [];
             this.shuffle(this.players)
 
             for(let i = 0; i < this.players.length; i++) {                

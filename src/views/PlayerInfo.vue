@@ -1,11 +1,7 @@
 <template>
   <article class="player-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
       <section class="player-logo">
-        <ul class="active-site">
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+        <Pager :activeSlide = '1' />
         <img src="@/assets/img/crown.png" alt="">
         <img :src=currentUser.photoURL alt="">          
       </section>
@@ -54,6 +50,7 @@
 <script>
 import firebase from 'firebase'
 import db from '@/firebaseInit'
+import Pager from '@/components/Pager.vue'
 
 export default {
     name : 'playerinfo',
@@ -62,6 +59,9 @@ export default {
         selectedTeam: '',
         player: {}
       }
+    },
+    components: {
+      Pager
     },
     computed: {
       currentUser() {
@@ -77,11 +77,9 @@ export default {
             return this.$store.state.activeSlide;
         },
         leftSwipe () {
-            this.$store.commit('swipe', 2);
             this.$router.push('/stats')
         },
         rightSwipe () {
-            this.$store.commit('swipe', 0);
             this.$router.push('/about')  
         },
         setSelectedTeam() {

@@ -1,15 +1,15 @@
 <template>
     <main class="makegames">
-            <article class="info-container" v-if="show" @click="show = !show">
+            <article class="info-container" v-if="show" @click="edit">
                 <p>Antal spel:</p>
                 <h3> {{ numberOfGames }}</h3>            
             </article>
             <article v-if="!show" class="btn-container">
                 <h1>Välj antal matcher</h1>
                 <article v-if="!show" class="setup-btn">
-                    <div @click="addNumberOfGames(2)"><p>2</p></div>
-                    <div @click="addNumberOfGames(3)"><p>3</p></div>
-                    <div @click="addNumberOfGames(4)"><p>4</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfGames(2)"><p>2</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfGames(3)"><p>3</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfGames(4)"><p>4</p></div>
                 </article>
             </article>
         <router-view />
@@ -22,11 +22,22 @@ export default {
     data () {
         return {
             numberOfGames: 0,
-            show: false
+            show: false,
+            editValue: false
+        }
+    },
+    computed: {
+        activeSlide () {
+            return this.$store.state.activeSlide;
         }
     },
     methods: {
+        edit() {
+            this.show = !this.show
+            this.editValue = true
+        },
         addNumberOfGames(num) {
+            this.$store.dispatch('activeSlide', 2);
             this.isDisabled = true;
             this.numberOfGames = num;
             this.show = !this.show;

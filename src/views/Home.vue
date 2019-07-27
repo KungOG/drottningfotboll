@@ -1,7 +1,7 @@
 <template>
   <article class="home-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
     <section class="home-logo menu">
-      <ul class="slider" :class="'slide-' + activeSlide"></ul>
+      <Pager :activeSlide='1' />
       <img src="@/assets/img/crown.png" alt="">
       <img src="@/assets/img/fotball.png" alt="">
       <h3>Kung<br>Fotboll</h3>
@@ -23,8 +23,9 @@
 </template>
 
 <script>
-import firebase from 'firebase'
-import db from '@/firebaseInit'
+import firebase from 'firebase';
+import db from '@/firebaseInit';
+import Pager from '@/components/Pager.vue';
 
 export default {
     name : 'home',
@@ -34,17 +35,18 @@ export default {
         user: ''
       }
     },
+    components: {
+      Pager
+    },
     methods: {
         /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
         leftSwipe () {
-            this.$store.commit('swipe', 2);
             this.$router.push('/stats')
         },
         rightSwipe () {
-            this.$store.commit('swipe', 0);
             this.$router.push('/about')  
         },
         googleLogin () {

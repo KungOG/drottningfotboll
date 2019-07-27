@@ -1,7 +1,7 @@
 <template>
   <main class="about-page" v-touch:swipe.left="rightSwipe">
     <section class="about-logo">
-      <ul class="slider" :class="'slide-' + activeSlide"></ul>
+      <Pager :activeSlide = '0'/>
       <img src="@/assets/img/crown.png" alt="">
       <img src="@/assets/img/fotball.png" alt="">
     </section>
@@ -13,8 +13,12 @@
 </template>
 
 <script>
+import Pager from '@/components/Pager.vue';
 export default {
   name: 'about',
+  components: {
+    Pager
+  },
   computed: {
       currentUser() {
           return this.$store.getters.getCurrentUser;
@@ -27,18 +31,12 @@ export default {
       /* Swipe funktionen */
     rightSwipe () {
         if (this.adminUser !== null) {
-            this.$store.commit('swipe', 1);
             this.$router.push('/admin')
         } else if (this.currentUser !== null) {
-            this.$store.commit('swipe', 1);
             this.$router.push('/playerinfo');
         } else {
-            this.$store.commit('swipe', 1);
             this.$router.push('/home')
         }
-    },
-    activeSlide () {
-        return this.$store.state.activeSlide;
     }
   }
 }

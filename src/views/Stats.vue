@@ -1,7 +1,7 @@
 <template>
   <main class="stats-page" v-touch:swipe.right="leftSwipe"> 
     <section class="navigation">
-      <ul class="slider" :class="'slide-' + activeSlide"></ul>
+      <Pager :activeSlide = '2' />
       <section class="team-selection">
         <select v-model="selectedTeam" @change="setSelectedTeam">
           <option v-for="item in teams" :value="item" :key="item">{{item}}</option>
@@ -21,13 +21,18 @@
 
 <script>
 import db from '@/firebaseInit';
+import Pager from '@/components/Pager.vue';
+
 export default {
     name : 'stats',
-    data() {
+    data () {
         return {
             selectedTeam: '',
             teams: [],
         }
+    },
+    components: {
+        Pager
     },
     computed: {
         currentUser() {
@@ -44,14 +49,11 @@ export default {
         },
         leftSwipe () {
             if (this.adminUser !== null) {
-                this.$store.commit('swipe', 1);
-                this.$router.push('/admin')
+                this.$router.push('/admin');
             } else if (this.currentUser !== null) {
-                this.$store.commit('swipe', 1);
                 this.$router.push('/playerinfo');
             } else {
-                this.$store.commit('swipe', 1);
-                this.$router.push('/home')
+                this.$router.push('/home');
             }
         },
         //Send chosen team to store 

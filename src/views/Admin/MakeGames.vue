@@ -7,31 +7,34 @@
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
         <section>
-            <article class="info-container" v-if="show" @click="show = !show">
+            <article class="info-container" v-if="show" @click="edit">
                 <p>Antal lag:</p>
                 <h3> {{ numberOfTeams }}</h3>
             </article>
             <article v-if="!show" class="btn-container">
                 <h1>Välj antal Lag</h1> 
                 <article v-if="!show" class="setup-btn">
-                    <div @click="addNumberOfTeams(2)"><p>2</p></div>
-                    <div @click="addNumberOfTeams(3)"><p>3</p></div>
-                    <div @click="addNumberOfTeams(4)"><p>4</p></div>
-                    <div @click="addNumberOfTeams(5)"><p>5</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(2)"><p>2</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(3)"><p>3</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(4)"><p>4</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(5)"><p>5</p></div>
                 </article>
             </article>
-         <router-view />
+            <router-view />
+            <AdminPager :activeSlide = 'activeSlide' v-if="activeSlide !== 5"/>
         </section>
     </main>
 </template>
 
 <script>
 import { Slide } from 'vue-burger-menu';
+import AdminPager from '@/components/AdminPager.vue';
 
 export default {
     name : 'makegame',
     beforeMount () {
         /* Ta bort föregåendespel */
+        this.$store.dispatch('activeSlide', 0);
         localStorage.removeItem('winner');
         localStorage.removeItem('gameSettings');
         localStorage.removeItem('goalTracker');
@@ -39,14 +42,26 @@ export default {
     data () { 
         return {
             numberOfTeams: 0,
-            show: false,     
+            show: false,  
+            editValue: false
         }
     },
     components: {
-        Slide
+        Slide,
+        AdminPager
+    },
+    computed: {
+        activeSlide() {
+            return this.$store.state.activeSlide;
+        }
     },
     methods: {
+        edit() {
+            this.show = !this.show
+            this.editValue = true
+        },
         addNumberOfTeams(num) {
+            this.$store.dispatch('activeSlide', 1)
             this.isDisabled = true;
             this.numberOfTeams = num;
             this.show = !this.show;
