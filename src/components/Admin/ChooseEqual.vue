@@ -1,5 +1,5 @@
 <template>
-<main :class="{ equal: show == true, makegames: show == false}">
+    <main :class="{ equal: show == true, makegames: show == false}">
         <article class="info-container" v-if="show" @click="edit">
             <p>Poäng oavgjort:</p>
             <h3> {{ numberOfEqual }}</h3>            
