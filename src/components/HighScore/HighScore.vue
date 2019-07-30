@@ -5,10 +5,10 @@
             <option v-for="(option, index) in options" :key="index" :value="option.value">{{option.name}}</option>
           </select>
       </section>
-      <article class="list-wrapper" v-for="(item, index) in teamPlayers" :key="index">
+      <article class="highscore-list" v-for="(item, index) in teamPlayers" :key="index">
           <section class="score">
             <div class="name">
-              <span>{{item.name}}</span>
+               <span>{{item.name}}</span>
             </div>
             <div :class="{ point: selected == 'point', win: selected == 'win', lost: selected == 'loss', goal: selected == 'goal', tie: selected == 'tie'}">
               <span>Poäng </span>
