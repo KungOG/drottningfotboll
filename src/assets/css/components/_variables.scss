@@ -1,5 +1,5 @@
 /*** Parameters ***/
-
+@import url('https://fonts.googleapis.com/css?family=Blinker:400,700|Karla:400,700|Nunito:400,700|Titillium+Web:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
 
 // Colors
@@ -8,6 +8,7 @@ $color-secondary: #888;
 $color-light: #e0e0e0;
 $color-lightest: #efefef;
 $color-brand: #239bf6;
+$color-orange: #F19344;
 
 // Brand color
 $color-facebook: #3b5998;
@@ -18,7 +19,7 @@ $color-instagram: #3f729b;
 $color-linkedin: #0077b5;
 $color-medium: #00ab6b;
 $color-messenger: #0084ff;
-$color-rss: #f26522;
+$color-rss: #EF9859;
 $color-spotify: #2ebd59;
 $color-twitter: #55acee;
 
@@ -28,12 +29,10 @@ $border-btns: 1px solid #6DD400;
 $border-section: 2px solid #54B725;
 
 // Font Size
-$font-size-biggest: 2.8rem;
-$font-size-largest: 2.3rem;
-$font-size-large: 1.2rem;
-$font-size-base: 1rem;
-$font-size-small: .9rem;
-$font-size-smallest: .75rem;
+$font-size-largest: 2.2rem;
+$font-size-large: 1.5rem;
+$font-size-normal: 1.3rem;
+$font-size-small: 1rem;
 
 // Spacing
 $spacing-small: .75rem;
@@ -48,8 +47,7 @@ $tablet: 600px;
 $mobile: 480px;
 
 // Font Family
-$font: 'Heebo', sans-serif;
-
+$font: 'Nunito', sans-serif;
 
 // Animation
 $anime-in: .4s;

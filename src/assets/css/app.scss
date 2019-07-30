@@ -9,7 +9,6 @@
 @import 'components/pagination';
 @import 'components/variables';
 
-
 /* Layouts */
 @import 'layouts/responsive';
 
@@ -23,7 +22,6 @@
 @import 'pages/calendar';
 @import 'pages/highscore';
 @import 'pages/superadmin';
-@import 'pages/gamegroup';
 @import 'pages/addplayer';
 @import 'pages/editplayer';
 @import 'pages/gameschedule';
@@ -39,16 +37,13 @@ body {
     height: 100vh;
     margin: 0;
     font-family: $font;
-    /* overflow:hidden; */
 }
-
 select {
     /* for Firefox */
     -moz-appearance: none;
     /* for Chrome */
     -webkit-appearance: none;
 }
-
 .fix-player {
     display: flex;
     margin: 1rem;
@@ -79,9 +74,6 @@ select {
         }
     }
 }
-
-
-
 /* Lägg till spelare fält */
 .addplayer {
     display: flex;
@@ -103,6 +95,3 @@ select {
         color: black;
     }
 }
-
-
-

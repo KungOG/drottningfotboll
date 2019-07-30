@@ -36,106 +36,6 @@ body {
       }
     }
     
-    /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
-    .aboutContent {
-      background: darkred;
-      color: white;
-      padding: 5rem 0;
-      border: 2px solid white;
-    }
-    .content {
-      background: white;
-      a {
-        text-decoration: none;
-        color: black;
-        border: 1px solid black;
-        border-radius: 25%;
-        padding: .5rem .8rem;
-        margin: 1rem;
-        font-weight: bold;
-        &:hover {
-          background: red;
-        }
-      }
-      div {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        background: yellow;
-      }
-    } 
-    .schema {
-      @extend %layout;
-      background: white;
-      color: red;  
-            
-      p {
-        padding: 2rem;
-        border: 1px solid red;
-        margin: .2rem;
-      }
-    }
-  
-  
-  /* Detta försvinner med tiden */
-  #app {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-align: center;
-    }
-    #nav {
-      padding: 30px;
-      a {
-        font-weight: bold;
-        color: #2c3e50;
-        &.router-link-exact-active {
-          color: #42b983;
-        }
-      }
-    }
-  
-    .main {
-      border: 1px solid black;
-      border-radius: 5px;
-    
-      .list-wrapper {
-        display: flex;
-        border-bottom: 1px solid gray;
-        padding: .5rem;
-        .container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          flex: 1;
-          h3 {
-            text-transform: uppercase;
-            margin: 0;
-            font-size: 1.2rem;
-          }
-          .score {
-            display: flex;
-            flex-direction: row;
-            #win {
-              margin-right: 1.5rem;
-            }
-          }
-        }
-        #date {
-          box-sizing: border-box;
-          padding: 10px 5px 15px 5px;
-          margin-right: 2rem;
-          text-align: center;
-          font-size: 3rem;
-          width: 70px;
-          height: 60px;
-        }
-      }
-    }
-
-
-
-
-
 /* Search bar */
 .search-bar {
     display: flex;
@@ -148,7 +48,7 @@ body {
         border: none;
         padding: 1rem 3rem;
         color: black;
-        font-size: 1.2rem;
+        font-size: $font-size-normal;
         text-transform: uppercase;
         background: url("./assets/icon/search.svg") left no-repeat;
         background-size: 8%;

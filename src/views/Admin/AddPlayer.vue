@@ -129,6 +129,7 @@ export default {
           }
        });
       },
+
       /* Lägg till en tillfällig spelare */
       addPlayer() {
         this.idCode ();

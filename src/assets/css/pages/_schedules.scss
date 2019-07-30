@@ -1,12 +1,10 @@
 .schedules-page {
-   
     .container {
         display: flex; 
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 90vh;
-        
+        height: 83vh;        
         .gamelist {
             height: 85vh;
             overflow-y: scroll;
@@ -17,8 +15,8 @@
                 align-items: center;
             } 
         }
-      }
-   }
+    }
+}
   
 .game-component {
     display: flex;

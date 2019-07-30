@@ -1,13 +1,12 @@
+@import 'variables';
 #slide {
     display: flex;
-    
     /* Hamburgar knappen */
     .bm-burger-button {
         width : 2rem;
         left : .8rem;
         top: 1.5rem;
         cursor : pointer;
-
         /* Strecken för hamburgar menyn */
         .bm-burger-bars {
             background-color : white;
@@ -48,8 +47,7 @@
         overflow-x : hidden; /* Disable horizontal scroll */
         padding-top : 60px; /* Place content 60px from the top */
         transition : 0.5s; /*0.5 second transition effect to slide in the sidenav*/
-        font-family: 'Roboto', Arial, sans-serif;
-
+        font-family: $font;
         a {
             color: white;
             text-decoration: none;

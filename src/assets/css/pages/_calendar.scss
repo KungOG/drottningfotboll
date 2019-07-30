@@ -26,7 +26,7 @@
 
             input {
                 padding: .55rem 0 .55rem .8rem;
-                font-size: 1rem; 
+                font-size: $font-size-small; 
                 box-shadow: none;
                 border: none;
                 background: none;
@@ -50,7 +50,7 @@
        
             select {
                 padding: .3rem .8rem;
-                font-size: 1rem; 
+                font-size: $font-size-small; 
                 box-shadow: none;
                 height: 2.23rem;
                 width: 5.5rem;

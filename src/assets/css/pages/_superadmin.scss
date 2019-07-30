@@ -19,12 +19,12 @@
 
             input {
                 padding: .55rem 1.5rem;
-                font-size: 1rem; 
+                font-size: $font-size-small; 
                 border: 1px solid black;
             }
             select {
                 padding: .55rem 1.5rem;
-                font-size: 1rem; 
+                font-size: $font-size-small; 
                 border: 1px solid black;
             }
             select:focus, input:focus{

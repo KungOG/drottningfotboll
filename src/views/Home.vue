@@ -89,11 +89,21 @@ export default {
         
         facebookLogin () {
           var provider = new firebase.auth.FacebookAuthProvider();
-          provider.addScope('user_birthday');
-          firebase.auth().signInWithPopup(provider).then(function(result) {
-            var token = result.credential.accessToken;
-            var user = result.user;
-          });
+          firebase.auth().signInWithPopup(provider).then(async(result) => {
+              this.user = firebase.auth().currentUser;
+              var token = result.credential.accessToken;
+
+              var items = db.collection('users');
+              await items.get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  this.allUsers.push(doc.id)
+                })
+              })
+              this.loadPage();
+            }).catch((error) => {
+              alert('Whops, something happend here..' + err.message)
+            });
+
         } 
     }
 }

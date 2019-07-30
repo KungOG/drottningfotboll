@@ -1,7 +1,7 @@
 <template>
     <main class="admin-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
+        <Pager :activeSlide='1' />
         <section class="admin-logout">
-            <ul class="slider" :class="'slide-' + activeSlide"></ul>
             <img src="@/assets/icon/entrance.svg" alt="Logout" @click="logout">
         </section>
         <section class="admin-logo">
@@ -36,8 +36,12 @@
 
 <script>
 import firebase from 'firebase';
+import Pager from '@/components/Pager.vue';
 export default {
     name : 'admin',
+    components: {
+      Pager
+    },
     methods: {
 
         /* Swipe funktionen */

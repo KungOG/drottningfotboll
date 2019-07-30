@@ -1,21 +1,17 @@
 .player-page {
     display: flex;
     flex-direction: column;
-    
     /* Rad 3, toppen av sidan */
     .player-logo {
         @extend %center;
         height: 50%;
         flex-direction: column;
         margin-bottom: 1rem;
-
         img {
             width: 100px;
-            height: 100px;
             border-radius: 999rem;
         }
     }
-
     /* Rad 13, innehåller all fakta om spelaren */
     .bottom-section {
         margin-top: 3rem;
@@ -23,37 +19,33 @@
         flex-direction: column;
         justify-content: flex-end;
         align-content: flex-end;
-
         /* Rad 14 */
         .player-stats {
             display: flex;
             @extend %center;
             flex-direction: column;
             background: white;
-            padding-top: 2rem;    
-            
+            padding-top: 2rem;     
             .info-box {
                 @extend %center;
                 flex-direction: column;
                 flex: 1;
                 font-weight: bold;
-                font-size: 1rem;
-    
+                font-size: $font-size-small;
                 &.team {
                     align-self: center;
                     padding: .3rem 7rem;
-                    font-size: 1.5rem; 
+                    font-size: $font-size-large; 
                     margin: 2rem .5rem 1rem .5rem;
                     text-transform: uppercase;
                 }
                 .username-text {
-                    font-size: 1.5rem;   
+                    font-size: $font-size-large;   
                 }
                 .username-email {
                     color: #626262;
                 }
             }
-
             /* Rad 19, innehåller all stats */
             .box-container {
                 display: grid;
@@ -66,7 +58,6 @@
                 'aside stats-box' 
                 'aside stats-box'
                 'aside stats-box';
-
                 /* Rad 20, stats på vänster sida */
                 .point-box {
                     grid-area: aside;
@@ -75,20 +66,17 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-content: center;
-
+                    align-items: center;
                     .point {
-                        color: #EF9859;
+                        color: $color-orange;
                         font-size: 4rem;
                     }
                 }
-
                 /* Rad 24, stats på höger sida */
                 .stats-box {
                     grid-area: stats-box;
                     display: flex;
                     flex-direction: column;
-
                     .stats {
                         display: grid;
                         justify-content: center;
@@ -97,7 +85,6 @@
                         grid-template-columns: 1fr 1fr;
                         grid-template-areas:
                         'number text';
-
                         .text {
                             grid-area: text;
                             display: flex;
@@ -105,14 +92,13 @@
                         }
                         .number {
                             grid-area: number;
-                            font-size: 2rem;
+                            font-size: $font-size-largest;
                             color: #626262;
                         }
                     }
                 }           
             }
         }
-
         /* Rad 47, Footern */
         .player-footer {
             position: absolute;

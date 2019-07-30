@@ -49,9 +49,9 @@ export default {
         } else if (number === 3) {
             this.activeColor = "orange"  
         } else if (number === 4) {
-            this.activeColor = "blue"
+            this.activeColor = "#0084ff"
         } else if (number === 5) {
-            this.activeColor = "pink"    
+            this.activeColor = "#FFFA00"    
         } 
         
     },
