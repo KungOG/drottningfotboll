@@ -7,17 +7,17 @@
             <router-link to="/schedules">Schedules</router-link>
         </Slide>
         <section>
-            <article class="info-container" v-if="show" @click="show = !show">
+            <article class="info-container" v-if="show" @click="edit">
                 <p>Antal lag:</p>
                 <h3> {{ numberOfTeams }}</h3>
             </article>
             <article v-if="!show" class="btn-container">
                 <h1>Välj antal Lag</h1> 
                 <article v-if="!show" class="setup-btn">
-                    <div @click="addNumberOfTeams(2)"><p>2</p></div>
-                    <div @click="addNumberOfTeams(3)"><p>3</p></div>
-                    <div @click="addNumberOfTeams(4)"><p>4</p></div>
-                    <div @click="addNumberOfTeams(5)"><p>5</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(2)"><p>2</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(3)"><p>3</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(4)"><p>4</p></div>
+                    <div :class="{btn: editValue == true}" @click="addNumberOfTeams(5)"><p>5</p></div>
                 </article>
             </article>
             <router-view />
@@ -43,6 +43,7 @@ export default {
         return {
             numberOfTeams: 0,
             show: false,  
+            editValue: false
         }
     },
     components: {
@@ -55,6 +56,10 @@ export default {
         }
     },
     methods: {
+        edit() {
+            this.show = !this.show
+            this.editValue = true
+        },
         addNumberOfTeams(num) {
             this.$store.dispatch('activeSlide', 1)
             this.isDisabled = true;
