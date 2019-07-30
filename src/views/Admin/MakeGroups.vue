@@ -3,6 +3,7 @@
     <main class="makegroups">
         <section class="nav-middle">
             <img src="@/assets/icon/shuffle.svg" @click="shufflePlayers" />
+            <img src="@/assets/icon/repeat.svg" @click="resetPlayers" />
         </section>
         <section class="container">
             <article class="playerlist">         
@@ -40,8 +41,8 @@ export default {
     },
     methods: {
         setColor(num, player) {
-           if(!this.teams.length == 0) {                                       
-               for(var i=0; i < this.teams.length; i++) {                       
+            if(!this.teams.length == 0) {                                       
+                for(var i=0; i < this.teams.length; i++) {                       
                    if(this.teams[i].uid == player.uid) {                         
                         this.result = true                                      
                         var a = this.teams.indexOf(this.teams[i])               
@@ -98,6 +99,29 @@ export default {
                 a[j] = x;
             }
             return a;
+        },
+        resetPlayers() {
+            swal({
+                title: `Hämta in spelarna igen?`,
+                text: `Tänk på att alla borttagna spelare kommer tillbaka!`,
+                icon: "warning",
+                buttons: ["Nä", "Japp"],
+                dangerMode: true,
+            })
+            .then((Submitted) => {
+                if (Submitted) {
+                    swal({
+                        text: `Allright, då springer jag och hämtar dem igen!`,
+                        icon: "success",
+                        button: false,
+                    }).then(() => {
+                        this.$store.dispatch('setAdminTeamPlayers');
+                    });
+
+                } else {
+                    swal(`Borttagna spelare är fortfarande borta!`);
+                }
+            });
         }
     }
 }

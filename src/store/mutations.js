@@ -132,20 +132,18 @@ export default {
 
   /* Ta bort spelaren i listan TeamPlayer */
   deletePlayer(state, id) {
-    var index = state.teamPlayers.findIndex(player => player.uid == id)
-    state.teamPlayers.splice(index, 1)
+    var index = state.adminTeamPlayers.findIndex(player => player.uid == id)
+    state.adminTeamPlayers.splice(index, 1)
   },
 
   /* Ta bort spelaren från specifik grupp */
   deleteGroupPlayer(state, payload) {
-    console.log(payload)
     var index = state.groups[payload.group].players.findIndex(player => player.uid == payload.player)
     state.groups[payload.group].players.splice(index, 1)
   },
 
   /* Ta bort spelaren från okänd grupp */
   removeGroupPlayer(state, payload) {
-    console.log(payload)
     for(let i = 0; i < state.groups.length; i++) {
       if (state.groups[i].players.findIndex(player => player.uid == payload.uid) !== -1) {
         var index = state.groups[i].players.findIndex(player => player.uid == payload.uid)
@@ -156,8 +154,6 @@ export default {
   
   /* Lägg till spelaren i gruppen */
   addGroupPlayer(state, payload) {
-    console.log(payload)
-    
     state.groups[payload.group].players.push({
       name: payload.player.name, 
       number: payload.group, 

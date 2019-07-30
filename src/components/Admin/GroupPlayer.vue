@@ -45,10 +45,7 @@ export default {
                 this.activeColor = ''
                 this.amount = 0
             }
-
             this.$emit('setColor', this.amount, {uid: this.player.uid, name: this.player.name})
-            
-        
         }
     }
 }

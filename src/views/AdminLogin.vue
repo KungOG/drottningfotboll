@@ -44,6 +44,9 @@ export default {
         setAdmin () {
             this.$store.dispatch('setAdminUser', this.adminUser);
         }
+    },
+    beforeDestroy () {
+        this.$store.dispatch('setAdminTeamPlayers');
     }
 }
 </script>

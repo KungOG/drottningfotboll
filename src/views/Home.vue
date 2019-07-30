@@ -88,13 +88,10 @@ export default {
         },
         
         facebookLogin () {
-          // Sign in using a popup.
           var provider = new firebase.auth.FacebookAuthProvider();
           provider.addScope('user_birthday');
           firebase.auth().signInWithPopup(provider).then(function(result) {
-            // This gives you a Facebook Access Token.
             var token = result.credential.accessToken;
-            // The signed-in user info.
             var user = result.user;
           });
         } 

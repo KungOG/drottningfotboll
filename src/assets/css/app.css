@@ -15,8 +15,7 @@
 
 #slide .bm-burger-button {
   width: 2rem;
-  height: 2rem;
-  left: 1rem;
+  left: .8rem;
   top: 1.5rem;
   cursor: pointer;
   /* Strecken för hamburgar menyn */
@@ -71,7 +70,6 @@
   transition: 0.5s;
   /*0.5 second transition effect to slide in the sidenav*/
   font-family: 'Roboto', Arial, sans-serif;
-  /* När fliken är ute, så blir det andra den här färgen */
 }
 
 #slide .bm-menu a {
@@ -80,8 +78,49 @@
   font-weight: 700;
 }
 
-#slide .bm-menu .bm-overlay {
-  background-color: red !important;
+/* Pop-ups */
+.swal-modal {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swal-modal .swal-text {
+  text-align: center;
+}
+
+.swal-modal .swal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swal-modal .swal-footer .swal-button--confirm {
+  width: 8rem;
+  height: 3rem;
+  padding: .5rem 1.5rem;
+  border-radius: 2px;
+  background-color: #f26522;
+  font-size: 1rem;
+}
+
+.swal-modal .swal-footer .swal-button--cancel {
+  width: 8rem;
+  height: 3rem;
+  padding: .5rem 1.5rem;
+  border-radius: 2px;
+  background-color: #888;
+  font-size: 1rem;
+  color: white;
 }
 
 body {
@@ -261,15 +300,39 @@ body .content a {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: .5rem .5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
 }
 
 .search-bar input {
   border: none;
-  border-radius: 3px;
-  padding: 1rem;
+  padding: 1rem 3rem;
   color: black;
   font-size: 1.2rem;
-  background: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  background: url("./assets/icon/search.svg") left no-repeat;
+  background-size: 8%;
+  background-position-x: .5rem;
+}
+
+.search-bar ::-webkit-input-placeholder {
+  opacity: 1;
+  color: black;
+}
+
+.search-bar :-ms-input-placeholder {
+  opacity: 1;
+  color: black;
+}
+
+.search-bar ::-ms-input-placeholder {
+  opacity: 1;
+  color: black;
+}
+
+.search-bar ::placeholder {
+  opacity: 1;
+  color: black;
 }
 
 /* Section knapp, bottnen på sidan */
@@ -283,6 +346,82 @@ body .content a {
   color: white;
   background: green;
   text-decoration: none;
+}
+
+.nav-between {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-between img {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-right: .8rem;
+}
+
+.nav-right {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-right img {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-right: .8rem;
+}
+
+.nav-left {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-left img {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-right: .8rem;
+}
+
+.nav-middle {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-middle img {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-right: .8rem;
 }
 
 .player-list {
@@ -351,9 +490,13 @@ body .content a {
 
 .list-item-group {
   background-color: white;
-  margin: .2rem 0;
+  margin: 0 0 .25rem 0;
   max-width: 100vw;
   text-align: left;
+}
+
+.list-item-group:nth-last-child(1) {
+  margin: 0;
 }
 
 .list-item-group p {
@@ -383,7 +526,7 @@ body .content a {
   width: 3.5rem;
 }
 
-body .content .logo, body .content .btn-container .admin-btn, body .content .login, .player-page .player-logo, .player-page .player-stats .info-box {
+body .content .logo, body .content .btn-container .admin-btn, body .content .login, .player-page .player-logo, .player-page .bottom-section .player-stats, .player-page .bottom-section .player-stats .info-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -405,18 +548,43 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
 
 /* Layouts */
 /*** Responsive ***/
-@media screen and (max-width: 600px) {
-  .post-cover {
-    width: 100%;
+@media screen and (min-width: 1024px) and (max-width: 1300px) {
+  body {
+    background-color: red !important;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .nav-desktop {
-    display: none;
+/* iPhone 5/SE */
+@media screen and (max-width: 320px) {
+  body {
+    background-color: yellow !important;
+    /* Players */
+    /* Admin Page */
   }
-  .nav-toggle {
-    display: block;
+  body .player-list {
+    max-height: 73vh;
+  }
+  body .admin-page .admin-logo h1 {
+    font-size: 1rem;
+  }
+  body .admin-page .admin-logo img {
+    width: 20%;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn {
+    padding: 2.5rem;
+    width: 2em;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn img {
+    margin: 0;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn span {
+    font-size: .9rem;
+  }
+}
+
+@media screen and (max-width: 320) {
+  body {
+    background-color: orange !important;
   }
 }
 
@@ -524,6 +692,7 @@ body .content .login .admin-login-btn {
           flex-direction: column;
   /* Home Login */
   /* Admin Login */
+  /* Add-Name Page */
 }
 
 .home-page .home-logo {
@@ -559,7 +728,7 @@ body .content .login .admin-login-btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .home-page .home-login .login-btn {
@@ -638,12 +807,46 @@ body .content .login .admin-login-btn {
 }
 
 .home-page .home-admin-login .orange-btn {
-  position: absolute;
-  bottom: 1rem;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  margin: 0 auto;
-  left: 50%;
+  margin-top: 4.5rem;
+}
+
+.home-page .submit-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 5rem;
+}
+
+.home-page .submit-section input {
+  background: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 1.5rem;
+  padding: .230rem 1.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.home-page .submit-section .team-selection select {
+  background: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: .3rem 7rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.home-page .submit-section .bottom {
+  margin-top: 4rem;
 }
 
 .about-page {
@@ -720,6 +923,8 @@ body .content .login .admin-login-btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  /* Rad 3, toppen av sidan */
+  /* Rad 13, innehåller all fakta om spelaren */
 }
 
 .player-page .player-logo {
@@ -737,35 +942,8 @@ body .content .login .admin-login-btn {
   border-radius: 999rem;
 }
 
-.player-page .player-logo .active-site {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: white;
-  padding: 0;
-}
-
-.player-page .player-logo .active-site li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: .5rem;
-  margin: .5rem;
-  background: black;
-  border-radius: 999rem;
-}
-
-.player-page .player-stats {
+.player-page .bottom-section {
+  margin-top: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -778,21 +956,24 @@ body .content .login .admin-login-btn {
           justify-content: flex-end;
   -ms-flex-line-pack: end;
       align-content: flex-end;
-  background: white;
-  padding-top: 2rem;
+  /* Rad 14 */
+  /* Rad 47, Footern */
 }
 
-.player-page .player-stats .box-container {
+.player-page .bottom-section .player-stats {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: white;
+  padding-top: 2rem;
+  /* Rad 19, innehåller all stats */
 }
 
-.player-page .player-stats .info-box {
+.player-page .bottom-section .player-stats .info-box {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -804,26 +985,7 @@ body .content .login .admin-login-btn {
   font-size: 1rem;
 }
 
-.player-page .player-stats .info-box .username-text {
-  font-size: 1.5rem;
-}
-
-.player-page .player-stats .info-box .text {
-  border: 1px solid green;
-  border-radius: 5px;
-  padding: .3rem 1rem;
-}
-
-.player-page .player-stats .info-box .point {
-  color: #EF9859;
-  font-size: 4rem;
-}
-
-.player-page .player-stats .info-box .number {
-  font-size: 3rem;
-}
-
-.player-page .player-stats .info-box.team {
+.player-page .bottom-section .player-stats .info-box.team {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -833,10 +995,111 @@ body .content .login .admin-login-btn {
   text-transform: uppercase;
 }
 
-.player-page .player-footer {
+.player-page .bottom-section .player-stats .info-box .username-text {
+  font-size: 1.5rem;
+}
+
+.player-page .bottom-section .player-stats .info-box .username-email {
+  color: #626262;
+}
+
+.player-page .bottom-section .player-stats .box-container {
+  display: -ms-grid;
+  display: grid;
+  margin-top: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+      grid-template-areas: 'aside stats-box'  'aside stats-box' 'aside stats-box';
+  /* Rad 20, stats på vänster sida */
+  /* Rad 24, stats på höger sida */
+}
+
+.player-page .bottom-section .player-stats .box-container .point-box {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  grid-area: aside;
+  border: 2px solid #54B725;
+  border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.player-page .bottom-section .player-stats .box-container .point-box .point {
+  color: #EF9859;
+  font-size: 4rem;
+}
+
+.player-page .bottom-section .player-stats .box-container .stats-box {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 2;
+  grid-area: stats-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.player-page .bottom-section .player-stats .box-container .stats-box .stats {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'number text';
+}
+
+.player-page .bottom-section .player-stats .box-container .stats-box .stats .text {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: text;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.player-page .bottom-section .player-stats .box-container .stats-box .stats .number {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: number;
+  font-size: 2rem;
+  color: #626262;
+}
+
+.player-page .bottom-section .player-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -846,7 +1109,7 @@ body .content .login .admin-login-btn {
   cursor: pointer;
 }
 
-.player-page .player-footer img {
+.player-page .bottom-section .player-footer img {
   width: 3rem;
 }
 
@@ -902,14 +1165,33 @@ body .content .login .admin-login-btn {
   border-radius: 999rem;
 }
 
+.stats-page .navigation .team-selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  margin: 0 1rem;
+}
+
 .stats-page .navigation .team-selection select {
-  background: white;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  padding: .3rem 7rem;
+  width: 91rem;
+  height: 2.23rem;
   font-size: 1.5rem;
   text-transform: uppercase;
+  border: none;
+  padding: 0 .5rem;
+  text-align-last: center;
+  /*centrerar det vald6a alternativet i select*/
+  background: url("./assets/icon/arrow-down.svg") left no-repeat;
+  background-size: 1rem;
+  background-position-x: .5rem;
 }
 
 .stats-page .router-content {
@@ -932,6 +1214,8 @@ body .content .login .admin-login-btn {
       -ms-flex: 1;
           flex: 1;
   justify-self: flex-end;
+  z-index: 10;
+  background-color: black;
 }
 
 .stats-page .stats-navigation img {
@@ -1038,14 +1322,15 @@ body .content .login .admin-login-btn {
 
 .calendar-page {
   padding: .5rem 0 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .calendar-page .calendar {
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -ms-flex-line-pack: center;
-      align-content: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1053,25 +1338,113 @@ body .content .login .admin-login-btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .063rem 0;
+  margin: 0 1rem;
+  width: 91vw;
 }
 
-.calendar-page .calendar input {
-  margin-right: .5rem;
-  padding: .3rem 1.5rem;
+.calendar-page .calendar .date-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  width: 65%;
+  padding-left: .5rem;
+  margin-right: .8rem;
+}
+
+.calendar-page .calendar .date-container img {
+  width: 1rem;
+}
+
+.calendar-page .calendar .date-container input {
+  padding: .55rem 0 .55rem .8rem;
   font-size: 1rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  background: none;
 }
 
-.calendar-page .calendar select {
-  padding: .3rem 1.5rem;
-  background: white;
+.calendar-page .calendar .date-container ::-webkit-input-placeholder {
+  opacity: 1;
+  color: black;
+}
+
+.calendar-page .calendar .date-container :-ms-input-placeholder {
+  opacity: 1;
+  color: black;
+}
+
+.calendar-page .calendar .date-container ::-ms-input-placeholder {
+  opacity: 1;
+  color: black;
+}
+
+.calendar-page .calendar .date-container ::placeholder {
+  opacity: 1;
+  color: black;
+}
+
+.calendar-page .calendar .time-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  width: 26%;
+  padding-left: .5rem;
+}
+
+.calendar-page .calendar .time-container img {
+  width: 1rem;
+}
+
+.calendar-page .calendar .time-container select {
+  padding: .3rem .8rem;
+  font-size: 1rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  height: 2.23rem;
+  width: 5.5rem;
+  border: none;
+  background: none;
 }
 
 .highscore-page .highscore-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: .5rem 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+.highscore-page .highscore-header select {
+  width: 91vw;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  border: none;
+  height: 2.23rem;
+  padding: 0 .5rem;
+  text-align-last: center;
+  /*centrerar det valda alternativet i select*/
+  background: url("./assets/icon/arrow-down.svg") left no-repeat;
+  background-size: 1rem;
+  background-position-x: .5rem;
 }
 
 .highscore-page .list-wrapper {
@@ -1183,13 +1556,24 @@ body .content .login .admin-login-btn {
   font-size: 2.2rem;
 }
 
+.superadmin-page {
+  overflow: hidden;
+}
+
 .superadmin-page .input-section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100vw;
 }
 
@@ -1202,8 +1586,32 @@ body .content .login .admin-login-btn {
       -ms-flex-direction: column;
           flex-direction: column;
   background: white;
-  width: 20%;
-  padding: 5rem;
+  padding: 1rem;
+  margin: 2rem 0;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.superadmin-page .input-section section input {
+  padding: .55rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid black;
+}
+
+.superadmin-page .input-section section select {
+  padding: .55rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid black;
+}
+
+.superadmin-page .input-section section select:focus, .superadmin-page .input-section section input:focus {
+  outline: none;
+}
+
+.superadmin-page .input-section section a {
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
 }
 
 .addplayer-page {
@@ -1228,6 +1636,7 @@ body .content .login .admin-login-btn {
 
 .addplayer-page .addplayer article input {
   width: 90%;
+  text-transform: uppercase;
 }
 
 .addplayer-page .addplayer article img {
@@ -1272,6 +1681,7 @@ body .content .login .admin-login-btn {
   text-align: center;
   outline: none;
   border: 0;
+  text-transform: uppercase;
 }
 
 .editplayer-page .editplayer-input-field .input-field-name label {
@@ -1390,12 +1800,7 @@ body .content .login .admin-login-btn {
 }
 
 .editplayer-page .editplayer-bottom .edit-player-btn1 .orange-btn {
-  position: absolute;
-  bottom: 1rem;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  margin: 0 auto;
-  left: 50%;
+  margin-top: 5rem;
 }
 
 .editplayer-page .editplayer-bottom .edit-player-btn2 {
@@ -1444,18 +1849,20 @@ body .content .login .admin-login-btn {
 }
 
 .gameschedule-page {
-  /*   section {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 100vw;
-        margin: 2rem 0;
-
-        article {
-            display: flex;
-            align-items: center;
-        }
-    } */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 85vh;
 }
 
 .gameschedule-page .menu {
@@ -1476,6 +1883,96 @@ body .content .login .admin-login-btn {
 }
 
 .gameschedule-page .container {
+  position: fixed;
+  margin-top: 3.3rem;
+  overflow: hidden;
+}
+
+.gameschedule-page .container .gamelist {
+  height: 73vh;
+  overflow-y: scroll;
+}
+
+.gameschedule-page .container .gamelist article {
+  margin: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game-component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.game-component article {
+  border: 2px solid #54b725;
+  border-radius: 4px;
+  height: 7rem;
+  width: 7rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.game-component article img {
+  height: 4rem;
+  width: 4rem;
+  position: absolute;
+  top: -2.5rem;
+}
+
+.game-component article .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 6rem;
+  width: 6rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+}
+
+.game-component article .group p {
+  margin: 0;
+}
+
+.game-component .line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.game-component .line hr {
+  width: 50px;
+  height: 3px;
+  border: none;
+  background-color: gray;
+}
+
+.schedules-page .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1492,12 +1989,12 @@ body .content .login .admin-login-btn {
   height: 90vh;
 }
 
-.gameschedule-page .container .gamelist {
+.schedules-page .container .gamelist {
   height: 85vh;
   overflow-y: scroll;
 }
 
-.gameschedule-page .container .gamelist article {
+.schedules-page .container .gamelist article {
   margin: 1rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1663,6 +2160,25 @@ body .content .login .admin-login-btn {
       -ms-flex-pack: center;
           justify-content: center;
   margin: .5rem;
+  color: white;
+}
+
+.makegames-page section .btn-container .setup-btn .btn {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #6DD400;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: .5rem;
+  color: white;
 }
 
 .makegames {
@@ -1697,6 +2213,10 @@ body .content .login .admin-login-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.makegames .equal .orange-btn {
+  margin: 0 0 1rem 0;
 }
 
 .makegames .equal .info-container {
@@ -1841,7 +2361,12 @@ body .content .login .admin-login-btn {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 100%;
+  height: 85%;
+  margin-top: 3rem;
+}
+
+.groups .container .orange-btn {
+  margin: 0 0 1rem 0;
 }
 
 .group-component section {
@@ -1972,6 +2497,14 @@ body {
   height: 100vh;
   margin: 0;
   font-family: "Heebo", sans-serif;
+  /* overflow:hidden; */
+}
+
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
 }
 
 .fix-player {

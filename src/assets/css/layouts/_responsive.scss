@@ -1,16 +1,50 @@
 /*** Responsive ***/
-@media screen and (max-width: $tablet) {
-  .post-cover {
-    width: 100%;
+
+@media screen and (min-width: 1024px) and (max-width: 1300px) {
+  body {
+      background-color:red !important;
   }
 }
 
-@media screen and (max-width: $mobile) {
-  .nav-desktop {
-    display: none;
+/* iPhone 5/SE */
+@media screen and (max-width:320px) {
+  body {
+    background-color:yellow !important;
+    /* Players */
+    .player-list {
+      max-height: 73vh;
+    }
+    /* Admin Page */
+    .admin-page {
+      .admin-logo {
+        h1 {
+          font-size: 1rem; 
+        }
+        img {
+          width: 20%;
+        }
+      }
+      .admin-btn {
+        .admin {
+          .one-admin-btn {
+            padding: 2.5rem;
+            width: 2em;
+            img {
+              margin: 0;
+            }
+            span {
+              font-size: .9rem;
+            }
+          }
+        }
+      }
+    }
   }
+}
 
-  .nav-toggle {
-    display: block;
+@media screen and (max-width: 320) {
+  body {
+      background-color:orange !important;
+      
   }
 }

@@ -2,31 +2,31 @@
     <main class="admin-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
         <section class="admin-logout">
             <ul class="slider" :class="'slide-' + activeSlide"></ul>
-            <img src="@/assets/icon/entrance.svg" alt="" @click="logout">
+            <img src="@/assets/icon/entrance.svg" alt="Logout" @click="logout">
         </section>
         <section class="admin-logo">
-            <img src="@/assets/img/crown.png" alt="">
-            <img src="@/assets/img/fotball.png" alt="">
+            <img src="@/assets/img/crown.png">
+            <img src="@/assets/img/fotball.png">
             <h1>ADMIN</h1>
         </section>
         <section class="admin-btn">        
             <section class="admin">
                 <div class="one-admin-btn" @click="$router.push('/players')">
-                    <img src="@/assets/icon/person.svg" alt=""> 
+                    <img src="@/assets/icon/person.svg" alt="A Person"> 
                     <span>SPELARE</span>
                 </div>
                 <div class="one-admin-btn" @click="$router.push('/makegames')">
-                    <img src="@/assets/icon/settings.svg" alt="">
+                    <img src="@/assets/icon/settings.svg" alt="A Cogwheel">
                     <span>SETUP</span>
                 </div>
             </section>       
             <section class="admin">
                 <div class="one-admin-btn" @click="$router.push('/groups')">
-                    <img src="@/assets/icon/people.svg" alt=""> 
+                    <img src="@/assets/icon/people.svg" alt="Group of People"> 
                     <span>GRUPPER</span>
                 </div>
                 <div class="one-admin-btn" @click="$router.push('/schedules')">
-                    <img src="@/assets/icon/calendar-event.svg" alt="">
+                    <img src="@/assets/icon/calendar-event.svg" alt="A Calendar">
                     <span>SCHEMA</span>
                 </div>
             </section>
@@ -38,9 +38,6 @@
 import firebase from 'firebase';
 export default {
     name : 'admin',
-    beforeMount () {
-        this.$store.dispatch('setAdminTeamPlayers');
-    },
     methods: {
 
         /* Swipe funktionen */
@@ -48,22 +45,16 @@ export default {
             return this.$store.state.activeSlide;
         },
         leftSwipe () {
-            this.$store.commit('swipe', 2);
             this.$router.push('/stats')
         },
         rightSwipe () {
-            this.$store.commit('swipe', 0);
             this.$router.push('/about')  
         },
         logout(){
             firebase.auth().signOut();
             this.$store.dispatch('removeCurrentAdminUser');
             this.$router.push('/');
-      }
+        }
     }
-
-    /* 
-    ! function som du kan logga ut måste göras
-     */
 }
 </script>
