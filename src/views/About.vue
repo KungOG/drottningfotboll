@@ -2,8 +2,7 @@
   <main class="about-page" v-touch:swipe.left="rightSwipe">
     <section class="about-logo">
       <Pager :activeSlide = '0'/>
-      <img src="@/assets/img/crown.png" alt="">
-      <img src="@/assets/img/fotball.png" alt="">
+      <img src="@/assets/img/logo-text.svg" alt="">
     </section>
     <section class="about-text">
       <h2>Kung Fotboll</h2>
