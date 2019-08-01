@@ -10,13 +10,11 @@
         align-items: center;
 
         img {
-            width: 25%;
+            width: 50%;
+        }    
+        h1 {
+            color: $color-orange;
         }
-        h3 {
-            text-transform: uppercase;
-            color: white;
-        }
-    
     }
     .home-login {
         display: flex;

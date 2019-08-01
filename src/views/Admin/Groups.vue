@@ -14,8 +14,8 @@
                     <group :group="group" v-if="group.players.length !== 0 && group.id !== 0 " />
                 </article>
             </section>
-            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroup" v-show="active === false" />
         </section>
+        <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroup" v-show="active === false" />
     </main>
 </template>
 

@@ -1,10 +1,16 @@
 .schedules-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .orange-btn {
+        margin: 1rem 0;
+    }
     .container {
         display: flex; 
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 83vh;        
+        height: 80vh;        
         .gamelist {
             height: 85vh;
             overflow-y: scroll;

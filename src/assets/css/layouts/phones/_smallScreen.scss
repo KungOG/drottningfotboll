@@ -1,7 +1,7 @@
-/*  EN fix kanske måste vara i Highscore Overflow hidden. */
-/* iPhone 5/SE */
-@media screen and (max-width:320px) {
+/*  Måste fixa Loggan*/
+@media screen and (max-width:359px) {
     body {
+      background-color:pink !important;
       /* Schedules & Goalboard */
       .schedules-page .container {
         height: 76vh;
@@ -90,10 +90,7 @@
           }
         }
       }
-      /* Gamegroup */
-      .gamegroup-page {
-        overflow: hidden;
-      }
+
   
       /* Add-Player */
       .addplayer-page {
@@ -125,7 +122,6 @@
           .admin {
             .one-admin-btn {
               padding: 2.5rem;
-              width: 2em;
               img {
                 margin: 0;
               }

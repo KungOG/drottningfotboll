@@ -5,8 +5,7 @@
             <img src="@/assets/icon/entrance.svg" alt="Logout" @click="logout">
         </section>
         <section class="admin-logo">
-            <img src="@/assets/img/crown.png">
-            <img src="@/assets/img/fotball.png">
+            <img src="@/assets/img/logo-text.svg">
             <h1>ADMIN</h1>
         </section>
         <section class="admin-btn">        

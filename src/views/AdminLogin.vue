@@ -1,11 +1,10 @@
 <template>
     <main class="home-page">
         <section class="home-logo">
-            <img src="@/assets/img/crown.png" />
-            <img src="@/assets/img/fotball.png"/>
+            <img src="@/assets/img/logo-text.svg" />
+            <h1>ADMIN</h1>
         </section>
         <section class="home-admin-login">
-            <h1>Admin Login</h1>
             <label name="email">EMAIL</label>
             <input type="email" v-model="email"><br>
             <label name="password">PASSWORD</label>

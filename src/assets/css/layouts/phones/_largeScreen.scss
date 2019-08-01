@@ -1,0 +1,74 @@
+/* Måste fixa highscore, GameGroup datum/tid */
+@media screen and (width: 375px) and (height: 812px) {
+  body {
+      background-color:green !important;      
+    /* Goalboard */
+    .group-component {
+    section {
+        aside {
+        padding: 0;
+        }
+        .group-item {
+        .list-item-group {
+            overflow-y: scroll;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            span {
+            margin-left: 1rem;
+            
+            }
+            section {
+            display: flex;
+            flex-direction: row
+            }
+        } 
+        }
+    }
+    }
+    
+    /* EditPlayer */
+    .editplayer-page .editplayer-input-field { 
+        margin: 5rem 1rem;
+        .editplayer-page .editplayer-bottom .edit-player-btn1 .orange-btn {
+            margin-top: 5rem;
+        }
+    }
+    .groups .container .orange-btn {
+        margin: 0;
+    }
+
+    /* Groups */
+    .groups .container {
+        margin-top: 0;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    /* Make Groups */
+    .makegroups .container .playerlist {
+        max-height: 90vh;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    /* Players */
+    .player-list {
+        max-height: 81vh;
+    }
+    /* Admin Page */
+    .admin-page {
+        .admin-btn {
+          .admin {
+              .one-admin-btn {
+              img {
+                margin: 0;
+              }
+              span {
+                font-size: .9rem;
+              }
+            }
+          }
+        }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 /*** Responsive ***/
-@import 'iphone5';
-@import 'galaxy';
-@import 'iphone678';
+@import 'phones/smallScreen';
+@import 'phones/mediumScreen';
+@import 'phones/largeScreen';
 
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
   body {
