@@ -61,8 +61,15 @@
             justify-content: center;
             color: white;
 
-            p {
+            p:first-of-type {
                 margin: 0;
+                font-size: $font-size-small;
+                text-transform: uppercase;
+            }
+            
+            p:last-of-type {
+                font-size: $font-size-large;
+                margin: -.2rem 0 0 0;
             }
         }
     }

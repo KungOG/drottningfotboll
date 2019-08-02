@@ -1,7 +1,7 @@
 <template>
     <main class="game-component">
         <article @click="groupOne">
-            <img v-show="home" src="@/assets/icon/crown.svg">
+            <img v-show="home" src="@/assets/icon/logo-crown-white.svg">
             <div class="group" :style="{background: activeColor1}">
                 <p>Grupp</p>
                 <p>{{ game.home.groupNr }}</p>
@@ -9,7 +9,7 @@
         </article>
         <div class="line"><hr></div>
         <article @click="groupTwo">
-            <img v-show="away" src="@/assets/icon/crown.svg">
+            <img v-show="away" src="@/assets/icon/logo-crown-white.svg">
             <div class="group" :style="{background: activeColor2}">
                 <p>Grupp</p>
                 <p>{{ game.away.groupNr }}</p>
@@ -73,7 +73,7 @@ export default {
                     this.activeColor1 = "#fa3737"
                     break;
                 case 2:
-                    this.activeColor1 = "#f5e906"
+                    this.activeColor1 = "#ebdf04"
                     break;
                 case 3:
                     this.activeColor1 = "#3737fa"
@@ -82,7 +82,7 @@ export default {
                     this.activeColor1 = "#FF780A"
                     break;
                 case 5:
-                    this.activeColor1 = "#60b840"
+                    this.activeColor1 = "#54b725"
                     break;
             }
 
@@ -91,7 +91,7 @@ export default {
                     this.activeColor2 = "#fa3737"
                     break;
                 case 2:
-                    this.activeColor2 = "#f5e906"
+                    this.activeColor2 = "#ebdf04"
                     break;
                 case 3:
                     this.activeColor2 = "#3737fa"
@@ -100,7 +100,7 @@ export default {
                     this.activeColor2 = "#FF780A"
                     break;
                 case 5:
-                    this.activeColor2 = "#60b840"
+                    this.activeColor2 = "#54b725"
                     break;
             }
         },

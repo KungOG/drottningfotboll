@@ -27,13 +27,13 @@ export default {
         if (number === 1) {
             this.activeColor = "#fa3737"
         } else if (number === 2) {
-            this.activeColor = "#f5e906"
+            this.activeColor = "#ebdf04"
         } else if (number === 3) {
             this.activeColor = "#3737fa"  
         } else if (number === 4) {
             this.activeColor = "#FF780A"
         } else if (number === 5) {
-            this.activeColor = "#60b840"    
+            this.activeColor = "#54b725"    
         } 
     }
 }

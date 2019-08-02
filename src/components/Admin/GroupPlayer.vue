@@ -34,13 +34,13 @@ export default {
             if (this.amount === 1) {
                 this.activeColor = "#fa3737"
             } else if (this.amount === 2 && this.amount <= this.numberOfTeams){
-                 this.activeColor = "#f5e906"
+                 this.activeColor = "#ebdf04"
             } else if (this.amount === 3 && this.amount <= this.numberOfTeams){
                 this.activeColor = "#3737fa"  
             } else if (this.amount === 4 && this.amount <= this.numberOfTeams){
                 this.activeColor = "#FF780A"
             } else if (this.amount === 5 && this.amount <= this.numberOfTeams){
-                this.activeColor = "#60b840"    
+                this.activeColor = "#54b725"    
             } else {
                 this.activeColor = ''
                 this.amount = 0
