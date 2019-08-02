@@ -4,28 +4,28 @@
       background-color:green !important;      
     /* Goalboard */
     .group-component {
-    section {
-        aside {
-        padding: 0;
-        }
-        .group-item {
-        .list-item-group {
-            overflow-y: scroll;
-        }
         section {
-            display: flex;
-            flex-direction: column;
-            span {
-            margin-left: 1rem;
-            
+            aside {
+                padding: 0;
             }
-            section {
-            display: flex;
-            flex-direction: row
+            .group-item {
+                .list-item-group {
+                    overflow-y: scroll;
+                }
+                section {
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        margin-left: 1rem;
+                
+                    }
+                    section {
+                        display: flex;
+                        flex-direction: row
+                    }
+                } 
             }
-        } 
         }
-    }
     }
     
     /* EditPlayer */

@@ -1,40 +1,36 @@
 <template>
     <main class="highscore-page">
       <section class="highscore-header">
-          <select v-model="selected">
-            <option v-for="(option, index) in options" :key="index" :value="option.value">{{option.name}}</option>
-          </select>
+        <select v-model="selected">
+          <option v-for="(option, index) in options" :key="index" :value="option.value">{{option.name}}</option>
+        </select>
       </section>
       <article class="container">
-        <section>
-
-        
-          <section class="highscore-list" v-for="(item, index) in teamPlayers" :key="index">
-            <section class="score">
-              <div class="name">
-                <span>{{item.name}}</span>
-              </div>
-              <div :class="{ point: selected == 'point', win: selected == 'win', lost: selected == 'loss', goal: selected == 'goal', tie: selected == 'tie'}">
-                <span>Poäng </span>
-                <span class="highlight">{{item.point}}</span>
-              </div>
-              <div class="win" :class="{ point: selected == 'win'}">
-                <span>Vinster </span>
-                <span class="highlight">{{item.win}}</span>
-              </div>
-              <div class="lost" :class="{ point: selected == 'loss'}">
-                <span>Förluster </span>
-                <span class="highlight">{{item.loss}}</span>
-              </div>
-              <div class="tie" :class="{ point: selected == 'tie'}">
-                <span>Oavgjort </span>
-                <span class="highlight">{{item.tie}}</span>
-              </div>
-              <div class="goal" :class="{ point: selected == 'goal'}">
-                <span>Mål </span>
-                <span class="highlight">{{item.goal}}</span>
-              </div>
-            </section>
+        <section class="highscore-list" v-for="(item, index) in teamPlayers" :key="index">
+          <section class="score">
+            <div class="name">
+              <span>{{item.name}}</span>
+            </div>
+            <div :class="{ point: selected == 'point', win: selected == 'win', lost: selected == 'loss', goal: selected == 'goal', tie: selected == 'tie'}">
+              <span>Poäng </span>
+              <span class="highlight">{{item.point}}</span>
+            </div>
+            <div class="win" :class="{ point: selected == 'win'}">
+              <span>Vinster </span>
+              <span class="highlight">{{item.win}}</span>
+            </div>
+            <div class="lost" :class="{ point: selected == 'loss'}">
+              <span>Förluster </span>
+              <span class="highlight">{{item.loss}}</span>
+            </div>
+            <div class="tie" :class="{ point: selected == 'tie'}">
+              <span>Oavgjort </span>
+              <span class="highlight">{{item.tie}}</span>
+            </div>
+            <div class="goal" :class="{ point: selected == 'goal'}">
+              <span>Mål </span>
+              <span class="highlight">{{item.goal}}</span>
+            </div>
           </section>
         </section>
       </article>

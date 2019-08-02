@@ -1,95 +1,97 @@
  .highscore-page {
     .highscore-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: .5rem 1rem;
-        background: rgba(255, 255, 255, .5);
-        border-radius: 4px;
-        select {
-            width: 91vw;
-            font-size: $font-size-large; 
-            text-transform: uppercase;
-            border: none;
-            height: 2.23rem;
-            padding: 0 .5rem;
-            text-align-last: center; /*centrerar det valda alternativet i select*/
-            background: url("./assets/icon/arrow-down.svg") left no-repeat;
-            background-size: 1rem;
-            background-position-x: .5rem;
-        }  
-    }
-    .container {
-        position: fixed;
-        section {
-            .highscore-list {
-                overflow-y: scroll;
-                display: flex;
-                padding: .5rem;
-                background: white;
-                margin: .2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: .5rem 1rem;
+            background: rgba(255, 255, 255, .5);
+            border-radius: 4px;
             
-                .score {
-                    display: grid;
-                    width: 90%;
-                    grid-template-rows: auto;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    grid-column-gap: 1rem;
-                    grid-template-areas:
-                    'aside name name' 
-                    'aside win lost'
-                    'aside tie goal';
-                    .name {
-                        text-align: left;
-                        grid-area: name;
-                        text-transform: uppercase;
-                        margin: 0;
-                        font-size: $font-size-normal;
-                        font-weight: bold;
-                        color: #4F4F4F;
-                    }
-                    .win {
-                        grid-area: win;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                        
-                    }
-                    .lost {
-                        grid-area: lost;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                        
-                    }
-                    .tie {
-                        grid-area: tie;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                    }
-                    .goal {
-                        grid-area: goal;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                    }
-                    .point {
-                        grid-area: aside;
-                        color: #9E9E9E;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: column-reverse;
-                        .highlight {
-                            box-sizing: border-box;
-                            text-align: center;
-                            color: $color-orange;
-                            font-size: $font-size-largest;
-                        }
+            select {
+                width: 91vw;
+                font-size: $font-size-large; 
+                text-transform: uppercase;
+                border: none;
+                height: 2.23rem;
+                padding: 0 .5rem;
+                text-align-last: center; /*centrerar det valda alternativet i select*/
+                background: url("./assets/icon/arrow-down.svg") left no-repeat;
+                background-size: 1rem;
+                background-position-x: .5rem;
+            }  
+    }
+    
+    .container {
+       /*  position: fixed; */
+        overflow: auto;
+        .highscore-list {
+            display: flex;
+            padding: .5rem;
+            background: white;
+            margin: .2rem 0;
+            overflow: auto;
+            
+            .score {
+                
+                display: grid;
+                width: 90%;
+                grid-template-rows: auto;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-column-gap: 1rem;
+                grid-template-areas:
+                'aside name name' 
+                'aside win lost'
+                'aside tie goal';
+                .name {
+                    text-align: left;
+                    grid-area: name;
+                    text-transform: uppercase;
+                    margin: 0;
+                    font-size: $font-size-normal;
+                    font-weight: bold;
+                    color: #4F4F4F;
+                }
+                .win {
+                    grid-area: win;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                    
+                }
+                .lost {
+                    grid-area: lost;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                    
+                }
+                .tie {
+                    grid-area: tie;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                }
+                .goal {
+                    grid-area: goal;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                }
+                .point {
+                    grid-area: aside;
+                    color: #9E9E9E;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column-reverse;
+                    .highlight {
+                        box-sizing: border-box;
+                        text-align: center;
+                        color: $color-orange;
+                        font-size: $font-size-largest;
                     }
                 }
             }
         }
     }
-} 
+}

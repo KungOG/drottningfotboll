@@ -2,6 +2,13 @@
 @media screen and (max-width:359px) {
     body {
       background-color:pink !important;
+      /* About */ 
+      .about-page .about-logo img {
+        width: 39%;
+      }
+      .about-page .about-text {
+        padding: 0;
+      }
       /* Home */
       .home-page .home-logo img {
         width: 45%;

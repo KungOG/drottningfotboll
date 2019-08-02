@@ -1,0 +1,160 @@
+/* Gameschedule */
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  body {
+      background-color:red !important;
+    /* Goalboard */
+        .group-component {
+            section {
+                aside {
+                    padding: 0;
+                }
+                .group-item {
+                    .list-item-group {
+                        overflow-y: scroll;
+                    }
+                    section {
+                        display: flex;
+                        flex-direction: column;
+                        span {
+                            margin-left: 1rem;
+                    
+                        }
+                        section {
+                            display: flex;
+                            flex-direction: row
+                        }
+                    } 
+                }
+            }
+        }
+      /* Schedules */
+      .schedules-page {
+          overflow-y: scroll;
+      }
+      .schedules-page section article {
+        margin: 0 6rem;
+      }
+       .container .gamelist article {
+        padding: 3rem;
+        margin: 0;
+        .group {
+            padding: 3.5rem 5.1rem;
+        }
+      }
+      .game-component .line hr {
+          width: 150px;
+      }
+     .game-component article img {
+        height: 6rem;
+        width: 6rem;
+      }
+        /* Groups */
+      .groups .container {
+        height: 84vh;
+        overflow-y: scroll;
+      }
+      /* MakeGroups */
+      .makegroups .container {
+        height: 92vh;
+        .playerlist {
+            max-height: 87vh;
+        }
+      }
+      .groupplayer .list-wrapper .container {
+        margin: 0 10rem .3rem 10rem;
+      }
+      /* AddPlayer */
+      .addplayer-page {
+          .addplayer {
+            margin: 7rem 6rem 0 6rem;
+            article {
+                display: flex;
+                flex-direction: column;
+
+                img {
+                    margin-top: 2rem;
+                    position: static;
+                }
+            }
+        }
+    }
+      .player-list {
+        margin: 0 6rem;
+      }
+      .search-bar {
+        margin: .5rem 6rem;
+        input {
+            background-size: 5%;
+        }
+      }
+      /* Admin */
+      .admin-page .admin-logo img {
+        width: 38%;
+      }
+      .admin-page .admin-btn .admin .one-admin-btn {
+        width: 13.5rem;
+      }
+      /* Calender */
+      .calendar-page {
+        margin: 0 5rem;
+        .calendar {
+            .time-container {
+                select {
+                    height: 3.23rem;
+                    font-size: 1.5rem;
+                }
+            }
+            .date-container {  
+                input {
+                    height: 3.23rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+      }
+      /* Stats */
+      .stats-page .navigation .team-selection {
+        margin: 0 6rem;
+        select {
+            height: 3.23rem;
+        }
+      }
+      .gameschedule-page .container {
+          margin-top: 4.3rem;
+      }
+      /* Highscore */
+      .highscore-page .container .highscore-list {
+        margin: .2rem 6rem
+      }
+      .highscore-page .highscore-header {
+        margin: .5rem 6rem;
+        select {
+            height: 3.23rem;
+        }
+      }
+      /* About */
+      .about-page .about-logo img {
+        width: 38%;
+    }
+    .about-page .about-text {
+        padding: 7rem 3rem 10rem 3rem;
+    }   
+      /* Home */
+      .home-page .home-logo img {
+          width: 38%;
+        }    
+        .home-page .home-login .login-btn {
+            margin: 2rem 2rem 0 2rem;
+            padding: 2rem;
+        }
+        .home-page .admin-login .admin-login-btn {
+            font-size: 2rem;
+        }
+        .home-page .home-admin-login input {
+            font-size: 2rem;
+        }
+        .home-page .home-admin-login {
+            font-size: 1.5rem;
+    }
+  }
+}

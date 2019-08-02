@@ -27,6 +27,7 @@
         }
     }
     .about-text {
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -37,6 +38,6 @@
         z-index: -1;
         left: 0px;
         bottom: 0px;
-        padding: 4rem 3rem;
+        padding: 4rem 3rem 4rem 3rem;
     }
 }
