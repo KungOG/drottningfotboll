@@ -1,7 +1,11 @@
 /* Måste fixa highscore, GameGroup datum/tid */
 @media screen and (width: 375px) and (height: 812px) {
   body {
-      background-color:green !important;      
+      background-color:green !important;   
+    /* Highscore */
+    .highscore-page .container {
+        height: 72vh;
+    }   
     /* Goalboard */
     .group-component {
         section {

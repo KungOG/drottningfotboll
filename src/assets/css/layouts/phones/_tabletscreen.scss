@@ -2,6 +2,11 @@
 @media screen and (min-width: 768px) and (max-width: 1300px) {
   body {
       background-color:red !important;
+      /* Highscore */
+      .highscore-page .container {
+      height: 73vh;
+      top: 4rem;
+    }
     /* Goalboard */
         .group-component {
             section {
