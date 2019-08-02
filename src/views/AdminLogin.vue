@@ -1,7 +1,7 @@
 <template>
     <main class="home-page">
         <section class="home-logo">
-            <img src="@/assets/img/logo-text.svg" />
+            <img src="@/assets/img/logo-text.svg" @click="$router.push('/home')" alt="KungFotboll logo" />
             <h1>ADMIN</h1>
         </section>
         <section class="home-admin-login">
@@ -45,7 +45,9 @@ export default {
         }
     },
     beforeDestroy () {
-        this.$store.dispatch('setAdminTeamPlayers');
+        if (this.adminUser !== null) {
+            this.$store.dispatch('setAdminTeamPlayers');
+        }
     }
 }
 </script>

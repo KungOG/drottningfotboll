@@ -1,9 +1,7 @@
 <template>
     <article class="home-page">
         <section class="home-logo">
-            <img src="@/assets/img/crown.png" alt="">
-            <img src="@/assets/img/fotball.png" alt="">
-            <h3>Kung<br>Fotboll</h3>
+            <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo">
         </section>  
         <section class="submit-section">
             <input type="text" placeholder="Namn" label="Name" v-model="name" />

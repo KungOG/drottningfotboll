@@ -2,15 +2,15 @@
   <article class="home-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
     <section class="home-logo menu">
       <Pager :activeSlide='1' />
-      <img src="@/assets/img/logo-text.svg" alt="Logo">
+      <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo" >
     </section>
     <section class="home-login">
       <div class="login-btn" @click="googleLogin">
-        <img src="@/assets/img/google.svg" alt="Google Logo" >
+        <img src="@/assets/img/google.svg" alt="Google Login Logo" >
         <p>Logga in med Google</p>
       </div>
       <div class="login-btn" @click="facebookLogin">
-        <img src="@/assets/img/facebook.svg" alt="Facebook Logo">
+        <img src="@/assets/img/facebook.svg" alt="Facebook Login Logo">
         <p>Logga in med Facebook</p>
       </div>
     </section>

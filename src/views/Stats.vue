@@ -12,7 +12,7 @@
         <router-view />
     </section>
     <section class="stats-navigation">
-        <img src="@/assets/icon/crown.svg" @click="$router.push('/highscore')">
+        <img src="@/assets/icon/logo-crown-white.svg" @click="$router.push('/highscore')">
         <img src="@/assets/icon/people.svg" @click="$router.push('/gamegroup')">
         <img src="@/assets/icon/calendar-event.svg" @click="$router.push('/gameschedule')">
     </section>
