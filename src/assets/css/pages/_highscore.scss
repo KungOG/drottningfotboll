@@ -1,5 +1,7 @@
  .highscore-page {
     .highscore-header {
+        position: fixed;
+        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -20,10 +22,13 @@
         }  
     }
     .container {
-        position: fixed;
+        height: 80vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        position: relative;
+        top: 3.2rem;
         section {
             .highscore-list {
-                overflow-y: scroll;
                 display: flex;
                 padding: .5rem;
                 background: white;
