@@ -37,6 +37,8 @@ body {
     height: 100vh;
     margin: 0;
     font-family: $font;
+    justify-content: center;
+    align-content: center;
 }
 select {
     /* for Firefox */

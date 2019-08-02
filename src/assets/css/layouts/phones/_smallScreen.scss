@@ -2,6 +2,13 @@
 @media screen and (max-width:359px) {
     body {
       background-color:pink !important;
+      /* About */ 
+      .about-page .about-logo img {
+        width: 39%;
+      }
+      .about-page .about-text {
+        padding: 0;
+      }
       /* Home */
       .home-page .home-logo img {
         width: 45%;
@@ -93,6 +100,9 @@
       }
       /* Highscore */
       .highscore-page {
+        .container {
+          height: 66vh;
+        }
         .highscore-list {
           .score {
             grid-column-gap: .5rem;

@@ -1,16 +1,11 @@
 /*** Responsive ***/
+
+/* Phone */
 @import 'phones/smallScreen';
 @import 'phones/mediumScreen';
 @import 'phones/largeScreen';
+/* Tablet */
+@import 'phones/tabletScreen';
 
-@media screen and (min-width: 1024px) and (max-width: 1300px) {
-  body {
-      background-color:red !important;
-  }
-}
-@media screen and (max-width: 320) {
-  body {
-      background-color:orange !important;
-      
-  }
-}
+/* Desktop */
+@import 'phones/desktopScreen';

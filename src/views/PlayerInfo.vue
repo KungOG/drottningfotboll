@@ -2,7 +2,7 @@
   <article class="player-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
       <section class="player-logo">
         <Pager :activeSlide = '1' />
-        <img src="@/assets/img/crown.png" alt="">
+        <img src="@/assets/img/logo-crown-black.svg" alt="KungFotboll crown">
         <img :src=currentUser.photoURL alt="">          
       </section>
 

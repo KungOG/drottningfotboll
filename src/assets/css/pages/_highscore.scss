@@ -21,80 +21,81 @@
             background-position-x: .5rem;
         }  
     }
+    
     .container {
         height: 80vh;
         overflow-y: scroll;
         overflow-x: hidden;
         position: relative;
         top: 3.2rem;
-        section {
             .highscore-list {
                 display: flex;
                 padding: .5rem;
                 background: white;
                 margin: .2rem 0;
             
-                .score {
-                    display: grid;
-                    width: 90%;
-                    grid-template-rows: auto;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    grid-column-gap: 1rem;
-                    grid-template-areas:
-                    'aside name name' 
-                    'aside win lost'
-                    'aside tie goal';
-                    .name {
-                        text-align: left;
-                        grid-area: name;
-                        text-transform: uppercase;
-                        margin: 0;
-                        font-size: $font-size-normal;
-                        font-weight: bold;
-                        color: #4F4F4F;
-                    }
-                    .win {
-                        grid-area: win;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                        
-                    }
-                    .lost {
-                        grid-area: lost;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                        
-                    }
-                    .tie {
-                        grid-area: tie;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                    }
-                    .goal {
-                        grid-area: goal;
-                        color: #9E9E9E;
-                        justify-content: space-between;
-                        display: flex;
-                    }
-                    .point {
-                        grid-area: aside;
-                        color: #9E9E9E;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: column-reverse;
-                        .highlight {
-                            box-sizing: border-box;
-                            text-align: center;
-                            color: $color-orange;
-                            font-size: $font-size-largest;
-                        }
+            .score {
+                
+                display: grid;
+                width: 90%;
+                grid-template-rows: auto;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-column-gap: 1rem;
+                grid-template-areas:
+                'aside name name' 
+                'aside win lost'
+                'aside tie goal';
+                .name {
+                    text-align: left;
+                    grid-area: name;
+                    text-transform: uppercase;
+                    margin: 0;
+                    font-size: $font-size-normal;
+                    font-weight: bold;
+                    color: #4F4F4F;
+                }
+                .win {
+                    grid-area: win;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                    
+                }
+                .lost {
+                    grid-area: lost;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                    
+                }
+                .tie {
+                    grid-area: tie;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                }
+                .goal {
+                    grid-area: goal;
+                    color: #9E9E9E;
+                    justify-content: space-between;
+                    display: flex;
+                }
+                .point {
+                    grid-area: aside;
+                    color: #9E9E9E;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column-reverse;
+                    .highlight {
+                        box-sizing: border-box;
+                        text-align: center;
+                        color: $color-orange;
+                        font-size: $font-size-largest;
                     }
                 }
             }
         }
     }
-} 
+}
+

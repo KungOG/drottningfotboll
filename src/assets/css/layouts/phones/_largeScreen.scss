@@ -1,31 +1,35 @@
 /* Måste fixa highscore, GameGroup datum/tid */
 @media screen and (width: 375px) and (height: 812px) {
   body {
-      background-color:green !important;      
+      background-color:green !important;   
+    /* Highscore */
+    .highscore-page .container {
+        height: 72vh;
+    }   
     /* Goalboard */
     .group-component {
-    section {
-        aside {
-        padding: 0;
-        }
-        .group-item {
-        .list-item-group {
-            overflow-y: scroll;
-        }
         section {
-            display: flex;
-            flex-direction: column;
-            span {
-            margin-left: 1rem;
-            
+            aside {
+                padding: 0;
             }
-            section {
-            display: flex;
-            flex-direction: row
+            .group-item {
+                .list-item-group {
+                    overflow-y: scroll;
+                }
+                section {
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        margin-left: 1rem;
+                
+                    }
+                    section {
+                        display: flex;
+                        flex-direction: row
+                    }
+                } 
             }
-        } 
         }
-    }
     }
     
     /* EditPlayer */
