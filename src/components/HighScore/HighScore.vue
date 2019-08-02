@@ -6,9 +6,7 @@
           </select>
       </section>
       <article class="container">
-        <section>
-
-        
+        <section>        
           <section class="highscore-list" v-for="(item, index) in teamPlayers" :key="index">
             <section class="score">
               <div class="name">

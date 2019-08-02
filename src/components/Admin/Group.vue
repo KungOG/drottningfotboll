@@ -25,15 +25,15 @@ export default {
     beforeMount() {
         let number = this.group.id;
         if (number === 1) {
-            this.activeColor = "green"
+            this.activeColor = "#fa3737"
         } else if (number === 2) {
-            this.activeColor = "red"
+            this.activeColor = "#f5e906"
         } else if (number === 3) {
-            this.activeColor = "orange"  
+            this.activeColor = "#3737fa"  
         } else if (number === 4) {
-            this.activeColor = "blue"
+            this.activeColor = "#FF780A"
         } else if (number === 5) {
-            this.activeColor = "pink"    
+            this.activeColor = "#60b840"    
         } 
     }
 }

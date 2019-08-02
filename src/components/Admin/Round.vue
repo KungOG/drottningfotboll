@@ -70,37 +70,37 @@ export default {
 
             switch(number1) {
                 case 1:
-                    this.activeColor1 = "green"
+                    this.activeColor1 = "#fa3737"
                     break;
                 case 2:
-                    this.activeColor1 = "red"
+                    this.activeColor1 = "#f5e906"
                     break;
                 case 3:
-                    this.activeColor1 = "orange"
+                    this.activeColor1 = "#3737fa"
                     break;
                 case 4:
-                    this.activeColor1 = "blue"
+                    this.activeColor1 = "#FF780A"
                     break;
                 case 5:
-                    this.activeColor1 = "pink"
+                    this.activeColor1 = "#60b840"
                     break;
             }
 
             switch(number2) {
                 case 1:
-                    this.activeColor2 = "green"
+                    this.activeColor2 = "#fa3737"
                     break;
                 case 2:
-                    this.activeColor2 = "red"
+                    this.activeColor2 = "#f5e906"
                     break;
                 case 3:
-                    this.activeColor2 = "orange"
+                    this.activeColor2 = "#3737fa"
                     break;
                 case 4:
-                    this.activeColor2 = "blue"
+                    this.activeColor2 = "#FF780A"
                     break;
                 case 5:
-                    this.activeColor2 = "pink"
+                    this.activeColor2 = "#60b840"
                     break;
             }
         },

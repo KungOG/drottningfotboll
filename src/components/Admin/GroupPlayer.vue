@@ -32,15 +32,15 @@ export default {
         setColor () {
             this.amount++
             if (this.amount === 1) {
-                this.activeColor = "green"
+                this.activeColor = "#fa3737"
             } else if (this.amount === 2 && this.amount <= this.numberOfTeams){
-                 this.activeColor = "red"
+                 this.activeColor = "#f5e906"
             } else if (this.amount === 3 && this.amount <= this.numberOfTeams){
-                this.activeColor = "yellow"  
+                this.activeColor = "#3737fa"  
             } else if (this.amount === 4 && this.amount <= this.numberOfTeams){
-                this.activeColor = "blue"
+                this.activeColor = "#FF780A"
             } else if (this.amount === 5 && this.amount <= this.numberOfTeams){
-                this.activeColor = "pink"    
+                this.activeColor = "#60b840"    
             } else {
                 this.activeColor = ''
                 this.amount = 0
