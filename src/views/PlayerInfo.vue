@@ -68,11 +68,11 @@ export default {
     computed: {
 
       currentUser() {
-        return this.$store.getters.getCurrentUser;
+        return this.$store.state.currentUser;
       },
 
       firstTeam() {
-        return this.$store.getters.getCurrentUser.teams[0];
+        return this.$store.state.currentUser.teams[0];
       }
     },
 
@@ -98,8 +98,8 @@ export default {
       },
 
       /* Logga ut */
-      logout(){
-        firebase.auth().signOut();
+      async logout(){
+        await firebase.auth().signOut();
         this.$store.dispatch('removeCurrentUser');
         this.$router.push('/');
       },
@@ -116,7 +116,8 @@ export default {
 
     /* Hämta data innan allt körs */
     beforeMount() {
-        this.selectedTeam = this.firstTeam;
+
+      this.selectedTeam = this.firstTeam;
         this.getPlayerInfo();     
         this.setSelectedTeam();     
     }    

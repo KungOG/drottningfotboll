@@ -189,7 +189,8 @@ router.beforeEach((to, from, next) => {
     console.log(firebase.auth().currentUser, 'körs')
   } else {
     go()
-    console.log('Oscar du har rätt')
+    console.log('Oscar du har fel')
+    console.log(firebase.auth().currentUser)
   }
   async function checkUser () {
         var allAdminUsers = [];
@@ -224,18 +225,20 @@ router.beforeEach((to, from, next) => {
           console.log(user, 'user')
           index.dispatch('setCurrentUser', firebase.auth().currentUser)
           routerUserCheck = firebase.auth().currentUser;
+          next('/playerinfo');
           
         } else if (adminUser !== -1) {
           console.log(adminUser, 'admin')
           index.dispatch('setAdminUser', firebase.auth().currentUser)
-          routerSuperAdminCheck = firebase.auth().currentUser;
+          routerAdminCheck = firebase.auth().currentUser;
+          next('/admin');
           
         } else if (superAdmin !== -1) {
           console.log(superAdmin, 'super')
           index.dispatch('setSuperAdmin', firebase.auth().currentUser)
           routerSuperAdminCheck = firebase.auth().currentUser;
+          next('/superadmin');
         }
-        go();
       }
        
   function go() {

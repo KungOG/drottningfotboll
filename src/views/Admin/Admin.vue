@@ -53,8 +53,8 @@ export default {
         rightSwipe () {
             this.$router.push('/about')  
         },
-        logout(){
-            firebase.auth().signOut();
+        async logout(){
+            await firebase.auth().signOut();
             this.$store.dispatch('removeCurrentAdminUser');
             this.$router.push('/');
         }

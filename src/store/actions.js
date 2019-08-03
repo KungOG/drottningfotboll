@@ -54,6 +54,7 @@ export default {
 
   /* Hämtar din info som användare */
   async setCurrentUser(ctx, user) {
+    console.log('choklad')
     var item = await db.collection('users').doc(user.uid)
     item.get().then((doc) => {
       
