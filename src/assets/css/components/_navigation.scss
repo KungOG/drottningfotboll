@@ -10,3 +10,49 @@
         cursor: pointer;
     }
 }
+.nav-between {
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 3.4rem;
+      height: 3.4rem;
+      margin-right: .8rem;
+    }
+}
+.nav-right {
+    height: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    img {
+        width: 3.4rem;
+        height: 3.4rem;
+        margin-right: .8rem;
+    }
+}  
+  
+.nav-left {
+    height: 5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+        width: 3.4rem;
+        height: 3.4rem;
+        margin-right: .8rem;
+    }
+}  
+.nav-middle {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 3.4rem;
+      height: 3.4rem;
+      margin-right: .8rem;
+    }
+}  

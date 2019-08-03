@@ -1,0 +1,51 @@
+.fix-player {
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+
+    .name-input {
+        align-content: center;
+          
+        input {
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+    .stats-input {
+        justify-content: center;       
+        
+        input {
+            padding: .5rem .1rem;
+            text-align: center;
+        }
+    }
+    .points-input {
+        align-content: center;
+
+        input {
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+}
+/* Lägg till spelare fält */
+.addplayer {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem .5rem;
+    
+    input {
+        border: none;
+        border-radius: 3px;
+        padding: 1rem;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    a {
+        position: absolute;
+        align-self: flex-end;
+        z-index: 1;
+        text-decoration: none;
+        color: black;
+    }
+}

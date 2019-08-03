@@ -64,6 +64,7 @@ export default {
 
   /* Hämta info som Admin */
   async setAdminUser(ctx, adminUser) {
+    console.log('kex')
     var item = await db.collection('admins').doc(adminUser.uid)
     item.get().then((doc) => {
       

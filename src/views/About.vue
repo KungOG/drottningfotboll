@@ -2,7 +2,7 @@
   <main class="about-page" v-touch:swipe.left="rightSwipe">
     <section class="about-logo">
       <Pager :activeSlide = '0'/>
-      <img src="@/assets/img/logo-notext.svg" alt="KungFotboll logo with no text" @click="$router.push('/home')">
+      <img src="@/assets/img/logo-notext.svg" alt="KungFotboll logo with no text">
     </section>
     <section class="about-text">
       <h1>Kung Fotboll</h1>
