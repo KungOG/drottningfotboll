@@ -17,6 +17,8 @@ import firebase from 'firebase'
 export default {
     name: 'loginsuperadmin',
     methods: {
+
+        /* Logga in Super Admin */
         googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(provider).then(async(result) => {

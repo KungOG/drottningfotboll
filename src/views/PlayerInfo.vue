@@ -60,36 +60,51 @@ export default {
         player: {}
       }
     },
+
     components: {
       Pager
     },
+    
     computed: {
+
       currentUser() {
         return this.$store.getters.getCurrentUser;
       },
+
       firstTeam() {
         return this.$store.getters.getCurrentUser.teams[0];
       }
     },
+
     methods: {
+
         /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
+        /* Swipe mot High Score */
         leftSwipe () {
             this.$router.push('/stats')
         },
+
+        /* Swipe mot About */
         rightSwipe () {
             this.$router.push('/about')  
         },
+
+        /* Sätt valt lag */
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
       },
+
+      /* Logga ut */
       logout(){
         firebase.auth().signOut();
         this.$store.dispatch('removeCurrentUser');
         this.$router.push('/');
       },
+
+      /* Hämta Spelarinfo:n */
       getPlayerInfo() {
         var item = db.collection('teams').doc(this.selectedTeam).collection('players').doc(this.currentUser.uid)
         item.get().then((doc) => {
@@ -98,6 +113,8 @@ export default {
         })        
       }      
     },
+
+    /* Hämta data innan allt körs */
     beforeMount() {
         this.selectedTeam = this.firstTeam;
         this.getPlayerInfo();     

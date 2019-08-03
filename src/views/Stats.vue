@@ -31,22 +31,30 @@ export default {
             teams: [],
         }
     },
+
     components: {
         Pager
     },
+
     computed: {
+
         currentUser() {
             return this.$store.getters.getCurrentUser;
         },
+
         adminUser() {
             return this.$store.getters.getAdminUser;
         }
     },
+
     methods: {
+
         /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
+
+        /* Swipe mot Home sidan */
         leftSwipe () {
             if (this.adminUser !== null) {
                 this.$router.push('/admin');
@@ -56,7 +64,8 @@ export default {
                 this.$router.push('/home');
             }
         },
-        //Send chosen team to store 
+
+        /* Skicka valt lag till Store */
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
             this.$store.dispatch('specificTeamData');
@@ -64,15 +73,17 @@ export default {
         }
     },
     async created() {
-        //Get all teams from database for dropdown
-            var teams = [];
-            await db.collection("teams").get().then(function(querySnapshot) {            
-                querySnapshot.forEach(function(doc) {
-                    teams.push(doc.id)
-                });
-            });       
-           this.teams = teams;
-       
+
+        /* Hämta alla lag ifrån DB:n för lista */
+        var teams = [];
+        await db.collection("teams").get().then(function(querySnapshot) {            
+            querySnapshot.forEach(function(doc) {
+                teams.push(doc.id)
+            });
+        });       
+        this.teams = teams;
+
+       /* Kolla ifall användaren finns */
         if (this.$store.state.currentUser !== null) {
             if(this.$store.state.selectedTeam) {
                 this.selectedTeam = this.$store.state.selectedTeam;

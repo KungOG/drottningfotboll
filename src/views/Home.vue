@@ -33,20 +33,29 @@ export default {
         user: ''
       }
     },
+    
     components: {
       Pager
     },
+
     methods: {
+
         /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
+
+        /* Swipe mot High Score */
         leftSwipe () {
             this.$router.push('/stats')
         },
+
+        /* Swipe mot About */
         rightSwipe () {
             this.$router.push('/about')  
         },
+
+        /* Google Login */
         googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(provider).then(async(result) => {
@@ -63,6 +72,8 @@ export default {
               alert('Whops, something happend here..' + err.message)
             });
         },
+
+        /* Addera användaren */
         addUser(){
           var user = {
               name: "",
@@ -73,8 +84,9 @@ export default {
             }
             this.$store.dispatch('addUserToDb', user) 
         },
-        loadPage() {
-                 
+
+        /* Skicka mot laddningsida */
+        loadPage() {     
           if(this.allUsers.includes(this.user.uid)) {   
             this.$store.dispatch('setCurrentUser', this.user);         
             this.$router.replace('/loading');
@@ -85,6 +97,7 @@ export default {
           }
         },
         
+        /* Facebook Login */
         facebookLogin () {
           var provider = new firebase.auth.FacebookAuthProvider();
           firebase.auth().signInWithPopup(provider).then(async(result) => {

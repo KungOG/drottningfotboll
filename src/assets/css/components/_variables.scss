@@ -2,60 +2,50 @@
 @import url('https://fonts.googleapis.com/css?family=Blinker:400,700|Karla:400,700|Nunito:400,700|Titillium+Web:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
 
-// Colors
+/* Färg */
 $color-red: #fa3737;
 $color-yellow: #ebdf04;
 $color-blue: #3737fa;
 $color-orange: #FF780A;
 $color-green: #54b725;
 
-// Borders
+/* Ram */
 $border-light: solid 1px rgba(0, 0, 0, .05);
 $border-btns: 1px solid #6DD400;
 $border-section: 2px solid #54B725;
 
-// Font Size
+ /* Text Storlek */
 $font-size-largest: 2.2rem;
 $font-size-large: 1.5rem;
 $font-size-normal: 1.3rem;
 $font-size-small: 1rem;
 
-// Spacing
+/* Mellanrum */
 $spacing-small: .75rem;
 $spacing-single: 1rem;
 $spacing-double: 2rem;
 $spacing-triple: 3rem;
 $spacing-big: 6rem;
 
-// Media queries
-$desktop: 800px;
-$tablet: 600px;
-$mobile: 480px;
-
-// Font Family
+/*  Font Family */
 $font: 'Nunito', sans-serif;
 
-// Animation
+/* Animation */
 $anime-in: .4s;
 $anime-out: .5s;
 
+/* Grundlinje */
 $baseline: 1.5rem;
 
-
+/* Bild Storlek */
 %imagesize {
     height: 3.5rem;
     width: 3.5rem;
 }
 
+/* Centrerad Position */
 %center {
     display : flex;
     justify-content : center;
     align-items : center;
-}
-
-%layout {
-    display : grid;
-    grid-template-columns : repeat(2, 1, 2fr);
-    grid-template-areas : 
-    'team team';
 }

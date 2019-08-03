@@ -31,6 +31,7 @@
 @import 'pages/gamegroup';
 @import 'pages/player';
 
+/* CSS grunder */
 body {
     background: url("./assets/img/background.jpg");
     background-size: cover;
@@ -40,6 +41,7 @@ body {
     justify-content: center;
     align-content: center;
 }
+
 select {
     /* for Firefox */
     -moz-appearance: none;

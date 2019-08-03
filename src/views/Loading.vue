@@ -11,7 +11,8 @@
 <script>
 export default {
   name: 'loading',
-  //Routes to next page after 2.0 sec
+  
+  /* Laddningsida */
   created() {
     setTimeout(() => this.$router.push({
       path: '/playerinfo'
