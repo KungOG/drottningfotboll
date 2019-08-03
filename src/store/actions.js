@@ -59,7 +59,6 @@ export default {
       
       var currentUser = doc.data(); 
       ctx.commit('setCurrentUser', currentUser)
-      sessionStorage.setItem('isAdmin', currentUser.isAdmin);
     })
   },
 

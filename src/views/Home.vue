@@ -101,8 +101,7 @@ export default {
             }).catch((error) => {
               alert('Whops, something happend here..' + err.message)
             });
-
-        } 
+        }    
     }
 }
 </script>

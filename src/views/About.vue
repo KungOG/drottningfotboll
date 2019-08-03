@@ -23,7 +23,7 @@ export default {
           return this.$store.getters.getCurrentUser;
       },
       adminUser() {
-          return this.$store.getters.getAdminUser;
+          return this.$store.state.getAdminUser;
       }
   },
   methods: {
