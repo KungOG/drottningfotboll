@@ -2,7 +2,7 @@
     <main class="admin-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
         <Pager :activeSlide='1' />
         <section class="admin-logout">
-            <img src="@/assets/icon/entrance.svg" alt="Logout" @click="logout">
+            <img src="@/assets/icon/logout.svg" alt="Logout" @click="logout">
         </section>
         <section class="admin-logo">
             <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo" />
@@ -12,21 +12,21 @@
             <section class="admin">
                 <div class="one-admin-btn" @click="$router.push('/players')">
                     <img src="@/assets/icon/person.svg" alt="A Person"> 
-                    <span>SPELARE</span>
+                    <p>SPELARE</p>
                 </div>
                 <div class="one-admin-btn" @click="$router.push('/makegames')">
                     <img src="@/assets/icon/settings.svg" alt="A Cogwheel">
-                    <span>SETUP</span>
+                    <p>SETUP</p>
                 </div>
             </section>       
             <section class="admin">
                 <div class="one-admin-btn" @click="$router.push('/groups')">
                     <img src="@/assets/icon/people.svg" alt="Group of People"> 
-                    <span>GRUPPER</span>
+                    <p>GRUPPER</p>
                 </div>
                 <div class="one-admin-btn" @click="$router.push('/schedules')">
-                    <img src="@/assets/icon/calendar-event.svg" alt="A Calendar">
-                    <span>SCHEMA</span>
+                    <img src="@/assets/icon/calendar.svg" alt="A Calendar">
+                    <p>SCHEMA</p>
                 </div>
             </section>
         </section>

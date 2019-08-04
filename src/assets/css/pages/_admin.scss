@@ -9,8 +9,8 @@
         img {
             position: absolute;
             width: 3rem;
-            right: 0;
-            top: 0;
+            right: .3rem;
+            top: .5rem;
         }
     }
     .admin-logo {
@@ -39,16 +39,17 @@
                 margin: .2rem;
                 border-radius: 10px;
                 border: $border-btns;
-                padding: 3.5rem;
+                padding: 3rem;
                 color: white;
                 width: 3.5rem;
 
                 img {
-                    margin: .5rem;
+                    height: 2.8rem;
                 }
-                span {
+                p {
                     display: flex;
                     justify-content: center;
+                    margin: .7rem 0 0 0;
                 }
             }
         }

@@ -41,7 +41,7 @@
           </select>
       </section>
       <section class="player-footer">
-        <img src="@/assets/icon/entrance.svg" @click="logout">
+        <img src="@/assets/icon/logout.svg" @click="logout">
       </section>
     </section>
   </article>

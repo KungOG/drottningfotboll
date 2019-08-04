@@ -1,1 +1,24 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24" aria-labelledby="shuffleIconTitle" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#ffff"> <title id="shuffleIconTitle">Shuffle</title> <path d="M21 16.0399H17.7707C15.8164 16.0399 13.9845 14.9697 12.8611 13.1716L10.7973 9.86831C9.67384 8.07022 7.84196 7 5.88762 7L3 7"/> <path d="M21 7H17.7707C15.8164 7 13.9845 8.18388 12.8611 10.1729L10.7973 13.8271C9.67384 15.8161 7.84196 17 5.88762 17L3 17"/> <path d="M19 4L22 7L19 10"/> <path d="M19 13L22 16L19 19"/> </svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 54 54" style="enable-background:new 0 0 54 54;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;}
+</style>
+<g id="Capa_1">
+</g>
+<g id="Lager_3">
+	<line class="st0" x1="43.5" y1="50.8" x2="51.2" y2="43.1"/>
+	<line class="st0" x1="51.4" y1="45.8" x2="43.4" y2="37.8"/>
+	<line class="st0" x1="47.9" y1="44.7" x2="36.8" y2="44.7"/>
+	<line class="st0" x1="38.2" y1="45.3" x2="13.4" y2="12.9"/>
+	<line class="st0" x1="14.8" y1="13.5" x2="2.3" y2="13.5"/>
+	<line class="st0" x1="43.5" y1="7.2" x2="51.2" y2="14.9"/>
+	<line class="st0" x1="51.4" y1="12.2" x2="43.4" y2="20.2"/>
+	<polygon class="st1" points="2.3,46.8 15.6,46.8 25,34.3 23.7,32.7 14.8,44.7 2.3,44.7 	"/>
+	<polygon class="st1" points="22.6,31.2 14.2,42.7 2.3,42.7 2.3,40.9 12.9,40.9 21.4,29.7 	"/>
+	<polygon class="st1" points="25.9,23.6 34.8,11.4 48.8,11.4 48.8,13.1 35.9,13.1 27.1,25.1 	"/>
+	<polygon class="st1" points="28.2,26.6 36.8,14.9 48.3,14.9 48.3,16.8 37.7,16.8 29.5,28.3 	"/>
+</g>
+</svg>

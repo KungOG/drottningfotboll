@@ -3,7 +3,7 @@
     <main class="makegroups">
         <section class="nav-middle">
             <img src="@/assets/icon/shuffle.svg" @click="shufflePlayers" />
-            <img src="@/assets/icon/repeat.svg" @click="resetPlayers" />
+            <img src="@/assets/icon/update.svg" @click="resetPlayers" />
         </section>
         <section class="container">
             <article class="playerlist">         

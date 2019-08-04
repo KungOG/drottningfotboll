@@ -14,7 +14,7 @@
     <section class="stats-navigation">
         <img src="@/assets/icon/logo-crown-white.svg" @click="$router.push('/highscore')">
         <img src="@/assets/icon/people.svg" @click="$router.push('/gamegroup')">
-        <img src="@/assets/icon/calendar-event.svg" @click="$router.push('/gameschedule')">
+        <img src="@/assets/icon/calendar.svg" @click="$router.push('/gameschedule')">
     </section>
   </main>
 </template>
