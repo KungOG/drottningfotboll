@@ -35,7 +35,7 @@ const router = new Router({
     {
       path: '/addname',
       name: 'addname',
-     // meta: {requiresAuth: true},
+      meta: {requiresAuth: true},
       component: () => import('./views/AddName.vue')
     },
     {
@@ -46,7 +46,7 @@ const router = new Router({
     {
       path: '/playerinfo',
       name: 'playerinfo',
-      /* meta: {requiresAuth: true}, */
+      meta: {requiresAuth: true},
       component: () => import('./views/PlayerInfo.vue')
     },
     {
@@ -85,25 +85,25 @@ const router = new Router({
     {
       path: '/addplayer',
       name: 'addplayer',
-      /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/AddPlayer.vue')
     },
     {
       path: '/editplayer/:uid',
       name: 'editplayer',
-      /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/EditPlayer.vue')
     },
     {
       path: '/groups',
       name: 'groups',
-     /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/Groups.vue')
     },
     {
       path: '/editgroups/:id',
       name: 'editgroups',
-      /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/EditGroups.vue')
     },
     {
@@ -131,7 +131,6 @@ const router = new Router({
                     path: '/chooseequal',
                     name: 'chooseequal',
                     component: () => import('./components/Admin/ChooseEqual.vue')
-
                     }
                   ]
                 }
@@ -144,25 +143,25 @@ const router = new Router({
     {
       path: '/makegroups',
       name: 'makegroups',
-      /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/MakeGroups.vue')
     },
     {
       path: '/players',
       name: 'players',
-      /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/Players.vue')
     },
     {
       path: '/schedules',
       name: 'schedules',
-      /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/Schedules.vue')
     },
     {
       path: '/goalboard',
       name: 'goalboard',
-      /* meta: {requiresAdmin: true}, */
+      meta: {requiresAdmin: true},
       component: () => import('./views/Admin/GoalBoard.vue')
     },
     {
@@ -186,11 +185,8 @@ router.beforeEach((to, from, next) => {
   
   if (routerUserCheck === null && routerAdminCheck === null && routerSuperAdminCheck === null && firebase.auth().currentUser) {
     checkUser();
-    console.log(firebase.auth().currentUser, 'körs')
   } else {
-    go()
-    console.log('Oscar du har fel')
-    console.log(firebase.auth().currentUser)
+    checkPermission()
   }
   async function checkUser () {
         var allAdminUsers = [];
@@ -219,46 +215,39 @@ router.beforeEach((to, from, next) => {
         var user = allUsers.indexOf(firebase.auth().currentUser.uid)
         var adminUser = allAdminUsers.indexOf(firebase.auth().currentUser.uid)
         var superAdmin = allSuperAdmins.indexOf(firebase.auth().currentUser.uid)
-  
     
         if (user !== -1) {
-          console.log(user, 'user')
           index.dispatch('setCurrentUser', firebase.auth().currentUser)
           routerUserCheck = firebase.auth().currentUser;
           next('/playerinfo');
           
         } else if (adminUser !== -1) {
-          console.log(adminUser, 'admin')
           index.dispatch('setAdminUser', firebase.auth().currentUser)
           routerAdminCheck = firebase.auth().currentUser;
           next('/admin');
           
         } else if (superAdmin !== -1) {
-          console.log(superAdmin, 'super')
           index.dispatch('setSuperAdmin', firebase.auth().currentUser)
           routerSuperAdminCheck = firebase.auth().currentUser;
           next('/superadmin');
         }
       }
        
-  function go() {
+  function checkPermission () {
     if (to.matched.some(record => record.meta.requiresAuth)) {
       if (routerUserCheck) {
-        console.log('user')
         next();      
       }
      } else if (to.matched.some(record => record.meta.requiresAdmin)) {
       if (routerAdminCheck) {
-        console.log('Admin')
         next();      
       }
     } else if (to.matched.some(record => record.meta.requiresSuperAdmin)) {
       if (routerSuperAdminCheck) {
-        console.log('Super')
         next();      
       } 
     } else {
-      next()
+        next()
     }
   }
 });

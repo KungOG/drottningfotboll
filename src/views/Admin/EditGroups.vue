@@ -43,17 +43,16 @@ export default {
         this.filterGroup();
         let number = this.group.id;
         if (number === 1) {
-            this.activeColor = "green"
+            this.activeColor = "#fa3737"
         } else if (number === 2) {
-            this.activeColor = "red"
+            this.activeColor = "#ebdf04"
         } else if (number === 3) {
-            this.activeColor = "orange"  
+            this.activeColor = "#3737fa"  
         } else if (number === 4) {
-            this.activeColor = "#0084ff"
+            this.activeColor = "#FF780A"
         } else if (number === 5) {
-            this.activeColor = "#FFFA00"    
+            this.activeColor = "#54b725"    
         } 
-        
     },
     computed: {
         group () {
@@ -76,7 +75,6 @@ export default {
     },
 
     methods : {
-
         /* Pop-Out */
         editGroup(player) {
             swal({
