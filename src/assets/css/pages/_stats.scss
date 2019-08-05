@@ -3,11 +3,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
     .navigation {
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column;        
         .active-site {
             display: flex;
             flex-direction: row;
@@ -39,19 +37,17 @@
                 text-transform: uppercase;
                 border: none;
                 padding: 0 .5rem;
-                text-align-last: center; /*centrerar det valda alternativet i select*/
+                text-align-last: center;
                 background: url("./assets/icon/arrow-down.svg") left no-repeat;
                 background-size: 1rem;
                 background-position-x: .5rem;
             }
         }
     }
-
     .router-content {
         flex: 7;
 
     }
-
     .stats-navigation {
         display: flex;
         justify-content: space-around;

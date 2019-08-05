@@ -4,26 +4,21 @@
     justify-content: space-between;
     align-items: center;
     height: 85vh;
-
     .menu {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-
         img {
             height: 3rem;
         }
     }
-
     .container {
         position: fixed;
         margin-top: 3.3rem;
         overflow: hidden;
-
         .gamelist {
             height: 73vh;
             overflow-y: scroll;
-
             article {
                 margin: 1rem 0; 
                 display: flex;
@@ -31,11 +26,9 @@
             }    
         }
     }
- }
-
+}
 .game-component {
     display: flex;
-
     article {
         border: 2px solid rgba(84, 183, 37, 1);
         border-radius: 4px;
@@ -44,14 +37,12 @@
         align-items: center;
         justify-content: center;
         position: relative;
-
         img {
             height: 4rem;
             width: 4rem;
             position: absolute;
             top: -2.5rem;
         }
-
         .group {
             display: flex;
             flex-direction: column;
@@ -60,25 +51,21 @@
             align-items: center;
             justify-content: center;
             color: white;
-
             p:first-of-type {
                 margin: 0;
                 font-size: $font-size-small;
                 text-transform: uppercase;
-            }
-            
+            }            
             p:last-of-type {
                 font-size: $font-size-large;
                 margin: -.2rem 0 0 0;
             }
         }
     }
-
     .line {
         display: flex;
         align-items: center;
         justify-content: center;
-
         hr {
             width: 50px;
             height: 3px;
@@ -86,5 +73,4 @@
             background-color: gray;
         }
     }
-    
 }

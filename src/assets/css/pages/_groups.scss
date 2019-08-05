@@ -2,29 +2,23 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-
     .container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 85%;
         margin-top: 3rem;
-        height: 82vh;
-        
+        height: 82vh;        
     }
     .orange-btn {
         margin: .5rem 0;
     }
 }
-
-
 .group-component {
     section {
         display: flex;
         flex-direction: row;
         margin: 1rem 0;
-        /* width: 100vw; */
-
         aside {
             display: flex;
             writing-mode: vertical-rl;
@@ -39,7 +33,6 @@
                 text-transform: uppercase;
             }
         }
-
         .group-item {
             display: flex;
             flex: 5;

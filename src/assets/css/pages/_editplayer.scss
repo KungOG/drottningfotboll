@@ -69,8 +69,7 @@
             margin: .5rem 2rem;
             section {
                 display: flex;
-                flex-direction: column;
-                
+                flex-direction: column;                
                 input {
                     padding: .5rem 1rem;
                     width: 5rem;
@@ -88,7 +87,6 @@
         .edit-player-btn1 {
             display: flex;
             flex-direction: column;
-
             .bin-btn {
                 left: 50%;
                 right: 50%;
@@ -100,8 +98,7 @@
         }
         .edit-player-btn2 {
             display: flex;
-            flex-direction: column;
-        
+            flex-direction: column;        
             p {
                 color: white;
             }
@@ -117,8 +114,7 @@
                     &:hover {
                         background: $color-orange;
                     }
-                }
-                
+                }                
             }
             .orange-btn {
                 position:absolute;
@@ -130,5 +126,3 @@
         }
     }
 }
-
-
