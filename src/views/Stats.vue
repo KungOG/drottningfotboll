@@ -12,9 +12,12 @@
         <router-view />
     </section>
     <section class="stats-navigation">
-        <img src="@/assets/icon/logo-crown-white.svg" @click="$router.push('/highscore')">
-        <img src="@/assets/icon/people.svg" @click="$router.push('/gamegroup')">
-        <img src="@/assets/icon/calendar.svg" @click="$router.push('/gameschedule')">
+        <img v-if="!hide1" src="@/assets/icon/logo-crown-white.svg" @click="atClick('/highscore', 1)">
+        <img v-if="hide1" src="@/assets/icon/logo-crown-orange.svg" @click="atClick('/highscore', 1)">
+        <img v-if="!hide2" src="@/assets/icon/people.svg" @click="atClick('/gamegroup', 2)">
+        <img v-if="hide2" src="@/assets/icon/people-orange.svg" @click="atClick('/gamegroup', 2)">
+        <img v-if="!hide3" src="@/assets/icon/calendar.svg" @click="atClick('/gameschedule', 3)">
+        <img v-if="hide3" src="@/assets/icon/calendar-orange.svg" @click="atClick('/gameschedule', 3)">
     </section>
   </main>
 </template>
@@ -29,6 +32,9 @@ export default {
         return {
             selectedTeam: '',
             teams: [],
+            hide1: true,
+            hide2: false, 
+            hide3: false
         }
     },
 
@@ -37,17 +43,33 @@ export default {
     },
 
     computed: {
-
         currentUser() {
             return this.$store.getters.getCurrentUser;
         },
-
         adminUser() {
             return this.$store.getters.getAdminUser;
         }
     },
 
     methods: {
+        atClick(path, num) {
+            if(num === 1) {
+                this.hide1 = true
+                this.hide2 = false
+                this.hide3 = false
+            }
+            if(num === 2) {
+                this.hide1 = false
+                this.hide2 = true
+                this.hide3 = false
+            }
+            if(num === 3) {
+                this.hide1 = false
+                this.hide2 = false
+                this.hide3 = true
+            }
+            this.$router.push(path)
+        },
 
         /* Swipe funktionen */
         activeSlide () {
@@ -73,7 +95,6 @@ export default {
         }
     },
     async created() {
-
         /* Hämta alla lag ifrån DB:n för lista */
         var teams = [];
         await db.collection("teams").get().then(function(querySnapshot) {            
