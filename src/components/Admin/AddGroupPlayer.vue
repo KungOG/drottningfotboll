@@ -9,7 +9,6 @@
         </article>
     </main>
 </template>
-
 <script>
 export default {
     name : 'addgroupplayer',
@@ -17,7 +16,6 @@ export default {
     computed: {},
     methods: {
         deletePlayer () {
-            console.log('swoyush')
             this.$store.dispatch('deleteGroupPlayer', {
                 group: this.group,
                 player: this.player.uid

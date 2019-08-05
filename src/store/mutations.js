@@ -1,79 +1,49 @@
 export default {
-  
-  /* Swipe och dess koll på vilken sida */
   activeSlide (state, activeSlide) {
       state.activeSlide = activeSlide;
   },
-
-  /* Spara valt datum i Calender komponenten */
   setDate(state, date) {
     state.date = date;
   },
-
-  /* Spara tiden i Calender komponenten */
   setTime(state, time) {
     state.time = time;
   },
-  
-  /* När du ska ha en specifik spelare */
   setPlayer(state, player) {
     state.player = player;
   },
-
-  /* Hämtat alla users */
   setAllUsers(state, allUsers) {
     state.allUsers = allUsers;
   }, 
-
-  /* Hämtat alla lagetsspelare */
   setTeamPlayers(state, teamPlayers) {
     state.teamPlayers = teamPlayers;
   },
-
-  /* Hämtat alla Admins lagspelare */
   setAdminTeamPlayers(state, adminTeamPlayers) {
     state.adminTeamPlayers = adminTeamPlayers;
   },
-
-  /* Du som användare och dess info */
   setCurrentUser(state, currentUser) {
     state.currentUser = currentUser;
   },
-  
-  /* Du som admin och dess info */
   setAdminUser(state, adminUser) {
     state.adminUser = adminUser;
     state.selectedTeam = adminUser.team;
   },
-
-  /* Du som superadmin och dess info */
   setSuperAdmin(state, superAdminUser) {
     state.superAdminUser = superAdminUser;
   },
-
-  /* Hämta specifik data */
   setSpecificTeamData(state, specificTeamData) {
     state.specificTeamData = specificTeamData;
   },
-
-  /* Spara senaste spel */
   setCurrentGame(state, currentGame) {
     state.currentGame = currentGame;
   },
-
-  /* Ta bort dig när du loggar ut */
   removeCurrentUser(state) {
     state.currentUser = null;
     state.selectedTeam = '';
   },
-
-  /* Ta bort dig när du loggar ut */
   removeCurrentAdminUser(state) {
     state.adminUser = null;
     state.selectedTeam = '';
   },
-  
-  /* Töm grupperna */
   clearGroups(state) {
     state.groups = [
       {
@@ -107,8 +77,6 @@ export default {
       }
     ]
   },
-
-  /* När du väljer team ska det visas lagras här */
   setSelectedTeam(state, selectedTeam) {
     state.selectedTeam = selectedTeam;
     state.time = '';
@@ -129,20 +97,14 @@ export default {
   setNumberOfEqual(state, num) {
     state.numberOfEqual = num;
   },
-
-  /* Ta bort spelaren i listan TeamPlayer */
   deletePlayer(state, id) {
     var index = state.adminTeamPlayers.findIndex(player => player.uid == id)
     state.adminTeamPlayers.splice(index, 1)
   },
-
-  /* Ta bort spelaren från specifik grupp */
   deleteGroupPlayer(state, payload) {
     var index = state.groups[payload.group].players.findIndex(player => player.uid == payload.player)
     state.groups[payload.group].players.splice(index, 1)
   },
-
-  /* Ta bort spelaren från okänd grupp */
   removeGroupPlayer(state, payload) {
     for(let i = 0; i < state.groups.length; i++) {
       if (state.groups[i].players.findIndex(player => player.uid == payload.uid) !== -1) {
@@ -151,8 +113,6 @@ export default {
       }
     }
   },
-  
-  /* Lägg till spelaren i gruppen */
   addGroupPlayer(state, payload) {
     state.groups[payload.group].players.push({
       name: payload.player.name, 
@@ -160,8 +120,6 @@ export default {
       uid: payload.player.uid
     })
   },
-
-  /* Spara grupperna */
   submitInactiveGroup(state, zero) {
     state.groups[0].players.push(zero);  
   },

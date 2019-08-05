@@ -53,7 +53,6 @@
       </section>
     </article>
 </template>
-
 <script>
 export default {
     name : 'editplayer',
@@ -74,8 +73,6 @@ export default {
     },
 
     mounted() {
-      
-      /* Kolla spelarens UID */
         let player = this.$store.getters.getPlayerByUid(
           this.$route.params.uid
         );
@@ -87,21 +84,15 @@ export default {
         this.user.goal = player.goal
         this.user.uid = player.uid     
     },
-
     computed : {
-
       player() {
         return this.$store.getters.getPlayerByUid(
           this.$route.params.uid
-        )},
-
-
-      /* Lagspelare  */
+      )},
       teamPlayers() {
         let array = this.$store.state.adminTeamPlayers;
         let check = false;
-        let filteredPlayers = [];
-            
+        let filteredPlayers = [];  
         for( var i = 0; i < array.length; i++){
             if(array[i].uid !== this.player.uid ){
                 filteredPlayers.push(array[i]);
@@ -109,8 +100,6 @@ export default {
         }
         return filteredPlayers
       },
-
-      /* Filtrera spelare med lägre UID */
       filterPlayers () {
           return this.teamPlayers.filter((player) => {
             return player.uid.length <= 20;
@@ -118,8 +107,6 @@ export default {
         }
     }, 
     methods : {
-
-       /* Pop-Out */
         deleteBtn() {
           swal({
               title: "Är du helt säker?",
@@ -144,8 +131,6 @@ export default {
             }
           });
         },
-        
-        /* Pop-Out */
         mergeBtn() {
           swal({
               title: "Är du helt säker?",
@@ -171,40 +156,29 @@ export default {
             }
           });
         },
-
-        /* Ta bort en spelare */
         deletePlayer () {
-          console.log('deleted');
           this.$store.dispatch('removePlayerFromTeam', this.player.uid);
           setTimeout(() => this.$router.push({
             path: '/players'
           }), 1000);
         },
-
         removeUserTeamArray() {
           if(this.player.uid.length > 20) {
             this.$store.dispatch('removeUserTeamArray', this.player.uid)
           }
         },
-
-        /* Ändra spelaren */
         remakePlayer () {
-          console.log(this.user);
           this.$store.dispatch('remakePlayerFromTeam', this.user);
           setTimeout(() => this.$router.push({
             path: '/players'
           }), 1000);
         },
-
-        /* Lägg samman spelaren och den tillfälliga */
         mergeUpdatedPlayer () {
           this.$store.dispatch('mergeUpdatedPlayer', {player1: this.player, player2: this.markedPlayer});
           setTimeout(() => this.$router.push({
             path: '/players'
           }), 1000)
         },
-
-        /* Visa ny sektion */
         showList() {
           if(this.show != false) {
             this.show = false;

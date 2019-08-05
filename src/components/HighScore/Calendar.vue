@@ -27,7 +27,6 @@
 <script>
 import Datepicker from 'vuejs-datepicker';
 import {sv} from 'vuejs-datepicker/dist/locale';
-
 export default {
     name: 'calendar',
     mounted () {
@@ -96,8 +95,6 @@ export default {
         saveDate () {
             let date = this.date.toISOString().slice(0,10);
             this.$store.dispatch('saveDate', date)
-            console.log(date) 
-            /* this.$emit('changeDate') */
         },
         saveTime () {
             this.$store.dispatch('saveTime', this.time) 

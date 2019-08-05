@@ -25,15 +25,12 @@
         </section>
     </main>
 </template>
-
 <script>
 import { Slide } from 'vue-burger-menu';
 import AdminPager from '@/components/AdminPager.vue';
-
 export default {
     name : 'makegame',
     beforeMount () {
-        /* Ta bort föregåendespel */
         this.$store.dispatch('activeSlide', 0);
         localStorage.removeItem('winner');
         localStorage.removeItem('gameSettings');

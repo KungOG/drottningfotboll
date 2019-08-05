@@ -10,12 +10,10 @@
         </section>
     </main>
 </template>
-
 <script>
 import db from '@/firebaseInit';
 import Calendar from '@/components/HighScore/Calendar.vue';
 import Game from '@/components/HighScore/Game.vue';
-
 export default {
     name : 'gameschedule',
     components: {

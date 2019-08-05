@@ -66,26 +66,6 @@ export default {
   groups(state) {
     return state.groups;
   },
-  
-  /* Grupp och dess nummer */
-/*   inactiveGroup(state) {
-    return state.groups[0].players;
-  },
-  groupOne(state) {
-    return state.groups[1].players;
-  },
-  groupTwo(state) {
-    return state.groups[2].players;
-  },
-  groupThree(state) {
-    return state.groups[3].players;
-  },
-  groupFour(state) {
-    return state.groups[4].players;
-  },
-  groupFive(state) {
-    return state.groups[5].players;
-  }, */
 
   filterDate(state) {
     let games = state.specificTeamData;
@@ -95,7 +75,6 @@ export default {
 
     for (let i = 0; i < games.length; i++) {
       if (games[i].date === date && games[i].time === time) {
-        console.log('match')
         matchDate.push(games[i])
       }
     }
@@ -109,7 +88,6 @@ export default {
 
     for (let i = 0; i < games.length; i++) {
       if (games[i].date === date) {
-        console.log('match')
         matchDate.push(games[i])
       }
     }

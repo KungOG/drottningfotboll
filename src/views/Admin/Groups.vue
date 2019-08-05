@@ -18,12 +18,10 @@
         <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroup" v-show="active === false" />
     </main>
 </template>
-
 <script>
 import { Slide } from 'vue-burger-menu';
 import group from '@/components/Admin/Group.vue';
 import {calculateGames} from '@/mixins/calculateGames.js';
-
 export default {
     name : 'groups',
     mixins : [calculateGames],
@@ -45,14 +43,11 @@ export default {
     },
     computed: {
        groups () {
-           /* Plocka ut endast de grupper som har spelare */
             let allGroups = this.$store.getters.groups;
             return allGroups;
        },
- 
     },
     methods: {
-        /* Pop-Out */
         submitGroup() {
             swal({
                 title: `Är ni redo för spel?`,

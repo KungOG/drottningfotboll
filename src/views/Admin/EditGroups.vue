@@ -22,7 +22,6 @@
         </section>
     </main>
 </template>
-
 <script>
 import addgroupplayer from '@/components/Admin/AddGroupPlayer.vue';
 export default {
@@ -60,22 +59,16 @@ export default {
                 this.$route.params.id
             );
         },
-
-       /* Hämta alla användare */
         teamPlayers () {
             return this.$store.getters.getAdminTeamPlayers;
         },
-
-      /* Sökfunktion */
         filterPlayers () {
             return this.otherTeamPlayers.filter((player) => {
                 return player.name.match(this.search.toUpperCase());
             })
         }
     },
-
     methods : {
-        /* Pop-Out */
         editGroup(player) {
             swal({
                 title: `Ojämna grupper?`,
@@ -101,8 +94,6 @@ export default {
                 group: this.group.id
             })
         },
-
-        /* Filtrera ut spelare som inte är i gruppen */
         filterGroup () {
             let check = false;
             this.otherTeamPlayers.length = 0;

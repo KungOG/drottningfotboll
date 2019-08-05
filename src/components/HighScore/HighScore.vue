@@ -36,10 +36,8 @@
       </article>
     </main>
 </template>
-
 <script>
 import db from '@/firebaseInit'
-
 export default {
     name : 'highscore',
     beforeUpdate() {

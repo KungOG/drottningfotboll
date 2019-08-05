@@ -22,7 +22,7 @@ export const calculateGames = {
                     this.schedule.push({round: 0, home: {groupNr: 2, win: false}, away: {groupNr: 1, win:false}})
                 }
             } 
-                /* Addera roundnummer  */ 
+                /* Addera roundnummer */ 
             for (let i = 0; i < this.schedule.length; i++) {
                 this.schedule[i].round = i + 1;
             }  

@@ -1,22 +1,20 @@
-    
 <template>
      <main class="makegames">
-            <article class="info-container" v-if="show" @click="edit">
-                <p>Poäng vinst:</p>
-                <h3> {{ numberOfWin }}</h3>            
+        <article class="info-container" v-if="show" @click="edit">
+            <p>Poäng vinst:</p>
+            <h3> {{ numberOfWin }}</h3>            
+        </article>
+        <article v-if="!show" class="btn-container">
+            <h1>Välj antal poäng vinster</h1>
+            <article v-if="!show" class="setup-btn">
+                <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin(1)"><p>1</p></div>
+                <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin(2)"><p>2</p></div>
+                <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin (3)"><p>3</p></div>
             </article>
-            <article v-if="!show" class="btn-container">
-                <h1>Välj antal poäng vinster</h1>
-                <article v-if="!show" class="setup-btn">
-                    <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin(1)"><p>1</p></div>
-                    <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin(2)"><p>2</p></div>
-                    <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin (3)"><p>3</p></div>
-                </article>
-            </article>
+        </article>
         <router-view /> 
     </main>
 </template>
-
 <script>
 export default {
     name : 'choosewin',

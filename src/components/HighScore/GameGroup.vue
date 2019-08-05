@@ -12,12 +12,10 @@
         </section>
     </main>
 </template>
-
 <script>
 import db from '@/firebaseInit';
 import group from '@/components/Admin/Group.vue';
 import Calendar from '@/components/HighScore/Calendar.vue';
-
 export default {
     name : 'gamegroup',
     components: {
@@ -38,8 +36,6 @@ export default {
     },
     computed: {
         currentGame() {
-            
-            /* Plocka ut endast de grupper som har spelare */
             if(this.$store.state.currentGame !== undefined) {
                 let allGroups = this.$store.state.currentGame.groups;
                 if(allGroups[0].players.length === 0) {
@@ -54,7 +50,6 @@ export default {
             }
         },
         chosenGame() {
-            /* Plocka ut endast de grupper som har spelare */
             let allGroups = this.$store.getters.filterDate.groups;
             if(allGroups[0].players.length === 0) {
                 allGroups.shift();

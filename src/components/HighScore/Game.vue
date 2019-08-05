@@ -17,7 +17,6 @@
         </article>
     </main>
 </template>
-
 <script>
 export default {
     name : 'game',
@@ -82,16 +81,16 @@ export default {
             }
         },
         setWinner() {
-                if(this.game.home.win === true) {
-                    this.show1 = true
-                } else {
-                    this.show1 = false
-                }
-                if(this.game.away.win === true) {
-                    this.show2 = true
-                } else {
-                    this.show2 = false
-                }
+            if(this.game.home.win === true) {
+                this.show1 = true
+            } else {
+                this.show1 = false
+            }
+            if(this.game.away.win === true) {
+                this.show2 = true
+            } else {
+                this.show2 = false
+            }
         }
     }
 }

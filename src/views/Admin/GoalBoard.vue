@@ -16,7 +16,6 @@
         </section>
     </main>
 </template>
-
 <script>
 import { Slide } from 'vue-burger-menu';
 import goalgroup from '@/components/Admin/GoalGroup.vue';
@@ -28,7 +27,6 @@ export default {
     },
     computed: {
         currentGame() {
-            /* Plocka ut endast de grupper som har spelare */
             let allGroups = this.$store.state.currentGame.groups;
             if(allGroups[0].players.length === 0) {
                 allGroups.shift();

@@ -15,7 +15,6 @@
         <img src="@/assets/icon/ok.svg" v-if="show" class="orange-btn" @click="submitGameSettings" />
     </main>
 </template>
-
 <script>
 export default {
     name : 'chooseequal',

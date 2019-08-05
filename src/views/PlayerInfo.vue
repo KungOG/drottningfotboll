@@ -5,7 +5,6 @@
         <img src="@/assets/img/logo-crown-black.svg" alt="KungFotboll crown">
         <img :src=currentUser.photoURL alt="">          
       </section>
-
       <section class="bottom-section">
         <section class="player-stats">    
           <section class="info-box">
@@ -46,12 +45,10 @@
     </section>
   </article>
 </template>
-
 <script>
 import firebase from 'firebase'
 import db from '@/firebaseInit'
 import Pager from '@/components/Pager.vue'
-
 export default {
     name : 'playerinfo',
     data() {
@@ -60,51 +57,35 @@ export default {
         player: {}
       }
     },
-
     components: {
       Pager
-    },
-    
+    },    
     computed: {
-
       currentUser() {
         return this.$store.state.currentUser;
       },
-
       firstTeam() {
         return this.$store.state.currentUser.teams[0];
       }
     },
-
     methods: {
-
-        /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
-        /* Swipe mot High Score */
         leftSwipe () {
             this.$router.push('/stats')
         },
-
-        /* Swipe mot About */
         rightSwipe () {
             this.$router.push('/about')  
         },
-
-        /* Sätt valt lag */
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
       },
-
-      /* Logga ut */
       async logout(){
         await firebase.auth().signOut();
         this.$store.dispatch('removeCurrentUser');
         this.$router.push('/');
       },
-
-      /* Hämta Spelarinfo:n */
       getPlayerInfo() {
         var item = db.collection('teams').doc(this.selectedTeam).collection('players').doc(this.currentUser.uid)
         item.get().then((doc) => {
@@ -113,13 +94,10 @@ export default {
         })        
       }      
     },
-
-    /* Hämta data innan allt körs */
     beforeMount() {
-
       this.selectedTeam = this.firstTeam;
-        this.getPlayerInfo();     
-        this.setSelectedTeam();     
+      this.getPlayerInfo();     
+      this.setSelectedTeam();     
     }    
 }
 </script>

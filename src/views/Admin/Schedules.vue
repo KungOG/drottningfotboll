@@ -19,13 +19,11 @@
         <img src="@/assets/icon/ok.svg" v-if="show" class="orange-btn" @click="submitStats" />
     </main>
 </template>
-
 <script>
 import { Slide } from 'vue-burger-menu';
 import round from '@/components/Admin/Round.vue';
 import {calculatePoints} from '@/mixins/calculatePoints.js';
 import db from '@/firebaseInit'
-
 export default {
     name : 'schedules',
     mixins : [calculatePoints],
@@ -41,7 +39,6 @@ export default {
             show: false
         }
     },
- 
     mounted() {
         this.$store.dispatch('getCurrentGame');
         var adminTeam = this.$store.state.adminUser.team;
@@ -55,8 +52,6 @@ export default {
         })               
     },  
     methods: {
-
-        /* Pop-Out */
         submitStats() {
             swal({
                 title: `Ska vi sätta spiken i kistan?`,
@@ -95,20 +90,13 @@ export default {
         },
         saveResult () {
             this.$store.dispatch('setAdminTeamPlayers');
-            /* spara resultatet i databasen */
             var gameData = {
                 currentGame: this.groups,
                 winners: this.winner
             }
             this.$store.dispatch('saveResult', gameData)
-
-            /*
-             * Spara spelarens poäng
-             ! Funktion finns i calculatePoint.js
-            */
             this.savePoints();
             localStorage.removeItem('winner');
-            /* localStorage.removeItem('gameSettings'); */
             localStorage.removeItem('goalTracker');
             localStorage.removeItem('active game');
         }
