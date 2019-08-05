@@ -10,7 +10,6 @@
     </section>
   </main>
 </template>
-
 <script>
 import Pager from '@/components/Pager.vue';
 export default {
@@ -19,23 +18,22 @@ export default {
     Pager
   },
   computed: {
-      currentUser() {
-          return this.$store.getters.getCurrentUser;
-      },
-      adminUser() {
-          return this.$store.state.getAdminUser;
-      }
+    currentUser() {
+        return this.$store.getters.getCurrentUser;
+    },
+    adminUser() {
+        return this.$store.getters.getAdminUser;
+    }
   },
   methods: {
-      /* Swipe funktionen */
-    rightSwipe () {
-        if (this.adminUser !== null) {
-            this.$router.push('/admin')
-        } else if (this.currentUser !== null) {
-            this.$router.push('/playerinfo');
-        } else {
-            this.$router.push('/home')
-        }
+    rightSwipe () { 
+      if (this.adminUser !== null) {
+          this.$router.push('/admin')
+      } else if (this.currentUser !== null) {
+          this.$router.push('/playerinfo');
+      } else {
+          this.$router.push('/home')
+      }
     }
   }
 }

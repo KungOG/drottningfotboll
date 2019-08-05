@@ -10,7 +10,6 @@
         </section>
     </main>
 </template>
-
 <script>
 export default {
     name: 'goalgroupplayer',
@@ -46,7 +45,6 @@ export default {
         },
         goalCount () {           
         let item = JSON.parse(localStorage.getItem('goalTracker'));
-        
         if(!item.length == 0) {                                       
             for(var i=0; i < item.length; i++) {                       
                 if(this.goalgroupplayer.uid == item[i].player) {                         
@@ -67,8 +65,7 @@ export default {
                             goal: this.goal
                         })                       
            }      
-           this.result = false          
-
+           this.result = false   
            } else {
                 item.push({
                     player: this.goalgroupplayer.uid,

@@ -16,11 +16,9 @@
         </section>
     </article>
 </template>
-
 <script>
 import db from '@/firebaseInit';
 import firebase from 'firebase'
-
 export default {
     name: 'addname',
     data () {
@@ -31,7 +29,6 @@ export default {
         }
     },
     created() {
-        //Get all teams from database for dropdown
         var teams = [];
         db.collection("teams").get().then(function(querySnapshot) {            
             querySnapshot.forEach(function(doc) {

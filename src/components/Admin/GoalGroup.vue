@@ -10,7 +10,6 @@
         </section>
     </main>
 </template>
-
 <script>
 import goalgroupplayer from '@/components/Admin/GoalGroupPlayer.vue';
 export default {

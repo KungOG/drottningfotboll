@@ -13,7 +13,6 @@
         </section>
     </main>
 </template>
-
 <script>
 import groupplayer from '@/components/Admin/GroupPlayer.vue';
 export default {

@@ -23,12 +23,10 @@
         </section>
     </main>
 </template>
-
 <script>
 import { Slide } from 'vue-burger-menu';
 import firebase from 'firebase'
 import db from '@/firebaseInit'
-
 export default {
     name: 'superAdmin',
     components: {
@@ -46,8 +44,6 @@ export default {
         }
     },
     created () {
-        
-        /* Hämta in alla lagen */
         let teamArray = [];
             db.collection("teams").get().then(function(querySnapshot) {            
                 querySnapshot.forEach(function(doc) {
@@ -57,8 +53,6 @@ export default {
         this.teamArray = teamArray;
     },
     methods: {
-
-        /* Skapa ny Admin för ett lag */
         createAdmin() {
         this.idCode();
         firebase
@@ -73,7 +67,6 @@ export default {
                     })          
                 },
             )
-
             var trainer = {
                 uid: this.id, 
                 name: this.adminName,            
@@ -86,8 +79,6 @@ export default {
             db.collection('teams').doc(this.teamName.toUpperCase()).collection('players').doc(this.id).set(trainer)
             db.collection('teams').doc(this.teamName.toUpperCase()).set({name: this.teamName});
         },
-
-        /* Nollställ ett helt fotbollslag */
         async totalResetTeam () {
             let teamPlayers = [];
             var item = await db.collection('teams').doc(this.team.toUpperCase()).collection('players')
@@ -99,8 +90,6 @@ export default {
             })
             this.$store.dispatch('resetTeam', {teamName: this.team.toUpperCase(), teamPlayers: teamPlayers})
         },
-        
-        /* Skaffa ett random UID */
         idCode()   {     
             let chars = "ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789abcdefghijklmnopqrstvwxyz";
             let code = [];

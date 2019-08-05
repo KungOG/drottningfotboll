@@ -32,7 +32,6 @@
         </section>
     </main>
 </template>
-
 <script>
 import firebase from 'firebase';
 import Pager from '@/components/Pager.vue';
@@ -42,8 +41,6 @@ export default {
       Pager
     },
     methods: {
-
-        /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },

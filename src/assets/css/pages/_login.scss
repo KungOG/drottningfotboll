@@ -1,19 +1,14 @@
 body {
-
-  
     .content {
       background: grey;
       height: 100vh;
       width: 100%;  
-  
-      /* Loggan */
       .logo {
         @extend %center;
         height: 50%;
         flex-direction: column;
         background: darkgray;
         border: 1px solid black;
-
         img {
             width: 100px;
             height: 100px;
@@ -38,6 +33,7 @@ body {
       .aboutContent {
         flex: 1
       }
+
       /* Admin sidan */
       .btn-container {
           height: 60%;
@@ -79,4 +75,4 @@ body {
         }
       }  
     }
-  }
+}

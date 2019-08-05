@@ -13,7 +13,6 @@
         </section>
     </main>
 </template>
-
 <script>
 import firebase from "firebase";
 export default {
@@ -26,8 +25,6 @@ export default {
         }
     },
     methods : {
-
-        /* Admin Login */
         LoginAdmin () {
             firebase
                 .auth()
@@ -42,14 +39,10 @@ export default {
                     alert("Whops, something wrong happend!" + err.message);
             });
         },
-
-        /* Admin */
         setAdmin () {
             this.$store.dispatch('setAdminUser', this.adminUser);
         }
     },
-
-    /* När du bytar sida */
     beforeDestroy () {
         if (this.adminUser !== null) {
             this.$store.dispatch('setAdminTeamPlayers');

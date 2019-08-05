@@ -15,7 +15,6 @@
         <router-view />
     </main>
 </template>
-
 <script>
 export default {
     name : 'choosegame',

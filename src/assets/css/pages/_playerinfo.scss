@@ -1,7 +1,6 @@
 .player-page {
     display: flex;
     flex-direction: column;
-    /* Rad 3, toppen av sidan */
     .player-logo {
         @extend %center;
         height: 50%;
@@ -12,14 +11,12 @@
             border-radius: 999rem;
         }
     }
-    /* Rad 13, innehåller all fakta om spelaren */
     .bottom-section {
         margin-top: 3rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-content: flex-end;
-        /* Rad 14 */
         .player-stats {
             display: flex;
             @extend %center;
@@ -46,7 +43,6 @@
                     color: #626262;
                 }
             }
-            /* Rad 19, innehåller all stats */
             .box-container {
                 display: grid;
                 margin-top: 2rem;
@@ -58,7 +54,6 @@
                 'aside stats-box' 
                 'aside stats-box'
                 'aside stats-box';
-                /* Rad 20, stats på vänster sida */
                 .point-box {
                     grid-area: aside;
                     border: $border-section;
@@ -72,7 +67,6 @@
                         font-size: 4rem;
                     }
                 }
-                /* Rad 24, stats på höger sida */
                 .stats-box {
                     grid-area: stats-box;
                     display: flex;
@@ -99,7 +93,6 @@
                 }           
             }
         }
-        /* Rad 47, Footern */
         .player-footer {
             position: absolute;
             bottom: 0;

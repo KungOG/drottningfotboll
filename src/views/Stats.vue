@@ -21,11 +21,9 @@
     </section>
   </main>
 </template>
-
 <script>
 import db from '@/firebaseInit';
 import Pager from '@/components/Pager.vue';
-
 export default {
     name : 'stats',
     data () {
@@ -37,11 +35,9 @@ export default {
             hide3: false
         }
     },
-
     components: {
         Pager
     },
-
     computed: {
         currentUser() {
             return this.$store.getters.getCurrentUser;
@@ -50,7 +46,6 @@ export default {
             return this.$store.getters.getAdminUser;
         }
     },
-
     methods: {
         atClick(path, num) {
             if(num === 1) {
@@ -70,13 +65,9 @@ export default {
             }
             this.$router.push(path)
         },
-
-        /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
-
-        /* Swipe mot Home sidan */
         leftSwipe () {
             if (this.adminUser !== null) {
                 this.$router.push('/admin');
@@ -86,8 +77,6 @@ export default {
                 this.$router.push('/home');
             }
         },
-
-        /* Skicka valt lag till Store */
         setSelectedTeam() {
             this.$store.dispatch('setSelectedTeam', this.selectedTeam);
             this.$store.dispatch('specificTeamData');
@@ -95,7 +84,6 @@ export default {
         }
     },
     async created() {
-        /* Hämta alla lag ifrån DB:n för lista */
         var teams = [];
         await db.collection("teams").get().then(function(querySnapshot) {            
             querySnapshot.forEach(function(doc) {
@@ -103,8 +91,6 @@ export default {
             });
         });       
         this.teams = teams;
-
-       /* Kolla ifall användaren finns */
         if (this.$store.state.currentUser !== null) {
             if(this.$store.state.selectedTeam) {
                 this.selectedTeam = this.$store.state.selectedTeam;

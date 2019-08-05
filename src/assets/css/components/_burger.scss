@@ -1,17 +1,14 @@
 @import 'variables';
 #slide {
     display: flex;
-    /* Hamburgar knappen */
     .bm-burger-button {
         width : 2rem;
         left : .8rem;
         top: 1.5rem;
         cursor : pointer;
-        /* Strecken för hamburgar menyn */
         .bm-burger-bars {
             background-color : white;
         }
-        /* Linjerna för menyn */
         .line-style {
             position : absolute;
             height : 20%;
@@ -19,34 +16,30 @@
             right : 0;
         }
     }
-    /* Krysset inne i menyn */
     .cross-style {
         position : absolute;
         top : 12px;
         right : 12px;
         cursor : pointer;
     }
-    /* Krysset och dess färg */
     .bm-cross {
         background : white;
     }
-    /* Storlek på krysset */
     .bm-cross-button {
         height : 24px;
         width : 24px;
     }
-    /* Var hela menyn ska vara och ligga */
     .bm-menu {
-        height : 100%; /* 100% Full-height */
-        width : 0; /* 0 width - change this with JavaScript */
-        position : fixed; /* Stay in place */
-        z-index : 1000; /* Stay on top */
+        height : 100%; 
+        width : 0;
+        position : fixed; 
+        z-index : 1000;
         top : 0;
         left : 0;
-        background-color : rgb(0, 80, 4); /* Black */
-        overflow-x : hidden; /* Disable horizontal scroll */
-        padding-top : 60px; /* Place content 60px from the top */
-        transition : 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+        background-color : rgb(0, 80, 4); 
+        overflow-x : hidden;
+        padding-top : 60px;
+        transition : 0.5s;
         font-family: $font;
         a {
             color: white;

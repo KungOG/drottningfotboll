@@ -45,10 +45,8 @@
       </section>
     </main>
 </template>
-
 <script>
 import { Slide } from 'vue-burger-menu';
-
 export default {
     name : 'players',
     data () {
@@ -63,17 +61,13 @@ export default {
         Slide
     },
     computed: {
-
-      /* Hämta in Admins spelare */
       adminTeamPlayers() {
         return this.$store.state.adminTeamPlayers;
       },
-
-      /* Sök funktion */
-        filterUsers () {
-          return this.adminTeamPlayers.filter((player) => {
-            return player.name.match(this.search.toUpperCase());
-          })
+      filterUsers () {
+        return this.adminTeamPlayers.filter((player) => {
+          return player.name.match(this.search.toUpperCase());
+        })
       }
   }
 }

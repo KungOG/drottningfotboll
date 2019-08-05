@@ -14,13 +14,12 @@
             border: none;
             height: 2.23rem;
             padding: 0 .5rem;
-            text-align-last: center; /*centrerar det valda alternativet i select*/
+            text-align-last: center;
             background: url("./assets/icon/arrow-down.svg") left no-repeat;
             background-size: 1rem;
             background-position-x: .5rem;
         }  
-    }
-    
+    }    
     .container {
         height: 78vh;
         overflow-y: scroll;
@@ -30,10 +29,8 @@
                 display: flex;
                 padding: .5rem;
                 background: white;
-                margin: .2rem 0;
-            
-            .score {
-                
+                margin: .2rem 0;            
+            .score {                
                 display: grid;
                 width: 90%;
                 grid-template-rows: auto;

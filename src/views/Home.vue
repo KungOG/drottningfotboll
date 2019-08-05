@@ -15,16 +15,14 @@
       </div>
     </section>
     <section class="admin-login">
-        <a href="#" @click="$router.push('./adminlogin')" class="admin-login-btn">Admin</a>
+      <a href="#" @click="$router.push('./adminlogin')" class="admin-login-btn">Admin</a>
     </section>
   </article>
 </template>
-
 <script>
 import firebase from 'firebase';
 import db from '@/firebaseInit';
 import Pager from '@/components/Pager.vue';
-
 export default {
     name : 'home',
     data() {
@@ -32,35 +30,24 @@ export default {
         allUsers: [],
         user: ''
       }
-    },
-    
+    },    
     components: {
       Pager
     },
-
     methods: {
-
-        /* Swipe funktionen */
         activeSlide () {
             return this.$store.state.activeSlide;
         },
-
-        /* Swipe mot High Score */
         leftSwipe () {
             this.$router.push('/stats')
         },
-
-        /* Swipe mot About */
         rightSwipe () {
             this.$router.push('/about')  
         },
-
-        /* Google Login */
         googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(provider).then(async(result) => {
               this.user = firebase.auth().currentUser;
-
               var items = db.collection('users');
               await items.get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -72,8 +59,6 @@ export default {
               alert('Whops, something happend here..' + err.message)
             });
         },
-
-        /* Addera användaren */
         addUser(){
           var user = {
               name: "",
@@ -84,8 +69,6 @@ export default {
             }
             this.$store.dispatch('addUserToDb', user) 
         },
-
-        /* Skicka mot laddningsida */
         loadPage() {     
           if(this.allUsers.includes(this.user.uid)) {   
             this.$store.dispatch('setCurrentUser', this.user);         
@@ -96,8 +79,6 @@ export default {
             this.$router.replace('/addname');            
           }
         },
-        
-        /* Facebook Login */
         facebookLogin () {
           var provider = new firebase.auth.FacebookAuthProvider();
           firebase.auth().signInWithPopup(provider).then(async(result) => {

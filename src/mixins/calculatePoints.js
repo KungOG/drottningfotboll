@@ -54,8 +54,7 @@ export const calculatePoints = {
     methods: {
         savePoints() {
             let winnerArray = this.winner; 
-            let groups = this.groups;       //0-5     allGroups  0-4
-            
+            let groups = this.groups;            
             /* tilldela grupperna poäng */
             for(let k = 1; k < groups.length; k++) {
                 for(let i = 0; i < winnerArray.length; i++) { 
@@ -95,8 +94,6 @@ export const calculatePoints = {
                     }   
                 }
             }
-            
-            
             /* tilldela spelarna poäng */
             for(let i = 0; i < groups.length; i++) {
                 for(let s = 0; s < this.allGroups.length; s++) {
@@ -109,11 +106,11 @@ export const calculatePoints = {
                                 loss: this.allGroups[s-1].loss, 
                                 tie: this.allGroups[s-1].tie,
                                 goal: 0 
-                        }) 
+                            }) 
+                        }
                     }
                 }
             }
-        }
             /* tilldela spelarna mål */
             for(let i = 0; i < this.scoreArray.length; i++) {
                 for(let j = 0; j < this.goalTracker.length; j++) {

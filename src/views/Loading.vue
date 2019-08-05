@@ -7,12 +7,9 @@
     </div>
   </main>
 </template>
-
 <script>
 export default {
   name: 'loading',
-  
-  /* Laddningsida */
   created() {
     setTimeout(() => this.$router.push({
       path: '/playerinfo'

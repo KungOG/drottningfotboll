@@ -1,4 +1,4 @@
-    <template>
+<template>
     <main class="group-component">
         <section>
             <aside :style="{background: activeColor}">
