@@ -2,7 +2,7 @@
   <article class="home-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
     <section class="home-logo menu">
       <Pager :activeSlide='1' />
-      <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo" >
+      <img src="@/assets/img/logo-queen-text.svg" alt="KungFotboll logo" >
     </section>
     <section class="home-login">
       <div class="login-btn" @click="googleLogin">
