@@ -22,11 +22,11 @@ export default {
         return this.$store.getters.getCurrentUser;
     },
     adminUser() {
-        return this.$store.state.getAdminUser;
+        return this.$store.getters.getAdminUser;
     }
   },
   methods: {
-    rightSwipe () {
+    rightSwipe () { 
       if (this.adminUser !== null) {
           this.$router.push('/admin')
       } else if (this.currentUser !== null) {
