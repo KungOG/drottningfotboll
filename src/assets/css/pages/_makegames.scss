@@ -8,6 +8,7 @@
         align-items: center;
 
         .info-container {
+            border-radius: 3px;
             background: white;
             display: flex;
             align-items: center;
@@ -15,6 +16,11 @@
             width: 80vw;
             height: 4rem;
             margin: .5rem;
+            h3 {
+                color: #FF780A;
+                margin: .3rem 1rem;
+                font-size: $font-size-large;
+            }
         }
         .btn-container {
             display: flex;
