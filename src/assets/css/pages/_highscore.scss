@@ -1,4 +1,6 @@
  .highscore-page {
+    height: 80vh;
+
     .highscore-header {
         z-index: 10;
         display: flex;
@@ -21,7 +23,7 @@
         }  
     }    
     .container {
-        height: 78vh;
+        height: 73vh;
         overflow-y: scroll;
         overflow-x: hidden;
         position: relative;
