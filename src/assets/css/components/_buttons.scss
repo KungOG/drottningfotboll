@@ -55,13 +55,14 @@
 
   input {
       border: none;
-      padding: 1rem 3rem;
+      padding: 0 3rem;
       color: black;
       font-size: $font-size-normal;
       text-transform: uppercase;
       background: url("./assets/icon/search.svg") left no-repeat;
-      background-size: 8%;
+      background-size: 5%;
       background-position-x: .5rem;
+      height: 2.23rem;
   }
   ::placeholder {
     opacity: 1;
