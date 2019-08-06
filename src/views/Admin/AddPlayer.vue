@@ -94,23 +94,33 @@ export default {
        });
       },
       addPlayerBtn() {
-        swal({
-            title: `Stavat ${this.name} rätt?`,
-            text: `Vill du verkligen lägga till ${this.name} i ditt lag?`,
-            icon: "info",
-            buttons: ["Ångrat mig", "Klart"],
-            dangerMode: false,
-          })
-          .then((willAdd) => {
-          if (willAdd) {
-            swal(`Nu finns den hära ${this.name} i ditt lag!`, {
-              icon: "success",
-            });
-            this.addPlayer();
-          } else {
-              swal(`Puuuh, jag tänkte nästan det! ;)`);
-          }
-       });
+        if(this.name.length == 0) {
+          swal({
+              title: `Vad hette han sa du?`,
+              text: `Du missade att skriva namnet på spelaren`,
+              icon: "info",
+              button: "OK",
+              dangerMode: false,
+            })
+        } else {
+          swal({
+              title: `Stavat ${this.name} rätt?`,
+              text: `Vill du verkligen lägga till ${this.name} i ditt lag?`,
+              icon: "info",
+              buttons: ["Ångrat mig", "Klart"],
+              dangerMode: false,
+            })
+            .then((willAdd) => {
+            if (willAdd) {
+              swal(`Nu finns den hära ${this.name} i ditt lag!`, {
+                icon: "success",
+              });
+              this.addPlayer();
+            } else {
+                swal(`Puuuh, jag tänkte nästan det! ;)`);
+            }
+          });
+        }
       },
       addPlayer() {
         this.idCode ();
