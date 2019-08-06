@@ -5,8 +5,11 @@
         flex-direction: column;
         justify-content: space-between;
         height: 90%;
+
         .grouplist {    
             text-align: center;
+            overflow-y: scroll;    
+            height: 82vh;
             h3 {
                 padding: 1rem;
                 margin: 0 0 .3rem 0;
