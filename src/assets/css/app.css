@@ -39,7 +39,8 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
 }
 
 #slide .bm-burger-button {
-  width: 2rem;
+  width: 2.1rem;
+  height: 2.1rem;
   left: .8rem;
   top: 1.5rem;
   cursor: pointer;
@@ -51,24 +52,26 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
 
 #slide .bm-burger-button .line-style {
   position: absolute;
-  height: 20%;
+  height: 8%;
   left: 0;
   right: 0;
 }
 
 #slide .cross-style {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 1.5rem;
+  right: 1rem;
   cursor: pointer;
 }
 
 #slide .bm-cross {
   background: white;
+  height: 2rem !important;
+  width: 2rem;
 }
 
 #slide .bm-cross-button {
-  height: 24px;
+  height: 2rem;
   width: 24px;
 }
 
@@ -85,6 +88,7 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-family: "Nunito", sans-serif;
+  text-transform: uppercase;
 }
 
 #slide .bm-menu a {
@@ -291,7 +295,7 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
 }
 
 .nav-between {
-  height: 5rem;
+  height: 4.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -309,7 +313,7 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
 }
 
 .nav-right {
-  height: 5rem;
+  height: 4.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -327,7 +331,7 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
 }
 
 .nav-left {
-  height: 5rem;
+  height: 4.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -345,7 +349,7 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
 }
 
 .nav-middle {
-  height: 5rem;
+  height: 4.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1437,7 +1441,7 @@ body .content .login .admin-login-btn {
 }
 
 .player-page .bottom-section .player-footer img {
-  width: 3rem;
+  width: 2.3rem;
 }
 
 .stats-page {
@@ -1572,7 +1576,7 @@ body .content .login .admin-login-btn {
 
 .admin-page .admin-logout img {
   position: absolute;
-  width: 3rem;
+  width: 2.3rem;
   right: .3rem;
   top: .5rem;
 }
@@ -1594,7 +1598,7 @@ body .content .login .admin-login-btn {
 }
 
 .admin-page .admin-logo img {
-  width: 50%;
+  width: 40%;
 }
 
 .admin-page .admin-logo h1 {
@@ -1633,7 +1637,7 @@ body .content .login .admin-login-btn {
 }
 
 .admin-page .admin-btn .admin .one-admin-btn img {
-  height: 2.8rem;
+  height: 2.3rem;
 }
 
 .admin-page .admin-btn .admin .one-admin-btn p {

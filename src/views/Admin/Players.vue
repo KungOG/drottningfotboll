@@ -2,11 +2,12 @@
     <main>
       <section class="nav-between">
         <Slide noOverlay id="slide">
-            <router-link to="/admin">Admin</router-link>
-            <router-link to="/players">Players</router-link>
-            <router-link to="/makegames">Make Game</router-link>
-            <router-link to="/schedules">Schedules</router-link>
-        </Slide>
+                <router-link to="/admin">Admin</router-link>
+                <router-link to="/players">Spelare</router-link>
+                <router-link to="/makegames">Setup</router-link>
+                <router-link to="/groups">Grupper</router-link>
+                <router-link to="/schedules">Schema</router-link>
+            </Slide>
         <img src="@/assets/icon/person-add.svg" @click="$router.push('/addplayer')"/>
       </section>
       <section class="search-bar">

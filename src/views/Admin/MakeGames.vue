@@ -1,11 +1,12 @@
 <template>
     <main class="makegames-page">
-        <Slide noOverlay v-if="!show" id="slide">
-            <router-link to="/admin">Admin</router-link>
-            <router-link to="/players">Players</router-link>
-            <router-link to="/makegames">Make Game</router-link>
-            <router-link to="/schedules">Schedules</router-link>
-        </Slide>
+        <Slide v-if="!show" noOverlay id="slide">
+                <router-link to="/admin">Admin</router-link>
+                <router-link to="/players">Spelare</router-link>
+                <router-link to="/makegames">Setup</router-link>
+                <router-link to="/groups">Grupper</router-link>
+                <router-link to="/schedules">Schema</router-link>
+            </Slide>
         <section>
             <article class="info-container" v-if="show" @click="edit">
                 <p>Antal lag:</p>

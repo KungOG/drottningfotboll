@@ -3,9 +3,10 @@
         <section class="nav-between">
             <Slide noOverlay id="slide">
                 <router-link to="/admin">Admin</router-link>
-                <router-link to="/players">Players</router-link>
-                <router-link to="/makegames">Make Game</router-link>
-                <router-link to="/schedules">Schedules</router-link>
+                <router-link to="/players">Spelare</router-link>
+                <router-link to="/makegames">Setup</router-link>
+                <router-link to="/groups">Grupper</router-link>
+                <router-link to="/schedules">Schema</router-link>
             </Slide>
             <img src="@/assets/icon/score.svg" @click="$router.push('/goalboard')">
         </section>

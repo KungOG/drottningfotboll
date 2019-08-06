@@ -2,7 +2,8 @@
 #slide {
     display: flex;
     .bm-burger-button {
-        width : 2rem;
+        width : 2.1rem;
+        height: 2.1rem;
         left : .8rem;
         top: 1.5rem;
         cursor : pointer;
@@ -11,22 +12,24 @@
         }
         .line-style {
             position : absolute;
-            height : 20%;
+            height : 8%;
             left : 0;
             right : 0;
         }
     }
     .cross-style {
         position : absolute;
-        top : 12px;
-        right : 12px;
+        top : 1.5rem;
+        right : 1rem;
         cursor : pointer;
     }
     .bm-cross {
         background : white;
+        height: 2rem !important; 
+        width: 2rem;
     }
     .bm-cross-button {
-        height : 24px;
+        height : 2rem;
         width : 24px;
     }
     .bm-menu {
@@ -41,6 +44,7 @@
         padding-top : 60px;
         transition : 0.5s;
         font-family: $font;
+        text-transform: uppercase;
         a {
             color: white;
             text-decoration: none;
