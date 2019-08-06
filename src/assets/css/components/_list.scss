@@ -10,15 +10,14 @@
         padding: .5rem;
         margin-bottom: .2rem;
         background: rgb(255, 255, 255);
+        cursor: pointer;
+        display: inline-block;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgb(255, 255, 255);
         
         .container {
-            cursor: pointer;
-            display: inline-block;
-            width: 35%;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1;
-            background: rgb(255, 255, 255);
 
             h3 {
                 text-align: center;
