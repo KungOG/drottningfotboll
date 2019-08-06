@@ -1,19 +1,17 @@
 .editgroups {
     height: 100vh;
-    .menu {
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-    }
     .container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 90%;
         .grouplist {    
+            text-align: center;
             h3 {
                 padding: 1rem;
                 margin: 0 0 .3rem 0;
+                color: white;
+                text-transform: uppercase;
             }
         }
     }

@@ -9,11 +9,11 @@
                     <section class="player-list">          
                         <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
                             <section class="container" @click="editGroup(player)" >
-                            <h3>{{player.name}}</h3>
+                                <p>{{player.name}}</p>
+                            </section>
                         </section>
                     </section>
                 </section>
-            </section>
             <section class="grouplist">
                 <h3 :style="{background: activeColor}">{{group.name}}</h3>
                 <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player" @update="filterGroup" />

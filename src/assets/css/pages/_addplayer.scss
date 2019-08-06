@@ -5,16 +5,23 @@
     .addplayer {
         height: 18vh;
         color: white;
+        text-align: center;
+        h3 {
+            margin: .3rem;
+        }
         article {
             position: relative;            
             input {
                 width: 90%;
                 text-transform: uppercase;
+                height: 2.23rem;
+                padding: 0 1rem;
+                font-family: $font;
             }
             img {
                 position: absolute;
                 right: 4px;
-                top: 2px;
+                top: -6px;
             }
         }
     }
