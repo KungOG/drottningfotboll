@@ -1,12 +1,12 @@
 <template>
-    <main>
+    <main class="goalgroupplayer">
         <section>
-            <span>{{goalgroupplayer.name}}</span>
-            <section>
-                <span @click="addGoal('minus')"> - </span>
-                <span> {{goal}} </span>
-                <span @click="addGoal('plus')"> + </span>
-            </section>
+            <p>{{goalgroupplayer.name}}</p>
+            <aside>
+                <p class="minus-plus" @click="addGoal('minus')"> - </p>
+                <p class="number"> {{goal}} </p>
+                <p class="minus-plus" @click="addGoal('plus')"> + </p>
+            </aside>
         </section>
     </main>
 </template>

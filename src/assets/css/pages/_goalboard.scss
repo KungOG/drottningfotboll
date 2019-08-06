@@ -1,0 +1,50 @@
+.goalboard {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .group-list {
+        height: 95vh;
+        overflow-x: scroll;
+    }
+}
+.goalgroup {
+    margin-bottom: 1rem;
+    .container {
+        display: flex;
+        flex-direction: column;
+        .name-list {    
+            text-align: center;
+            width: 100vw;
+            margin-bottom: 1rem;
+            h3 {
+                padding: 1rem;
+                margin: 0 0 .3rem 0;
+                color: white;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+.goalgroupplayer {
+    padding: .5rem 0 .5rem 1rem;
+    section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            margin: 0;
+            padding: 0 .3rem;
+        }
+        .minus-plus {
+            font-size: $font-size-largest;
+            margin: 0 1rem 0 1rem;
+        }
+        .number {
+            font-size: $font-size-largest;
+            color: $color-orange;
+        }
+        aside {
+            display: flex;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-    <main class="schedules-page">
+    <main class="goalboard">
         <section class="nav-between">
             <Slide noOverlay id="slide">
                 <router-link to="/admin">Admin</router-link>
@@ -7,12 +7,12 @@
                 <router-link to="/makegames">Make Game</router-link>
                 <router-link to="/schedules">Schedules</router-link>
             </Slide>
-            <img src="@/assets/icon/crown.svg" @click="$router.push('/schedules')">
+            <img src="@/assets/icon/logo-crown-white.svg" @click="$router.push('/schedules')">
         </section>
-        <section v-for="group in currentGame" :key="group.id">            
-            <article>
-               <goalgroup :goalgroup="group" />
-            </article>
+        <section class="group-list">
+            <section v-for="group in currentGame" :key="group.id">            
+                <goalgroup :goalgroup="group" />
+            </section>
         </section>
     </main>
 </template>

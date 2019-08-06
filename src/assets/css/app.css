@@ -1,17 +1,41 @@
 @charset "UTF-8";
 /* Importering av SCSS */
 /* Components */
+/*** Parameters ***/
 @import url("https://fonts.googleapis.com/css?family=Blinker:400,700|Karla:400,700|Nunito:400,700|Titillium+Web:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap");
+/* Färg */
+/* Ram */
+/* Text Storlek */
+/* Mellanrum */
+/*  Font Family */
+/* Animation */
+/* Grundlinje */
+/* Bild Storlek */
+@import url("https://fonts.googleapis.com/css?family=Blinker:400,700|Karla:400,700|Nunito:400,700|Titillium+Web:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap");
+.navbar-admin img {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+/* Centrerad Position */
+body .content .logo, body .content .btn-container .admin-btn, body .content .login, .player-page .player-logo, .player-page .bottom-section .player-stats, .player-page .bottom-section .player-stats .info-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 #slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* Hamburgar knappen */
-  /* Krysset inne i menyn */
-  /* Krysset och dess färg */
-  /* Storlek på krysset */
-  /* Var hela menyn ska vara och ligga */
 }
 
 #slide .bm-burger-button {
@@ -19,8 +43,6 @@
   left: .8rem;
   top: 1.5rem;
   cursor: pointer;
-  /* Strecken för hamburgar menyn */
-  /* Linjerna för menyn */
 }
 
 #slide .bm-burger-button .bm-burger-bars {
@@ -52,25 +74,17 @@
 
 #slide .bm-menu {
   height: 100%;
-  /* 100% Full-height */
   width: 0;
-  /* 0 width - change this with JavaScript */
   position: fixed;
-  /* Stay in place */
   z-index: 1000;
-  /* Stay on top */
   top: 0;
   left: 0;
   background-color: #005004;
-  /* Black */
   overflow-x: hidden;
-  /* Disable horizontal scroll */
   padding-top: 60px;
-  /* Place content 60px from the top */
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  /*0.5 second transition effect to slide in the sidenav*/
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 #slide .bm-menu a {
@@ -124,171 +138,17 @@
   color: white;
 }
 
-body {
-  /* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
-}
-
-body .btn {
-  padding: .5rem;
-  text-decoration: none;
-  color: black;
-  margin: 1rem;
-  border: 1px solid black;
-}
-
-body .btn:hover {
-  color: #d11515;
-}
-
-body .aboutContent {
-  background: darkred;
-  color: white;
-  padding: 5rem 0;
-  border: 2px solid white;
-}
-
-body .content {
-  background: white;
-}
-
-body .content a {
-  text-decoration: none;
-  color: black;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: .5rem .8rem;
-  margin: 1rem;
-  font-weight: bold;
-  background: white;
-}
-
-/* Denna skall ändras till Content men för att få den att se ut som mockup, görs den extra */
-.aboutContent {
-  background: darkred;
-  color: white;
-  padding: 5rem 0;
-  border: 2px solid white;
-}
-
-.content {
-  background: white;
-}
-
-.content a {
-  text-decoration: none;
-  color: black;
-  border: 1px solid black;
-  border-radius: 25%;
-  padding: .5rem .8rem;
-  margin: 1rem;
-  font-weight: bold;
-}
-
-.content a:hover {
-  background: red;
-}
-
-.content div {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: yellow;
-}
-
-.schema {
-  background: white;
-  color: red;
-}
-
-.schema p {
-  padding: 2rem;
-  border: 1px solid red;
-  margin: .2rem;
-}
-
-/* Detta försvinner med tiden */
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Section knapp, bottnen på sidan */
+.btn {
   text-align: center;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-.main {
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
-.main .list-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 1px solid gray;
-  padding: .5rem;
-}
-
-.main .list-wrapper .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.main .list-wrapper .container h3 {
-  text-transform: uppercase;
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.main .list-wrapper .container .score {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.main .list-wrapper .container .score #win {
-  margin-right: 1.5rem;
-}
-
-.main .list-wrapper #date {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px 5px 15px 5px;
-  margin-right: 2rem;
-  text-align: center;
-  font-size: 3rem;
-  width: 70px;
-  height: 60px;
+.btn a {
+  padding: .3rem;
+  border-radius: 999rem;
+  color: white;
+  background: green;
+  text-decoration: none;
 }
 
 /* Search bar */
@@ -307,13 +167,15 @@ body .content a {
 
 .search-bar input {
   border: none;
-  padding: 1rem 3rem;
+  padding: 0.3rem 3rem;
   color: black;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   background: url("./assets/icon/search.svg") left no-repeat;
-  background-size: 8%;
+  background-size: 5%;
   background-position-x: .5rem;
+  height: 2.23rem;
+  font-family: "Nunito", sans-serif;
 }
 
 .search-bar ::-webkit-input-placeholder {
@@ -336,95 +198,6 @@ body .content a {
   color: black;
 }
 
-/* Section knapp, bottnen på sidan */
-.btn {
-  text-align: center;
-}
-
-.btn a {
-  padding: .3rem;
-  border-radius: 999rem;
-  color: white;
-  background: green;
-  text-decoration: none;
-}
-
-.nav-between {
-  height: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.nav-between img {
-  width: 3.4rem;
-  height: 3.4rem;
-  margin-right: .8rem;
-}
-
-.nav-right {
-  height: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.nav-right img {
-  width: 3.4rem;
-  height: 3.4rem;
-  margin-right: .8rem;
-}
-
-.nav-left {
-  height: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.nav-left img {
-  width: 3.4rem;
-  height: 3.4rem;
-  margin-right: .8rem;
-}
-
-.nav-middle {
-  height: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.nav-middle img {
-  width: 3.4rem;
-  height: 3.4rem;
-  margin-right: .8rem;
-}
-
 .player-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -434,7 +207,7 @@ body .content a {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow-y: scroll;
-  max-height: 85vh;
+  height: 80vh;
 }
 
 .player-list .list-wrapper {
@@ -445,12 +218,8 @@ body .content a {
   padding: .5rem;
   margin-bottom: .2rem;
   background: white;
-}
-
-.player-list .list-wrapper .container {
   cursor: pointer;
   display: inline-block;
-  width: 35%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -458,9 +227,9 @@ body .content a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: white;
 }
 
@@ -521,12 +290,93 @@ body .content a {
   cursor: pointer;
 }
 
+.nav-between {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-between img {
+  height: 2.3rem;
+  margin-right: .8rem;
+}
+
+.nav-right {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-right img {
+  height: 2.3rem;
+  margin-right: .8rem;
+}
+
+.nav-left {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-left img {
+  height: 2.3rem;
+  margin-right: .8rem;
+}
+
+.nav-middle {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-middle img {
+  height: 2.3rem;
+  margin-right: .8rem;
+}
+
 /*** Parameters ***/
+/* Färg */
+/* Ram */
+/* Text Storlek */
+/* Mellanrum */
+/*  Font Family */
+/* Animation */
+/* Grundlinje */
+/* Bild Storlek */
 .navbar-admin img {
   height: 3.5rem;
   width: 3.5rem;
 }
 
+/* Centrerad Position */
 body .content .logo, body .content .btn-container .admin-btn, body .content .login, .player-page .player-logo, .player-page .bottom-section .player-stats, .player-page .bottom-section .player-stats .info-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -539,29 +389,124 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
           align-items: center;
 }
 
-.schema {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1, 2fr)[2];
-      grid-template-columns: repeat(2, 1, 2fr);
-      grid-template-areas: 'team team';
-}
-
 /* Layouts */
 /*** Responsive ***/
-@media screen and (min-width: 1024px) and (max-width: 1300px) {
+/* Phone */
+/*  Måste fixa Loggan*/
+@media screen and (max-width: 359px) {
   body {
-    background-color: red !important;
-  }
-}
-
-/* iPhone 5/SE */
-@media screen and (max-width: 320px) {
-  body {
-    background-color: yellow !important;
+    background-color: black !important;
+    /* About */
+    /* Home */
+    /* Schedules & Goalboard */
+    /* Groups */
+    /* Make Groups */
+    /* Make Games */
+    /* Player Info */
+    /* Highscore */
     /* Add-Player */
     /* Players */
     /* Admin Page */
+  }
+  body .about-page .about-logo img {
+    width: 39%;
+  }
+  body .about-page .about-text {
+    padding: 0;
+  }
+  body .home-page .home-logo img {
+    width: 45%;
+  }
+  body .home-page .home-admin-login {
+    margin-top: 0;
+  }
+  body .home-page .home-admin-login .orange-btn {
+    margin-top: 0;
+  }
+  body .schedules-page .container {
+    height: 76vh;
+  }
+  body .group-component section aside {
+    padding: 0;
+  }
+  body .group-component section .group-item .list-item-group {
+    overflow-y: scroll;
+  }
+  body .group-component section .group-item section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .group-component section .group-item section span {
+    margin-left: 1rem;
+  }
+  body .group-component section .group-item section section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .groups .container {
+    margin-top: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  body .makegroups .container {
+    height: 86vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  body .makegames-page section .btn-container .setup-btn div {
+    width: 3rem;
+    height: 4rem;
+  }
+  body .player-page .player-logo {
+    margin: 0;
+  }
+  body .player-page .bottom-section {
+    margin-top: .5rem;
+    overflow: hidden;
+  }
+  body .player-page .bottom-section .player-stats {
+    padding-top: 0;
+    padding: 0 0 1.05rem 0;
+  }
+  body .player-page .bottom-section .player-stats .box-container {
+    margin-top: 0;
+  }
+  body .player-page .bottom-section .player-stats .info-box.team {
+    padding: .3rem 4rem;
+    margin: 1rem .5rem 0 .5rem;
+  }
+  body .player-page .bottom-section .player-footer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    cursor: pointer;
+  }
+  body .player-page .bottom-section .player-footer img {
+    width: 3rem;
+  }
+  body .highscore-page .container {
+    height: 66vh;
+  }
+  body .highscore-page .highscore-list .score {
+    grid-column-gap: .5rem;
+    -ms-grid-columns: 1fr 2fr 2fr;
+        grid-template-columns: 1fr 2fr 2fr;
   }
   body .addplayer-page .addplayer {
     height: 21vh;
@@ -577,11 +522,10 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
     font-size: 1rem;
   }
   body .admin-page .admin-logo img {
-    width: 20%;
+    width: 35%;
   }
   body .admin-page .admin-btn .admin .one-admin-btn {
     padding: 2.5rem;
-    width: 2em;
   }
   body .admin-page .admin-btn .admin .one-admin-btn img {
     margin: 0;
@@ -591,9 +535,369 @@ body .content .logo, body .content .btn-container .admin-btn, body .content .log
   }
 }
 
-@media screen and (max-width: 320) {
+/* Måste fixa Loggan */
+@media screen and (min-width: 360px) and (max-width: 375px) and (max-height: 667px) {
   body {
-    background-color: orange !important;
+    background-color: black !important;
+    /* Highscore */
+    /* About */
+    /* Home */
+    /* Schedules & Goalboard */
+    /* Groups */
+    /* Make Groups */
+    /* Make Games */
+    /* Players */
+    /* Admin Page */
+    /* Player Info */
+  }
+  body .highscore-page .container {
+    height: 69vh;
+  }
+  body .about-page .about-logo img {
+    width: 43%;
+  }
+  body .about-page .about-text {
+    padding: 0 2rem;
+  }
+  body .home-page .home-admin-login {
+    margin-top: 0;
+  }
+  body .home-page .home-admin-login .orange-btn {
+    margin-top: 0;
+  }
+  body .group-component section aside {
+    padding: 0;
+  }
+  body .group-component section .group-item .list-item-group {
+    overflow-y: scroll;
+  }
+  body .group-component section .group-item section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .group-component section .group-item section span {
+    margin-left: 1rem;
+  }
+  body .group-component section .group-item section section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .groups .container {
+    margin-top: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  body .makegroups .container {
+    height: 86vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  body .makegames-page section .btn-container .setup-btn div {
+    width: 4rem;
+    height: 4rem;
+  }
+  body .player-list {
+    max-height: 76vh;
+  }
+  body .admin-page {
+    height: 90vh;
+  }
+  body .admin-page .admin-logo h1 {
+    font-size: 1rem;
+  }
+  body .admin-page .admin-logo img {
+    width: 32%;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn {
+    padding: 3.5rem;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn img {
+    margin: 0;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn span {
+    font-size: .9rem;
+  }
+  body .player-page {
+    height: 100vh;
+  }
+  body .player-page .bottom-section {
+    margin-top: 0;
+    overflow: hidden;
+    padding-bottom: 1.3rem;
+    background: white;
+  }
+  body .player-page .bottom-section .player-stats {
+    margin: 0 0 1rem 0;
+  }
+  body .player-page .bottom-section .player-stats .info-box.team {
+    padding: .3rem 4rem;
+    margin: 1rem .5rem 0 .5rem;
+  }
+  body .player-page .bottom-section .player-footer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    cursor: pointer;
+  }
+}
+
+/* Måste fixa highscore, GameGroup datum/tid */
+@media screen and (width: 375px) and (height: 812px) {
+  body {
+    background-color: black !important;
+    /* Highscore */
+    /* Goalboard */
+    /* EditPlayer */
+    /* Groups */
+    /* Make Groups */
+    /* Players */
+    /* Admin Page */
+  }
+  body .highscore-page .container {
+    height: 72vh;
+  }
+  body .group-component section aside {
+    padding: 0;
+  }
+  body .group-component section .group-item .list-item-group {
+    overflow-y: scroll;
+  }
+  body .group-component section .group-item section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .group-component section .group-item section span {
+    margin-left: 1rem;
+  }
+  body .group-component section .group-item section section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .editplayer-page .editplayer-input-field {
+    margin: 5rem 1rem;
+  }
+  body .editplayer-page .editplayer-input-field .editplayer-page .editplayer-bottom .edit-player-btn1 .orange-btn {
+    margin-top: 5rem;
+  }
+  body .groups .container .orange-btn {
+    margin: 0;
+  }
+  body .groups .container {
+    margin-top: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  body .makegroups .container .playerlist {
+    max-height: 90vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  body .player-list {
+    max-height: 81vh;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn img {
+    margin: 0;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn span {
+    font-size: .9rem;
+  }
+}
+
+/* Tablet */
+/* Gameschedule */
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  body {
+    background-color: red !important;
+    /* Highscore */
+    /* Goalboard */
+    /* Schedules */
+    /* Groups */
+    /* MakeGroups */
+    /* AddPlayer */
+    /* Admin */
+    /* Calender */
+    /* Stats */
+    /* Highscore */
+    /* About */
+    /* Home */
+  }
+  body .highscore-page .container {
+    height: 73vh;
+  }
+  body .group-component section aside {
+    padding: 0;
+  }
+  body .group-component section .group-item .list-item-group {
+    overflow-y: scroll;
+  }
+  body .group-component section .group-item section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .group-component section .group-item section span {
+    margin-left: 1rem;
+  }
+  body .group-component section .group-item section section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .schedules-page {
+    overflow-y: scroll;
+  }
+  body .schedules-page section article {
+    margin: 0 6rem;
+  }
+  body .container .gamelist article {
+    padding: 3rem;
+    margin: 0;
+  }
+  body .container .gamelist article .group {
+    padding: 3.5rem 5.1rem;
+  }
+  body .game-component .line hr {
+    width: 150px;
+  }
+  body .game-component article img {
+    height: 6rem;
+    width: 6rem;
+  }
+  body .groups .container {
+    height: 84vh;
+    overflow-y: scroll;
+  }
+  body .makegroups .container {
+    height: 92vh;
+  }
+  body .makegroups .container .playerlist {
+    max-height: 87vh;
+  }
+  body .groupplayer .list-wrapper .container {
+    margin: 0 10rem .3rem 10rem;
+  }
+  body .addplayer-page .addplayer {
+    margin: 7rem 6rem 0 6rem;
+  }
+  body .addplayer-page .addplayer article {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .addplayer-page .addplayer article img {
+    margin-top: 2rem;
+    position: static;
+  }
+  body .player-list {
+    margin: 0 6rem;
+  }
+  body .search-bar {
+    margin: .5rem 6rem;
+  }
+  body .search-bar input {
+    background-size: 5%;
+  }
+  body .admin-page .admin-logo img {
+    width: 38%;
+  }
+  body .admin-page .admin-btn .admin .one-admin-btn {
+    width: 13.5rem;
+  }
+  body .calendar-page {
+    margin: 0 5rem;
+  }
+  body .calendar-page .calendar .time-container select {
+    height: 3.23rem;
+    font-size: 1.5rem;
+  }
+  body .calendar-page .calendar .date-container input {
+    height: 3.23rem;
+    font-size: 1.5rem;
+  }
+  body .stats-page .navigation .team-selection {
+    margin: 0 6rem;
+  }
+  body .stats-page .navigation .team-selection select {
+    height: 3.23rem;
+  }
+  body .gameschedule-page .container {
+    margin-top: 4.3rem;
+  }
+  body .highscore-page .container .highscore-list {
+    margin: .2rem 6rem;
+  }
+  body .highscore-page .highscore-header {
+    margin: .5rem 6rem;
+  }
+  body .highscore-page .highscore-header select {
+    height: 3.23rem;
+  }
+  body .about-page .about-logo img {
+    width: 38%;
+  }
+  body .about-page .about-text {
+    padding: 7rem 3rem 10rem 3rem;
+  }
+  body .home-page .home-logo img {
+    width: 38%;
+  }
+  body .home-page .home-login .login-btn {
+    margin: 2rem 2rem 0 2rem;
+    padding: 2rem;
+  }
+  body .home-page .admin-login .admin-login-btn {
+    font-size: 2rem;
+  }
+  body .home-page .home-admin-login input {
+    font-size: 2rem;
+  }
+  body .home-page .home-admin-login {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1300px) {
+  body {
+    background-color: greenyellow !important;
   }
 }
 
@@ -602,7 +906,6 @@ body .content {
   background: grey;
   height: 100vh;
   width: 100%;
-  /* Loggan */
   /* CSS för About */
   /* Admin sidan */
   /* Login */
@@ -721,12 +1024,11 @@ body .content .login .admin-login-btn {
 }
 
 .home-page .home-logo img {
-  width: 25%;
+  width: 50%;
 }
 
-.home-page .home-logo h3 {
-  text-transform: uppercase;
-  color: white;
+.home-page .home-logo h1 {
+  color: #FF780A;
 }
 
 .home-page .home-login {
@@ -781,7 +1083,7 @@ body .content .login .admin-login-btn {
   position: fixed;
   bottom: 1rem;
   text-decoration: none;
-  color: #EF9859;
+  color: #FF780A;
   cursor: pointer;
 }
 
@@ -862,6 +1164,7 @@ body .content .login .admin-login-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -885,7 +1188,7 @@ body .content .login .admin-login-btn {
 }
 
 .about-page .about-logo img {
-  width: 25%;
+  width: 45%;
 }
 
 .about-page .about-logo .active-site {
@@ -917,11 +1220,27 @@ body .content .login .admin-login-btn {
 }
 
 .about-page .about-text {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: white;
-  padding-top: 2rem;
   color: black;
-  /* position: fixed;
-        bottom: 0; */
+  position: absolute;
+  z-index: -1;
+  left: 0px;
+  bottom: 0px;
+  padding: 4rem 3rem 4rem 3rem;
 }
 
 .player-page {
@@ -932,8 +1251,6 @@ body .content .login .admin-login-btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /* Rad 3, toppen av sidan */
-  /* Rad 13, innehåller all fakta om spelaren */
 }
 
 .player-page .player-logo {
@@ -945,9 +1262,14 @@ body .content .login .admin-login-btn {
   margin-bottom: 1rem;
 }
 
-.player-page .player-logo img {
-  width: 100px;
-  height: 100px;
+.player-page .player-logo .crown {
+  width: 7rem;
+  top: 1rem;
+  position: relative;
+}
+
+.player-page .player-logo .user-img {
+  width: 7rem;
   border-radius: 999rem;
 }
 
@@ -965,8 +1287,6 @@ body .content .login .admin-login-btn {
           justify-content: flex-end;
   -ms-flex-line-pack: end;
       align-content: flex-end;
-  /* Rad 14 */
-  /* Rad 47, Footern */
 }
 
 .player-page .bottom-section .player-stats {
@@ -979,7 +1299,6 @@ body .content .login .admin-login-btn {
           flex-direction: column;
   background: white;
   padding-top: 2rem;
-  /* Rad 19, innehåller all stats */
 }
 
 .player-page .bottom-section .player-stats .info-box {
@@ -1025,8 +1344,6 @@ body .content .login .admin-login-btn {
       grid-template-columns: 1fr 1fr;
   grid-column-gap: 1rem;
       grid-template-areas: 'aside stats-box'  'aside stats-box' 'aside stats-box';
-  /* Rad 20, stats på vänster sida */
-  /* Rad 24, stats på höger sida */
 }
 
 .player-page .bottom-section .player-stats .box-container .point-box {
@@ -1046,12 +1363,13 @@ body .content .login .admin-login-btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .player-page .bottom-section .player-stats .box-container .point-box .point {
-  color: #EF9859;
+  color: #FF780A;
   font-size: 4rem;
 }
 
@@ -1197,17 +1515,15 @@ body .content .login .admin-login-btn {
   border: none;
   padding: 0 .5rem;
   text-align-last: center;
-  /*centrerar det vald6a alternativet i select*/
   background: url("./assets/icon/arrow-down.svg") left no-repeat;
   background-size: 1rem;
   background-position-x: .5rem;
 }
 
 .stats-page .router-content {
-  -webkit-box-flex: 7;
-      -ms-flex: 7;
-          flex: 7;
-  overflow-y: scroll;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
 }
 
 .stats-page .stats-navigation {
@@ -1225,10 +1541,12 @@ body .content .login .admin-login-btn {
   justify-self: flex-end;
   z-index: 10;
   background-color: black;
+  height: 5rem;
+  padding: 1rem 0;
 }
 
 .stats-page .stats-navigation img {
-  width: 2.5rem;
+  height: 2.3rem;
 }
 
 .admin-page {
@@ -1255,8 +1573,8 @@ body .content .login .admin-login-btn {
 .admin-page .admin-logout img {
   position: absolute;
   width: 3rem;
-  right: 0;
-  top: 0;
+  right: .3rem;
+  top: .5rem;
 }
 
 .admin-page .admin-logo {
@@ -1276,16 +1594,11 @@ body .content .login .admin-login-btn {
 }
 
 .admin-page .admin-logo img {
-  width: 25%;
+  width: 50%;
 }
 
 .admin-page .admin-logo h1 {
-  margin-top: 2rem;
-  color: white;
-}
-
-.admin-page .admin-btn {
-  margin-top: 2rem;
+  color: #FF780A;
 }
 
 .admin-page .admin-btn .admin {
@@ -1314,22 +1627,23 @@ body .content .login .admin-login-btn {
   margin: .2rem;
   border-radius: 10px;
   border: 1px solid #6DD400;
-  padding: 3.5rem;
+  padding: 3rem;
   color: white;
   width: 3.5rem;
 }
 
 .admin-page .admin-btn .admin .one-admin-btn img {
-  margin: .5rem;
+  height: 2.8rem;
 }
 
-.admin-page .admin-btn .admin .one-admin-btn span {
+.admin-page .admin-btn .admin .one-admin-btn p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: .7rem 0 0 0;
 }
 
 .calendar-page {
@@ -1356,7 +1670,6 @@ body .content .login .admin-login-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: .063rem 0;
   margin: 0 1rem;
   width: 91vw;
 }
@@ -1368,6 +1681,7 @@ body .content .login .admin-login-btn {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   width: 65%;
+  height: 2.23rem;
   padding-left: .5rem;
   margin-right: .8rem;
 }
@@ -1412,6 +1726,7 @@ body .content .login .admin-login-btn {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   width: 26%;
+  height: 2.23rem;
   padding-left: .5rem;
 }
 
@@ -1430,7 +1745,12 @@ body .content .login .admin-login-btn {
   background: none;
 }
 
+.highscore-page {
+  height: 80vh;
+}
+
 .highscore-page .highscore-header {
+  z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1453,13 +1773,19 @@ body .content .login .admin-login-btn {
   height: 2.23rem;
   padding: 0 .5rem;
   text-align-last: center;
-  /*centrerar det valda alternativet i select*/
   background: url("./assets/icon/arrow-down.svg") left no-repeat;
   background-size: 1rem;
   background-position-x: .5rem;
 }
 
-.highscore-page .highscore-list {
+.highscore-page .container {
+  height: 73vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.highscore-page .container .highscore-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1468,7 +1794,7 @@ body .content .login .admin-login-btn {
   margin: .2rem 0;
 }
 
-.highscore-page .highscore-list .score {
+.highscore-page .container .highscore-list .score {
   display: -ms-grid;
   display: grid;
   width: 90%;
@@ -1480,7 +1806,7 @@ body .content .login .admin-login-btn {
       grid-template-areas: 'aside name name'  'aside win lost' 'aside tie goal';
 }
 
-.highscore-page .highscore-list .score .name {
+.highscore-page .container .highscore-list .score .name {
   text-align: left;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -1493,7 +1819,7 @@ body .content .login .admin-login-btn {
   color: #4F4F4F;
 }
 
-.highscore-page .highscore-list .score .win {
+.highscore-page .container .highscore-list .score .win {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: win;
@@ -1506,7 +1832,7 @@ body .content .login .admin-login-btn {
   display: flex;
 }
 
-.highscore-page .highscore-list .score .lost {
+.highscore-page .container .highscore-list .score .lost {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: lost;
@@ -1519,7 +1845,7 @@ body .content .login .admin-login-btn {
   display: flex;
 }
 
-.highscore-page .highscore-list .score .tie {
+.highscore-page .container .highscore-list .score .tie {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: tie;
@@ -1532,7 +1858,7 @@ body .content .login .admin-login-btn {
   display: flex;
 }
 
-.highscore-page .highscore-list .score .goal {
+.highscore-page .container .highscore-list .score .goal {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: goal;
@@ -1545,7 +1871,7 @@ body .content .login .admin-login-btn {
   display: flex;
 }
 
-.highscore-page .highscore-list .score .point {
+.highscore-page .container .highscore-list .score .point {
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 1;
@@ -1554,17 +1880,23 @@ body .content .login .admin-login-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
 }
 
-.highscore-page .highscore-list .score .point .highlight {
+.highscore-page .container .highscore-list .score .point .highlight {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
-  color: #F19344;
+  color: #FF780A;
   font-size: 2.2rem;
 }
 
@@ -1640,6 +1972,11 @@ body .content .login .admin-login-btn {
 .addplayer-page .addplayer {
   height: 18vh;
   color: white;
+  text-align: center;
+}
+
+.addplayer-page .addplayer h3 {
+  margin: .3rem;
 }
 
 .addplayer-page .addplayer article {
@@ -1649,12 +1986,15 @@ body .content .login .admin-login-btn {
 .addplayer-page .addplayer article input {
   width: 90%;
   text-transform: uppercase;
+  height: 2.23rem;
+  padding: 0 1rem;
+  font-family: "Nunito", sans-serif;
 }
 
 .addplayer-page .addplayer article img {
   position: absolute;
   right: 4px;
-  top: 2px;
+  top: -6px;
 }
 
 .editplayer-page {
@@ -1810,6 +2150,7 @@ body .content .login .admin-login-btn {
 .editplayer-page .editplayer-bottom .edit-player-btn1 .bin-btn {
   left: 50%;
   right: 50%;
+  height: 3rem;
 }
 
 .editplayer-page .editplayer-bottom .edit-player-btn1 .orange-btn {
@@ -1849,7 +2190,7 @@ body .content .login .admin-login-btn {
 }
 
 .editplayer-page .editplayer-bottom .edit-player-btn2 .editplayer-list .editplayer-player:hover {
-  background: #f26522;
+  background: #FF780A;
 }
 
 .editplayer-page .editplayer-bottom .edit-player-btn2 .orange-btn {
@@ -1875,24 +2216,7 @@ body .content .login .admin-login-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 85vh;
-}
-
-.gameschedule-page .menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.gameschedule-page .menu img {
-  height: 3rem;
+  height: 80vh;
 }
 
 .gameschedule-page .container {
@@ -1962,8 +2286,15 @@ body .content .login .admin-login-btn {
   color: white;
 }
 
-.game-component article .group p {
+.game-component article .group p:first-of-type {
   margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.game-component article .group p:last-of-type {
+  font-size: 1.5rem;
+  margin: -.2rem 0 0 0;
 }
 
 .game-component .line {
@@ -1983,6 +2314,21 @@ body .content .login .admin-login-btn {
   height: 3px;
   border: none;
   background-color: gray;
+}
+
+.schedules-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+.schedules-page .orange-btn {
+  margin: 1rem 0;
 }
 
 .schedules-page .container {
@@ -1999,7 +2345,7 @@ body .content .login .admin-login-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 90vh;
+  height: 80vh;
 }
 
 .schedules-page .container .gamelist {
@@ -2015,75 +2361,6 @@ body .content .login .admin-login-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.game-component {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.game-component article {
-  border: 2px solid #54b725;
-  border-radius: 4px;
-  height: 7rem;
-  width: 7rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-}
-
-.game-component article img {
-  height: 4rem;
-  width: 4rem;
-  position: absolute;
-  top: -2.5rem;
-}
-
-.game-component article .group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 6rem;
-  width: 6rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: white;
-}
-
-.game-component article .group p {
-  margin: 0;
-}
-
-.game-component .line {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.game-component .line hr {
-  width: 50px;
-  height: 3px;
-  border: none;
-  background-color: gray;
 }
 
 .makegames-page {
@@ -2108,6 +2385,7 @@ body .content .login .admin-login-btn {
 }
 
 .makegames-page section .info-container {
+  border-radius: 3px;
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2121,6 +2399,12 @@ body .content .login .admin-login-btn {
   width: 80vw;
   height: 4rem;
   margin: .5rem;
+}
+
+.makegames-page section .info-container h3 {
+  color: #FF780A;
+  margin: .3rem 1rem;
+  font-size: 1.5rem;
 }
 
 .makegames-page section .btn-container {
@@ -2304,18 +2588,6 @@ body .content .login .admin-login-btn {
   height: 100vh;
 }
 
-.editgroups .menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
 .editgroups .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2330,9 +2602,17 @@ body .content .login .admin-login-btn {
   height: 90%;
 }
 
+.editgroups .container .grouplist {
+  text-align: center;
+  overflow-y: scroll;
+  height: 90vh;
+}
+
 .editgroups .container .grouplist h3 {
   padding: 1rem;
   margin: 0 0 .3rem 0;
+  color: white;
+  text-transform: uppercase;
 }
 
 .addgroupplayer .list-wrapper {
@@ -2361,6 +2641,13 @@ body .content .login .admin-login-btn {
 
 .groups {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .groups .container {
@@ -2374,12 +2661,12 @@ body .content .login .admin-login-btn {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 85%;
-  margin-top: 3rem;
+  height: 85vh;
+  overflow-y: scroll;
 }
 
-.groups .container .orange-btn {
-  margin: 0 0 1rem 0;
+.groups .orange-btn {
+  margin: .5rem 0;
 }
 
 .group-component section {
@@ -2390,8 +2677,7 @@ body .content .login .admin-login-btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 1rem 0;
-  width: 100vw;
+  margin: 0 0 1rem 0;
 }
 
 .group-component section aside {
@@ -2416,6 +2702,7 @@ body .content .login .admin-login-btn {
 
 .group-component section aside h3 {
   color: white;
+  text-transform: uppercase;
 }
 
 .group-component section .group-item {
@@ -2478,7 +2765,7 @@ body .content .login .admin-login-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: .4rem 1rem;
+  padding: 0 1rem;
   background: white;
   margin-bottom: .3rem;
   height: 4rem;
@@ -2504,20 +2791,17 @@ body .content .login .admin-login-btn {
   color: white;
 }
 
-body {
-  background: url("./assets/img/background.jpg");
-  background-size: cover;
-  height: 100vh;
-  margin: 0;
-  font-family: "Nunito", sans-serif;
-  /* overflow:hidden; */
+.gamegroup-page {
+  height: 80vh;
 }
 
-select {
-  /* for Firefox */
-  -moz-appearance: none;
-  /* for Chrome */
-  -webkit-appearance: none;
+.gamegroup-page .container {
+  overflow: hidden;
+}
+
+.gamegroup-page .container .grouplist {
+  height: 73vh;
+  overflow-y: scroll;
 }
 
 .fix-player {
@@ -2562,7 +2846,6 @@ select {
   text-align: center;
 }
 
-/* Lägg till spelare fält */
 .addplayer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2589,5 +2872,105 @@ select {
   z-index: 1;
   text-decoration: none;
   color: black;
+}
+
+.goalboard {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.goalboard .group-list {
+  height: 95vh;
+  overflow-x: scroll;
+}
+
+.goalgroup {
+  margin-bottom: 1rem;
+}
+
+.goalgroup .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.goalgroup .container .name-list {
+  text-align: center;
+  width: 100vw;
+  margin-bottom: 1rem;
+}
+
+.goalgroup .container .name-list h3 {
+  padding: 1rem;
+  margin: 0 0 .3rem 0;
+  color: white;
+  text-transform: uppercase;
+}
+
+.goalgroupplayer {
+  padding: .5rem 0 .5rem 1rem;
+}
+
+.goalgroupplayer section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.goalgroupplayer section p {
+  margin: 0;
+  padding: 0 .3rem;
+}
+
+.goalgroupplayer section .minus-plus {
+  font-size: 2.2rem;
+  margin: 0 1rem 0 1rem;
+}
+
+.goalgroupplayer section .number {
+  font-size: 2.2rem;
+  color: #FF780A;
+}
+
+.goalgroupplayer section aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* CSS grunder */
+body {
+  background: url("./assets/img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 /*# sourceMappingURL=app.css.map */
