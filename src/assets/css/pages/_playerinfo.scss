@@ -6,8 +6,14 @@
         height: 50%;
         flex-direction: column;
         margin-bottom: 1rem;
-        img {
-            width: 100px;
+        .crown {
+            width: 7rem;
+            top: 1rem;
+            position: relative;
+
+        }
+        .user-img {
+            width: 7rem;
             border-radius: 999rem;
         }
     }

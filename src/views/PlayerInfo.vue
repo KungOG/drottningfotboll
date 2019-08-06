@@ -2,8 +2,8 @@
   <article class="player-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
       <section class="player-logo">
         <Pager :activeSlide = '1' />
-        <img src="@/assets/img/logo-crown-black.svg" alt="KungFotboll crown">
-        <img :src=currentUser.photoURL alt="">          
+        <img class="crown" src="@/assets/img/logo-crown-black.svg" alt="KungFotboll crown">
+        <img class="user-img" :src=currentUser.photoURL alt="användarbild">          
       </section>
       <section class="bottom-section">
         <section class="player-stats">    
