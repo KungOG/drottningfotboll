@@ -3,14 +3,14 @@
     flex-direction: column;
     height: 100vh;
     .orange-btn {
-        margin: 1rem 0;
+        margin: 1rem 0 .5rem 0;
     }
     .container {
         display: flex; 
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 80vh;        
+        height: 78vh;        
         .gamelist {
             height: 85vh;
             overflow-y: scroll;
