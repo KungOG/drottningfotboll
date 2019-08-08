@@ -3,7 +3,6 @@
     flex-direction: column;
     .player-logo {
         @extend %center;
-        height: 50%;
         flex-direction: column;
         margin-bottom: 1rem;
         .crown {
