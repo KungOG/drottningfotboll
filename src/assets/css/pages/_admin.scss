@@ -1,22 +1,24 @@
 .admin-page {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    .admin-logout {
-        display: flex;
-        justify-content: flex-end;
-        align-content: flex-end;
-        img {
-            position: absolute;
-            width: 2.3rem;
-            right: .3rem;
-            top: .5rem;
-        }
-    }
+    justify-content: space-between;
     .admin-logo {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center; 
+        .admin-logout {
+            display: flex;
+            justify-content: flex-end;
+            align-content: flex-end;
+            img {
+                position: absolute;
+                width: 2.3rem;
+                right: .3rem;
+                top: .5rem;
+            }
+        }
         img {
             width: 40%;
         }
@@ -36,9 +38,9 @@
                 margin: .2rem;
                 border-radius: 10px;
                 border: $border-btns;
-                padding: 3rem;
+                padding: 2rem;
                 color: white;
-                width: 3.5rem;
+                width: 4.5rem;
                 img {
                     height: 2.3rem;
                 }

@@ -1,10 +1,10 @@
 <template>
     <main class="admin-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
-        <Pager :activeSlide='1' />
-        <section class="admin-logout">
-            <img src="@/assets/icon/logout.svg" alt="Logout" @click="logout">
-        </section>
         <section class="admin-logo">
+            <Pager :activeSlide='1' />
+            <section class="admin-logout">
+                <img src="@/assets/icon/logout.svg" alt="Logout" @click="logout">
+            </section>
             <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo" />
             <h1>ADMIN</h1>
         </section>
