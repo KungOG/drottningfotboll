@@ -1,24 +1,23 @@
 .player-page {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
     .player-logo {
         @extend %center;
         flex-direction: column;
-        margin-bottom: 1rem;
-        z-index: 1000;
         .crown {
-            width: 7rem;
+            width: 6rem;
             top: 1rem;
             position: relative;
 
         }
         .user-img {
-            width: 7rem;
+            width: 6rem;
             border-radius: 999rem;
         }
     }
-    .bottom-section {
-        margin-top: 3rem;
+    .player-section {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -30,7 +29,7 @@
             @extend %center;
             flex-direction: column;
             background: white;
-            padding-top: 2rem;     
+            padding-top: 1rem;     
             .info-box {
                 @extend %center;
                 flex-direction: column;
@@ -94,23 +93,24 @@
                         }
                         .number {
                             grid-area: number;
-                            font-size: $font-size-largest;
+                            font-size: 2rem;
                             color: #626262;
                         }
                     }
                 }           
             }
         }
-        .player-footer {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            justify-content: flex-end;
-            align-items: flex-end;
-            cursor: pointer;
-            img {
-                width: 2.5rem;
-            }
-        } 
+        
     }
+    .player-footer {
+        background: black;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        cursor: pointer;
+        img {
+            width: 2.5rem;
+            padding: 1rem;
+        }
+    } 
 }

@@ -2,7 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     .navigation {
         display: flex;
         flex-direction: column;
@@ -30,7 +30,8 @@
             justify-content: center;
             background: rgba(255, 255, 255, .5);
             border-radius: 4px;
-            width: 80vw;
+            width: 90vw;
+            height: 2.23rem;
 
             select {      
                 width: 91rem;  
@@ -47,22 +48,22 @@
         }
     }
     .router-content {
-        flex: 5;
-
+        flex: 2;
     }
     .stats-navigation {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        flex: 1;
         justify-self: flex-end;
         z-index: 10;
         background-color: black;
-        height: 5rem;
         padding: 1rem 0;
         
         img {
-            height: 2.3rem;
+            height: 2rem;
         }
     }
 }

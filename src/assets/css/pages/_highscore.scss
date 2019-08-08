@@ -1,20 +1,21 @@
  .highscore-page {
-    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+  
 
     .highscore-header {
         z-index: 10;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: .5rem 1rem;
+        width: 90vw;
+        height: 2.23rem;
+        margin: .5rem 0;
         background: rgba(255, 255, 255, .5);
         border-radius: 4px;
         select {
-            width: 97vw;
+            width: 90vw;
             font-size: $font-size-large; 
             text-transform: uppercase;
             border: none;
@@ -27,16 +28,16 @@
         }  
     }    
     .container {
-        height: 73vh;
+        height: 80vh;
         overflow-y: scroll;
         overflow-x: hidden;
-        position: relative;
-        width: 80vw;
+        width: 100vw;
             .highscore-list {
                 display: flex;
                 padding: .5rem;
                 background: white;
-                margin: .2rem 0;            
+                margin: .2rem 0;   
+                         
             .score {                
                 display: grid;
                 width: 90%;

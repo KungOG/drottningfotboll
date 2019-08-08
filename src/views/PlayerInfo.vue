@@ -1,11 +1,13 @@
 <template>
-  <article class="player-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
+  <main class="player-page" v-touch:swipe.left="leftSwipe" v-touch:swipe.right="rightSwipe">
+
+      <Pager :activeSlide = '1' />
       <section class="player-logo">
-        <Pager :activeSlide = '1' />
         <img class="crown" src="@/assets/img/logo-crown-black.svg" alt="KungFotboll crown">
         <img class="user-img" :src=currentUser.photoURL alt="användarbild">          
       </section>
-      <section class="bottom-section">
+
+      <section class="player-section">
         <section class="player-stats">    
           <section class="info-box">
             <span class="username-text">{{ currentUser.name }}</span>
@@ -39,11 +41,12 @@
             <option v-for="item in currentUser.teams" :value="item" :key="item" id="opt">{{item}}</option>
           </select>
       </section>
-      <section class="player-footer">
-        <img src="@/assets/icon/logout.svg" @click="logout">
-      </section>
+    <section class="player-footer">
+      <img src="@/assets/icon/logout.svg" @click="logout">
     </section>
-  </article>
+    </section>
+
+  </main>
 </template>
 <script>
 import firebase from 'firebase'
