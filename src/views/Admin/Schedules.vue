@@ -41,16 +41,18 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch('getCurrentGame');
-        var adminTeam = this.$store.state.adminUser.team;
-        var item = db.collection('games').doc(adminTeam).collection('currentGame').doc('1')
-        
-        item.get().then((doc) => {
-            var game = doc.data().games
-            var groups = doc.data().groups
-            this.games = game
-            this.groups = groups
-        })               
+        if (localStorage.getItem('active game')) {
+            this.$store.dispatch('getCurrentGame');
+            var adminTeam = this.$store.state.adminUser.team;
+            var item = db.collection('games').doc(adminTeam).collection('currentGame').doc('1')
+            
+            item.get().then((doc) => {
+                var game = doc.data().games
+                var groups = doc.data().groups
+                this.games = game
+                this.groups = groups
+            })               
+        }
     },  
     methods: {
         submitStats() {

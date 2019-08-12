@@ -60,6 +60,7 @@ export default {
             .then((Submitted) => {
                 if (Submitted) {
                     this.submitSchedules();
+                    localStorage.setItem('active game', JSON.stringify('active'));
                 } else {
                     swal(`Vi alla har ångrat oss någon gång i livet, detta var din gång!`);
                 }

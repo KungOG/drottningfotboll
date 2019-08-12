@@ -23,6 +23,9 @@ export default {
   setCurrentUser(state, currentUser) {
     state.currentUser = currentUser;
   },
+  setLoginNumber(state, number) {
+    state.loginNumber = number;
+  },
   setAdminUser(state, adminUser) {
     state.adminUser = adminUser;
     state.selectedTeam = adminUser.team;

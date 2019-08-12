@@ -4,7 +4,7 @@
             <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo">
         </section>  
         <section class="submit-section">
-            <input type="text" placeholder="Namn" label="Name" v-model="name" />
+            <input type="text" placeholder="Namn" label="Name" v-model="name" maxlength="18" />
             <section class="team-selection">
                 <select v-model="team">
                     <option v-for="item in teams" :value="item" :key="item">{{item}}</option>

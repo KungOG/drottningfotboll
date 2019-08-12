@@ -43,8 +43,7 @@ export default {
     },
     mounted() {
         this.getLocalStorage();
-        this.setBackgroundColor();  
-        localStorage.setItem('active game', JSON.stringify('active'));
+        this.setBackgroundColor();
     },
      methods: {
         groupOne() {

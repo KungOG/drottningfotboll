@@ -13,7 +13,7 @@ export default {
   created() {
     setTimeout(() => this.$router.push({
       path: '/playerinfo'
-    }), 2000);
+    }), 2500);
   }
 }
 </script>

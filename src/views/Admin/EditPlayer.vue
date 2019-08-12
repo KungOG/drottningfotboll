@@ -7,7 +7,7 @@
         <section class="editplayer-input-field">
           <section class="input-field-name">
             <label>Namn</label>
-            <input type="text" v-model="user.name">
+            <input type="text" v-model="user.name" maxlength="18" />
           </section>
           <section class="input-field-top">
             <section>

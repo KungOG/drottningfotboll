@@ -54,7 +54,6 @@ export default {
 
   /* Hämtar din info som användare */
   async setCurrentUser(ctx, user) {
-    console.log('choklad')
     var item = await db.collection('users').doc(user.uid)
     item.get().then((doc) => {
       
@@ -65,7 +64,6 @@ export default {
 
   /* Hämta info som Admin */
   async setAdminUser(ctx, adminUser) {
-    console.log('kex')
     var item = await db.collection('admins').doc(adminUser.uid)
     item.get().then((doc) => {
       
@@ -121,6 +119,10 @@ export default {
     db.collection('users').doc(uid).update({
       teams: firebase.firestore.FieldValue.arrayUnion(payload.team)
     })
+  },
+
+  setLoginNumber(ctx, num) {
+    ctx.commit('setLoginNumber', num)
   },
 
   /* Valen i skapandet av spelet */
@@ -394,4 +396,3 @@ export default {
     ctx.commit('setTeamPlayers', teamPlayers)  
   }
 }
-

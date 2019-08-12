@@ -219,8 +219,11 @@ router.beforeEach((to, from, next) => {
         if (user !== -1) {
           index.dispatch('setCurrentUser', firebase.auth().currentUser)
           routerUserCheck = firebase.auth().currentUser;
-          next('/playerinfo');
-          
+          if (index.state.loginNumber === 1) {
+            next('/addName');
+          } else if(index.state.loginNumber === 0) {
+            next('/playerinfo');
+          }
         } else if (adminUser !== -1) {
           index.dispatch('setAdminUser', firebase.auth().currentUser)
           routerAdminCheck = firebase.auth().currentUser;

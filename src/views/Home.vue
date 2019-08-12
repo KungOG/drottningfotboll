@@ -70,11 +70,13 @@ export default {
             this.$store.dispatch('addUserToDb', user) 
         },
         loadPage() {     
-          if(this.allUsers.includes(this.user.uid)) {   
+          if(this.allUsers.includes(this.user.uid)) {
+            this.$store.dispatch('setLoginNumber', 0)
             this.$store.dispatch('setCurrentUser', this.user);         
             this.$router.replace('/loading');
           } else {
             this.addUser();
+            this.$store.dispatch('setLoginNumber', 1)
             this.$store.dispatch('setCurrentUser', this.user);  
             this.$router.replace('/addname');            
           }

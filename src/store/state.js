@@ -17,6 +17,7 @@ export default {
   numberOfWin: 0,
   numberOfLoss: 0,
   numberOfEqual: 0,
+  loginNumber: 0,
   groups : [
     {
       players: [],

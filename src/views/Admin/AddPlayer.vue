@@ -22,7 +22,7 @@
       <section class="addplayer">
         <h3>Lägg till en tillfällig spelare</h3>
         <article>
-          <input type="text" v-model="name" placeholder="Namn">
+          <input type="text" v-model="name" placeholder="Namn" maxlength="18" />
           <img src="@/assets/icon/ok.svg" @click="addPlayerBtn">
         </article>
       </section>
