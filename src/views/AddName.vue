@@ -43,6 +43,7 @@ export default {
             this.$store.dispatch('addPlayerName', {name: this.name.toUpperCase(), team: this.team});
             this.$store.dispatch('setSelectedTeam', this.team);
             this.$store.dispatch('setCurrentUser', user);
+            this.$store.dispatch('setLoginNumber', 0)
             this.$router.push('/loading');
         }
     }

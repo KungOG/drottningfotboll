@@ -87,7 +87,7 @@ export default {
     db.collection('users').doc(user.uid).set(user)
   },
 
-  /* Tar bort statusen Admin när du loggar ut */
+  /* Tar bort statusen user när du loggar ut */
   removeCurrentUser(ctx) {
     ctx.commit('removeCurrentUser');
   },
@@ -177,9 +177,12 @@ export default {
   },
 
   /* Ta bort en spelare ifrån admins lag */
-  removeUserFromTeam (ctx, player) {
-    var userTeam = this.state.user.team;
-    db.collection('teams').doc(userTeam).collection('players').doc(player).delete();
+  async removeUserFromTeam (ctx) {
+    var uid = this.state.currentUser.uid;
+    var user = this.state.currentUser.teams;
+    await user.forEach((team) => {  
+      db.collection('teams').doc(team).collection('players').doc(uid).delete();
+    }) 
   },
 
   removeUser (ctx) {

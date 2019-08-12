@@ -112,13 +112,16 @@ export default {
         switch (value) {
           case "allt":
             swal("Borttagen", "Nu tog vi bort all din data!", "success");
-            /* this.$store.dispatch('removeUserFromTeam', this.player.uid);
-            this.logout(); */
+            this.$store.dispatch('removeUserFromTeam');
+            this.$store.dispatch('removeUser');
+            firebase.auth().currentUser.delete() 
+            setTimeout(() => this.logout(), 1500);
             break;
       
           case "catch":
             swal("Borttagen!", "Nu är ditt konto borttaget!", "success");
             this.$store.dispatch('removeUser'); 
+            firebase.auth().currentUser.delete()
             this.logout();
             break;
       
