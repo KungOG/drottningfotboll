@@ -176,6 +176,17 @@ export default {
     db.collection('teams').doc(adminTeam).collection('players').doc(player).delete();
   },
 
+  /* Ta bort en spelare ifrån admins lag */
+  removeUserFromTeam (ctx, player) {
+    var userTeam = this.state.user.team;
+    db.collection('teams').doc(userTeam).collection('players').doc(player).delete();
+  },
+
+  removeUser (ctx) {
+    var user = this.state.currentUser.uid;
+    db.collection('users').doc(user).delete();
+  },
+
   /* Ta bort spelaren ifrån store */
   deletePlayer(ctx, player) {
     ctx.commit('deletePlayer', player);

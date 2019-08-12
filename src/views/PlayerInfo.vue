@@ -42,6 +42,7 @@
           </select>
       </section>
     <section class="player-footer">
+      <img src="@/assets/icon/removeBin.svg" @click="remove">
       <img src="@/assets/icon/logout.svg" @click="logout">
     </section>
     </section>
@@ -88,6 +89,43 @@ export default {
         await firebase.auth().signOut();
         this.$store.dispatch('removeCurrentUser');
         this.$router.push('/');
+      },
+      remove(){
+        swal({
+          title: "Är du säker?",
+          text: "Du kommer inte kunna ångra dig!",
+          icon: "warning",         
+          buttons: {
+            cancel: "Ångra dig",
+          catch: {
+            text: "Ta bort mig",
+            value: "catch",
+          },
+          allt: {
+            text: "Mig + Statistik",
+            value: "allt",
+          },
+        },
+        }
+      )
+      .then((value) => {
+        switch (value) {
+          case "allt":
+            swal("Borttagen", "Nu tog vi bort all din data!", "success");
+            /* this.$store.dispatch('removeUserFromTeam', this.player.uid);
+            this.logout(); */
+            break;
+      
+          case "catch":
+            swal("Borttagen!", "Nu är ditt konto borttaget!", "success");
+            this.$store.dispatch('removeUser'); 
+            this.logout();
+            break;
+      
+          default:
+            swal("Got away safely!");
+        }
+      });
       },
       getPlayerInfo() {
         var item = db.collection('teams').doc(this.selectedTeam).collection('players').doc(this.currentUser.uid)
