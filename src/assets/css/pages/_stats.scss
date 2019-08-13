@@ -2,7 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    //justify-content: space-between;
     .navigation {
         display: flex;
         flex-direction: column;
@@ -47,7 +47,6 @@
         }
     }
     .router-content {
-        flex: 2;
     }
     .stats-navigation {
         position: fixed;
