@@ -20,12 +20,13 @@
                 width: 1rem;
             }
             input {
-                padding: .55rem 0 .55rem .8rem;
+                padding: .5rem 0 .55rem .8rem;
                 font-size: $font-size-small; 
                 box-shadow: none;
                 border: none;
                 background: none;
                 width: 50vw;
+                text-transform: uppercase;
             }
             ::placeholder {
                 opacity: 1;
@@ -50,6 +51,8 @@
                 height: 2.23rem;
                 border: none;
                 background: none;
+                text-transform: uppercase;
+
             }
         }
     }

@@ -2,7 +2,7 @@
     <main class="group-component">
         <section>
             <aside :style="{background: activeColor}">
-                <h3>{{group.name}}</h3>
+                <p>{{group.name}}</p>
             </aside>
             <section class="group-item">
                 <article class="list-item-group" v-for="player in group.players" :key="player.uid">
