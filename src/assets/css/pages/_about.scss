@@ -42,6 +42,11 @@
             flex-direction: column;
             text-align: center;
             padding: 3rem 1rem;
+            a {
+                color: $color-orange;
+                text-decoration: none;
+                cursor: pointer;
+            }
             hr {
                 width: 25vw;
             }

@@ -46,7 +46,7 @@ export default {
         },
         googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithPopup(provider).then(async(result) => {
+            firebase.auth().signInWithRedirect(provider).then(async(result) => {
               this.user = firebase.auth().currentUser;
               var items = db.collection('users');
               await items.get().then((querySnapshot) => {
@@ -56,18 +56,18 @@ export default {
               })
               this.loadPage();
             }).catch((err) => {
-              alert('Whops, something happend here..' + err.message)
+              alert('Whops, något hände! Prova igen lite senare!')
             });
         },
         addUser(){
           var user = {
-              name: "",
-              teams: [],
-              uid: this.user.uid,
-              photoURL: this.user.photoURL,
-              email: this.user.email
-            }
-            this.$store.dispatch('addUserToDb', user) 
+            name: "",
+            teams: [],
+            uid: this.user.uid,
+            photoURL: this.user.photoURL,
+            email: this.user.email
+          }
+          this.$store.dispatch('addUserToDb', user) 
         },
         loadPage() {     
           if(this.allUsers.includes(this.user.uid)) {
@@ -85,8 +85,6 @@ export default {
           var provider = new firebase.auth.FacebookAuthProvider();
           firebase.auth().signInWithPopup(provider).then(async(result) => {
               this.user = firebase.auth().currentUser;
-              var token = result.credential.accessToken;
-
               var items = db.collection('users');
               await items.get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -95,7 +93,7 @@ export default {
               })
               this.loadPage();
             }).catch((error) => {
-              alert('Whops, something happend here..' + err.message)
+              alert('Whops, något hände! Prova igen lite senare!')
             });
         }    
     }
