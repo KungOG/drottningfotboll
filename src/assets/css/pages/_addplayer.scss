@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
     .addplayer {
         height: 18vh;
         color: white;
@@ -17,6 +19,7 @@
                 height: 3.23rem;
                 padding: 0 1rem;
                 font-family: $font;
+                width: 90vw;
             }
             img {
                 position: absolute;

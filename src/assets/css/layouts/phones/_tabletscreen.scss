@@ -54,6 +54,7 @@
     }
     .player-list {
       height: 84vh;
+      width: 75vw;
     }
     .about-page {
       .about-logo {
@@ -81,13 +82,22 @@
         }
       } 
     }
+    .search-bar {
+      width: 75vw;
+    }
     .player-page {
-      .search-bar {
-        width: 75vw;
-      }
       .player-list {
         height: 84vh;
         width: 75vw;
+      }
+    }
+    .addplayer-page {
+      .addplayer {
+        article {
+          input {
+            width: 75vw;
+          }
+        }
       }
     }
     .editplayer-page {

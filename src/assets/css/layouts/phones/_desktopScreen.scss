@@ -31,6 +31,9 @@
         width: 50vw;
       }
     }
+    .player-list {
+      width: 50vw;
+    }
     .game-component {
       article {
         height: 9rem;
@@ -43,6 +46,15 @@
       .line {
         hr {
           width: 100px;
+        }
+      }
+    }
+    .addplayer-page {
+      .addplayer {
+        article {
+          input {
+            width: 50vw;
+          }
         }
       }
     }
@@ -79,10 +91,10 @@
         }
       } 
     }
+    .search-bar {
+      width: 50vw;
+    }
     .player-page {
-      .search-bar {
-        width: 50vw;
-      }
       .player-list {
         height: 84vh;
         width: 50vw;
