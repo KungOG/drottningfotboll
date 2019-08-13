@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="player-page">
       <section class="nav-between">
         <Slide noOverlay id="slide">
                 <router-link to="/admin">Admin</router-link>

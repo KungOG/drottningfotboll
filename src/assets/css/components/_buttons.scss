@@ -37,12 +37,18 @@
 .btn {
   text-align: center;
   a {
-      padding: .3rem;
-      border-radius: 999rem;
-      color: white;
-      background: green;
-      text-decoration: none;
+    padding: .3rem;
+    border-radius: 999rem;
+    color: white;
+    background: green;
+    text-decoration: none;
   }
+}
+.player-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Search bar */
@@ -52,7 +58,9 @@
   margin: .5rem .5rem;
   background-color: rgba(255, 255, 255, .5);
   border-radius: 3px;
-
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
   input {
       border: none;
       padding: 0.3rem 3rem;

@@ -1,5 +1,92 @@
 @media screen and (min-width: 1300px) {
   body {
-      background-color:black !important;
+    background-color:black !important;
+    .gamegroup-page {
+      .container {
+        .grouplist {
+          width: 50vw;
+        }
+      }
+    }
+    .highscore-page {
+      .highscore-header {
+        width: 50vw;
+        select {
+          width: 50vw;
+        }
+      }
+      .container {
+        width: 50vw;
+      }
+    }
+    .stats-page {
+      .navigation {
+        .team-selection {
+          width: 50vw;
+        }
+      }
+    }
+    .calendar-page {
+      .calendar {
+        width: 50vw;
+      }
+    }
+    .game-component {
+      article {
+        height: 9rem;
+        width: 9rem;
+        .group {
+          height: 8rem;
+          width: 8rem;
+        }
+      }
+      .line {
+        hr {
+          width: 100px;
+        }
+      }
+    }
+    .makegroups {
+      .container {
+        .playerlist {
+          max-height: 82vh;
+        }
+      }
+    }
+    .about-page {
+      .about-logo {
+        img {
+          width: 35%;
+        }
+      }
+    }
+    .about-text {
+      margin-bottom: 3rem;
+      padding: 3rem 3rem;
+    }
+    .admin-page {
+      .admin-logo {
+        img {
+          width: 15%;
+        }
+      }
+      .admin-btn {
+        .admin {
+          .one-admin-btn {
+            padding: 3rem;
+            width: 9.5rem;
+          }
+        }
+      } 
+    }
+    .player-page {
+      .search-bar {
+        width: 50vw;
+      }
+      .player-list {
+        height: 84vh;
+        width: 50vw;
+      }
+    }
   }
 }

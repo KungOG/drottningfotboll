@@ -110,21 +110,21 @@ export default {
         deleteBtn() {
           swal({
               title: "Är du helt säker?",
-              text: `Vill du verkligen ta bort ${this.player.name} ifrån laget!`,
+              text: `Vill du verkligen ta bort ${this.player.name.toUpperCase()} ifrån laget!`,
               icon: "warning",
               buttons: ["Nä", "Helt klart"],
               dangerMode: true,
             })
             .then((willDelete) => {
             if (willDelete) {
-              swal(`Du har nu tagit bort ${this.player.name} ifrån laget, fy dig!`, {
+              swal(`Du har nu tagit bort ${this.player.name.toUpperCase()} ifrån laget, fy dig!`, {
                 icon: "success",
                 button: false,
               });
               this.removeUserTeamArray();
               this.deletePlayer();
             } else {
-              swal(`Wiiihooo, ${this.player.name} överlevde en dag till! :)`, {
+              swal(`Wiiihooo, ${this.player.name.toUpperCase()} överlevde en dag till! :)`, {
                 icon: "info",
                 button: false,
               });
@@ -134,22 +134,22 @@ export default {
         mergeBtn() {
           swal({
               title: "Är du helt säker?",
-              text: `Vill du överföra statistiken ifrån gästspelaren ${this.markedPlayer.name} till ${this.player.name}?
+              text: `Vill du överföra statistiken ifrån gästspelaren ${this.markedPlayer.name.toUpperCase()} till ${this.player.name.toUpperCase()}?
 
-              ${this.markedPlayer.name} kommer att tas bort!`,
+              ${this.markedPlayer.name.toUpperCase()} kommer att tas bort!`,
               icon: "info",
               buttons: ["Nä", "Ja"],
               dangerMode: true,
             })
             .then((willMerge) => {
             if (willMerge) {
-              swal(`${this.player.name} har nu samlat på sig en jäkla massa poäng, dopad?`, {
+              swal(`${this.player.name.toUpperCase()} har nu samlat på sig en jäkla massa poäng, dopad?`, {
                 icon: "success",
                 button: false,
               });
               this.mergeUpdatedPlayer();
             } else {
-              swal(`${this.markedPlayer.name} kan nu fajtas ännu en dag mot ${this.player.name}, arrrgh!`,  {
+              swal(`${this.markedPlayer.name.toUpperCase()} kan nu fajtas ännu en dag mot ${this.player.name.toUpperCase()}, arrrgh!`,  {
                 icon: "info",
                 button: false,
               });

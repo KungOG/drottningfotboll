@@ -1,9 +1,9 @@
 <template>
 <main class="pager">
     <section class="pager-section">
-        <div :class="{ active : activeSlide == 0 }"></div>
-        <div :class="{ active : activeSlide == 1 }"></div>
-        <div :class="{ active : activeSlide == 2 }"></div>
+        <div :class="{ active : activeSlide == 0 }" @click="$router.push('/about')"></div>
+        <div :class="{ active : activeSlide == 1 }" @click="middleSwipe"></div>
+        <div :class="{ active : activeSlide == 2 }" @click="$router.push('/stats')"></div>
     </section>
 </main>
 </template>
@@ -11,7 +11,26 @@
 <script>
 export default {
     name: 'pager',
-    props: ['activeSlide']
+    props: ['activeSlide'],
+    computed: {
+    currentUser() {
+        return this.$store.getters.getCurrentUser;
+    },
+    adminUser() {
+        return this.$store.getters.getAdminUser;
+    }
+  },
+  methods: {
+    middleSwipe () { 
+      if (this.adminUser !== null) {
+          this.$router.push('/admin')
+      } else if (this.currentUser !== null) {
+          this.$router.push('/playerinfo');
+      } else {
+          this.$router.push('/home')
+      }
+    }
+  }
 }
 </script>
 <style lang="css" scoped>

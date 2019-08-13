@@ -9,6 +9,7 @@
     }
     .highscore-page {
       .highscore-header {
+        width: 73vw;
         select {
           width: 73vw;
         }
@@ -79,6 +80,45 @@
           }
         }
       } 
+    }
+    .player-page {
+      .search-bar {
+        width: 75vw;
+      }
+      .player-list {
+        height: 84vh;
+        width: 75vw;
+      }
+    }
+    .editplayer-page {
+      display: flex;
+      flex-direction: column;
+      
+      align-items: center;
+
+      .editplayer-input-field {
+        width: 50vw;
+        .input-field-top section input {
+          width: 15vw;
+        }
+        .input-field-middle section input {
+          width: 15vw;
+        }
+        .input-field-bottom section input {
+          width: 15vw;
+        }
+      }
+      .editplayer-bottom {
+        .edit-player-btn2 {
+          .editplayer-list {
+            .editplayer-player {
+              span {
+                width: 50vw;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
