@@ -37,10 +37,12 @@
               </section>
             </section>
             </section>
-          <select v-model="selectedTeam" @change="getPlayerInfo" class="info-box team">
-            <option v-for="item in currentUser.teams" :value="item" :key="item" id="opt">{{item}}</option>
-          </select>
       </section>
+            <section class="team-select">
+              <select v-model="selectedTeam" @change="getPlayerInfo">
+                <option v-for="item in currentUser.teams" :value="item" :key="item" id="opt">{{item}}</option>
+              </select>
+          </section>
     <section class="player-footer">
       <img src="@/assets/icon/removeBin.svg" @click="remove">
       <img src="@/assets/icon/logout.svg" @click="logout">
