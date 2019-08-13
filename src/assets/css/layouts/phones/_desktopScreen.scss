@@ -68,13 +68,14 @@
     .about-page {
       .about-logo {
         img {
-          width: 35%;
+          width: 25rem;
         }
       }
     }
     .about-text {
-      margin-bottom: 3rem;
-      padding: 3rem 3rem;
+      .text {
+        width:50vw;
+      }
     }
     .admin-page {
       .admin-logo {

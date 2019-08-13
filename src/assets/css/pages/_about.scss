@@ -2,10 +2,11 @@
     display: flex;
     height: 100vh;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     .about-logo {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         img {
             width: 40%;
@@ -16,6 +17,8 @@
             justify-content: center;
             background: white;
             padding: 0;
+            position: absolute;
+            top: 1rem;
             li {
                 display: flex;
                 justify-content: space-between;
@@ -27,21 +30,21 @@
         }
     }
     .about-text {
-        text-align: center;
+        width: 100vw;
+        background: white;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: white;
         color: black;
-        position: absolute;
-        z-index: -1;
-        left: 0px;
-        bottom: 0px;
-        padding: 0 3rem;
 
-        hr {
-            width: 25vw;
+        .text {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 3rem 1rem;
+            hr {
+                width: 25vw;
+            }
         }
     }
 }
