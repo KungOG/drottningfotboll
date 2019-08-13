@@ -104,15 +104,15 @@ export default {
             })
         } else {
           swal({
-              title: `Stavat ${this.name} rätt?`,
-              text: `Vill du verkligen lägga till ${this.name} i ditt lag?`,
+              title: `Stavat ${this.name.toUpperCase()} rätt?`,
+              text: `Vill du verkligen lägga till ${this.name.toUpperCase()} i ditt lag?`,
               icon: "info",
               buttons: ["Ångrat mig", "Klart"],
               dangerMode: false,
             })
             .then((willAdd) => {
             if (willAdd) {
-              swal(`Nu finns den hära ${this.name} i ditt lag!`, {
+              swal(`Nu finns den hära ${this.name.toUpperCase()} i ditt lag!`, {
                 icon: "success",
               });
               this.addPlayer();
@@ -140,7 +140,7 @@ export default {
         this.idCode ();
         var addPlayer = 
           {
-            name: player.name,
+            name: player.name.toUpperCase(),
             goal: 0,
             loss: 0, 
             win: 0, 

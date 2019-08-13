@@ -9,7 +9,7 @@
             <input type="email" v-model="email"><br>
             <label name="password">PASSWORD</label>
             <input type="password" v-model="password"><br>
-            <img src="@/assets/icon/ok.svg" class="orange-btn" @click="LoginAdmin" />
+            <img v-if="email !== null && password !==null" src="@/assets/icon/ok.svg" class="orange-btn" @click="LoginAdmin" />
         </section>
     </main>
 </template>
@@ -19,9 +19,9 @@ export default {
     name : 'adminlogin',
     data () {
         return {
-            email: '',
-            password: '',
-            adminUser: ''
+            email: null,
+            password: null,
+            adminUser: null
         }
     },
     methods : {

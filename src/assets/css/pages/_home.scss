@@ -76,36 +76,42 @@
             outline: none;
             border: 0;
         }
-        .orange-btn {
-            margin-top: 4.5rem;
-        }
     }
 
     /* Add-Name Page */
     .submit-section {
         display: flex;
         flex-direction: column;
-        margin-top: 5rem;
+        margin-top: 3rem;
+        justify-content: center;
+        align-items: center;
         input {
+            border-radius: 4px;
+            margin-bottom: .5rem;
             background: white;
             align-self: center;
-            font-size: $font-size-large;
-            padding: .230rem 1.5rem; 
+            font-size: $font-size-normal;
+            width: 90vw;
+            height: 2rem;
             justify-content: center;
             text-align: center;
             text-transform: uppercase; 
         }
         .team-selection {
-            select {                
+            select {     
+                border-radius: 4px;
+                text-align-last: center;
                 background: white;
                 align-self: center;
-                padding: .3rem 7rem;
-                font-size: $font-size-large; 
+                width: 91vw;
+                height: 2.23rem;
+                font-size: $font-size-normal; 
                 text-transform: uppercase;
+                text-align: -webkit-center;
             }
         }
         .bottom {
-            margin-top: 4rem;
+            margin-top: 2rem;
         }
     }
 }

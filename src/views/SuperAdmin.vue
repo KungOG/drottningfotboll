@@ -61,7 +61,7 @@ export default {
             .then(
                 (user) => {
                     db.collection('admins').doc(user.user.uid).set({
-                        name: this.adminName,
+                        name: this.adminName.toUpperCase(),
                         team: this.teamName.toUpperCase(),
                         uid: user.user.uid
                     })          

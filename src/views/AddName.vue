@@ -10,7 +10,7 @@
                     <option v-for="item in teams" :value="item" :key="item">{{item}}</option>
                 </select>
             </section>
-            <section class="bottom">
+            <section class="bottom" v-if="name !== null && team !== null">
                 <img src="@/assets/icon/ok.svg" class="orange-btn" @click="addName"/>
             </section>
         </section>
@@ -23,8 +23,8 @@ export default {
     name: 'addname',
     data () {
         return {
-            name: '',
-            team:'',
+            name: null,
+            team: null,
             teams: []
         }
     },
