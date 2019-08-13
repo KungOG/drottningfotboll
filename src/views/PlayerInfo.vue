@@ -126,7 +126,7 @@ export default {
             break;
       
           default:
-            swal("Got away safely!");
+            swal("Mes!");
         }
       });
       },
