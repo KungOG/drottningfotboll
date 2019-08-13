@@ -25,6 +25,7 @@
                 box-shadow: none;
                 border: none;
                 background: none;
+                width: 50vw;
             }
             ::placeholder {
                 opacity: 1;
@@ -42,11 +43,11 @@
                 width: 1rem;
             }       
             select {
+                width: 20vw;
                 padding: .3rem .8rem;
                 font-size: $font-size-small; 
                 box-shadow: none;
                 height: 2.23rem;
-                width: 5.5rem;
                 border: none;
                 background: none;
             }
