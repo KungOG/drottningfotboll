@@ -20,8 +20,8 @@
     .player-section {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        align-content: flex-end;
+        justify-content: center;
+        align-items: center;
         background: white;
     
         .player-stats {
@@ -33,16 +33,8 @@
             .info-box {
                 @extend %center;
                 flex-direction: column;
-                flex: 1;
-                font-weight: bold;
                 font-size: $font-size-small;
-                &.team {
-                    align-self: center;
-                    padding: .3rem 7rem;
-                    font-size: $font-size-large; 
-                    margin: 2rem .5rem 1rem .5rem;
-                    text-transform: uppercase;
-                }
+                background: white;
                 .username-text {
                     font-size: $font-size-large;   
                 }
@@ -50,6 +42,9 @@
                     color: #626262;
                 }
             }
+                
+
+            
             .box-container {
                 display: grid;
                 margin-top: 2rem;
@@ -100,12 +95,37 @@
                 }           
             }
         }
+        .team-select {
+            @extend %center;
+            background: white;
+            border-radius: 4px;
+            width: 90vw;
+            height: 2.23rem;
+            margin: 2rem 0 1rem 0;
+
+            select {
+            width: 91rem;  
+            height: 2.23rem;        
+            font-size: $font-size-large; 
+            text-transform: uppercase;
+            border: none;
+            padding: 0 3rem;
+            text-align-last: center;
+            background: url("./assets/icon/arrow-down.svg") left no-repeat;
+            background-size: 1rem;
+            background-position-x: .5rem;
+            border: 1px solid gray;
+            font-family: $font;
+        }
+       
+    }
         
     }
     .player-footer {
+        width: 100vw;
         background: black;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: flex-end;
         cursor: pointer;
         img {

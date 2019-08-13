@@ -19,12 +19,12 @@
             text-transform: uppercase;
             border: none;
             height: 2.23rem;
-            padding: 0 .5rem;
+            padding: 0 3rem;
             text-align-last: center;
-            text-align: -webkit-center;
             background: url("./assets/icon/arrow-down.svg") left no-repeat;
             background-size: 1rem;
             background-position-x: .5rem;
+            font-family: $font;
         }  
     }    
     .container {
