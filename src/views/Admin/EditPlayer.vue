@@ -168,6 +168,7 @@ export default {
           }
         },
         remakePlayer () {
+          this.user.name = this.user.name.toUpperCase();
           this.$store.dispatch('remakePlayerFromTeam', this.user);
           setTimeout(() => this.$router.push({
             path: '/players'
