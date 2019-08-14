@@ -2,19 +2,15 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    //justify-content: space-between;
     .navigation {
-        display: flex;
+        @extend %center;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;        
         .active-site {
             display: flex;
             flex-direction: row;
             justify-content: center;
             background: white;
             padding: 0;
-    
             li {
                 display: flex;
                 justify-content: space-between;
@@ -30,7 +26,6 @@
             border-radius: 4px;
             width: 90vw;
             height: 2.23rem;
-
             select {      
                 width: 91rem;  
                 height: 2.23rem;        
@@ -46,8 +41,6 @@
             }
         }
     }
-    .router-content {
-    }
     .stats-navigation {
         position: fixed;
         bottom: 0;
@@ -59,7 +52,6 @@
         z-index: 10;
         background-color: black;
         padding: 1rem 0;
-        
         img {
             height: 2rem;
         }

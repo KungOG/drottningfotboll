@@ -1,13 +1,9 @@
 .superadmin-page {
     overflow: hidden;
-
     .input-section {
-        display: flex;
+        @extend %center;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         width: 100vw;
-
         section {
             display: flex;
             flex-direction: column; 
@@ -16,7 +12,6 @@
             margin: 2rem 0;
             border: 1px solid black;
             border-radius: 5px;
-
             input {
                 padding: .55rem 1.5rem;
                 font-size: $font-size-small; 

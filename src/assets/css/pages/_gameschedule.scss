@@ -55,9 +55,7 @@
         }
     }
     .line {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @extend %center;
         hr {
             width: 50px;
             height: 3px;

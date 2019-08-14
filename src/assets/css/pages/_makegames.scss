@@ -6,13 +6,10 @@
         justify-content: flex-end;
         height: 100vh;
         align-items: center;
-
         .info-container {
             border-radius: 3px;
             background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @extend %center;
             width: 80vw;
             height: 4rem;
             margin: .5rem;
@@ -23,10 +20,8 @@
             }
         }
         .btn-container {
-            display: flex;
+            @extend %center;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
             color: white;
             .setup-btn {
                 display: flex;
@@ -78,23 +73,18 @@
         .info-container {
             background:white;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            @extend %center;
             width: 80vw;
             height: 4rem;
             margin: .5rem;
         }
         .btn-container {
-            display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            @extend %center;
             color: white;
             .setup-btn {
-                display: flex;
                 flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
+                @extend %center;
                 flex-direction: row;
                 div {
                     width: 8rem;

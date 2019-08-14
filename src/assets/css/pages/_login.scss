@@ -28,12 +28,9 @@ body {
           }
         }
       }
-      
-      /* CSS för About */
       .aboutContent {
         flex: 1
       }
-
       /* Admin sidan */
       .btn-container {
           height: 60%;
@@ -42,13 +39,11 @@ body {
           justify-content: flex-end;
           align-content: flex-end;
           flex-direction: column;
-            
           h1 {
             text-align: center;
           }
         .admin-btn {
           @extend %center;
-          
           p {
             font-weight: bold;
             text-align: center;
@@ -59,19 +54,15 @@ body {
           }
         }
       }
-  
-      /* Login */
       .login {
         @extend %center;
         flex: 1;
         flex-direction: column;
         margin: 0;
         height: 50%;
-        
         .admin-login-btn {
           text-decoration: none;
           color: red;
-        
         }
       }  
     }

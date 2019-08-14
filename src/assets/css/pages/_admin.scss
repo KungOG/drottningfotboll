@@ -4,10 +4,8 @@
     flex-direction: column;
     justify-content: space-between;
     .admin-logo {
-        display: flex;
+        @extend %center;
         flex-direction: column;
-        justify-content: center;
-        align-items: center; 
         .admin-logout {
             display: flex;
             justify-content: flex-end;
@@ -28,10 +26,8 @@
     }
     .admin-btn {
         .admin {
-            display: flex;
+            @extend %center;
             flex-direction: row;
-            justify-content: center;
-            align-content: center;
             .one-admin-btn {
                 display: flex;
                 flex-direction: column;
