@@ -133,3 +133,95 @@
     }
   }
 }
+@media screen and (min-height: 1000px) { 
+  body {
+    .player-page {
+      .player-logo {
+        .crown {
+          width: 10rem;
+          top: 1rem;
+          position: relative;
+        }
+        .user-img {
+          width: 10rem;
+        }
+      }
+    }
+    .home-page {
+      .home-login {
+        margin-top: 6rem;
+      }
+      .home-logo {        
+        img {
+            width: 20rem;
+            position: relative;
+            top: 1rem;
+        }    
+      }
+      .admin-logo {    
+        margin-bottom: 2rem;    
+        img {
+            width: 10rem;
+            position: relative;
+            top: 3.6rem;
+        }   
+        h1 {
+            color: $color-orange;
+            position: relative;
+            top: 3rem;
+            font-size: $font-size-normal;
+        } 
+      }
+    } 
+  }
+}
+@media screen and (min-height: 1300px) { 
+  body {
+    .player-page {
+      .player-logo {
+        .crown {
+          width: 25rem;
+          top: 5rem;
+          position: relative;
+        }
+        .user-img {
+          width: 25rem;
+        }
+      }
+    }
+    .about-page {
+      .about-logo {
+        img {
+            width: 25rem;
+            margin-top: 5rem;
+        }
+      }
+    }
+    .home-page {
+      .home-login {
+        margin-top: 6rem;
+      }
+      .home-logo {        
+        img {
+            width: 25rem;
+            position: relative;
+            margin-top: 5rem;
+        }    
+      }
+      .admin-logo {    
+        margin-bottom: 2rem;    
+        img {
+            width: 10rem;
+            position: relative;
+            top: 3.6rem;
+        }   
+        h1 {
+            color: $color-orange;
+            position: relative;
+            top: 3rem;
+            font-size: $font-size-normal;
+        } 
+      }
+    }
+  }
+}
