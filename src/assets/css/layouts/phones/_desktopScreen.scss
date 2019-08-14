@@ -1,6 +1,18 @@
 @media screen and (min-width: 1300px) {
   body {
     background-color:black !important;
+    .player-page {
+      .player-logo {
+        .crown {
+          width: 10rem;
+          top: 2rem;
+          position: relative;
+        }
+        .user-img {
+          width: 10rem;
+        }
+      }
+    }
     .gamegroup-page {
       .container {
         .grouplist {
@@ -99,6 +111,44 @@
       .player-list {
         height: 84vh;
         width: 50vw;
+      }
+    }
+    .about-page {
+      .about-logo {
+        img {
+            width: 20rem;
+            margin-top: 5rem;
+        }
+      }
+    }
+    .home-page {
+      .home-admin-login {
+        input {
+          width: 20vw;
+        }
+      }
+      .home-login {
+        margin-top: 6rem;
+      }
+      .home-logo {        
+        img {
+            width: 20rem;
+            position: relative;
+        }    
+      }
+      .admin-logo {    
+        margin-bottom: 2rem;    
+        img {
+            width: 10rem;
+            position: relative;
+            top: 3.6rem;
+        }   
+        h1 {
+            color: $color-orange;
+            position: relative;
+            top: 3rem;
+            font-size: $font-size-normal;
+        } 
       }
     }
   }
