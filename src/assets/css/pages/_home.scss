@@ -1,6 +1,8 @@
 .home-page {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 
     /* Home Login */
     .home-logo {
@@ -10,11 +12,33 @@
         align-items: center;
 
         img {
-            width: 50%;
+            width: 40%;
+            position: relative;
+            top: 1rem;
+        }    
+    }
+    .admin-logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 40%;
+            position: relative;
+            top: 3.6rem;
         }    
         h1 {
             color: $color-orange;
+            position: relative;
+            top: 3rem;
         }
+    }
+    .admin-btn {
+        height: 3rem;
+        width: 100vw;
+        @extend %center;
+        margin-bottom: 1rem;
     }
     .home-login {
         display: flex;
@@ -49,11 +73,10 @@
         .admin-login-btn {
             text-transform: uppercase;
             font-size: $font-size-small;
-            position: fixed;
-            bottom: 1rem;
             text-decoration: none;
             color: $color-orange;
             cursor: pointer;
+            margin-bottom: 1rem;
         }
     }
 
@@ -71,10 +94,13 @@
         }
         input {
             padding: .5rem 1rem;
-            width: 50%;
+            width: 60%;
             text-align: center;
             outline: none;
             border: 0;
+            border-radius: 4px;
+            height: 1.5rem;
+            font-size: $font-size-normal;
         }
     }
 

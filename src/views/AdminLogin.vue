@@ -1,6 +1,6 @@
 <template>
     <main class="home-page">
-        <section class="home-logo">
+        <section class="admin-logo">
             <img src="@/assets/img/logo-text.svg" @click="$router.push('/home')" alt="KungFotboll logo" />
             <h1>ADMIN</h1>
         </section>
@@ -9,7 +9,9 @@
             <input type="email" v-model="email"><br>
             <label name="password">PASSWORD</label>
             <input type="password" v-model="password"><br>
-            <img v-if="email !== null && password !==null" src="@/assets/icon/ok.svg" class="orange-btn" @click="LoginAdmin" />
+        </section>
+        <section class="admin-btn">
+            <img v-show="email !== null && password !==null" src="@/assets/icon/ok.svg" class="orange-btn" @click="LoginAdmin" />
         </section>
     </main>
 </template>

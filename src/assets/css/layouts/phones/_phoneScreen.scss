@@ -7,3 +7,78 @@
         }
     }
   }
+
+/* iphone 5 */
+@media screen and (max-height: 570px) {
+    body {
+        .player-page {
+            .player-logo {
+                .crown {
+                    width: 0rem;
+                    top: .5rem;
+                    position: relative;
+                    visibility: hidden;
+
+        
+                }
+                .user-img {
+                    width: 5rem;
+                }
+            }
+        }
+        .about-page {
+            .about-logo {
+                img {
+                    width: 5rem;
+                }
+            }
+            .about-text {
+                .text {
+                    padding: 1rem 1rem;
+                }
+            }
+        }       
+    }
+}
+@media screen and (min-height: 650px) and (max-height: 670px) {
+    body {
+        .player-page {
+            .player-logo {
+                .crown {
+                    width: 6.5rem;
+                    top: .9rem;
+                    position: relative;
+                }
+                .user-img {
+                    width: 6.5rem;
+                }
+            }
+        }
+    }
+}
+/* iphone x */
+@media screen and (min-height: 670px) and (max-height: 820px) {
+    body {
+        .player-page {
+            .player-logo {
+                .crown {
+                    width: 8rem;
+                    top: .9rem;
+                    position: relative;
+                }
+                .user-img {
+                    width: 8rem;
+                }
+            }
+        }
+    }
+    .about-page {
+        .about-logo {
+            img {
+                width: 9rem;
+            }
+        }
+
+    } 
+}
+  

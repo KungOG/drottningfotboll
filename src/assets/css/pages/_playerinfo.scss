@@ -6,14 +6,15 @@
     .player-logo {
         @extend %center;
         flex-direction: column;
+        margin-bottom: 1rem;
         .crown {
-            width: 6rem;
-            top: 1rem;
+            width: 5.5rem;
+            top: .7rem;
             position: relative;
 
         }
         .user-img {
-            width: 6rem;
+            width: 5.5rem;
             border-radius: 999rem;
         }
     }
