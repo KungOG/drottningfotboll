@@ -33,9 +33,7 @@
     .about-text {
         width: 100vw;
         background: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @extend %center;
         color: black;
 
         .text {

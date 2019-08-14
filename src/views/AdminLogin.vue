@@ -9,9 +9,9 @@
             <input type="email" v-model="email"><br>
             <label name="password">PASSWORD</label>
             <input type="password" v-model="password"><br>
+            <img v-show="email !== null && password !==null" src="@/assets/icon/ok.svg" class="orange-btn" @click="LoginAdmin" />
         </section>
         <section class="admin-btn">
-            <img v-show="email !== null && password !==null" src="@/assets/icon/ok.svg" class="orange-btn" @click="LoginAdmin" />
         </section>
     </main>
 </template>
@@ -23,7 +23,7 @@ export default {
         return {
             email: null,
             password: null,
-            adminUser: null
+            adminUser: null,
         }
     },
     methods : {
@@ -43,8 +43,8 @@ export default {
         },
         setAdmin () {
             this.$store.dispatch('setAdminUser', this.adminUser);
-        }
-    },
+        },
+    },   
     beforeDestroy () {
         if (this.adminUser !== null) {
             this.$store.dispatch('setAdminTeamPlayers');

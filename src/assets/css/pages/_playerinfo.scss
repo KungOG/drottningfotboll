@@ -43,9 +43,6 @@
                     color: #626262;
                 }
             }
-                
-
-            
             .box-container {
                 display: grid;
                 margin-top: 2rem;
@@ -117,10 +114,8 @@
             background-position-x: .5rem;
             border: 1px solid gray;
             font-family: $font;
+            }
         }
-       
-    }
-        
     }
     .player-footer {
         width: 100vw;

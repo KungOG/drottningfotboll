@@ -2,29 +2,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
-
     /* Home Login */
     .home-logo {
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
+        @extend %center;
         img {
-            width: 40%;
+            width: 8rem;
             position: relative;
             top: 1rem;
         }    
     }
     .admin-logo {
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @extend %center;
 
         img {
-            width: 40%;
+            width: 8rem;
             position: relative;
             top: 3.6rem;
         }    
@@ -32,6 +25,7 @@
             color: $color-orange;
             position: relative;
             top: 3rem;
+            font-size: $font-size-normal;
         }
     }
     .admin-btn {
@@ -44,7 +38,6 @@
         display: flex;
         flex-direction: column;
         margin-top: 2.5rem;
-        
         .login-btn {
             display: flex;
             align-items: center;
@@ -53,7 +46,6 @@
             border: $border-btns;
             border-radius: 10px;
             cursor: pointer;
-            
             p {
                 margin: 0;
                 color: white;
@@ -63,13 +55,12 @@
                 width: 2.5rem;
             }
         }
-    
     }
     .admin-login {
         display: flex;
         justify-content: center;
         align-content: center;
-
+        margin-top: 2rem;
         .admin-login-btn {
             text-transform: uppercase;
             font-size: $font-size-small;
@@ -79,16 +70,12 @@
             margin-bottom: 1rem;
         }
     }
-
     /* Admin Login */
     .home-admin-login {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @extend %center;
         flex-direction: column;
         color: white;
         margin-top: 3rem;
-
         h1 {
             text-transform: uppercase;
         }
@@ -99,18 +86,14 @@
             outline: none;
             border: 0;
             border-radius: 4px;
-            height: 1.5rem;
             font-size: $font-size-normal;
         }
     }
-
     /* Add-Name Page */
     .submit-section {
-        display: flex;
         flex-direction: column;
         margin-top: 3rem;
-        justify-content: center;
-        align-items: center;
+        @extend %center;
         input {
             border-radius: 4px;
             margin-bottom: .5rem;

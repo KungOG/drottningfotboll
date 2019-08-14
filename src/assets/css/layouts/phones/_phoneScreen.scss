@@ -18,8 +18,6 @@
                     top: .5rem;
                     position: relative;
                     visibility: hidden;
-
-        
                 }
                 .user-img {
                     width: 5rem;
@@ -71,14 +69,42 @@
                 }
             }
         }
-    }
-    .about-page {
-        .about-logo {
-            img {
-                width: 9rem;
+        .about-page {
+            .about-logo {
+                img {
+                    width: 9rem;
+                    margin-top: 2rem;
+                }
+            }
+        } 
+        .home-page {
+            .home-login {
+                margin-top: 6rem;
+            }
+            .home-logo {        
+                img {
+                    width: 10rem;
+                    position: relative;
+                    top: 1rem;
+                }    
+            }
+            .admin-logo {    
+                margin-bottom: 2rem;    
+                img {
+                    width: 10rem;
+                    position: relative;
+                    top: 3.6rem;
+                }   
+                h1 {
+                    color: $color-orange;
+                    position: relative;
+                    top: 3rem;
+                    font-size: $font-size-normal;
+                } 
             }
         }
+    }
+    
 
-    } 
 }
   
