@@ -1,7 +1,7 @@
 <template>
     <main class="home-page">
         <section class="admin-logo">
-            <img src="@/assets/img/logo-text.svg" @click="$router.push('/home')" alt="KungFotboll logo" />
+            <img src="@/assets/img/logo-queen-text.svg" @click="$router.push('/home')" alt="Drottning Fotboll logo" />
             <h1>ADMIN</h1>
         </section>
         <section class="home-admin-login">

@@ -1,7 +1,7 @@
 <template>
     <article class="home-page">
         <section class="home-logo">
-            <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo">
+            <img src="@/assets/img/logo-queen-text.svg" alt="Drottning Fotboll logo">
         </section>  
         <section class="submit-section">
             <input type="text" placeholder="Namn" label="Name" v-model="name" maxlength="18" />

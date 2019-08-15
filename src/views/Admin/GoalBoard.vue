@@ -8,7 +8,7 @@
                 <router-link to="/groups">Grupper</router-link>
                 <router-link to="/schedules">Schema</router-link>
             </Slide>
-            <img src="@/assets/icon/logo-crown-white.svg" @click="$router.push('/schedules')">
+            <img src="@/assets/icon/logo-queen-crown-white.svg" @click="$router.push('/schedules')">
         </section>
         <section class="group-list">
             <section v-for="group in currentGame" :key="group.id">            

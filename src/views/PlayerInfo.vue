@@ -3,7 +3,7 @@
 
       <Pager :activeSlide = '1' />
       <section class="player-logo">
-        <img class="crown" src="@/assets/img/logo-crown-black.svg" alt="KungFotboll crown">
+        <img class="crown" src="@/assets/img/logo-queen-notext.svg" alt="Drottning Fotboll Crown">
         <img class="user-img" :src=currentUser.photoURL alt="användarbild">          
       </section>
 

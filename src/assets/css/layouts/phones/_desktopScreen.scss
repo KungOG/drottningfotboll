@@ -129,10 +129,14 @@
       }
       .home-login {
         margin-top: 6rem;
+        align-items: center;
+        .login-btn {
+          width: 35vw;
+        }
       }
       .home-logo {        
         img {
-            width: 20rem;
+            width: 15rem;
             position: relative;
         }    
       }

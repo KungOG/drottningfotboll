@@ -1,7 +1,7 @@
 <template>
     <main class="game-component">
         <article>
-            <img v-show="show1" src="@/assets/icon/logo-crown-white.svg">
+            <img v-show="show1" src="@/assets/icon/logo-queen-crown-white.svg">
             <div class="group" :style="{background: activeColor1}">
                 <p>Grupp</p>
                 <p>{{ game.home.groupNr }}</p>
@@ -9,7 +9,7 @@
         </article>
         <div class="line"><hr></div>
         <article>
-            <img v-show="show2" src="@/assets/icon/logo-crown-white.svg">
+            <img v-show="show2" src="@/assets/icon/logo-queen-crown-white.svg">
             <div class="group" :style="{background: activeColor2}">
                 <p>Grupp</p>
                 <p class="groupnumber">{{ game.away.groupNr }}</p>

@@ -12,8 +12,8 @@
         <router-view />
     </section>
     <section class="stats-navigation">
-        <img v-if="!hide1" src="@/assets/icon/logo-crown-white.svg" @click="atClick('/highscore', 1)">
-        <img v-if="hide1" src="@/assets/icon/logo-crown-orange.svg" @click="atClick('/highscore', 1)">
+        <img v-if="!hide1" src="@/assets/icon/logo-queen-crown-white.svg" @click="atClick('/highscore', 1)">
+        <img v-if="hide1" src="@/assets/icon/logo-queen-crown-orange.svg" @click="atClick('/highscore', 1)">
         <img v-if="!hide2" src="@/assets/icon/people.svg" @click="atClick('/gamegroup', 2)">
         <img v-if="hide2" src="@/assets/icon/people-orange.svg" @click="atClick('/gamegroup', 2)">
         <img v-if="!hide3" src="@/assets/icon/calendar.svg" @click="atClick('/gameschedule', 3)">

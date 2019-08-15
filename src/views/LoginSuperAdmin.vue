@@ -1,7 +1,7 @@
 <template>
     <main class="home-page">
         <section class="home-logo">
-            <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo" />
+            <img src="@/assets/img/logo-queen-text.svg" alt="Drottnig Fotboll logo" />
         </section>
         <section class="home-login">
             <div class="login-btn" @click="googleLogin">

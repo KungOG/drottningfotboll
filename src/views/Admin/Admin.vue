@@ -5,7 +5,7 @@
             <section class="admin-logout">
                 <img src="@/assets/icon/logout.svg" alt="Logout" @click="logout">
             </section>
-            <img src="@/assets/img/logo-text.svg" alt="KungFotboll logo" />
+            <img src="@/assets/img/logo-text.svg" alt="Drottning Fotboll logo" />
             <h1>ADMIN</h1>
         </section>
         <section class="admin-btn">        
