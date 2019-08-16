@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from './store/'
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 import db from '@/firebaseInit'
 
 Vue.use(Router)
@@ -188,43 +188,42 @@ router.beforeEach((to, from, next) => {
   if (routerUserCheck === null && routerAdminCheck === null && routerSuperAdminCheck === null && firebase.auth().currentUser) {
     checkUser();
   } else {
-    checkPermission()
+    checkPermission();
   }
   async function checkUser () {
-        var allAdminUsers = [];
-        var allUsers = [];
-        var allSuperAdmins = [];
-        
-        var adminItems = db.collection('admins');
-        await adminItems.get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            allAdminUsers.push(doc.id)
-          })
-        })
-        var items = db.collection('users');
-        await items.get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            allUsers.push(doc.id)
-          })
-        })
-        var superAdminItems = db.collection('superAdmin');
-        await superAdminItems.get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            allSuperAdmins.push(doc.id)
-          })
-        })
+    var allAdminUsers = [];
+    var allUsers = [];
+    var allSuperAdmins = [];
+    
+    var adminItems = db.collection('admins');
+    await adminItems.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allAdminUsers.push(doc.id)
+      })
+    })
+    var items = db.collection('users');
+    await items.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allUsers.push(doc.id)
+      })
+    })
+    var superAdminItems = db.collection('superAdmin');
+    await superAdminItems.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allSuperAdmins.push(doc.id)
+      })
+    })
         
         var user = allUsers.indexOf(firebase.auth().currentUser.uid)
         var adminUser = allAdminUsers.indexOf(firebase.auth().currentUser.uid)
         var superAdmin = allSuperAdmins.indexOf(firebase.auth().currentUser.uid)
-    
         if (user !== -1) {
           index.dispatch('setCurrentUser', firebase.auth().currentUser)
           routerUserCheck = firebase.auth().currentUser;
           if (index.state.loginNumber === 1) {
             next('/addName');
           } else if(index.state.loginNumber === 0) {
-            next('/playerinfo');
+            next('/loading');
           }
         } else if (adminUser !== -1) {
           index.dispatch('setAdminUser', firebase.auth().currentUser)
@@ -255,6 +254,5 @@ router.beforeEach((to, from, next) => {
         next()
     }
   }
-});
-
+}); 
 export default router;

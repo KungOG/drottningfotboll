@@ -2,9 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store/'
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 import touch from 'vue2-touch-events'
 import VueSwal from 'vue-swal'
 
@@ -20,4 +20,3 @@ firebase.auth().onAuthStateChanged(() => {
     }).$mount('#app');
   }
 });
-
