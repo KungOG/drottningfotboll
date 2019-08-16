@@ -17,7 +17,6 @@
         </article>
     </main>
 </template>
-
 <script>
 export default {
     name : 'round',

@@ -20,7 +20,9 @@
   </article>
 </template>
 <script>
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 import db from '@/firebaseInit';
 import Pager from '@/components/Pager.vue';
 export default {
@@ -46,7 +48,7 @@ export default {
         },
         googleLogin () {
             const provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithRedirect(provider).then(async(result) => {
+            firebase.auth().signInWithPopup(provider).then(async(result) => {
               this.user = firebase.auth().currentUser;
               var items = db.collection('users');
               await items.get().then((querySnapshot) => {
@@ -83,7 +85,7 @@ export default {
         },
         facebookLogin () {
           var provider = new firebase.auth.FacebookAuthProvider();
-          firebase.auth().signInWithRedirect(provider).then(async(result) => {
+          firebase.auth().signInWithPopup(provider).then(async(result) => {
               this.user = firebase.auth().currentUser;
               var items = db.collection('users');
               await items.get().then((querySnapshot) => {

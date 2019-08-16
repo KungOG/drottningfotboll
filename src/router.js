@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from './store/'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
 import db from '@/firebaseInit'
 
 Vue.use(Router)

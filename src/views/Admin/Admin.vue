@@ -33,7 +33,9 @@
     </main>
 </template>
 <script>
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 import Pager from '@/components/Pager.vue';
 export default {
     name : 'admin',
