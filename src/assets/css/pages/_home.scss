@@ -7,7 +7,7 @@
         flex-direction: column;
         @extend %center;
         img {
-            width: 8rem;
+            width: 12rem;
             position: relative;
             top: 1rem;
         }    
@@ -17,7 +17,7 @@
         @extend %center;
         img {
             cursor: pointer;
-            width: 8rem;
+            width: 12rem;
             position: relative;
             top: 3.6rem;
         }    
