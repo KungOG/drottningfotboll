@@ -88,6 +88,14 @@
             border-radius: 4px;
             font-size: $font-size-normal;
         }
+        span {
+            margin: -.5rem 0 1.5rem 0;
+            font-size: .6rem;
+            & a {
+                color: $color-orange;
+                text-decoration: none;
+            }
+        }
     }
     /* Add-Name Page */
     .submit-section {
