@@ -6,7 +6,8 @@
             <img src="@/assets/icon/update.svg" @click="resetPlayers" />
         </section>
         <section class="container">
-            <article class="playerlist">         
+            <article class="playerlist">
+                <p>SWIPA HÖGER FÖR ATT TA BORT SPELARE UR LISTAN</p>        
                 <groupplayer v-for="player in players" :key="player.uid" :player="player" @setColor="setColor" @deleteAssignedPlayer="deleteAssignedPlayer"/>
             </article>
             <img src="@/assets/icon/ok.svg" class="orange-btn" @click="submitGroups" v-show="teams.length >= 4" />

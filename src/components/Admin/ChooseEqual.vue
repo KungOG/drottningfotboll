@@ -1,11 +1,11 @@
 <template>
     <main :class="{ equal: show == true, makegames: show == false}">
         <article class="info-container" v-if="show" @click="edit">
-            <p>Poäng oavgjort:</p>
+            <p>POÄNG PER OAVGJORD:</p>
             <h3> {{ numberOfEqual }}</h3>            
         </article>
         <article v-if="!show" class="btn-container">
-            <h1>Välj antal poäng oavgjort</h1>
+            <h1>VÄLJ ANTAL POÄNG PER OAVGJORD</h1>
             <article v-if="!show" class="setup-btn">                
                 <div :class="{btn: editValue == true}" @click="addNumberOfPointsEqual(0)"><p>0</p></div>
                 <div :class="{btn: editValue == true}" @click="addNumberOfPointsEqual(1)"><p>1</p></div>

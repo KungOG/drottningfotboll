@@ -1,11 +1,11 @@
 <template>
     <main class="makegames">
             <article class="info-container" v-if="show" @click="edit">
-                <p>Antal spel:</p>
+                <p>ANTAL OMGÅNGAR:</p>
                 <h3> {{ numberOfGames }}</h3>            
             </article>
             <article v-if="!show" class="btn-container">
-                <h1>Välj antal matcher</h1>
+                <h1>VÄLJ ANTAL OMGÅNGAR</h1>
                 <article v-if="!show" class="setup-btn">
                     <div :class="{btn: editValue == true}" @click="addNumberOfGames(2)"><p>2</p></div>
                     <div :class="{btn: editValue == true}" @click="addNumberOfGames(3)"><p>3</p></div>

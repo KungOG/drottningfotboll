@@ -4,12 +4,10 @@ import index from './store/'
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import db from '@/firebaseInit'
 
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -179,63 +177,47 @@ const router = new Router({
     }
   ]
 })
-
 router.beforeEach((to, from, next) => {
   var routerUserCheck = index.state.currentUser;
   var routerAdminCheck = index.state.adminUser;
   var routerSuperAdminCheck = index.state.superAdminUser;
+  var id = localStorage.getItem('id')
   
-  if (routerUserCheck === null && routerAdminCheck === null && routerSuperAdminCheck === null && firebase.auth().currentUser) {
+  if (!routerUserCheck && !routerAdminCheck && !routerSuperAdminCheck && firebase.auth().currentUser) {
     checkUser();
-  } else {
-    checkPermission();
+  } 
+  else if (!routerUserCheck && !routerAdminCheck && !routerSuperAdminCheck && !firebase.auth().currentUser) {
+    checkPermission()
+  } 
+  else if (routerUserCheck || routerAdminCheck || routerSuperAdminCheck && firebase.auth().currentUser) {
+    checkPermission()
+  } 
+  else {
+    checkPermission()
   }
   async function checkUser () {
-    var allAdminUsers = [];
-    var allUsers = [];
-    var allSuperAdmins = [];
-    
-    var adminItems = db.collection('admins');
-    await adminItems.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        allAdminUsers.push(doc.id)
-      })
-    })
-    var items = db.collection('users');
-    await items.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        allUsers.push(doc.id)
-      })
-    })
-    var superAdminItems = db.collection('superAdmin');
-    await superAdminItems.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        allSuperAdmins.push(doc.id)
-      })
-    })
-        
-        var user = allUsers.indexOf(firebase.auth().currentUser.uid)
-        var adminUser = allAdminUsers.indexOf(firebase.auth().currentUser.uid)
-        var superAdmin = allSuperAdmins.indexOf(firebase.auth().currentUser.uid)
-        if (user !== -1) {
-          index.dispatch('setCurrentUser', firebase.auth().currentUser)
-          routerUserCheck = firebase.auth().currentUser;
-          if (index.state.loginNumber === 1) {
-            next('/addName');
-          } else if(index.state.loginNumber === 0) {
-            next('/loading');
-          }
-        } else if (adminUser !== -1) {
-          index.dispatch('setAdminUser', firebase.auth().currentUser)
-          routerAdminCheck = firebase.auth().currentUser;
-          next('/admin');
-          
-        } else if (superAdmin !== -1) {
-          index.dispatch('setSuperAdmin', firebase.auth().currentUser)
-          routerSuperAdminCheck = firebase.auth().currentUser;
-          next('/superadmin');
-        }
-      }
+    if (id == 'user') {
+      index.state.currentUser = 'ok';
+      index.dispatch('setCurrentUser', firebase.auth().currentUser)
+      routerUserCheck = 'ok';
+      if (index.state.loginNumber === 1) {
+        next('/addName');
+      } else if(index.state.loginNumber === 0) {
+        next('/loading');
+      }  
+    } else if (id == 'admin') {
+      index.state.adminUser = 'ok';
+      index.dispatch('setAdminUser', firebase.auth().currentUser)
+      routerAdminCheck = 'ok';
+      next('/admin');
+      
+    } else if (id == 'superadmin') {
+      index.state.superAdminUser = 'ok';
+      index.dispatch('setSuperAdmin', firebase.auth().currentUser)
+      routerSuperAdminCheck = 'ok';
+      next('/superadmin');
+    } 
+  }
        
   function checkPermission () {
     if (to.matched.some(record => record.meta.requiresAuth)) {

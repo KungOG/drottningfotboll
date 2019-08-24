@@ -1,11 +1,11 @@
 <template>
     <main class="makegames">
             <article class="info-container" v-if="show" @click="edit">
-                <p>Poäng förlust:</p>
+                <p>POÄNG PER FÖRLUST:</p>
                 <h3> {{ numberOfLoss }}</h3>            
             </article>
             <article v-if="!show" class="btn-container">
-                <h1>Välj antal poäng förlust</h1>
+                <h1>VÄLJ ANTAL POÄNG PER FÖRLUST</h1>
                 <article v-if="!show" class="setup-btn">
                     <div :class="{btn: editValue == true}" @click="addNumberOfPointsLoss(0)"><p>0</p></div>
                     <div :class="{btn: editValue == true}" @click="addNumberOfPointsLoss(1)"><p>1</p></div>

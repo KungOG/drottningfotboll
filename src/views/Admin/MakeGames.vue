@@ -9,11 +9,11 @@
             </Slide>
         <section>
             <article class="info-container" v-if="show" @click="edit">
-                <p>Antal lag:</p>
+                <p>ANTAL LAG:</p>
                 <h3> {{ numberOfTeams }}</h3>
             </article>
             <article v-if="!show" class="btn-container">
-                <h1>Välj antal Lag</h1> 
+                <h1>VÄLJ ANTAL LAG</h1> 
                 <article v-if="!show" class="setup-btn">
                     <div :class="{btn: editValue == true}" @click="addNumberOfTeams(2)"><p>2</p></div>
                     <div :class="{btn: editValue == true}" @click="addNumberOfTeams(3)"><p>3</p></div>

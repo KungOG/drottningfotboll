@@ -1,11 +1,11 @@
 <template>
      <main class="makegames">
         <article class="info-container" v-if="show" @click="edit">
-            <p>Poäng vinst:</p>
+            <p>POÄNG PER VINST:</p>
             <h3> {{ numberOfWin }}</h3>            
         </article>
         <article v-if="!show" class="btn-container">
-            <h1>Välj antal poäng vinster</h1>
+            <h1>VÄLJ ANTAL POÄNG PER VINST</h1>
             <article v-if="!show" class="setup-btn">
                 <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin(1)"><p>1</p></div>
                 <div :class="{btn: editValue == true}" @click="addNumberOfPointsWin(2)"><p>2</p></div>
