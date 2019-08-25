@@ -1,11 +1,43 @@
 .editgroups {
     height: 100vh;
-    .container {
+    .list-container {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         height: 90%;
+        p {
+            margin: .6rem;
+        }
+        .add-player-list {
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;    
+            height: 100vh;
+            margin-bottom: 1rem;
+            align-items: center;
+            .search-bar {
+                margin: 0 .5rem .5rem .5rem;
+                height: 2.23rem;
+            }
+            .player-list {
+                @extend %center;
+                height: 30vh;
+                .list-wrapper {
+                    text-align: center;
+                    padding: 0;
+                    width: 95vw;
+                    .player-container {
+                        display: flex;
+                        justify-content: center;
+                        aside {
+                            font-size: 1.7rem;
+                            justify-self: flex-start;
+                            color: gray;
+                        }
+                    }
+                }
+            }
 
+        }
         .grouplist {    
             text-align: center;
             overflow-y: scroll;    
@@ -16,6 +48,9 @@
                 color: white;
                 text-transform: uppercase;
             }
+        }
+        img {
+            margin: 1rem;
         }
     }
 }

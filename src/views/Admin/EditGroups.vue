@@ -3,17 +3,22 @@
         <section class="nav-right">
             <img src="@/assets/icon/person-add.svg" @click="show = !show"/>
         </section>
-        <section class="container">
-            <section class="search-bar" v-if="!show">
-                <input type="text" v-model="search" placeholder="Sök Spelare">
-                    <section class="player-list">          
-                        <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
-                            <section class="container" @click="editGroup(player)" >
-                                <p>{{player.name}}</p>
-                            </section>
+        <section class="list-container">
+            <section class="add-player-list" v-if="!show">
+                <section class="search-bar">
+                    <input type="text" v-model="search" placeholder="Sök Spelare">
+                </section>
+                <section class="player-list">          
+                    <section class="list-wrapper" v-for="(player, index) in filterPlayers" :player="player" :key="index">
+                        <section class="player-container" @click="editGroup(player)" >
+                            <aside>
+                                +
+                            </aside>
+                            <p>{{player.name}}</p>
                         </section>
                     </section>
                 </section>
+            </section>
             <section class="grouplist">
                 <h3 :style="{background: activeColor}">{{group.name}}</h3>
                 <addgroupplayer v-for="player in group.players" :key="player.uid" :group="group.id" :player="player" @update="filterGroup" />
