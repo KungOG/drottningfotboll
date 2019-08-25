@@ -5,7 +5,7 @@
             <section class="admin-logout">
                 <img src="@/assets/icon/logout.svg" alt="Logout" @click="logout">
             </section>
-            <img src="@/assets/img/logo-text.svg" alt="Drottning Fotboll logo" />
+            <img src="@/assets/img/logo-queen-text.svg" alt="Drottning Fotboll logo" />
             <h1>TRÄNARE</h1>
         </section>
         <section class="admin-btn">        

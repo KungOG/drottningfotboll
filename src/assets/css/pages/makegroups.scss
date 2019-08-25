@@ -3,11 +3,19 @@
   .container {
     display: flex; 
     flex-direction: column;
-    justify-content: space-between;
     height: 90vh;
+    text-align: center;
+    p {
+      margin: 0;
+      font-size: 0.7rem;
+    }
     .playerlist {
+      font-size: 1rem;
       overflow-y: scroll;
       max-height: 80vh;
+    }
+    .orange-btn {
+      margin-top: .3rem;
     }
   }
 }
@@ -25,6 +33,7 @@
           margin-bottom: .3rem;
           height: 4rem;
           p {
+            font-size: $font-size-normal;
             margin: 0;
           }
           aside {
